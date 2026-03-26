@@ -1,0 +1,20 @@
+{
+  "name": "livan-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "sass Css/Sass/main.sass Css/main.css",
+    "watch:css": "sass --watch Css/Sass:Css",
+    "dev": "shopify theme dev -e development",
+    "pull": "shopify theme pull -d"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.98.0"
+  }
+}
