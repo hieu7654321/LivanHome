@@ -11,6 +11,54 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "header_announcements_Px8xYg": {
+      "type": "header-announcements",
+      "blocks": {
+        "announcement_LddNnk": {
+          "type": "_announcement",
+          "name": "ENVÍO GRATIS EN PEDIDO DE 100€",
+          "settings": {
+            "text": "ENVÍO GRATIS EN PEDIDO DE 100€",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "weight": "400",
+            "letter_spacing": "normal",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        },
+        "announcement_BtFkDC": {
+          "type": "_announcement",
+          "name": "ENVÍO GRATIS EN PEDIDO DE 100€",
+          "settings": {
+            "text": "ENVÍO GRATIS EN PEDIDO DE 100€",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "weight": "400",
+            "letter_spacing": "normal",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement_LddNnk",
+        "announcement_BtFkDC"
+      ],
+      "name": "t:names.announcement_bar",
+      "settings": {
+        "infinite_scroll": true,
+        "infinite_scroll_gap": 40,
+        "speed": 10,
+        "section_width": "full-width",
+        "color_scheme": "scheme-e4aeb142-cf35-44ec-9094-c453dae95c7e",
+        "divider_width": 0,
+        "padding-block-start": 15,
+        "padding-block-end": 15
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -50,7 +98,7 @@
       "settings": {
         "logo_position": "left",
         "menu_position": "center",
-        "menu_row": "top",
+        "menu_row": "bottom",
         "customer_account_menu": "customer-account-main-menu",
         "show_search": true,
         "search_position": "right",
@@ -64,7 +112,7 @@
         "localization_row": "top",
         "section_width": "page-width",
         "section_height": "standard",
-        "enable_sticky_header": "always",
+        "enable_sticky_header": "never",
         "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 0,
@@ -85,6 +133,7 @@
     }
   },
   "order": [
+    "header_announcements_Px8xYg",
     "header_section"
   ]
 }
