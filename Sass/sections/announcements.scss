@@ -25,6 +25,10 @@
 
         &--item {
             position: static;
+
+            .announcement-bar__text {
+              line-height: 15px;
+            }
         }
     }
 }

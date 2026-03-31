@@ -31,7 +31,7 @@
     "product_recommendations": "Productos recomendados",
     "product_media": "Multimedia del producto",
     "featured_collection": "Colección destacada",
-    "add_to_cart": "Agregar al carrito",
+    "add_to_cart": "Añadir al carrito",
     "email_signup": "Suscripción por correo electrónico",
     "submit_button": "Botón Enviar",
     "grid_layout_selector": "Selector de diseño de cuadrícula",
@@ -475,7 +475,7 @@
     "border_thickness": "Grosor del borde",
     "bottom_row": "Fila inferior",
     "button_text_case": "Mayúsculas/minúsculas del texto",
-    "auto_open_cart_drawer": "\"Agregar al carrito\" abre automáticamente el panel",
+    "auto_open_cart_drawer": "\"Añadir al carrito\" abre automáticamente el panel",
     "collection_count": "Número de colecciones",
     "custom_liquid": "Código Liquid",
     "default": "Predeterminado",
@@ -528,7 +528,7 @@
     "show_powered_by_shopify": "Mostrar \"Tecnología de Shopify\"",
     "gift_card_form": "Formulario de tarjeta de regalo",
     "seller_note_open_by_default": "Abrir la nota para el vendedor de forma predeterminada",
-    "add_to_cart_animation": "Agregar al carrito",
+    "add_to_cart_animation": "Añadir al carrito",
     "custom_link": "Enlace personalizado",
     "product_custom_property": {
       "heading": "Título",
@@ -585,8 +585,8 @@
     "product_title_typography": "Tipografía del nombre del producto",
     "x_position": "Posición horizontal",
     "y_position": "Posición vertical",
-    "enable_sticky_add_to_cart": "Barra fija de agregar al carrito",
-    "sticky_add_to_cart": "Agregar al carrito fijo",
+    "enable_sticky_add_to_cart": "Barra fija de Añadir al carrito",
+    "sticky_add_to_cart": "Añadir al carrito fijo",
     "actions_display_style": "Estilo del menú"
   },
   "options": {

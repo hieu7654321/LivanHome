@@ -32,39 +32,22 @@
       {% if show_arrows %}
         {% render 'slideshow-arrows', icon_style: 'chevron' %}
       {% endif %}
+      {% assign loop_number = 1 %}
     {% else %}
       <div class="announcement-bar__slider--scroll" data-infinite="{{ section.settings.infinite_scroll }}" style="--infinite-scroll-time: {{ section.settings.speed }}s; --infinite-scroll-gap: {{ section.settings.infinite_scroll_gap }}px; --infinite-scroll-direction: {{ section.settings.infinite_scroll_select }}">
+      {% assign loop_number = 8 %}
     {% endif %}
-      <div class="{% if section.settings.infinite_scroll == false %}announcement-bar__slides{% else %}announcement-bar__block{% endif %}">
-        {% content_for 'blocks' %}
-      </div>
+      {% for i in (1..loop_number) %}
+        <div class="{% if section.settings.infinite_scroll == false %}announcement-bar__slides{% else %}announcement-bar__block{% endif %}">
+          {% content_for 'blocks' %}
+        </div>
+      {% endfor %}
     {% if section.settings.infinite_scroll == false %}
       </announcement-bar-component>
     {% else %}
     </div>
     {% endif %}
   </aside>
-
-  {% javascript %}
-  document.addEventListener('DOMContentLoaded', () => {
-    const containers = document.querySelectorAll('.announcement-bar__slider--scroll[data-infinite="true"]');
-
-    containers.forEach((container) => {
-      const originalSlides = Array.from(container.children);
-      if (originalSlides.length === 0) return;
-
-      const repeats = 4;
-
-      for (let i = 0; i < repeats; i += 1) {
-        originalSlides.forEach((slide) => {
-          const clone = slide.cloneNode(true);
-          clone.setAttribute('aria-hidden', 'true');
-          container.appendChild(clone);
-        });
-      }
-    });
-  });
-{% endjavascript %}
 
   {% stylesheet %}
     .announcement-bar {
@@ -195,7 +178,8 @@
             "label": "Right"
           }
         ],
-        "default": "scroll-left"
+        "default": "scroll-left",
+        "visible_if": "{{ section.settings.infinite_scroll == true }}"
       },
       {
         "type": "range",

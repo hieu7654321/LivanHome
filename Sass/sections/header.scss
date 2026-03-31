@@ -1,0 +1,34 @@
+@use '../base/base.scss' as *;
+
+.search-action {
+    justify-content: center;
+}
+
+.header__column--right header-actions {
+    gap: 6px;
+    margin-inline-start: -40px !important;
+
+    shopify-account {
+        --shopify-account-avatar-size: 28px;
+    }
+
+    cart-drawer-component.cart-drawer {
+        width: 33px;
+
+        .header-actions__action {
+            width: 100%;
+            height: 100%;
+
+            cart-icon {
+                display: flex;
+                align-items: center;
+                height: 100%;
+
+                .svg-wrapper {
+                    width: $cart-size;
+                    height: $cart-size;
+                }
+            }
+        }
+    }
+}
