@@ -609,7 +609,12 @@
       },
       "name": "t:names.products_grid",
       "settings": {
-        "collection": "sillas",
+        "collection": [
+          "sillas",
+          "mesas",
+          "camas",
+          "accesorios"
+        ],
         "layout_type": "grid",
         "custom_grid_layout": true,
         "carousel_on_mobile": false,
@@ -1156,7 +1161,7 @@
       },
       "name": "Featured collection",
       "settings": {
-        "collection": "all",
+        "collection": [],
         "layout_type": "carousel",
         "custom_grid_layout": false,
         "carousel_on_mobile": false,

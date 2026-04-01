@@ -1,9 +1,48 @@
 @use '../base/base.scss' as *;
 
 .section-resource-list.section__resource-list--custom {
-    .resource-list--grid {
-        .resource-list__item:nth-child(3n+1) {
-            grid-column: span 2;
+    .product-list__tabs {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+
+        &--button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding-inline: 0;
+            padding-bottom: 2px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            letter-spacing: 0;
+
+            &.is-active {
+                font-weight: 500;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        }
+    }
+
+    .product-list__tabs--panel {
+        display: none;
+
+        &.is-active {
+            display: block;
+        }
+
+        .resource-list--grid {
+            .resource-list__item:nth-child(3n+1) {
+                grid-column: span 2;
+            }
         }
     }
 }
