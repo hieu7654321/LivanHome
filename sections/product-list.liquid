@@ -14,6 +14,7 @@
     section-resource-list
     spacing-style
     gap-style
+    {% if section.settings.custom_grid_layout %}section__resource-list--custom{% endif %}
   "
   style="
     {% render 'spacing-style', settings: section.settings %}
@@ -123,6 +124,13 @@
         }
       ],
       "default": "grid"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_grid_layout",
+      "label": "Custom Grid Layout",
+      "default": false,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "checkbox",

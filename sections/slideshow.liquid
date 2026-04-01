@@ -56,7 +56,7 @@
   assign rounded_slide_corners = false
   if section.settings.display_mode == 'full_frame' and section.settings.section_width == 'page-width'
     assign rounded_slide_corners = true
-  elsif section.settings.display_mode == 'with_hints' and section.settings.full_frame_on_mobile == false
+  elsif section.settings.display_mode == 'with_hints'
     assign rounded_slide_corners = true
   endif
 %}

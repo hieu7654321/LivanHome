@@ -55,8 +55,10 @@
       -%}
       {%- if font_size_rem >= fluid_size_cutoff_rem -%}
         --font-size: clamp({{ dynamic_min_rem }}rem, {{ vw_value }}vw, {{ settings.font_size }});
+        --custom-font-size: {{ settings.font_size }};
       {%- else -%}
         --font-size: {{ settings.font_size }};
+        --custom-font-size: {{ settings.font_size }};
       {%- endif -%}
     {%- endif -%}
     {%- if settings.weight != blank -%}

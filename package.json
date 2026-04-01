@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "sass Css/Sass/main.sass Css/main.css",
-    "watch:css": "sass --watch Css/Sass:Css",
+    "build:css": "sass ./Sass/main.scss ./assets/main.css --style compressed",
+    "watch:css": "sass --watch ./Sass/main.scss:./assets/main.css --style compressed",
     "dev": "shopify theme dev -e development",
     "pull": "shopify theme pull -d"
   },
