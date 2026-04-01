@@ -433,12 +433,12 @@
               "name": "t:names.collection_title",
               "settings": {
                 "text": "<h4>Productos Destacados</h4>",
-                "width": "fit-content",
+                "width": "100%",
                 "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
+                "alignment": "center",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "2rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -457,6 +457,7 @@
             "product_list_button_Ynnrz7": {
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
+              "disabled": true,
               "settings": {
                 "label": "View all",
                 "open_in_new_tab": false,
@@ -500,7 +501,7 @@
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0,
+                "border_radius": 5,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -610,9 +611,10 @@
       "settings": {
         "collection": "sillas",
         "layout_type": "grid",
+        "custom_grid_layout": true,
         "carousel_on_mobile": false,
         "max_products": 6,
-        "columns": 3,
+        "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
         "columns_gap": 10,
@@ -1156,6 +1158,7 @@
       "settings": {
         "collection": "all",
         "layout_type": "carousel",
+        "custom_grid_layout": false,
         "carousel_on_mobile": false,
         "max_products": 8,
         "columns": 4,

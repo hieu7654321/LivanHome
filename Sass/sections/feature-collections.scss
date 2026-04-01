@@ -1,0 +1,9 @@
+@use '../base/base.scss' as *;
+
+.section-resource-list.section__resource-list--custom {
+    .resource-list--grid {
+        .resource-list__item:nth-child(3n+1) {
+            grid-column: span 2;
+        }
+    }
+}
