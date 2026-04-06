@@ -70,6 +70,7 @@
     {% render 'border-override', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
     --gallery-aspect-ratio: {{ ratio }};
+    {% if block.settings.set_fixed_height == true %}--custom-fixed-height: {{ block.settings.custom_fixed_height }}px{% endif %};
   "
   data-product-id="{{ product.id }}"
   {% if settings.show_second_image_on_hover %}
@@ -152,11 +153,38 @@
         endfor
       endcapture
 
+      assign visible_slide_count = 0
+
+      for media in media_list_to_show
+        assign hidden = false
+        if variant_images contains media.src
+          assign hidden = false
+        else
+          assign hidden = true
+        endif
+
+        unless hidden
+          assign visible_slide_count = visible_slide_count | plus: 1
+        endunless
+      endfor
+
       assign slideshow_attributes = 'data-generic-media-size="[generic_media_size]"' | replace: '[generic_media_size]', generic_media_size
       if settings.product_card_carousel == false
         assign slideshow_attributes = slideshow_attributes | append: ' disabled="true"'
       endif
     %}
+
+    {% assign controls_number = generic_media_size | plus: 1 %}
+    {% if product.media.size > 2 and generic_media_size > 0 %}
+      {% capture controls %}
+        {% render 'slideshow-controls',
+          style: 'dots',
+          item_count: controls_number,
+          controls_on_media: true,
+          pagination_position: 'center'
+        %}
+      {% endcapture %}
+    {% endif %}
     <a
       class="contents"
       ref="cardGalleryLink"
@@ -169,6 +197,7 @@
         slides: slides,
         slide_count: media_list_to_show.size,
         show_arrows: show_arrows,
+        controls: controls,
         attributes: slideshow_attributes
       %}
     </a>

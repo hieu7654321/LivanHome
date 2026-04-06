@@ -109,6 +109,11 @@
   >
     {{ children }}
   </div>
+  <div class="product-card__delivery">
+    {% if product.metafields.shipping.delivery_and_availability %}
+      {% if product.metafields.shipping.delivery_and_availability < 4 %}Entrega en 2 - 4 dias{% else %}En stock, entrega en 4 días{% endif %}
+    {% endif %}
+  </div>
 </product-card>
 
 {% stylesheet %}

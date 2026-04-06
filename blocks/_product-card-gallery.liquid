@@ -80,6 +80,19 @@
       "info": "t:info.aspect_ratio_adjusted"
     },
     {
+      "type": "checkbox",
+      "id": "set_fixed_height",
+      "label": "Set Fixed Height",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "custom_fixed_height",
+      "label": "Height (in px)",
+      "default": 212,
+      "visible_if": "{{ block.settings.set_fixed_height == true }}"
+    },
+    {
       "type": "header",
       "content": "t:content.borders"
     },

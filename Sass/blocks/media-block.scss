@@ -1,0 +1,7 @@
+@use "../base/base.scss" as *;
+
+.media-block {
+    img {
+        border-radius: var(--media-border-radius);
+    }
+}

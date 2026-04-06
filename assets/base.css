@@ -2342,8 +2342,8 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 
 .unit-price {
   display: block;
-  font-size: min(0.85em, var(--font-paragraph--size));
-  color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+  /* font-size: min(0.85em, var(--font-paragraph--size));
+  color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text)); */
 }
 
 .tax-note.tax-note.tax-note {

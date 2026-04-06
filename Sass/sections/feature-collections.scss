@@ -1,9 +1,12 @@
 @use '../base/base.scss' as *;
 
 .section-resource-list.section__resource-list--custom {
+    --gap: 15px !important;
+
     .product-list__tabs {
         display: flex;
-        gap: 30px;
+        gap: 28px;
+        margin-block: 16px 18px;
         justify-content: center;
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -18,16 +21,14 @@
             border: none;
             cursor: pointer;
             padding-inline: 0;
-            padding-bottom: 2px;
             font-size: 16px;
-            line-height: 24px;
+            line-height: 17px;
             font-weight: 400;
             letter-spacing: 0;
 
             &.is-active {
                 font-weight: 500;
-                text-decoration: underline;
-                text-underline-offset: 4px;
+                border-bottom: 1px solid black;
             }
         }
     }

@@ -25,6 +25,19 @@
 >
   <div class="section-resource-list__header">
     {%- content_for 'block', type: '_product-list-content', id: 'static-header' -%}
+    {% if collection_count > 1 %}
+      <div class="product-list__tabs">
+        {% for collection in collections %}
+          <button
+            class="product-list__tabs--button {% if forloop.first %}is-active{% endif %}"
+            data-tab="{{ collection.handle }}"
+            type="button"
+          >
+            {{ collection.title }}
+          </button>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 
   {% comment %} {% capture list_items %}
@@ -61,19 +74,6 @@
     {% endif %}
   {% endcapture %} {% endcomment %}
 
-  {% if collection_count > 1 %}
-    <div class="product-list__tabs">
-      {% for collection in collections %}
-        <button
-          class="product-list__tabs--button {% if forloop.first %}is-active{% endif %}"
-          data-tab="{{ collection.handle }}"
-          type="button"
-        >
-          {{ collection.title }}
-        </button>
-      {% endfor %}
-    </div>
-  {% endif %}
   {% capture list_items %}
     {% if collections != blank %}
 
@@ -97,8 +97,8 @@
               </div>
 
               {% unless forloop.last %}
+                <!--@list/split-->
               {% endunless %}
-
             {% endfor %}
           {% else %}
             
@@ -154,6 +154,10 @@
               %}
             {% # theme-check-enable UniqueStaticBlockId %}
           </div>
+          
+          {% unless forloop.last %}
+            <!--@list/split-->
+          {% endunless %}
         {% endfor %}
       {% endcapture %}
 
