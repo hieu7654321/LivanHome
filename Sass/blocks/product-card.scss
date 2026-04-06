@@ -100,7 +100,7 @@ product-card {
                         }
                     }
 
-                    .variant-option__button-label--has-swatch:hover {
+                    .variant-option__button-label--has-swatch:not(:has(:checked)):hover {
                         transform: scale(0.8125);
                     }
                 }
