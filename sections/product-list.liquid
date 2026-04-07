@@ -26,16 +26,18 @@
   <div class="section-resource-list__header">
     {%- content_for 'block', type: '_product-list-content', id: 'static-header' -%}
     {% if collection_count > 1 %}
-      <div class="product-list__tabs">
-        {% for collection in collections %}
-          <button
-            class="product-list__tabs--button {% if forloop.first %}is-active{% endif %}"
-            data-tab="{{ collection.handle }}"
-            type="button"
-          >
-            {{ collection.title }}
-          </button>
-        {% endfor %}
+      <div class="product-list__tabs-wrapper">
+        <div class="product-list__tabs">
+          {% for collection in collections %}
+            <button
+              class="product-list__tabs--button {% if forloop.first %}is-active{% endif %}"
+              data-tab="{{ collection.handle }}"
+              type="button"
+            >
+              {{ collection.title }}
+            </button>
+          {% endfor %}
+        </div>
       </div>
     {% endif %}
   </div>
