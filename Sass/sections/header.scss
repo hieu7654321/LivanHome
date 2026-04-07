@@ -86,6 +86,10 @@ header-component {
     #swym-advanced-header-icon.swym-advanced-header-icon {
         margin-inline-start: -52px;
         margin-inline-end: 25px;
+
+        .swym-header-icon-count-bubble > .swym-header-icon-count {
+            transform: scale(0.7);
+        }
         
         svg {
             width: 20px;

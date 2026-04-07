@@ -9,7 +9,7 @@ product-card {
                 slideshow-component {
 
                     slideshow-slides {
-                        height: var(--custom-fixed-height) !important;
+                        height: clamp(var(--custom-fixed-height) , 55vw, 400px) !important;
                     }
 
                     slideshow-controls {
@@ -116,5 +116,94 @@ product-card {
         vertical-align: middle;
         color: #2F4ABC;
         padding-block: 0.5rem 2px;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    product-card {
+        .product-card__content {
+
+            .card-gallery {
+
+                a {
+                    slideshow-component {
+
+                        slideshow-slides {
+                            height: clamp(212px, 30vw, var(--custom-fixed-height-desktop)) !important;
+                        }
+
+                        slideshow-controls {
+                            display: none;
+                        }
+                    }
+                }
+
+                // quick-add-component {
+                //     product-form-component {
+                //         button.quick-add__button {
+                //             .add-to-cart-text {
+                //                 .svg-wrapper {
+                //                     svg {
+                //                         width: 11.1px;
+                //                         height: 12.6px;
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
+            }
+
+            .text-block.custom-typography.custom-font-size {
+                &:has(p[role='heading']) {
+                    --font-size: calc(var(--font-size) + 2px) !important;
+                }
+
+                p:not([role='heading']) {
+                    // letter-spacing: 0.01em;
+                    // line-height: 12px;
+                    font-weight: bold;
+                    opacity: 0.7;
+                    max-width: 100%;
+                }
+            }
+        }
+
+    .swym-wishlist-collections-v2-container {
+        transform: translate(-6.5px, 6px);
+
+        button.swym-wishlist-collections-v2 {
+            
+            svg {
+                transform: scale(1.3);
+            }
+        }
+    }
+
+        product-swatches {
+            form {
+                .variant-option--swatches {
+                    overflow-list::part(list) {
+                        padding-inline: 1px;
+                        gap: 2px;
+                    }
+
+                    .variant-option__swatch {
+                        .variant-option__button-label--has-swatch {
+                            .swatch {
+                                transform: scale(0.8125);
+                            }
+                        }
+                        &:not(:has(:checked)):hover {
+                            transform: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .product-card__delivery {
+            padding-block: 0.5rem 4px;
+        }
     }
 }

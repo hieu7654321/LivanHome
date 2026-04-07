@@ -70,7 +70,7 @@
     {% render 'border-override', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
     --gallery-aspect-ratio: {{ ratio }};
-    {% if block.settings.set_fixed_height == true %}--custom-fixed-height: {{ block.settings.custom_fixed_height }}px{% endif %};
+    {% if block.settings.set_fixed_height == true %}--custom-fixed-height: {{ block.settings.custom_fixed_height }}px;--custom-fixed-height-desktop: {{ block.settings.custom_fixed_height_desktop }}px;{% endif %};
   "
   data-product-id="{{ product.id }}"
   {% if settings.show_second_image_on_hover %}
