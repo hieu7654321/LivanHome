@@ -63,6 +63,7 @@
         --gap: 20px !important;
         --page-margin: 50px !important;
         --padding-block-start: max(20px, calc(var(--spacing-scale) * 41px)) !important;
+        --padding-block-end: max(20px, calc(var(--spacing-scale) * 34px)) !important;
 
         .section-resource-list__header {
             padding-inline: 2px;
