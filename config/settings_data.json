@@ -33,6 +33,7 @@
     "type_case_h6": "uppercase",
     "transition_to_main_product": true,
     "primary_button_border_width": 0,
+    "button_border_radius_primary": 3,
     "secondary_button_border_width": 1,
     "cart_type": "drawer",
     "input_border_width": 0,
@@ -43,7 +44,12 @@
     "mobile_quick_add": true,
     "quick_add_color_scheme": "scheme-2",
     "show_variant_image": false,
-    "variant_button_radius": 100,
+    "variant_swatch_width": 16,
+    "variant_swatch_height": 16,
+    "variant_swatch_radius": 2,
+    "variant_swatch_border_width": 0.5,
+    "variant_button_border_width": 1,
+    "variant_button_radius": 5,
     "variant_button_width": "default-width-buttons",
     "content_for_index": [],
     "blocks": {
@@ -56,10 +62,11 @@
         "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
         "disabled": false,
         "settings": {
+          "show_ui": true,
           "storefront_layout_enabled": false,
           "storefront_layout_primary_bg_color": "#000000",
           "storefront_layout_primary_text_color": "#ffffff",
-          "storefront_layout_secondary_bg_color": "#F4F8FE",
+          "storefront_layout_secondary_bg_color": "#f4f8fe",
           "storefront_layout_secondary_text_color": "#333333",
           "storefront_layout_ui_border_radius": 6,
           "storefront_layout_notification_position": "left",
@@ -75,7 +82,7 @@
           "swym_collections_icon_type": "heart",
           "swym_collections_icon_thickness": 1,
           "swym_collections_position": "top-right",
-          "swym_collections_vertical_offset": 0,
+          "swym_collections_vertical_offset": -9,
           "swym_collections_horizontal_offset": 0,
           "swym_collections_button_size": 16,
           "swym_collections_icon_color": "#2f4abc",
@@ -409,7 +416,14 @@
           "selected_variant_hover_border_color": "rgba(0,0,0,0)"
         }
       }
-    }
+    },
+    "swym_header_icon_enabled": true,
+    "swym_header_icon_show_count": true,
+    "swym_header_icon_custom_html": "",
+    "swym_header_icon_count_bubble_html": "",
+    "swym_header_icon_custom_css": "",
+    "swym_header_icon_selector_desktop": "header-actions",
+    "swym_header_icon_selector_mobile": "header-actions"
   },
   "presets": {
     "Heritage": {

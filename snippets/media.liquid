@@ -33,6 +33,7 @@
     {% render 'spacing-style', settings: block_settings %}
     --image-position: {{ block_settings.image_position }};
     --video-position: {{ block_settings.video_position }};
+    --media-border-radius: {{ block_settings.media_border_radius }}px;
   "
   {{ block.shopify_attributes }}
 >
@@ -73,6 +74,13 @@
       {{ 'hero-apparel-3' | placeholder_svg_tag }}
     </div>
   {%- endif -%}
+
+  <div class="media-block__content"
+    style="--floating-text-align: {{ block_settings.floating_text_align }};
+    font-family: {{ block_settings.font }};
+    --font-size: {{ block_settings.font_size }};
+    --font-weight: {{ block_settings.weight }};
+    --text-transform: {{ block_settings.case }};">{{ block_settings.floating_text }}</div>
 </div>
 
 {% stylesheet %}

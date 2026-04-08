@@ -1,0 +1,139 @@
+@use "../base/base.scss" as *;
+
+.media-with-content {
+    --button-padding-block: 8.8px !important;
+
+    .media-block {
+        img {
+            border-radius: var(--media-border-radius);
+            width: 97.41%;
+        }
+
+        .media-block__content {
+            text-align: var(--floating-text-align);
+            width: 97.41%;
+            color: var(--color-input-text);
+            position: absolute;
+            top: 31%;
+            font-size: var(--font-size);
+            line-height: calc(var(--font-size) + 1.3625rem);
+            font-weight: var(--font-weight);
+            text-transform: var(--text-transform);
+
+            u {
+                text-underline-offset: 8px;
+            }
+        }
+    }
+
+    .media-with-content__content > .group-block-content {
+        padding-inline-start: var(--page-margin) !important;
+        padding-inline-end: 23px !important;
+
+        @media screen and (max-width: 749px) {
+            .button {
+                flex: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .media-with-content {
+        .media-with-content__content {
+            & > .group-block-content {
+                --gap: 20px !important;
+                padding-block: calc(4.2 * var(--page-margin)) !important;
+
+                & > .group-block:has(.image-block) {
+                    --padding-block-start: 5px !important;
+                }
+            }
+
+            .group-block > .group-block-content:has(.image-block) {
+                .image-block > img {
+                    object-position: center center;
+                }
+
+                .text-block {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .media-with-content {
+        --page-margin: 30px !important;
+        --media-with-content-grid-columns: var(--full-page-grid-margin) calc((var(--full-page-grid-central-column-width) / 4) * 2 + 14.5px) calc(var(--full-page-grid-central-column-width) / 2 - 15.5px) var(--full-page-grid-margin) !important;
+
+        .media-block {
+            img {
+                width: 100%;
+                object-position: center 78%;
+            }
+
+            .media-block__content {
+                width: 100%;
+                top: 37%;
+                
+                & > * {
+                    font-size: calc(var(--font-size) + 1.25rem);
+                    line-height: calc(var(--font-size) + 2.6rem);
+                }
+
+                u {
+                    text-underline-offset: 12px;
+                }
+            }
+        }
+
+        .media-with-content__content {
+            & > .group-block-content {
+                padding-block: calc(4.295 * var(--page-margin)) !important;
+                padding-inline: 26px !important;
+
+                & > .group-block:first-child {
+                    
+                    .group-block-content {
+                        --gap: 14px !important;
+                    }
+
+                    .text-block:has(p) {
+                        p {
+                            font-size: calc(var(--font-size) + 0.125rem);
+                        }
+                    }
+
+                    .text-block:not(:has(p)) {
+                        & > * {
+                            font-size: calc(var(--font-size) + 1.125rem);
+                            margin-right: 2.25rem;
+                            line-height: 56px;
+                       }
+                    }
+                }
+
+                & > .group-block:has(.layout-panel-flex) {
+                    & > .layout-panel-flex {
+                        gap: calc(var(--gap) + 3px);
+
+                        .group-block--width-fill {
+                            flex: 0;
+                            flex-basis: 25%;
+                        }
+                    }
+                }
+            }
+
+            .group-block > .group-block-content:has(.image-block) {
+                .text-block {
+                    & > * {
+                        line-height: calc(var(--font-size) + 2px) ;
+                    }
+                }
+            }
+        }
+    }   
+}
