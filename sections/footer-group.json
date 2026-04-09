@@ -59,6 +59,7 @@
                 "icon": "eye",
                 "image_upload": "shopify://shop_images/Rapid.svg",
                 "width": 40,
+                "custom_icon_section": true,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -210,6 +211,7 @@
                 "icon": "none",
                 "image_upload": "shopify://shop_images/secure.svg",
                 "width": 20,
+                "custom_icon_section": true,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -361,6 +363,7 @@
                 "icon": "none",
                 "image_upload": "shopify://shop_images/client.svg",
                 "width": 30,
+                "custom_icon_section": true,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -512,6 +515,7 @@
                 "icon": "none",
                 "image_upload": "shopify://shop_images/faciles.svg",
                 "width": 36,
+                "custom_icon_section": true,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -943,7 +947,7 @@
           "settings": {
             "show_powered_by": false,
             "font_size": "0.75rem",
-            "case": "none"
+            "case": "uppercase"
           },
           "blocks": {}
         },
