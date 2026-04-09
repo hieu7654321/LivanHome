@@ -42,7 +42,7 @@
 
 {% assign slideshow_class = 'carousel-content spacing-style ' | append: color_scheme_class %}
 <div
-  class="force-full-width"
+  class="force-full-width {% if block.settings.custom_collection_card %}carousel-content__custom{% endif %}"
   style="{{ gutter_style }}"
 >
   {% render 'slideshow',
@@ -156,6 +156,12 @@
       ],
       "visible_if": "{{ block.settings.height == \"fit\" }}",
       "default": "top"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_collection_card",
+      "label": "Custom Colelction Card",
+      "default": false
     },
     {
       "type": "header",

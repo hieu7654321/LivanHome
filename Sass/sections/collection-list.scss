@@ -1,0 +1,111 @@
+@use '../base/base.scss' as *;
+
+.section.section-carousel {
+    .carousel-content__custom:has(slideshow-component) {
+        slideshow-component.carousel-content {
+            slideshow-container {
+                slideshow-slides {
+                    --peek-next-slide-size: 0.3rem !important;
+
+                    .card {
+                        .card__content {
+                            .card__inner {
+                                .image-block {
+                                    aspect-ratio: 0.667666 !important;
+                                }
+
+                                .text-block {
+                                    position: absolute;
+                                    bottom: 3.5%;
+                                    left: 6%;
+
+                                    & > * {
+                                        color: #fff;
+                                        font-weight: 700;
+                                        line-height: calc(var(--font-size) + 3px);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .section.section-carousel {
+        --page-margin: 50px !important;
+        padding-block-start: max(10px, calc(var(--padding-block-start) + 44px ));
+        row-gap: calc(var(--gap) + 15px);
+
+        .group-block:first-child {
+            .text-block {
+
+                & > * {
+                    font-size: calc(var(--font-size) - 2px);
+                    line-height: var(--font-size);
+                    letter-spacing: 0;
+                }
+            }
+        }
+
+        .carousel-content__custom:has(slideshow-component) {
+            slideshow-component.carousel-content {
+                slideshow-container {
+                    slideshow-arrows {
+                        width: fit-content;
+                        height: fit-content;
+                        justify-content: right;
+                        padding-inline: 0;
+                        top: -8.5%;
+                        left: 93.5%;
+
+                        .slideshow-control{
+                            opacity: 1;
+                            mix-blend-mode: normal;
+                            animation: none;
+                            padding: 0 3.5px;
+
+                            &[disabled] {
+                                display: block;
+                                opacity: 0.5;
+                            }
+                        }
+
+                        .slideshow-control--next {
+                            margin-inline-start: 0;
+                        }
+                    }
+
+                    slideshow-slides {
+                        --peek-next-slide-size: 0.5rem !important;
+                        gap: calc(var(--slideshow-gap) + 4px);
+
+                        .card {
+                            .card__content {
+                                .card__inner {
+                                    .text-block {
+                                        bottom: 3.2%;
+                                        left: 4.6%;
+
+                                        & > * {
+                                            font-size: calc(var(--font-size) + 18px);
+                                            line-height: calc(var(--font-size) + 20px);
+                                            letter-spacing: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &[dragging] {
+                    display: block;
+                }
+            }
+        }
+    }
+}
