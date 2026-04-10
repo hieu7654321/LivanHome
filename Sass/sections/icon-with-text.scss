@@ -1,1 +1,86 @@
 @use '../base/base.scss' as *;
+
+.section:has(.icon-block__custom) {
+    .custom-section-content {
+        .section-content-wrapper {
+            .group-block {
+                .icon-block {
+                    border: 0.5px solid var(--color-border);
+                    width: 60px;
+                    height: 60px;
+                    justify-content: center;
+                }
+
+                .group-block {
+                    .group-block-content {
+                        .text-block:first-child > * {
+                            line-height: calc(var(--font-size) + 3px);
+                        }
+
+                        .text-block:not(:first-child) > * {
+                            line-height: calc(var(--font-size) + 4px);
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .section:has(.icon-block__custom) {
+        .custom-section-content {
+            .section-content-wrapper {
+                .group-block {
+                    .icon-block {
+                        align-self: flex-start;
+                    }
+
+
+                    & > .group-block-content {
+                        flex-direction: row;
+
+                        .group-block {
+                            .group-block-content {
+                                flex-direction: column;
+                                
+                                .text-block {
+                                    & > * {
+                                        text-align: left;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .section:has(.icon-block__custom) {
+        --page-margin: 50px !important;
+
+        .custom-section-content {
+            .section-content-wrapper {
+                padding-block-start: max(10px, calc(var(--padding-block-start) - 21px));
+                padding-block-end: max(10px, calc(var(--padding-block-end) - 21px));
+                gap: max(10px, calc(var(--gap) - 47px));
+                align-items: flex-start;
+
+                .group-block {
+                    .icon-block {
+                        width: 100px;
+                        height: 100px;
+
+                        img {
+                            width: var(--width-desktop) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
