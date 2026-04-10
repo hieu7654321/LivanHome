@@ -1,0 +1,36 @@
+@use '../base/base.scss' as *;
+
+footer {
+    .footer-content {
+        .group-block:has(accordion-custom) {
+            .group-block-content {
+                accordion-custom.menu--accordion.menu--dividers {
+                    .menu__details {
+                        .menu__heading:has(.menu__heading__default) {
+                            font-size: 14px;
+                            line-height: 17px;
+                            font-weight: 700;
+                            letter-spacing: 0.2px;
+                            padding-block: 0 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 750px) {
+    footer {
+        .footer-content {
+            .group-block:has(.email-signup-block) {
+                .email-signup-block {
+                    .email-signup__heading--custom {
+                        font-size: 30px;
+                        line-height: 32px;
+                    }
+                }
+            }
+        }
+    }
+}
