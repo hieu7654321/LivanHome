@@ -175,7 +175,6 @@
           ]
         }
       },
-      "disabled": true,
       "name": "t:names.collections_carousel",
       "settings": {
         "collection_list": "{{ collection.metafields.collection.parent_collections.value }}",

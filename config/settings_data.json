@@ -51,6 +51,14 @@
     "variant_button_border_width": 1,
     "variant_button_radius": 5,
     "variant_button_width": "default-width-buttons",
+    "swym_advanced_collections_wishlist_button_before_html": "<button type=\"button\" class=\"swym-advanced-wishlist-collections\" aria-label=\"{{ADD_TO_WISHLIST}}\" aria-pressed=\"false\" style=\"color:{{ICON_COLOR}}; transform:{{ICON_POSITION}};\">\n  <div class=\"swym-advanced-wishlist-collections-social-count\">\n    {{SOCIAL_COUNT}}\n  </div>\n  <svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path d=\"M19.6706 5.4736C17.6806 3.8336 14.7206 4.1236 12.8906 5.9536L12.0006 6.8436L11.1106 5.9536C9.29063 4.1336 6.32064 3.8336 4.33064 5.4736C2.05064 7.3536 1.93063 10.7436 3.97063 12.7836L11.6406 20.4536C11.8406 20.6536 12.1506 20.6536 12.3506 20.4536L20.0206 12.7836C22.0706 10.7436 21.9506 7.3636 19.6706 5.4736Z\" stroke=\"{{ICON_COLOR}}\" stroke-width=\"{{ICON_WIDTH}}\" fill=\"#ffffff\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </svg>\n</button>",
+    "swym_header_icon_enabled": true,
+    "swym_header_icon_show_count": true,
+    "swym_header_icon_custom_html": "",
+    "swym_header_icon_count_bubble_html": "",
+    "swym_header_icon_custom_css": "",
+    "swym_header_icon_selector_desktop": "header-actions",
+    "swym_header_icon_selector_mobile": "header-actions",
     "content_for_index": [],
     "blocks": {
       "2734250573734242505": {
@@ -415,15 +423,47 @@
           "selected_variant_hover_text_color": "#202219",
           "selected_variant_hover_border_color": "rgba(0,0,0,0)"
         }
+      },
+      "scheme-7d4368fd-f748-4416-8537-ea43fc557bbc": {
+        "settings": {
+          "background": "#ffffff",
+          "foreground_heading": "#15191c",
+          "foreground": "#ffffff",
+          "primary": "#15191c",
+          "primary_hover": "#15191c",
+          "border": "#000000",
+          "shadow": "#000000",
+          "primary_button_background": "#fbfaf6",
+          "primary_button_text": "#15191c",
+          "primary_button_border": "#202219",
+          "primary_button_hover_background": "#e1d9cb",
+          "primary_button_hover_text": "#202219",
+          "primary_button_hover_border": "#e1d9cb",
+          "secondary_button_background": "#202219",
+          "secondary_button_text": "#f6eddd",
+          "secondary_button_border": "#f6eddd",
+          "secondary_button_hover_background": "#f6eddd",
+          "secondary_button_hover_text": "#202219",
+          "secondary_button_hover_border": "#f6eddd",
+          "input_background": "#f6eddd33",
+          "input_text_color": "#ffffff",
+          "input_border_color": "rgba(0,0,0,0)",
+          "input_hover_background": "#f6eddd6b",
+          "variant_background_color": "#f6eddd33",
+          "variant_text_color": "#f6eddd",
+          "variant_border_color": "rgba(0,0,0,0)",
+          "variant_hover_background_color": "#f6eddd6b",
+          "variant_hover_text_color": "#ffffff",
+          "variant_hover_border_color": "rgba(0,0,0,0)",
+          "selected_variant_background_color": "#f6eddd",
+          "selected_variant_text_color": "#202219",
+          "selected_variant_border_color": "#f6eddd",
+          "selected_variant_hover_background_color": "#ccc3b4",
+          "selected_variant_hover_text_color": "#202219",
+          "selected_variant_hover_border_color": "rgba(0,0,0,0)"
+        }
       }
-    },
-    "swym_header_icon_enabled": true,
-    "swym_header_icon_show_count": true,
-    "swym_header_icon_custom_html": "",
-    "swym_header_icon_count_bubble_html": "",
-    "swym_header_icon_custom_css": "",
-    "swym_header_icon_selector_desktop": "header-actions",
-    "swym_header_icon_selector_mobile": "header-actions"
+    }
   },
   "presets": {
     "Heritage": {
