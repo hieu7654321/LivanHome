@@ -197,7 +197,8 @@
     "product_hotspots": "Puntos interactivos del producto",
     "hotspot_product": "Punto interactivo",
     "product_sku": "SKU",
-    "layered_slideshow": "Presentación de diapositivas en capas"
+    "layered_slideshow": "Presentación de diapositivas en capas",
+    "localization": "Localization"
   },
   "settings": {
     "alignment": "Alineación",
