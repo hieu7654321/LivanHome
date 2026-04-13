@@ -11,7 +11,7 @@
     </span> {% endcomment %}
 
     {% if section.settings.level_1_text != blank %}
-      <li class="breadcrumbs__separator" aria-hidden="true">&gt;</li>
+      <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>
       <li class="breadcrumbs__item">
         {% if section.settings.level_1_url != blank %}
           <a class="breadcrumbs__link" href="{{ section.settings.level_1_url }}">
@@ -30,7 +30,7 @@
     </span> {% endcomment %}
 
     {% if section.settings.level_2_text != blank %}
-      <li class="breadcrumbs__separator" aria-hidden="true">&gt;</li>
+      <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>
       <li class="breadcrumbs__item" aria-current="page">
         <a class="breadcrumbs__link" href="{{ canonical_url }}">
         {{ section.settings.level_2_text | escape }}
@@ -39,48 +39,6 @@
     {% endif %}
   </ol>
 </nav>
-
-{% stylesheet %}
-  .breadcrumbs {
-    font-size: 0.875rem;
-    color: rgb(55 65 81);
-    margin-bottom: 1rem;
-  }
-
-  .breadcrumbs__list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .breadcrumbs__item {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .breadcrumbs__separator {
-    margin-inline: 0.25rem;
-    color: rgb(156 163 175);
-  }
-
-  .breadcrumbs__link {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .breadcrumbs__link:hover,
-  .breadcrumbs__link:focus-visible {
-    text-decoration: underline;
-  }
-
-  .breadcrumbs__text {
-    color: rgb(17 24 39);
-  }
-{% endstylesheet %}
 
 {% schema %}
 {

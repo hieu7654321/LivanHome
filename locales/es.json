@@ -16,7 +16,7 @@
       "placeholder": "Email",
       "success": "¡Gracias por suscribirte!"
     },
-    "filter": "Filtro",
+    "filter": "Filtrar",
     "payment_methods": "Formas de pago",
     "contact_form": {
       "name": "Nombre",
@@ -90,7 +90,7 @@
     "clear_all": "Borrar todo",
     "remove": "Eliminar",
     "view_in_your_space": "Ver en tu espacio",
-    "show_filters": "Filtro",
+    "show_filters": "Filtrar",
     "clear": "Borrar",
     "continue_shopping": "Seguir comprando",
     "log_in_html": "¿Tienes una cuenta? <a href=\"{{ link }}\">Inicia sesión</a> para pagar más rápido.",
