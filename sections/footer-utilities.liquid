@@ -93,7 +93,7 @@
   "name": "t:names.policies_and_links",
   "tag": "div",
   "class": "footer-utilities",
-  "max_blocks": 4,
+  "max_blocks": 10,
   "enabled_on": {
     "groups": ["footer"]
   },
@@ -177,6 +177,12 @@
     },
     {
       "type": "payment-icons"
+    },
+    {
+      "type": "localization"
+    },
+    {
+      "type": "group"
     }
   ],
   "presets": [
@@ -195,9 +201,15 @@
         },
         "payment_icons": {
           "type": "payment-icons"
+        },
+        "localization": {
+          "type": "localization"
+        },
+        "group": {
+          "type": "group"
         }
       },
-      "block_order": ["copyright", "policy_list", "social_icons","payment_icons"]
+      "block_order": ["copyright", "policy_list", "social_icons","payment_icons", "localization", "group"]
     }
   ]
 }

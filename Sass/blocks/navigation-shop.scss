@@ -23,11 +23,32 @@ footer {
 @media screen and (min-width: 750px) {
     footer {
         .footer-content {
-            .group-block:has(.email-signup-block) {
-                .email-signup-block {
-                    .email-signup__heading--custom {
-                        font-size: 30px;
-                        line-height: 32px;
+
+            .group-block:has(accordion-custom) {
+                padding-block-start: 0;
+                max-width: 428px;
+                justify-self: flex-end;
+
+                .group-block-content {
+                    gap: calc(var(--gap) + 30px);
+
+                    accordion-custom.menu--accordion.menu--dividers {
+                        width: fit-content;
+
+                        .menu__details {
+                            .menu__heading:has(.menu__heading__default) {
+                                letter-spacing: 0;
+                                padding-block: 2px 6px;
+                            }
+
+                            nav.details-content { 
+                                margin-block-start: 6px;
+
+                                .menu__item + .menu__item {
+                                    margin-block-start: 1.7px;
+                                }
+                            }
+                        }
                     }
                 }
             }
