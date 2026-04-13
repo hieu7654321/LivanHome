@@ -1,0 +1,89 @@
+@use '../base/base.scss' as *;
+
+main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
+    .section {
+        .custom-section-content {
+            .section-content-wrapper:has(.text-block:nth-child(2)):not(:has(.text-block:nth-child(3))) {
+                .text-block > * {
+                    line-height: calc(var(--font-size) + 4px);
+                }
+            }
+        }
+    }
+
+    .section-resource-list {
+        .resource-list__carousel {
+            slideshow-slide {
+                .collection-card__content {
+                    padding: 10px;
+
+                    .text-block > * {
+                        line-height: calc(var(--font-size) + 3px);
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 749px) {
+    main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
+        .section-resource-list {
+            .resource-list__carousel {
+                slideshow-arrows {
+                    .slideshow-control {
+                        padding: 0 5px !important;
+                        border-radius: 5px;
+                    }
+                }
+                
+                slideshow-slide {
+                    aspect-ratio: 168 / 251.61;
+                }
+            }
+        }
+    }    
+}
+
+@media screen and (min-width: 750px) {
+    main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
+        --page-margin: 50px !important;
+
+        .section {
+            .custom-section-content {
+                .section-content-wrapper:has(.text-block:nth-child(2)):not(:has(.text-block:nth-child(3))) {
+                    padding-block-start: calc(var(--padding-block-start) + 5px);
+
+                    .text-block:nth-child(1) > * {
+                        font-size: calc(var(--font-size) + 18px);
+                        line-height: calc(var(--font-size) + 20px);
+                    }
+                }
+            }
+        }
+
+        .section-resource-list {
+            padding-block-start: max(10px, calc(var(--padding-block-start) - 18px)) !important;
+            .resource-list__carousel {
+                --peek-next-slide-size: 1.87rem !important;
+
+                slideshow-slides {
+                    gap: calc(var(--gap) + 6px);
+                    slideshow-slide {
+                        aspect-ratio: 215 / 322;
+
+                        .collection-card__content {
+                            padding: 10px;
+
+                            .text-block > * {
+                                font-size: calc(var(--font-size) + 2px);
+                                line-height: calc(var(--font-size) + 5px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
