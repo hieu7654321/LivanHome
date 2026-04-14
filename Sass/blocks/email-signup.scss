@@ -52,16 +52,15 @@ footer {
 @media screen and (min-width: 750px) {
     footer {
         --page-margin: 50px !important;
+
         .footer-content {
             padding-block-start: max(20px, calc(var(--padding-block-start) - 3px));
+        }
 
-            .group-block:has(.email-signup-block) {
-                .email-signup-block {
-                    .email-signup__heading--custom {
-                        font-size: 30px !important;
-                        line-height: 32px !important;
-                    }
-                }
+        .group-block:has(.email-signup-block) {
+            .email-signup__heading--custom {
+                font-size: 30px !important;
+                line-height: 32px !important;
             }
         }
     }

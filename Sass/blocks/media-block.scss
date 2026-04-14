@@ -79,8 +79,8 @@
                 top: 37%;
                 
                 & > * {
-                    font-size: calc(var(--font-size) + 1.25rem);
-                    line-height: calc(var(--font-size) + 2.6rem);
+                    font-size: clamp(var(--font-size), 4vw , #{calc(var(--font-size) + 1.25rem)});
+                    line-height: clamp(#{calc(var(--font-size) + 1.3625rem)}, 6vw , #{calc(var(--font-size) + 2.6rem)});
                 }
 
                 u {

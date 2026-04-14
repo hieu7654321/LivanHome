@@ -68,6 +68,13 @@ main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
             .resource-list__carousel {
                 --peek-next-slide-size: 1.87rem !important;
 
+                slideshow-arrows {
+                    .slideshow-control {
+                        padding: 0 5px !important;
+                        border-radius: 5px;
+                    }
+                }
+
                 slideshow-slides {
                     gap: calc(var(--gap) + 6px);
                     slideshow-slide {

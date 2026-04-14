@@ -30,7 +30,7 @@ footer {
                 justify-self: flex-end;
 
                 .group-block-content {
-                    gap: calc(var(--gap) + 30px);
+                    gap: clamp(10px, 4vw, #{calc(var(--gap) + 30px)});
 
                     accordion-custom.menu--accordion.menu--dividers {
                         width: fit-content;
