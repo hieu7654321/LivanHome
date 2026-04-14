@@ -1,54 +1,43 @@
 @use '../base/base.scss' as *;
 
 footer {
-    .footer-content {
-        .group-block:has(accordion-custom) {
-            .group-block-content {
-                accordion-custom.menu--accordion.menu--dividers {
-                    .menu__details {
-                        .menu__heading:has(.menu__heading__default) {
-                            font-size: 14px;
-                            line-height: 17px;
-                            font-weight: 700;
-                            letter-spacing: 0.2px;
-                            padding-block: 0 11px;
-                        }
-                    }
-                }
-            }
+    .group-block:has(accordion-custom) {
+        .menu__heading:has(.menu__heading__default) {
+            font-size: 14px;
+            line-height: 17px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            padding-block: 0 11px;
         }
     }
 }
 
 @media screen and (min-width: 750px) {
     footer {
-        .footer-content {
+        .group-block:has(accordion-custom) {
+            padding-block-start: 0;
+            max-width: 428px;
+            justify-self: flex-end;
 
-            .group-block:has(accordion-custom) {
-                padding-block-start: 0;
-                max-width: 428px;
-                justify-self: flex-end;
+            .group-block-content {
+                gap: clamp(10px, 4vw, #{calc(var(--gap) + 30px)});
+            }
 
-                .group-block-content {
-                    gap: calc(var(--gap) + 30px);
+            accordion-custom.menu--accordion {
+                width: fit-content;
+            }
 
-                    accordion-custom.menu--accordion.menu--dividers {
-                        width: fit-content;
+            .menu__details {
+                .menu__heading:has(.menu__heading__default) {
+                    letter-spacing: 0;
+                    padding-block: 2px 6px;
+                }
 
-                        .menu__details {
-                            .menu__heading:has(.menu__heading__default) {
-                                letter-spacing: 0;
-                                padding-block: 2px 6px;
-                            }
+                nav.details-content { 
+                    margin-block-start: 6px;
 
-                            nav.details-content { 
-                                margin-block-start: 6px;
-
-                                .menu__item + .menu__item {
-                                    margin-block-start: 1.7px;
-                                }
-                            }
-                        }
+                    .menu__item + .menu__item {
+                        margin-block-start: 1.7px;
                     }
                 }
             }

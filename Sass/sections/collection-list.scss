@@ -1,32 +1,26 @@
 @use '../base/base.scss' as *;
 
-.section.section-carousel {
+.section-carousel {
     .carousel-content__custom:has(slideshow-component) {
-        slideshow-component.carousel-content {
-            slideshow-container {
-                slideshow-slides {
-                    --peek-next-slide-size: 0.3rem !important;
+        slideshow-slides {
+            --peek-next-slide-size: 0.3rem !important;
 
-                    .card {
-                        .card__content {
-                            .card__inner {
-                                .image-block {
-                                    aspect-ratio: 0.667666 !important;
-                                }
+            .card {
+                .card__inner {
+                    .image-block {
+                        aspect-ratio: 0.667666 !important;
+                    }
+                }
 
-                                .text-block {
-                                    position: absolute;
-                                    bottom: 3.5%;
-                                    left: 6%;
+                .text-block {
+                    position: absolute;
+                    bottom: 3.5%;
+                    left: 6%;
 
-                                    & > * {
-                                        color: #fff;
-                                        font-weight: 700;
-                                        line-height: calc(var(--font-size) + 3px);
-                                    }
-                                }
-                            }
-                        }
+                    & > * {
+                        color: #fff;
+                        font-weight: 700;
+                        line-height: calc(var(--font-size) + 3px);
                     }
                 }
             }
@@ -35,7 +29,7 @@
 }
 
 @media screen and (min-width: 750px) {
-    .section.section-carousel {
+    .section-carousel:has(.carousel-content__custom) {
         --page-margin: 50px !important;
         padding-block-start: max(10px, calc(var(--padding-block-start) + 44px ));
         row-gap: calc(var(--gap) + 15px);
@@ -51,59 +45,57 @@
             }
         }
 
-        .carousel-content__custom:has(slideshow-component) {
-            slideshow-component.carousel-content {
-                slideshow-container {
-                    slideshow-arrows {
-                        width: fit-content;
-                        height: fit-content;
-                        justify-content: right;
-                        padding-inline: 0;
-                        top: -8.5%;
-                        left: 93.5%;
+        .carousel-content__custom {
+            slideshow-container {
+                slideshow-arrows {
+                    width: fit-content;
+                    height: fit-content;
+                    justify-content: right;
+                    padding-inline: 0;
+                    top: -8.5%;
+                    left: 93.5%;
+                }
 
-                        .slideshow-control{
-                            opacity: 1;
-                            mix-blend-mode: normal;
-                            animation: none;
-                            padding: 0 3.5px;
+                .slideshow-control{
+                    opacity: 1;
+                    mix-blend-mode: normal;
+                    animation: none;
+                    padding: 0 3.5px;
 
-                            &[disabled] {
-                                display: block;
-                                opacity: 0.5;
-                            }
-                        }
-
-                        .slideshow-control--next {
-                            margin-inline-start: 0;
-                        }
+                    &[disabled] {
+                        display: block;
+                        opacity: 0.5;
                     }
+                }
 
-                    slideshow-slides {
-                        --peek-next-slide-size: 0.5rem !important;
-                        gap: calc(var(--slideshow-gap) + 4px);
+                .slideshow-control--next {
+                    margin-inline-start: 0;
+                }
 
-                        .card {
-                            .card__content {
-                                .card__inner {
-                                    .text-block {
-                                        bottom: 3.2%;
-                                        left: 4.6%;
+                slideshow-slides {
+                    --peek-next-slide-size: 0.5rem !important;
+                    gap: calc(var(--slideshow-gap) + 4px);
 
-                                        & > * {
-                                            font-size: calc(var(--font-size) + 18px);
-                                            line-height: calc(var(--font-size) + 20px);
-                                            letter-spacing: 0;
-                                        }
-                                    }
+                    .card {
+                        .card__inner {
+                            .text-block {
+                                bottom: 3.2%;
+                                left: 4.6%;
+
+                                & > * {
+                                    font-size: clamp(var(--font-size), 3vw ,#{calc(var(--font-size) + 18px)});
+                                    line-height: clamp(#{calc(var(--font-size) + 3px)}, 3.1vw ,#{calc(var(--font-size) + 20px)});
+                                    letter-spacing: 0;
                                 }
                             }
                         }
                     }
                 }
+            }
 
-                &[dragging] {
-                    display: block;
+            slideshow-component[dragging] {
+                slideshow-arrows {
+                    display: flex;
                 }
             }
         }

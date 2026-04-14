@@ -193,7 +193,7 @@
         "gap": 4,
         "color_scheme": "scheme-7d4368fd-f748-4416-8537-ea43fc557bbc",
         "padding-block-start": 38,
-        "padding-block-end": 48
+        "padding-block-end": 0
       }
     },
     "main": {
@@ -214,7 +214,7 @@
             "inherit_color_scheme": true,
             "color_scheme": "",
             "padding-block-start": 8,
-            "padding-block-end": 8,
+            "padding-block-end": 48,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
             "facets_margin_bottom": 8,
@@ -226,7 +226,7 @@
           "type": "_product-card",
           "static": true,
           "settings": {
-            "product_card_gap": 8,
+            "product_card_gap": 3,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
@@ -242,14 +242,14 @@
             "card-gallery": {
               "type": "_product-card-gallery",
               "settings": {
-                "image_ratio": "portrait",
-                "set_fixed_height": false,
+                "image_ratio": "adapt",
+                "set_fixed_height": true,
                 "custom_fixed_height": 212,
                 "custom_fixed_height_desktop": 411,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0,
+                "border_radius": 5,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -267,7 +267,7 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 4,
+                "gap": 0,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -302,9 +302,35 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h5",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.75rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_p8YhtL": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Silla tapizada beige con pata natural</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font_size": "0.625rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -326,11 +352,11 @@
                     "show_sale_price_first": true,
                     "show_installments": false,
                     "show_tax_info": false,
-                    "type_preset": "",
+                    "type_preset": "custom",
                     "width": "100%",
                     "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.75rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -358,6 +384,7 @@
               },
               "block_order": [
                 "product_title_mwB3E6",
+                "text_p8YhtL",
                 "price",
                 "swatches"
               ]
@@ -382,7 +409,7 @@
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "color_scheme": "",
-        "padding-block-start": 40,
+        "padding-block-start": 37,
         "padding-block-end": 40
       }
     },

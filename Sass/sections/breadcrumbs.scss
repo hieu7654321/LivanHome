@@ -1,41 +1,43 @@
 @use '../base/base.scss' as *;
 
 .breadcrumbs {
-    margin-inline: var(--page-margin);
     font-size: 0.875rem;
     color: #CBC9C9;
 
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 0 0 0;
-    margin: 0;
-    list-style: none;
-
-    .breadcrumbs__item {
-        display: inline-flex;
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
+        gap: 8px;
+        padding: 10px 0 0 0;
+        margin: 0;
+        list-style: none;
+
+        .breadcrumbs__item {
+            display: inline-flex;
+            align-items: center;
+        }
 
         .breadcrumbs__link {
             color: inherit;
             text-decoration: none;
         }
-    }
 
-    .breadcrumbs__separator {
-        margin-inline: 0.25rem;
-        color: #CBC9C9;
-        width: 14px;
-        height: 14px;
-        transform: rotate(-90deg);
+        .breadcrumbs__separator {
+            margin-inline: 0.25rem;
+            color: #CBC9C9;
+            width: 14px;
+            height: 14px;
+            transform: rotate(-90deg);
+        }
     }
-  }
 }
 
 @media screen and (min-width: 750px) {
     .breadcrumbs {
+        display: grid;
+        grid-template-columns: var(--full-page-grid-with-margins);
+
         &__list {
             padding-top: 30px;
         }
