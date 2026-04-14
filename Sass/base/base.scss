@@ -1,6 +1,31 @@
 // header
 $cart-size: 16px;
 $gap : 0;
+@mixin caret-rotate {
+  transition: transform 0.4s ease;
+
+  &[aria-expanded='true'] {
+    .menu-list__caret {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@mixin cart-drawer {
+    width: 100%;
+    height: 100%;
+
+    cart-icon {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        .svg-wrapper {
+            width: $cart-size;
+            height: $cart-size;
+        }
+    }
+}
 
 // collection-filter
 $filter-size: 14px;
