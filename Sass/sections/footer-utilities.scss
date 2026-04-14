@@ -1,100 +1,80 @@
 @use '../base/base.scss' as *;
 
-footer {
+.footer-utilities {
+    .group-block:has(dropdown-localization-component) {
+        .dropdown-localization {
+            .dropdown-localization__button, .localization-form__select {
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 0;
+                background-color: var(--color-background);
+                padding-block: 0;
+                padding-inline-start: 0;
+            }
+
+            .dropdown-localization__button {
+                gap: 10px;
+                padding-inline-end: 0;
+            }
+
+            .localization-form__select {
+                padding-inline-end: 20px;
+            }
+
+            .language-selector {
+                padding-block: 0;
+                padding-inline-start: 0;
+            }
+        }
+
+    }
+
+    .payment-icons {
+        .icon.icon--full-color {
+            width: 34px;
+            height: 20px;
+        }
+    }
+
+    .footer-utilities__group-copyright {
+        line-height: 18px;
+        letter-spacing: -0.5px;
+        color: rgb(var(--color-foreground-rgb));
+
+        a {
+            color: rgb(var(--color-foreground-rgb));
+        }
+    }
+}
+
+@media screen and (min-width: 750px) {
     .footer-utilities {
         .utilities {
+            padding-block-end: max(10px, calc(var(--padding-block-end) - 5px)) !important;
+            grid-template-columns: auto auto 1fr;
+            gap: calc(var(--gap) + 13px);
+
             .group-block:has(dropdown-localization-component) {
                 .group-block-content {
-                    .localization__wrapper {
-                        .dropdown-localization {
-                            .dropdown-localization__button, .localization-form__select {
-                                font-size: 14px;
-                                line-height: 18px;
-                                letter-spacing: 0;
-                                background-color: var(--color-background);
-                                padding-block: 0;
-                                padding-inline-start: 0;
-                            }
-
-                            .dropdown-localization__button {
-                                gap: 10px;
-                                padding-inline-end: 0;
-                            }
-
-                            .localization-form__select {
-                                padding-inline-end: 20px;
-                            }
-
-                            .language-selector {
-                                padding-block: 0;
-                                padding-inline-start: 0;
-                            }
-                        }
+                    gap: max(10px, calc(var(--gap) - 13px));
+                    
+                    .dropdown-localization__button, .localization-form__select {
+                        font-size: 14px;
+                        line-height: 18px;
                     }
                 }
             }
 
             .payment-icons {
                 .payment-icons__list {
-                    .payment-icons__item {
-                        .icon.icon--full-color {
-                            width: 34px;
-                            height: 20px;
-                        }
-                    }
+                    justify-content: flex-end;
+                    margin-inline-end: -3px;
                 }
             }
 
             .footer-utilities__group-copyright {
-                line-height: 18px;
-                letter-spacing: -0.5px;
-                color: rgb(var(--color-foreground-rgb));
-
-                a {
-                    color: rgb(var(--color-foreground-rgb));
-                }
-            }
-        }
-    }
-}
-
-@media screen and (min-width: 750px) {
-    footer {
-        .footer-utilities {
-            .utilities {
-                padding-block-end: max(10px, calc(var(--padding-block-end) - 5px)) !important;
-                grid-template-columns: auto auto 1fr;
-                gap: calc(var(--gap) + 13px);
-
-                .group-block:has(dropdown-localization-component) {
-
-                    .group-block-content {
-                        gap: max(10px, calc(var(--gap) - 13px));
-
-                        .localization__wrapper {
-                            .dropdown-localization {
-                                .dropdown-localization__button, .localization-form__select {
-                                    font-size: 14px;
-                                    line-height: 18px;
-                                }
-
-    
-                            }
-                        }
-                    }
-                }
-
-                .payment-icons {
-                    .payment-icons__list {
-                        justify-content: flex-end;
-                        margin-inline-end: -3px;
-                    }
-                }
-
-                .footer-utilities__group-copyright {
-                    letter-spacing: -0.3px;
-                    grid-row-end: none;
-                }
+                letter-spacing: -0.3px;
+                grid-row-end: none;
             }
         }
     }
