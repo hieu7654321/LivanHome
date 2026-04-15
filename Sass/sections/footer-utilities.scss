@@ -27,6 +27,9 @@
             }
         }
 
+        dropdown-localization-component .localization-wrapper {
+            top: calc(100% + -175px);
+        }
     }
 
     .payment-icons {
