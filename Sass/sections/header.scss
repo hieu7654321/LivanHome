@@ -35,13 +35,13 @@ header-component {
                 @include cart-drawer;
             }
         }
-
-        @media screen and (max-width: 749px) {
-            #swym-advanced-header-icon {
-                display: none !important;
-            }   
-        }
     }
+}
+
+@media screen and (max-width: 749px) {
+    #swym-advanced-header-icon.swym-advanced-header-icon.swym-header-icon-wrapper {
+        display: none !important;
+    }   
 }
 
 @media screen and (min-width: 750px) {

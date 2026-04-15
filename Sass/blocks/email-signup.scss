@@ -1,7 +1,7 @@
 @use '../base/base.scss' as *;
 
 .group-block:has(.email-signup-block) {
-    max-width: 400px;
+    max-width: 520px;
 
     .email-signup-block:has(.email-signup__heading--custom) {
         .email-signup__heading--custom {
@@ -9,10 +9,6 @@
             line-height: 36px;
             letter-spacing: 0;
             padding: 2px 10px 10px 0;
-        }
-
-        .email-signup__form {
-            max-width: 367px;
         }
 
         .email-signup__input {
@@ -49,6 +45,10 @@
     footer {
         --page-margin: 50px !important;
 
+        .group-block:has(.email-signup-block) {
+            max-width: 400px;
+        }
+
         .footer-content {
             padding-block-start: max(20px, calc(var(--padding-block-start) - 3px));
         }
@@ -56,6 +56,10 @@
         .email-signup__heading--custom {
             font-size: 30px !important;
             line-height: 32px !important;
+        }
+
+        .email-signup__form {
+            max-width: 367px;
         }
     }
 }

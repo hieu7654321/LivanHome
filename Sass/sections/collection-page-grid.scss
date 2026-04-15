@@ -1,0 +1,43 @@
+@use '../base/base.scss' as *;
+
+#ResultsList.main-collection-grid {
+    --grid--margin--mobile: 0 14px !important;
+
+    li.product-grid__item--span {
+        grid-column: span 2;
+    }
+
+    .product-badges {
+        display: inline-flex;
+        flex-wrap: wrap;
+        max-width: 70%;
+        column-gap: 3px;
+        row-gap: 0.5px;
+
+        .product-badges__badge {
+            font-size: 10px;
+            line-height: 12px;
+            font-weight: 500;
+        }
+
+        .product-badges__badge--rectangle {
+            padding-block: 2px;
+            padding-inline: 6.74px;
+        }
+    }
+
+    .product-badges--top-left {
+        top: 5px;
+        left: 5px;
+    }
+
+    .price__sale {
+        .price-item--sale {
+            color: #FF0034;
+        }
+
+        .price-item__group:not(:first-child) {
+            margin-left: 8px;
+        }
+    }
+}

@@ -53,7 +53,7 @@
         {% for product in collection.products %}
           <li
             id="{{ section.id }}-{{ product.id }}"
-            class="product-grid__item product-grid__item--{{ forloop.index0 }}"
+            class="product-grid__item product-grid__item--{{ forloop.index0 }} {% if product.metafields.product.span_2_image == true %}product-grid__item--span{% endif %}"
             data-page="{{ paginate.current_page }}"
             data-product-id="{{ product.id }}"
             ref="cards[]"

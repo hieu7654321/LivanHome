@@ -6,12 +6,13 @@
 @use './sections/icon-with-text.scss';
 @use './sections/footer-utilities.scss';
 
-@use './sections/breadcrumbs.scss';
-@use './sections/collection-page-header.scss';
-
 @use './blocks/product-card.scss';
 @use './blocks/media-block.scss';
 @use './blocks/email-signup.scss';
 @use './blocks/navigation-shop.scss';
+
+@use './sections/breadcrumbs.scss';
+@use './sections/collection-page-header.scss';
+@use './sections/collection-page-grid.scss';
 
 @use './blocks/collection-filter.scss';

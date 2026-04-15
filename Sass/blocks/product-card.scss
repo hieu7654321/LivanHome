@@ -5,6 +5,10 @@ product-card {
         slideshow-component {
             slideshow-slides {
                 height: clamp(var(--custom-fixed-height) , 55vw, 400px) !important;
+
+                .product-media {
+                    background-color: #fbfaf6;
+                }
             }
 
             slideshow-controls {
@@ -119,7 +123,7 @@ product-card {
             }
         }
 
-        .text-block.custom-typography {
+        .text-block.custom-typography.custom-font-size {
             &:has(p[role='heading']) {
                 --font-size: calc(var(--font-size) + 2px) !important;
             }
