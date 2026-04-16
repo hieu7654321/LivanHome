@@ -34,6 +34,10 @@
         padding-block-start: max(10px, calc(var(--padding-block-start) + 44px ));
         row-gap: calc(var(--gap) + 15px);
 
+        :is(slideshow-component:hover, slideshow-component:focus-within):not(:has(slideshow-controls:hover)) > slideshow-container > slideshow-arrows .slideshow-control {
+            animation: none;
+        }
+
         .group-block:first-child {
             .text-block {
 
