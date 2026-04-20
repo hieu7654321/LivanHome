@@ -64,19 +64,11 @@
             }
 
             .button.add-to-cart-button {
-                width: 30px;
-                height: 30px;
                 border-radius: 0;
-
-                .svg-wrapper svg {
-                    width: 16.1px;
-                    height: 19.6px;
-                }
+                @include add-to-cart-button;
             }
 
             .add-to-cart-text {
-                width: 100%;
-
                 .add-to-cart-icon {
                     width: 28px;
                 }
@@ -106,6 +98,7 @@
 
             product-card slideshow-slides {
                 height: calc((100vw - (var(--page-margin) * 2) - 20px) * 5 / 12 ) !important;
+                max-height: 584px;
             }
         }
 
@@ -147,17 +140,7 @@
         }
 
         .button.add-to-cart-button {
-            min-width: 30px;
-            height: 30px;
-
-            .add-to-cart-text {
-                width: 100%;
-            }
-
-            .svg-wrapper svg {
-                width: 16.1px;
-                height: 19.6px;
-            }
+            @include add-to-cart-button;
         }
     }
 }

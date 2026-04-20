@@ -1,14 +1,16 @@
 @use '../base/base.scss' as *;
 
+slideshow-slides {
+    .product-media {
+        background-color: #fbfaf6;
+    }
+}
+
 product-card {
     .card-gallery {
         slideshow-component {
             slideshow-slides {
                 height: clamp(var(--custom-fixed-height) , 55vw, 400px) !important;
-
-                .product-media {
-                    background-color: #fbfaf6;
-                }
             }
 
             slideshow-controls {
