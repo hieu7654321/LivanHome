@@ -1,0 +1,240 @@
+{% comment %} <section
+  id="recently-viewed-products-section"
+  class="predictive-search-results__products-section {{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  style="
+    --section-gap: {{ section.settings.gap }}px;
+    --padding-block-start: {{ section.settings.padding-block-start }}px;
+    --padding-block-end: {{ section.settings.padding-block-end }}px;
+    --columns: {{ section.settings.columns }};
+    --mobile-columns: {{ section.settings.mobile_columns }};
+    --columns-gap: {{ section.settings.columns_gap }}px;
+    --rows-gap: {{ section.settings.rows_gap }}px;
+  "
+>
+  <div class="recently-viewed-wrapper" ref="recentlyViewedWrapper">
+    <h4
+      class="predictive-search-results__title"
+      ref="recentlyViewedTitle[]"
+    >
+      {{ section.settings.heading | default: 'Recently Viewed Products' }}
+      <button
+        class="predictive-search-results__clear button button-unstyled"
+        type="button"
+        on:click="/clearRecentlyViewedProducts"
+      >
+        {{ 'actions.clear' | t }}
+      </button>
+    </h4>
+
+    <ul
+      class="predictive-search-results__list predictive-search-results__wrapper-products list-unstyled"
+      data-recently-viewed-list
+    >
+      {% liquid
+        assign limit = limit | default: 8
+      %}
+      {% for product in products limit: limit %}
+        <li
+          class="predictive-search-results__card predictive-search-results__card--product"
+          ref="resultsItems[]"
+        >
+          {% render 'resource-card',
+            resource_type: 'product',
+            resource: product,
+            image_width: 500,
+            image_hover: true,
+            image_aspect_ratio: '4 / 5'
+          %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% stylesheet %}
+  #recently-viewed-products-section {
+    padding-block-start: var(--padding-block-start);
+    padding-block-end: var(--padding-block-end);
+  }
+
+  #recently-viewed-products-section .recently-viewed-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap);
+  }
+
+  #recently-viewed-products-section .predictive-search-results__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  #recently-viewed-products-section .predictive-search-results__list {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+    column-gap: var(--columns-gap);
+    row-gap: var(--rows-gap);
+  }
+
+  @media (max-width: 749px) {
+    #recently-viewed-products-section .predictive-search-results__list {
+      grid-template-columns: repeat(var(--mobile-columns), minmax(0, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Recently Viewed Products",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:settings.heading",
+      "default": "Recently Viewed Products"
+    },
+    {
+      "type": "range",
+      "id": "max_products",
+      "label": "Product count",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:settings.columns",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "t:settings.mobile_columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:options.one_number"
+        },
+        {
+          "value": "2",
+          "label": "t:options.two_number"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "t:settings.horizontal_gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "rows_gap",
+      "label": "t:settings.vertical_gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "t:content.section_layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@theme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recently Viewed Products",
+      "category": "t:categories.products",
+      "settings": {
+        "heading": "Recently Viewed Products",
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 16,
+        "rows_gap": 24,
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 32,
+        "padding-block-end": 32
+      }
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
