@@ -20,6 +20,18 @@
     when 'carousel'
       assign classes = 'resource-list--carousel'
   endcase
+
+  assign icon_name = 'arrow'
+  assign style = block_settings.icons_style | default: 'arrow'
+  assign shape = block_settings.icons_shape | default: 'none'
+
+  if block_settings.icons_style contains 'chevron'
+    assign icon_name = 'caret'
+  endif
+
+  if block_settings.icons_style contains 'large'
+    assign icon_size = 'large'
+  endif
 %}
 
 {% comment %}
@@ -103,6 +115,66 @@
         {% endfor %}
       {% endcapture %}
 
+      {% if recommendations.products.size > 1 %}
+        {% capture controls %}
+          <div
+              class="slideshow__counter--custom"
+          >
+            <div class="slideshow__counter--header">{{ block.settings.rc_header }}</div>
+            <div class="slideshow__counter--content">
+              <button
+                class="
+                  slideshow-control--custom slideshow-control--previous
+                  {% if icon_size %} slideshow-control--{{ icon_size }}{% endif %}
+                  {% if shape != 'none' %} slideshow-control--shape-{{ shape }}{% endif %}
+                  slideshow-control--style-{{ style }} button button-unstyled button-unstyled--transparent flip-x
+                "
+                {% # theme-check-disable %}
+                aria-label="{{ 'accessibility.slideshow_previous' | t }}"
+                {% # theme-check-enable %}
+                on:click="/previous"
+                ref="previous"
+              >
+                <span class="svg-wrapper icon-{{ icon_name }}">
+                  {%- if icon_name == 'caret' -%}
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  {%- else -%}
+                    {{- 'icon-arrow.svg' | inline_asset_content -}}
+                  {%- endif -%}
+                </span>
+              </button>
+              {%- render 'slideshow-controls',
+                style: 'counter',
+                item_count: recommendations.products.size,
+                controls_on_media: true,
+                pagination_position: 'center'
+              -%}
+              <button
+                class="
+                  slideshow-control--custom slideshow-control--next
+                  {% if icon_size %} slideshow-control--{{ icon_size }}{% endif %}
+                  {% if shape != 'none' %} slideshow-control--shape-{{ shape }}{% endif %}
+                  slideshow-control--style-{{ style }} button button-unstyled button-unstyled--transparent
+                "
+                {% # theme-check-disable %}
+                aria-label="{{ 'accessibility.slideshow_next' | t }}"
+                {% # theme-check-enable %}
+                on:click="/next"
+                ref="next"
+              >
+                <span class="svg-wrapper icon-{{ icon_name }}">
+                  {%- if icon_name == 'caret' -%}
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  {%- else -%}
+                    {{- 'icon-arrow.svg' | inline_asset_content -}}
+                  {%- endif -%}
+                </span>
+              </button>
+            </div>
+          </div>
+        {% endcapture %}
+      {% endif %}
+
       {% liquid
         # Create an array from the list items to be used in the carousel
         assign slide_content = list_items | strip
@@ -136,7 +208,8 @@
               ref: 'resourceListCarousel',
               slides: slides,
               slide_count: recommendations.products.size,
-              settings: block_settings
+              settings: block_settings,
+              show_controls: controls
             %}
         {% endcase %}
       </div>
@@ -157,7 +230,8 @@
             ref: 'resourceListCarouselMobile',
             slides: slides,
             slide_count: recommendations.products.size,
-            settings: block_settings
+            settings: block_settings,
+            show_controls: controls
           %}
         </div>
       {% endif %}
@@ -294,6 +368,11 @@
       "type": "header",
       "content": "t:content.carousel_navigation",
       "visible_if": "{{ block.settings.layout_type == 'carousel' or block.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "text",
+      "id": "rc_header",
+      "label": "Recommend Heading"
     },
     {
       "type": "select",

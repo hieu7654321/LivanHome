@@ -60,7 +60,7 @@
             }
         }
 
-        slideshow-.media-gallery__mobile-controls {
+        slideshow-controls.media-gallery__mobile-controls {
             display: flex;
             position: relative;
             top: 0;
@@ -109,13 +109,7 @@
     }
 
     .product-form-buttons:has(.add-to-cart-button.button-secondary) .quantity-selector {
-        --quantity-selector-width: 105px;
-        --minimum-touch-target: 39.5px;
-        border-radius: 5px;
-
-        input {
-            font-size: 12px;
-        }
+        @include quantity-selector;
     }
 
     .add-to-cart-button {

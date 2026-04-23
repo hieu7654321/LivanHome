@@ -10,19 +10,29 @@
     {{- 'icon-caret.svg' | inline_asset_content -}}
     </span> {% endcomment %}
 
-    {% if section.settings.level_1_text != blank %}
+    {% if section.settings.breadcrumb-collection %}
+      {% assign collection_name = section.settings.breadcrumb-collection %}
       <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>
       <li class="breadcrumbs__item">
-        {% if section.settings.level_1_url != blank %}
-          <a class="breadcrumbs__link" href="{{ section.settings.level_1_url }}">
-            {{ section.settings.level_1_text | escape }}
-          </a>
-        {% else %}
-          <span class="breadcrumbs__text">
-            {{ section.settings.level_1_text | escape }}
-          </span>
-        {% endif %}
+        <a class="breadcrumbs__link" href="{{ collection_name.url }}">
+          {{ collection_name.title }}
+        </a>
       </li>
+    {% else %}
+      {% if section.settings.level_1_text != blank %}
+        <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>
+        <li class="breadcrumbs__item">
+          {% if section.settings.level_1_url != blank %}
+            <a class="breadcrumbs__link" href="{{ section.settings.level_1_url }}">
+              {{ section.settings.level_1_text | escape }}
+            </a>
+          {% else %}
+            <span class="breadcrumbs__text">
+              {{ section.settings.level_1_text | escape }}
+            </span>
+          {% endif %}
+        </li>
+      {% endif %}
     {% endif %}
 
     {% comment %} <span class="svg-wrapper">
@@ -49,15 +59,22 @@
       "content": "Collection Breadcrumbs"
     },
     {
+      "type": "collection",
+      "id": "breadcrumb-collection",
+      "label": "Collection"
+    },
+    {
       "type": "text",
       "id": "level_1_text",
       "label": "Collection Breadcrumbs",
-      "default": "Collection"
+      "default": "Collection",
+      "visible_if": "{{ section.settings.breadcrumb-collection == blank }}"
     },
     {
       "type": "url",
       "id": "level_1_url",
-      "label": "Collection Url"
+      "label": "Collection Url",
+      "visible_if": "{{ section.settings.breadcrumb-collection == blank }}"
     },
     {
       "type": "header",
