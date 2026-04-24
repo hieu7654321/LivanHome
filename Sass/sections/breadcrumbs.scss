@@ -16,6 +16,7 @@
         .breadcrumbs__item {
             display: inline-flex;
             align-items: center;
+            text-transform: capitalize;
         }
 
         .breadcrumbs__link {

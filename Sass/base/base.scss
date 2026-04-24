@@ -130,3 +130,13 @@ $filter-inner-size: 12px;
       }
   }
 }
+
+@mixin quantity-selector {
+  --quantity-selector-width: 105px;
+  --minimum-touch-target: 39.5px;
+  border-radius: 5px;
+
+  input {
+      font-size: 12px;
+  }
+}

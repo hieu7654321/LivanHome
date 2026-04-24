@@ -23,6 +23,7 @@
   @param {string} [arrows_position] - The position of the arrows, defaults to 'bottom'
   @param {string} [attributes] - Additional attributes to add to the slideshow component
   @param {boolean} [header] - The title of the slideshow
+  @param {object} [show_recommend]
 
   @example
   {% render 'slideshow', slides: slides, slide_count: collection.products.size, ref: 'mobileSlideshow' %}
@@ -100,6 +101,8 @@
   {% if header != blank %}
     {{ header }}
   {% endif %}
+
+  {{ show_recommend }}
   <slideshow-container ref="slideshowContainer">
     {% if show_arrows %}
       {% render 'slideshow-arrows', icon_style: icon_style, icon_shape: icon_shape, arrows_position: arrows_position %}
