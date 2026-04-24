@@ -115,4 +115,76 @@
             }
         }
     }
+
+    @media screen and (min-width: 750px) {
+        .breadcrumbs__list {
+            padding-block: 17px ;
+        }
+
+        .slideshow-controls__thumbnails {
+            padding-inline-start: 0;
+            padding-inline-end: 10.66px;
+            gap: 10.66px;
+
+            .slideshow-control {
+                width: clamp(44px, 10vw, 129px);
+            }
+        }
+
+        .slideshow-controls__thumbnail {
+            --aspect-ratio: 0.80625 !important;
+        }
+
+        .media-gallery--carousel {
+            slideshow-arrows {
+                display: none;
+            }
+        }
+
+        .product-information--media-left .product-details {
+            --gap: 79px !important;
+            padding-right: 39.5px;
+        }
+
+        .product-information__media {
+            padding-right: 2px !important;
+        }
+
+        .product-details > .group-block {
+            padding-block-start: 0;
+        }
+
+        .product-details:not(product-recommendation) {
+            .text-block:not(:has(p)) > * {
+                font-size: calc(var(--font-size) + 5px);
+                line-height: calc(var(--font-size) + 7px);
+            }
+
+            .text-block:not(:has(p)) ~ .text-block p {
+                max-width: 100%;
+            }
+        }
+
+        .shopify-app-block[data-block-handle='loox-rating'] {
+            padding-block: 1px;
+        }
+
+        .variant-picker {
+            padding-block-start: calc(var(--padding-block-start) + 9px);
+            padding-block-end: calc(var(--padding-block-end) + 9px);
+        }
+        .product-card__delivery {
+            padding-block-end: 9px;
+        }
+
+        .buy-buttons-block {
+            padding-block: 10px;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .product-information__grid--half {
+            grid-template-columns: var(--full-page-grid-margin) calc(var(--full-page-grid-central-column-width) / 2 +  10.3vw) calc(var(--full-page-grid-central-column-width) / 2 - 10.2vw) var(--full-page-grid-margin) !important;
+        }
+    }
 }
