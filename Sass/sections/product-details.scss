@@ -1,0 +1,103 @@
+@use '../base/base.scss' as *;
+
+.content-for-layout:has(.product-information__grid) {
+    .media-with-content {
+        .media-block > .swym-atw-btn-wrapper-for-img {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            object-position: top !important;
+        }
+
+        .text-block:has(+.accordion__custom) p {
+            line-height: calc(var(--font-size) + 2px);
+        }
+
+        accordion-custom {
+            .details__header {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 20px;
+                letter-spacing: 0;
+            }
+
+            .svg-wrapper.icon-plus {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    .accordion__custom {
+        gap: 15px;
+
+        accordion-custom:not(:last-child) .details {
+            border-block-end: none;
+        }
+
+        accordion-custom .details__header {
+            border-block-end: var(--style-border-width) solid var(--color-border);
+            padding-block: 15px 14px;
+        }
+        
+        .text-block p {
+            margin-block: 16px 0;
+            line-height: 18px;
+            letter-spacing: 0;
+        }
+    }
+
+    .media-with-content__content>.group-block-content {
+        padding-block: 50px !important;
+    }
+
+    @media screen and (max-width: 749px) {
+        .media-with-content {
+            padding-block-start: calc(var(--padding-block-start) + 112px);
+
+            &:has(.accordion__custom) {
+                --page-margin: 14px !important
+            }
+        }
+
+        .media-with-content__content > .group-block-content {
+            padding-inline: 0 !important;
+            gap: 30px !important;
+        }
+    }
+
+    @media screen and (min-width: 750px) {
+        .media-with-content {
+            padding-block-start: 0;
+
+            accordion-custom {
+                .details__header {
+                    font-size: 20px;
+                    line-height: 23px;
+                }
+            }
+        }
+
+        .media-block {
+            padding-inline-end: 20px;
+        }
+
+        .media-block__media {
+            position: static;
+        }
+
+        .text-block:has(+.accordion__custom) p {
+            font-size: var(--font-size);
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .media-with-content__content>.group-block-content {
+            padding-inline: 30px 72px !important;
+            padding-block: 78px !important;
+            gap: calc(var(--gap) * 2);
+        }
+    }
+}

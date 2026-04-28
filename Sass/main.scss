@@ -1,3 +1,4 @@
+//Home Page
 @use './sections/announcements.scss';
 @use './sections/header.scss';
 @use './sections/slideshow.scss';
@@ -11,6 +12,7 @@
 @use './blocks/email-signup.scss';
 @use './blocks/navigation-shop.scss';
 
+//Collection Page
 @use './sections/breadcrumbs.scss';
 @use './sections/collection-page-header.scss';
 @use './sections/collection-page-grid.scss';
@@ -19,6 +21,8 @@
 @use './blocks/collection-accordion.scss';
 @use './blocks/quick-add.scss';
 
+//Product Page
 @use './sections/product-pages.scss';
+@use './sections/product-details';
 
 @use './blocks/product-recommendation.scss';
