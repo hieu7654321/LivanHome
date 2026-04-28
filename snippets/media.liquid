@@ -45,10 +45,10 @@
           class: 'media-block__media border-style',
           unset_image_tag: unset_image_tag
         %}
-      {% else %}
+      {% comment %} {% else %}
         <div class="media-block__media border-style">
           {{ 'detailed-apparel-1' | placeholder_svg_tag: 'media-block__placeholder' }}
-        </div>
+        </div> {% endcomment %}
       {% endif %}
     {% endcapture %}
 

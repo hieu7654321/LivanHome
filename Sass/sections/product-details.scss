@@ -28,6 +28,10 @@
                 height: 20px;
             }
         }
+
+        &:not(:has(.media-block__content > *, .accordion__custom > *)) {
+            display: none;
+        }
     }
 
     .accordion__custom {
