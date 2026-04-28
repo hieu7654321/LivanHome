@@ -833,7 +833,6 @@
                           "type": "custom-recommendation",
                           "name": "Add to cart",
                           "settings": {
-                            "custom_label": "Add",
                             "icon_only_on_mobile": true,
                             "style_class": "button quick-add__button quick-add__button--add add-to-cart-button",
                             "full_width": true
@@ -974,7 +973,7 @@
         "enable_sticky_add_to_cart": true,
         "color_scheme": "scheme-c9ef77fd-ea2d-4d96-8bff-f1b833d0eb62",
         "padding-block-start": 0,
-        "padding-block-end": 32
+        "padding-block-end": 100
       }
     },
     "media_with_content_3R3mTy": {
@@ -985,11 +984,12 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "media_border_radius": 0,
+            "image": "{{ closest.product.metafields.details.image.value }}",
+            "media_border_radius": 5,
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
-            "image_position": "cover",
+            "image_position": "contain",
             "video_position": "cover",
             "floating_text": "",
             "floating_text_align": "center",
@@ -1013,7 +1013,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<p>Detalles del Producto</p>",
+                "text": "<p>{{ closest.product.metafields.details.product_details_title.value }}</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1044,7 +1044,7 @@
                 "type_preset": "h6",
                 "inherit_color_scheme": true,
                 "color_scheme": "",
-                "custom_accordion": false,
+                "custom_accordion": true,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -1058,7 +1058,7 @@
                 "accordion_row_kiWtTf": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Política de devoluciones",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_1.value }}",
                     "open_by_default": true,
                     "icon": "none",
                     "width": 20
@@ -1067,7 +1067,7 @@
                     "text_ykKhh6": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Nuestro objetivo es que cada cliente quede totalmente satisfecho con su compra. Si no es así, cuéntanoslo y haremos todo lo posible para solucionarlo.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_1 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1097,7 +1097,7 @@
                 "accordion_row_8WXRrX": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Envío",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_2.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1106,7 +1106,7 @@
                     "text_ccfcgH": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Trabajaremos para enviar tu pedido lo antes posible. Cuando se envíe, recibirás un correo electrónico con más información. Los tiempos de entrega varían según tu ubicación.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_2 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1136,7 +1136,7 @@
                 "accordion_row_cc8qtd": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Fabricación",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_3.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1145,7 +1145,7 @@
                     "text_AmaUKN": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Nuestros productos se fabrican tanto localmente como globalmente. Seleccionamos cuidadosamente a nuestros socios de fabricación para garantizar alta calidad y un precio justo.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_3 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1176,7 +1176,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "¿Cuándo recibiré mi pedido?",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_4.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1185,7 +1185,7 @@
                     "text_fhWJkR": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Trabajaremos para enviar tu pedido lo antes posible. Cuando se envíe, recibirás un correo electrónico con más información. Los tiempos de entrega varían según tu ubicación.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_4 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1216,7 +1216,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "¿Cuándo recibiré mi pedido?",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_5.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1225,7 +1225,7 @@
                     "text_HFPhWN": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Trabajaremos para enviar tu pedido lo antes posible. Cuando se envíe, recibirás un correo electrónico con más información. Los tiempos de entrega varían según tu ubicación.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_5 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1256,7 +1256,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "¿Cuándo recibiré mi pedido?",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_6.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1265,7 +1265,7 @@
                     "text_H9T6Ri": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Trabajaremos para enviar tu pedido lo antes posible. Cuando se envíe, recibirás un correo electrónico con más información. Los tiempos de entrega varían según tu ubicación.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_6 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1296,7 +1296,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "¿Cuándo recibiré mi pedido?",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_7.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1305,7 +1305,7 @@
                     "text_NXQwUF": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Trabajaremos para enviar tu pedido lo antes posible. Cuando se envíe, recibirás un correo electrónico con más información. Los tiempos de entrega varían según tu ubicación.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_7 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1336,7 +1336,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "¿Cuándo recibiré mi pedido?",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_8.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1345,7 +1345,7 @@
                     "text_iHEjdA": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Trabajaremos para enviar tu pedido lo antes posible. Cuando se envíe, recibirás un correo electrónico con más información. Los tiempos de entrega varían según tu ubicación.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_8 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1376,7 +1376,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "¿Cuándo recibiré mi pedido?",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_9.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1385,7 +1385,7 @@
                     "text_CkyCi7": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Trabajaremos para enviar tu pedido lo antes posible. Cuando se envíe, recibirás un correo electrónico con más información. Los tiempos de entrega varían según tu ubicación.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_9 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1416,7 +1416,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "¿Cuándo recibiré mi pedido?",
+                    "heading": "{{ closest.product.metafields.details.details_dropdown_10.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1425,7 +1425,7 @@
                     "text_aNFcLK": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Trabajaremos para enviar tu pedido lo antes posible. Cuando se envíe, recibirás un correo electrónico con más información. Los tiempos de entrega varían según tu ubicación.</p>",
+                        "text": "{{ closest.product.metafields.details.details_description_10 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1476,12 +1476,12 @@
       "name": "t:names.media_with_text",
       "settings": {
         "media_position": "left",
-        "media_width": "medium",
-        "media_height": "60svh",
+        "media_width": "wide",
+        "media_height": "auto",
         "section_width": "page-width",
-        "extend_media": true,
+        "extend_media": false,
         "color_scheme": "scheme-1",
-        "padding-block-start": 0,
+        "padding-block-start": 100,
         "padding-block-end": 0
       }
     },
@@ -1712,12 +1712,128 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "recently_viewed_AVFC4V": {
+      "type": "recently-viewed",
+      "blocks": {
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_yLhjWQ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "set_fixed_height": false,
+                "custom_fixed_height": 212,
+                "custom_fixed_height_desktop": 411,
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_mmRc3F": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gQFMLp": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_yLhjWQ",
+            "product_title_mmRc3F",
+            "price_gQFMLp"
+          ]
+        }
+      },
+      "name": "Recently Viewed Products",
+      "settings": {
+        "fallback_collection": "",
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
     }
   },
   "order": [
     "breadcrumbs_EUMgcQ",
     "product-information",
     "media_with_content_3R3mTy",
-    "product_recommendations_8RVdzU"
+    "product_recommendations_8RVdzU",
+    "recently_viewed_AVFC4V"
   ]
 }

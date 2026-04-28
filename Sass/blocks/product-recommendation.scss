@@ -201,6 +201,9 @@
         }
 
         product-recommendations {
+            .resource-list__carousel > slideshow-container {
+                padding-inline-end: 0.5px;
+            }
              
             product-card slideshow-slides {
                 padding-block: 20px;
