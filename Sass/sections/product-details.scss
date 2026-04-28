@@ -54,7 +54,7 @@
     }
 
     .media-with-content__content>.group-block-content {
-        padding-block: 50px !important;
+        padding-block: 50px 30px !important;
     }
 
     @media screen and (max-width: 749px) {
@@ -82,6 +82,10 @@
                     line-height: 23px;
                 }
             }
+        }
+
+        .accordion__custom .text-block p {
+            margin-block: 14px 0;
         }
 
         .media-block {

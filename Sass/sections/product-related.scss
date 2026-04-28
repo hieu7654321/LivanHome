@@ -1,1 +1,43 @@
 @use '../base/base.scss' as *;
+
+.content-for-layout:has(.product-information__grid) {
+    .shopify-section > product-recommendations {
+        .slideshow-controls__counter {
+            display: none;
+        }
+
+        .section-resource-list__content > .text-block > * {
+            @include product-carousel-title;
+        }
+
+        .resource-list__carousel .resource-list__slide {
+            width: clamp(150px, 45.07cqw, 300px);
+        }
+
+        .card-gallery slideshow-slides {
+            margin-block: 0;
+            padding-block: 0;
+        }
+
+        .user-select-text > .text-block>* {line-height: calc(var(--font-size) + 3px);}
+
+        .variant-option--swatches overflow-list::part(list) {
+            padding-block: 1px 1px;
+        }
+
+        @media screen and (min-width: 750px) {
+            .resource-list{
+                --resource-list-column-gap-desktop: 10px;
+            }
+
+            .section-resource-list {
+                padding-block-start: calc(var(--padding-block-start) + 80px) !important;
+                row-gap: calc(var(--gap) + 1px) !important;
+            }
+
+            .product-card__content {
+                gap: max(0px, #{calc(var(--product-card-gap) - 2px)}) !important;
+            }
+        }
+    }
+}

@@ -1492,8 +1492,8 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<p>Productos Relacionados</p>",
-            "width": "fit-content",
+            "text": "<p>Productos Relacionados&nbsp</p>",
+            "width": "100%",
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "custom",
@@ -1519,7 +1519,7 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 3,
+            "product_card_gap": 9,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
@@ -1561,7 +1561,7 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 3,
+                "gap": 4,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -1702,14 +1702,14 @@
         "max_products": 4,
         "columns": 4,
         "mobile_columns": "2",
-        "columns_gap": 10,
+        "columns_gap": 5,
         "rows_gap": 15,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
-        "gap": 28,
+        "gap": 19,
         "color_scheme": "scheme-c9ef77fd-ea2d-4d96-8bff-f1b833d0eb62",
-        "padding-block-start": 16,
+        "padding-block-start": 20,
         "padding-block-end": 10
       }
     },

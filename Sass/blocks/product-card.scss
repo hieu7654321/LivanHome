@@ -110,6 +110,10 @@ product-card {
     }
 }
 
+.product-card__content:not(:has(product-swatches)) ~ .product-card__delivery {
+    padding-block: 0rem 2px;
+}
+
 @media screen and (min-width: 750px) {
     product-card {
         .card-gallery {
@@ -173,5 +177,9 @@ product-card {
         .product-card__delivery {
             padding-block: 0.5rem 4px;
         }
+    }
+
+    .product-card__content:not(:has(product-swatches)) ~ .product-card__delivery {
+        padding-block: 0rem 4px;
     }
 }
