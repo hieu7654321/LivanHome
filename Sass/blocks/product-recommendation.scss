@@ -61,10 +61,7 @@
             .quick-add__button--choose {
                 display: none;
             }
-
-
         }
-
         .card-gallery ~ .group-block { grid-column: 2; grid-row: 2; position: relative; top: 3px; }
 
         .product-card__delivery, .swym-wishlist-collections-v2-container {
@@ -121,6 +118,10 @@
 
         .resource-list__carousel {
             gap: 10px;
+        }
+
+        .product-recommendations__skeleton-item {
+            transform: scaleY(0.616);            
         }
     }
 
@@ -201,6 +202,9 @@
         }
 
         product-recommendations {
+            .resource-list__carousel > slideshow-container {
+                padding-inline-end: 0.5px;
+            }
              
             product-card slideshow-slides {
                 padding-block: 20px;

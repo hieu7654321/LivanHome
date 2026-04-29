@@ -106,8 +106,6 @@ $filter-inner-size: 12px;
 }
 
 @mixin image-variant-picker {
-  --variant-picker-swatch-width: 59px;
-  --variant-picker-swatch-height: 74px;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -129,6 +127,11 @@ $filter-inner-size: 12px;
           font-weight: 400;
       }
   }
+
+  &:has(.swatch--variant-image) {
+    --variant-picker-swatch-width: 59px;
+    --variant-picker-swatch-height: 74px;
+  }
 }
 
 @mixin quantity-selector {
@@ -138,5 +141,14 @@ $filter-inner-size: 12px;
 
   input {
       font-size: 12px;
+  }
+}
+
+@mixin product-carousel-title {
+  line-height: calc(var(--font-size) + 4px);
+
+  @media screen and (min-width: 750px) {
+    font-size: calc(var(--font-size) - 2px);
+    line-height: var(--font-size);
   }
 }
