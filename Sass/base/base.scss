@@ -106,8 +106,6 @@ $filter-inner-size: 12px;
 }
 
 @mixin image-variant-picker {
-  --variant-picker-swatch-width: 59px;
-  --variant-picker-swatch-height: 74px;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -128,6 +126,11 @@ $filter-inner-size: 12px;
       .variant-option__swatch-value {
           font-weight: 400;
       }
+  }
+
+  &:has(.swatch--variant-image) {
+    --variant-picker-swatch-width: 59px;
+    --variant-picker-swatch-height: 74px;
   }
 }
 

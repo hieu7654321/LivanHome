@@ -93,7 +93,7 @@
         >
           {{ product.title | escape }}
         </p>
-        <div
+        {% comment %} <div
           class="sticky-add-to-cart__variant"
           data-testid="sticky-variant-title"
           {% if product.has_only_default_variant %}
@@ -106,15 +106,28 @@
             {% endif %}
             {{ variant_title }}
           {% endunless %}
+        </div> {% endcomment %}
+        <div
+          class="sticky-add-to-cart__price"
+          data-testid="sticky-price-display"
+        >
+          {% render 'price', product_resource: product, show_sale_price_first: true %}
         </div>
       </div>
 
-      <div
-        class="sticky-add-to-cart__price"
-        data-testid="sticky-price-display"
-      >
-        {% render 'price', product_resource: product, show_sale_price_first: true %}
+      <div class="sticky__variant-picker">
+        {% liquid
+          assign product_resource = closest.product
+          if request.visual_preview_mode and product_resource == blank
+            assign product_resource = collections.all.products.first
+          endif
+        -%}
+        {% render 'variant-main-picker', product_resource: product_resource, section: section, product: product, show_swatches: false, variant_style: 'dropdowns' %}
       </div>
+
+    <div class="sticky__quantity-selector">
+      {% render 'quantity-selector', product: closest.product %}
+    </div>
 
       <button
         type="button"
