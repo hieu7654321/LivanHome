@@ -19,6 +19,12 @@ main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
     }
 }
 
+main.content-for-layout:has(.search-page-input__parent) {
+    .facets-toggle {
+        margin: 0 0 30px 0;
+    }
+}
+
 @media screen and (max-width: 749px) {
     main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
         .section-resource-list {

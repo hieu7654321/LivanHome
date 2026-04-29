@@ -191,7 +191,7 @@
       "other": "{{ count }} productos",
       "many": "{{ count }} productos"
     },
-    "recently_viewed_products": "Visto recientemente",
+    "recently_viewed_products": "Producto visto recientemente",
     "unavailable": "No disponible",
     "collection_placeholder": "Título de la colección",
     "product_card_placeholder": "Nombre del producto",
