@@ -1,3 +1,5 @@
+<script src="{{ 'recently-viewed-section.js' | asset_url }}" defer></script>
+
 {% liquid
   case section.settings.layout_type
     when 'grid'
@@ -51,203 +53,190 @@
       {%  render 'gap-style', value: section.settings.gap %}
       {{ styles }}
     "
+    data-search-results
     id="predictive-search-products"
   >
     <div class="section-resource-list__content">
       {% content_for 'blocks' %}
     </div>
 
-    {% liquid
-        assign collection = settings.empty_state_collection | default: collections.all
-        assign default_title = 'content.search_results_resource_products' | t
-        assign title = settings.empty_state_collection.title | default: default_title
-        assign limit = section.settings.max_products
-    %}
-    {% paginate collection.products by limit %}
-        {% assign products = collection.products %}
-        {% if products.size > 0 %}
-            {%- liquid  
-                assign title = 'content.recently_viewed_products' | t
+    {% assign products = search.results %}
+    {% assign limit = section.settings.max_products %}
+    {% if search.terms contains 'id:' and products.size > 0 %}
+        {% assign new_products_ids = search.terms | replace: 'id:', '' | split: ' OR ' %}
+        {% if search.terms contains 'id:' %}
+              <p
+                  class="recent-views__title"
+                  ref="recentlyViewedTitle[]"
+              >
+                  {{ 'content.recently_viewed_products' | t }}
+                  <button
+                  class="recent-views__clear button button-unstyled"
+                  type="button"
+                  on:click="/clearRecentlyViewedProducts"
+                  >
+                  {{ 'actions.clear' | t }}
+                  </button>
+                </p>
 
-                if search.terms contains 'id:'
-                    assign new_products_ids = search.terms | replace: 'id:', '' | split: ' OR '
-                endif
-            -%}
-            {%- liquid
-                assign recently_viewed_title_text = 'content.recently_viewed_products' | t
-            -%}
+              <ul
+                  class="
+                  resource-list
+                  {% if section.settings.layout_type == 'carousel' %}
+                      force-full-width
+                  {% endif %}
+                  {% if section.settings.carousel_on_mobile and section.settings.layout_type != 'carousel' %}
+                      hidden--mobile
+                  {% endif %}
+                  list-unstyled
+                  {{ classes }}
+                  "
+                  {% if section.settings.layout_type == 'grid' %}
+                  data-testid="resource-list-grid"
+                  {% endif %}
+              >
+                  {% if new_products_ids != blank %}
+                      {% capture list_items %}
+                          {% for _id in new_products_ids %}
+                              {% assign int_id = _id | times: 1 %}
+                              {% assign product = products | find: 'id', int_id %}
+                              {% if product %}
+                                  <li class="resource-list__item recent-views__item">
+                                      {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
+                                  </li>
+                              {% endif %}
+                              {% unless forloop.last %}
+                              <!--@list/split-->
+                              {% endunless %}
+                          {% endfor %}
+                      {% endcapture %}
 
-            {% if title == recently_viewed_title_text  %}
-                <div class="recent-views__wrapper" ref="recentlyViewedWrapper">
-                    <h4
-                        class="recent-views__title"
-                        ref="recentlyViewedTitle[]"
-                    >
-                        {{ title }}
-                        <button
-                        class="recent-views__clear button button-unstyled"
-                        type="button"
-                        on:click="/clearRecentlyViewedProducts"
-                        >
-                        {{ 'actions.clear' | t }}
-                        </button>
-                    </h4>
+                      {% liquid
+                          # Create an array from the list items to be used in the carousel
+                          assign slide_content = list_items | strip
+                          assign slides = slide_content | split: '<!--@list/split-->'
+                      %}
 
-                    <ul
-                        class="
-                        resource-list
-                        {% if section.settings.layout_type == 'carousel' %}
-                            force-full-width
-                        {% endif %}
-                        {% if section.settings.carousel_on_mobile and section.settings.layout_type != 'carousel' %}
-                            hidden--mobile
-                        {% endif %}
-                        list-unstyled
-                        {{ classes }}
-                        "
-                        {% if section.settings.layout_type == 'grid' %}
-                        data-testid="resource-list-grid"
-                        {% endif %}
-                    >
-                        {% if new_products_ids != blank %}
-                            {% capture list_items %}
-                                {% for _id in new_products_ids %}
-                                    {% assign int_id = _id | times: 1 %}
-                                    {% assign product = products | find: 'id', int_id %}
-                                    <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
-                                        {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-                                    </li>
-                                    {% unless forloop.last %}
-                                    <!--@list/split-->
-                                    {% endunless %}
-                                {% endfor %}
-                            {% endcapture %}
+                      {% case section.settings.layout_type %}
+                          {% when 'grid' %}
+                              {{ list_items }}
+                          {% when 'carousel' %}
+                              {% render 'resource-list-carousel',
+                              ref: 'resourceListCarousel',
+                              slides: slides,
+                              slide_count: limit,
+                              settings: section.settings
+                          %}
+                      {% endcase %}
+                  {% else %}
+                      {% capture list_items %}
+                          {% for product in products limit: limit %}
+                              <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
+                                  {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
+                              </li>
+                              {% unless forloop.last %}
+                                  <!--@list/split-->
+                              {% endunless %}              
+                          {% endfor %}
+                      {% endcapture %}
+                      {% liquid
+                          # Create an array from the list items to be used in the carousel
+                          assign slide_content = list_items | strip
+                          assign slides = slide_content | split: '<!--@list/split-->'
+                      %}
 
-                            {% liquid
-                                # Create an array from the list items to be used in the carousel
-                                assign slide_content = list_items | strip
-                                assign slides = slide_content | split: '<!--@list/split-->'
-                            %}
+                      {% case section.settings.layout_type %}
+                          {% when 'grid' %}
+                              {{ list_items }}
+                          {% when 'carousel' %}
+                              {% render 'resource-list-carousel',
+                              ref: 'resourceListCarousel',
+                              slides: slides,
+                              slide_count: limit,
+                              settings: section.settings
+                          %}
+                      {% endcase %}
+                  {% endif %}
+              </ul>
 
-                            {% case section.settings.layout_type %}
-                                {% when 'grid' %}
-                                    {{ list_items }}
-                                {% when 'carousel' %}
-                                    {% render 'resource-list-carousel',
-                                    ref: 'resourceListCarousel',
-                                    slides: slides,
-                                    slide_count: limit,
-                                    settings: section.settings
-                                %}
-                            {% endcase %}
-                        {% else %}
-                            {% capture list_items %}
-                                {% for product in products limit: limit %}
-                                    <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
-                                        {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-                                    </li>
-                                    {% unless forloop.last %}
-                                        <!--@list/split-->
-                                    {% endunless %}              
-                                {% endfor %}
-                            {% endcapture %}
-                            {% liquid
-                                # Create an array from the list items to be used in the carousel
-                                assign slide_content = list_items | strip
-                                assign slides = slide_content | split: '<!--@list/split-->'
-                            %}
+              {% if section.settings.carousel_on_mobile and section.settings.layout_type != 'carousel' %}
+                  {% liquid
+                      assign mobile_carousel_gap = section.settings.columns_gap
+                  %}
+                  <ul
+                      class="
+                          resource-list
+                          hidden--desktop
+                          force-full-width
+                          list-unstyled
+                      "
+                      style="
+                          --resource-list-gap: {{ mobile_carousel_gap }}px;
+                          --column-count: {{ section.settings.columns }};
+                      "
+                  >
+                      {% if new_products_ids != blank %}
+                          {% capture list_items %}
+                              {% for _id in new_products_ids %}
+                                  {% assign int_id = _id | times: 1 %}
+                                  {% assign product = products | find: 'id', int_id %}
+                                  <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
+                                      {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
+                                  </li>
+                                  {% unless forloop.last %}
+                                  <!--@list/split-->
+                                  {% endunless %}
+                              {% endfor %}
+                          {% endcapture %}
 
-                            {% case section.settings.layout_type %}
-                                {% when 'grid' %}
-                                    {{ list_items }}
-                                {% when 'carousel' %}
-                                    {% render 'resource-list-carousel',
-                                    ref: 'resourceListCarousel',
-                                    slides: slides,
-                                    slide_count: limit,
-                                    settings: section.settings
-                                %}
-                            {% endcase %}
-                        {% endif %}
-                    </ul>
+                          {% liquid
+                              # Create an array from the list items to be used in the carousel
+                              assign slide_content = list_items | strip
+                              assign slides = slide_content | split: '<!--@list/split-->'
+                          %}
 
-                    {% if section.settings.carousel_on_mobile and section.settings.layout_type != 'carousel' %}
-                        {% liquid
-                            assign mobile_carousel_gap = section.settings.columns_gap
-                        %}
-                        <ul
-                            class="
-                                resource-list
-                                hidden--desktop
-                                force-full-width
-                                list-unstyled
-                            "
-                            style="
-                                --resource-list-gap: {{ mobile_carousel_gap }}px;
-                                --column-count: {{ section.settings.columns }};
-                            "
-                        >
-                            {% if new_products_ids != blank %}
-                                {% capture list_items %}
-                                    {% for _id in new_products_ids %}
-                                        {% assign int_id = _id | times: 1 %}
-                                        {% assign product = products | find: 'id', int_id %}
-                                        <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
-                                            {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-                                        </li>
-                                        {% unless forloop.last %}
-                                        <!--@list/split-->
-                                        {% endunless %}
-                                    {% endfor %}
-                                {% endcapture %}
+                          {% render 'resource-list-carousel',
+                              ref: 'resourceListCarousel',
+                              slides: slides,
+                              slide_count: limit,
+                              settings: section.settings
+                          %}
+                      {% else %}
+                          {% capture list_items %}
+                              {% for product in products limit: limit %}
+                                  <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
+                                      {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
+                                  </li>
+                                  {% unless forloop.last %}
+                                      <!--@list/split-->
+                                  {% endunless %}              
+                              {% endfor %}
+                          {% endcapture %}
+                          {% liquid
+                              # Create an array from the list items to be used in the carousel
+                              assign slide_content = list_items | strip
+                              assign slides = slide_content | split: '<!--@list/split-->'
+                          %}
 
-                                {% liquid
-                                    # Create an array from the list items to be used in the carousel
-                                    assign slide_content = list_items | strip
-                                    assign slides = slide_content | split: '<!--@list/split-->'
-                                %}
+                          {% render 'resource-list-carousel',
+                              ref: 'resourceListCarousel',
+                              slides: slides,
+                              slide_count: limit,
+                              settings: section.settings
+                          %}
+                      {% endif %}
+                  </ul>
+                {% endif %}
 
-                                {% render 'resource-list-carousel',
-                                    ref: 'resourceListCarousel',
-                                    slides: slides,
-                                    slide_count: limit,
-                                    settings: section.settings
-                                %}
-                            {% else %}
-                                {% capture list_items %}
-                                    {% for product in products limit: limit %}
-                                        <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
-                                            {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-                                        </li>
-                                        {% unless forloop.last %}
-                                            <!--@list/split-->
-                                        {% endunless %}              
-                                    {% endfor %}
-                                {% endcapture %}
-                                {% liquid
-                                    # Create an array from the list items to be used in the carousel
-                                    assign slide_content = list_items | strip
-                                    assign slides = slide_content | split: '<!--@list/split-->'
-                                %}
-
-                                {% render 'resource-list-carousel',
-                                    ref: 'resourceListCarousel',
-                                    slides: slides,
-                                    slide_count: limit,
-                                    settings: section.settings
-                                %}
-                            {% endif %}
-                        </ul>
-                    {% endif %}
-                </div>
-            {% endif %}
-            
-        {% else %}
-          <div class="recent-products__no-results">
-            <p>{{ 'content.no_products_found' | t }}</p>
-          </div>
         {% endif %}
-    {% endpaginate %}
+        
+    {% else %}
+      {% if search.performed %}
+        <div class="recent-products__no-results">
+          <p>{{ 'content.no_products_found' | t }}</p>
+        </div>
+      {% endif %}
+    {% endif %}
   </div>
 </div>
 

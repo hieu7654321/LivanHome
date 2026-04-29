@@ -1721,7 +1721,7 @@
           "name": "t:names.header",
           "disabled": true,
           "settings": {
-            "text": "<h3>Producto visto recientemente</h3>",
+            "text": "<h3>Productos Vistos Recientemente</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -1748,7 +1748,7 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 9,
+            "product_card_gap": 5,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
@@ -1939,8 +1939,8 @@
         "section_width": "page-width",
         "gap": 19,
         "color_scheme": "scheme-c9ef77fd-ea2d-4d96-8bff-f1b833d0eb62",
-        "padding-block-start": 20,
-        "padding-block-end": 10
+        "padding-block-start": 18,
+        "padding-block-end": 68
       }
     }
   },

@@ -1,7 +1,7 @@
 @use '../base/base.scss' as *;
 
 .content-for-layout:has(.product-information__grid) {
-    .shopify-section > product-recommendations {
+    .shopify-section > product-recommendations, .recent-views__products {
         .slideshow-controls__counter {
             display: none;
         }
@@ -11,7 +11,7 @@
         }
 
         .resource-list__carousel .resource-list__slide {
-            width: clamp(150px, 45.07cqw, 300px);
+            width: clamp(150px, 45.07vw, 300px);
         }
 
         .card-gallery slideshow-slides {
@@ -32,6 +32,7 @@
 
             .section-resource-list {
                 padding-block-start: calc(var(--padding-block-start) + 80px) !important;
+                padding-block-end: calc(var(--padding-block-end) + 3px) !important; 
                 row-gap: calc(var(--gap) + 1px) !important;
             }
 

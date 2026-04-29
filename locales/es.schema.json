@@ -29,7 +29,7 @@
     "size": "Tamaño",
     "spacing": "Espaciado",
     "product_recommendations": "Productos recomendados",
-    "recently_viewed_products": "Producto visto recientemente",
+    "recently_viewed_products": "Productos Vistos Recientemente",
     "product_media": "Multimedia del producto",
     "featured_collection": "Colección destacada",
     "add_to_cart": "Añadir al carrito",
@@ -982,7 +982,7 @@
     "content_layout": "Diseño del contenido",
     "mobile_media_1": "Multimedia para dispositivos móviles 1",
     "utilities": "Utilidades",
-    "recently_viewed_products": "Producto visto recientemente",
+    "recently_viewed_products": "Productos Vistos Recientemente",
   },
   "html_defaults": {
     "share_information_about_your": "<p>Comparte información sobre tu marca con tus clientes. Describe un producto, anuncia novedades o da la bienvenida a quienes visitan tu tienda.</p>",
@@ -1040,7 +1040,7 @@
     "uncompromising_standards": "<p>Estándares sin concesiones </p>",
     "featured_collection_h3": "<h3>Colección destacada</h3>",
     "shop_collection": "<p>Descubre nuestra colección seleccionada con favoritos seleccionados a mano que combinan estilo y calidad.</p>",
-    "recently_viewed_products_h3": "<h3>Producto visto recientemente</h3>",
+    "recently_viewed_products_h3": "<h3>Productos Vistos Recientemente</h3>",
   },
   "text_defaults": {
     "button_label": "Comprar ahora",
