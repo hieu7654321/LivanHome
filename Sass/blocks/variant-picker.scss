@@ -1,0 +1,59 @@
+@use '../base/base.scss' as *;
+
+.product-information {
+    legend {
+        font-weight: 700;
+        line-height: 17px;
+        margin-block-end: 17px;
+
+        .variant-option__swatch-value {
+            font-weight: 400;
+            padding-inline-start: 3px;
+        }
+
+        .variant-option__buttons-value {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            padding-inline-start: 3px;
+        }
+    }
+
+    .variant-picker {
+        @include image-variant-picker;
+    }
+
+    .variant-option + .variant-option {
+        margin-top: 21px;
+    }
+
+    .variant-option--default-width-buttons {
+        legend {
+            margin-block-end: 11px;
+        }
+
+        .variant-option__button-label {
+            min-width: 100%;
+            min-height: 37px;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0;
+            padding-block: 6px;
+            padding-inline: 10px;
+            margin-top: 5px;
+        }
+    }
+
+    @media screen and (min-width: 750px) {
+        .variant-picker {
+            padding-block-start: calc(var(--padding-block-start) + 9px);
+            padding-block-end: calc(var(--padding-block-end) + 9px);
+        }
+
+        .variant-option + .variant-option {
+            margin-top: 30px;
+        }
+    }
+}

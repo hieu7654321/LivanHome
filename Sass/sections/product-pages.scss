@@ -33,21 +33,6 @@
             padding-inline-start: 4px;
         }
 
-        legend {
-            font-weight: 700;
-            line-height: 17px;
-            margin-block-end: 17px;
-
-            .variant-option__swatch-value {
-                font-weight: 400;
-                padding-inline-start: 3px;
-            }
-        }
-
-        .variant-picker {
-            @include image-variant-picker;
-        }
-
         .quantity-selector, .add-to-cart-button {
             max-height: 40px;
             border-radius: 5px;
@@ -172,11 +157,7 @@
         .shopify-app-block[data-block-handle='loox-rating'] {
             padding-block: 1px;
         }
-
-        .variant-picker {
-            padding-block-start: calc(var(--padding-block-start) + 9px);
-            padding-block-end: calc(var(--padding-block-end) + 9px);
-        }
+        
         .product-card__delivery {
             padding-block-end: 9px;
         }

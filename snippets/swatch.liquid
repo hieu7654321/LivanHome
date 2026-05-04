@@ -5,10 +5,19 @@
   @param {object} [variant_image] - an alternate image when there is no swatch value
   @param {string} [mode] - one of 'unscaled', 'filter', 'pill'
   @param {string} [label] - visually-hidden accessible label for the swatch (e.g. the color name)
+  @param {boolean} [show_image] 
 
   @example
   {% render 'swatch', swatch: swatch, variant_image: variant_image, mode: 'unscaled', label: option_value.name %}
 {%- enddoc -%}
+
+{% liquid
+  if request.params.show_image
+    assign show_image_setting = request.params.show_image
+  else
+    assign show_image_setting = show_image
+  endif
+%}
 
 {% liquid
   assign swatch_value = null
@@ -18,7 +27,7 @@
     assign swatch_image_url = variant_image | image_url: width: swatch_image_width
     assign swatch_value = 'url(' | append: swatch_image_url | append: ')'
     assign extra_classes = extra_classes | append: ' swatch--variant-image'
-  elsif show_image and variant_image
+  elsif show_image_setting and variant_image
     assign swatch_image_width = settings.variant_swatch_width | times: 2
     assign swatch_image_url = variant_image | image_url: width: 60
     assign swatch_value = 'url(' | append: swatch_image_url | append: ')'

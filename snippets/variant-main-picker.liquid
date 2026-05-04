@@ -8,28 +8,30 @@
   @param {object} product - The current product object (used to determine selected variant state).
   @param {boolean} [show_swatches] - Optional override to enable/disable swatches.
   @param {string} [variant_style] - Optional override for variant style ('buttons' or 'dropdowns').
+  @param {string} [picker_context] - Optional picker context
 {%- enddoc -%}
 
 {% liquid
-  assign block_settings = nil
   if block
     assign block_settings = block.settings
   endif
 
-  assign show_swatches_setting = true
-  assign variant_style_setting = 'buttons'
-
-  if block_settings
+  if show_swatches
+    assign show_swatches_setting = show_swatches
+  else
     assign show_swatches_setting = block_settings.show_swatches
+  endif
+
+  if variant_style
+    assign variant_style_setting = variant_style
+  else
     assign variant_style_setting = block_settings.variant_style
   endif
 
-  if show_swatches != nil
-    assign show_swatches_setting = show_swatches
-  endif
-
-  if variant_style != nil and variant_style != ''
-    assign variant_style_setting = variant_style
+  if picker_context
+    assign variant_picker_context = picker_context
+  else
+    assign variant_picker_context = 'main'
   endif
 %}
 
@@ -49,6 +51,8 @@
     data-product-id="{{ product_resource.id }}"
     data-block-id="{{ block.id }}"
     data-product-url="{{ product_resource.url }}"
+    data-picker-context="{{ variant_picker_context }}"
+    {% if block_settings.block_swatch_image %}data-show-image="{{ block_settings.block_swatch_image }}"{% endif %}
     ref="mainVariantPicker"
     {% if product.id == product_resource.id %}
       data-template-product-match="true"
@@ -65,7 +69,7 @@
           assign variant_style = variant_style_setting
 
           if swatch_count > 0 and show_swatches_setting
-            if variant_style_setting == 'dropdown'
+            if variant_style_setting == 'dropdowns'
               assign variant_style = 'swatch_dropdown'
             else
               assign variant_style = 'swatch'
@@ -104,6 +108,8 @@
               {{ product_option.name | escape -}}:
               {%- if variant_style == 'swatch' -%}
                 <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
+              {%- else -%}
+                <span class="variant-option__buttons-value">{{ product_option.selected_value | split: " (" | first }}</span>
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
@@ -168,6 +174,7 @@
                   >
                     {{- product_option_value | escape -}}
                   </span>
+                  <span class="variant-option__button-label__text" data-key="variant-option-text">{{ product_option_value.variant.price | money_without_trailing_zeros }}</span>
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
