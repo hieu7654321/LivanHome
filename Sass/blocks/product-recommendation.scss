@@ -2,6 +2,10 @@
 
 .content-for-layout:has(.product-information__grid) .product-details {
     product-recommendations {
+        .product-badges {
+            display: none;
+        }
+
         .section-resource-list__content .text-block > * {
             line-height: calc(var(--font-size) + 0.25rem);
             font-weight: 700;
