@@ -24,6 +24,7 @@
             padding-block: 10px;
             padding-inline-start: 10px;
             margin-block: 0;
+            scroll-padding-left: 10px;
         }
 
         slideshow-slide { 
@@ -85,6 +86,7 @@
 
             .card-gallery {
                 grid-column: 1; grid-row: 1 / span 3;
+                pointer-events: none;
             }
         }
 
@@ -207,12 +209,13 @@
 
         product-recommendations {
             .resource-list__carousel > slideshow-container {
-                padding-inline-end: 0.5px;
+                padding-inline-end: 1px;
             }
              
             product-card slideshow-slides {
                 padding-block: 20px;
                 padding-inline-start: 20px;
+                scroll-padding-left: 20px;
             }
 
             slideshow-slide {

@@ -7,7 +7,7 @@
   @param {object} section - The section object.
   @param {object} product - The current product object (used to determine selected variant state).
   @param {boolean} [show_swatches] - Optional override to enable/disable swatches.
-  @param {string} [variant_style] - Optional override for variant style ('buttons' or 'dropdowns').
+  @param {string} [cvariant_style] - Optional override for variant style ('buttons' or 'dropdowns').
   @param {string} [picker_context] - Optional picker context
 {%- enddoc -%}
 
@@ -22,8 +22,8 @@
     assign show_swatches_setting = block_settings.show_swatches
   endif
 
-  if variant_style
-    assign variant_style_setting = variant_style
+  if cvariant_style
+    assign variant_style_setting = cvariant_style
   else
     assign variant_style_setting = block_settings.variant_style
   endif
@@ -96,7 +96,7 @@
               {{- product_option.selected_value -}}
             </span>
           </div>
-        {%- elsif variant_style == 'swatch' or variant_style_setting == 'buttons' -%}
+        {%- elsif variant_style == 'swatch' and variant_style_setting != 'openselector' or variant_style_setting == 'buttons' -%}
           {%- assign fieldset_index = forloop.index0 -%}
           <fieldset
             class="variant-option variant-option--buttons{% if variant_style == 'swatch' %} variant-option--swatches{% else %} variant-option--{{ settings.variant_button_width }}{% endif %}"
@@ -174,6 +174,7 @@
                   >
                     {{- product_option_value | escape -}}
                   </span>
+
                   <span class="variant-option__button-label__text" data-key="variant-option-text">{{ product_option_value.variant.price | money_without_trailing_zeros }}</span>
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
@@ -246,8 +247,173 @@
               </svg>
             </div>
           </div>
-        {%- endif -%}
+        {% elsif variant_style == 'swatch' and variant_style_setting == 'openselector' %}
+          {% liquid
+            assign selected_option = product_option.values | where: 'selected', true | first
+            if selected_option == blank
+              assign selected_option = product_option.values | first
+            endif
+
+            assign selected_swatch = selected_option.swatch
+            assign selected_image = nil
+
+            if selected_swatch and selected_swatch.image
+              assign selected_image = selected_swatch.image
+            else
+              assign selected_variant = selected_option.variant
+              assign selected_image = selected_variant.featured_media
+
+              if selected_image == blank and selected_option.product_url
+                assign selected_image = selected_variant.product.featured_media
+              endif
+            endif
+          %}
+          <fieldset
+            class="variant-option--open-selector"
+            data-fieldset-index="{{ forloop.index0 }}"
+            ref="fieldsets[]"
+            data-open-selector
+          >
+            <div class="open-selector__trigger" tabindex="0">
+              <div class="open-selector__header">
+                <div
+                  class="open-selector__image"
+                  {% if selected_image %}
+                    style="--swatch-background: url('{{ selected_image | image_url: width: 50 }}')"
+                  {% else %}
+                    style="--swatch-background-color: rgb({{ selected_swatch.color.rgb }})"
+                  {% endif %}
+                ></div>
+
+                <div class="open-selector__title-wrapper">
+                  <span class="open-selector__title">
+                    {{ product_option.name }}:
+                  </span>
+
+                  <span class="open-selector__selected" data-selected-value>
+                    {{ product_option.selected_value }}
+                  </span>
+                </div>
+              </div>
+
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                class="icon icon-caret open-selector__caret"
+                viewBox="0 0 10 6"
+              >
+                {%- render 'icon', icon: 'caret' -%}
+              </svg>
+            </div>
+
+            <div class="open-selector__content">
+              {%- for product_option_value in product_option.values -%}
+                {% liquid
+
+                  assign option_swatch = product_option_value.swatch
+                  assign option_image = nil
+
+                  if option_swatch and option_swatch.image
+                    assign option_image = option_swatch.image
+                  else
+                    assign option_variant = product_option_value.variant
+                    assign option_image = option_variant.featured_media
+
+                    if option_image == blank and product_option_value.product_url
+                      assign option_image = option_variant.product.featured_media
+                    endif
+                  endif
+                %}
+                <label
+                  class="open-selector__option {% if product_option_value.selected %}is-selected{% endif %}"
+                >
+                  <input
+                    type="radio"
+                    name="{{ product_option.name | escape }}-{{ block.id }}-{{ product_resource.id }}"
+                    value="{{ product_option_value | escape }}"
+                    aria-label="{{ product_option_value | escape }}"
+                    data-fieldset-index="{{ forloop.parentloop.index0 }}"
+                    data-input-index="{{ forloop.index0 }}"
+                    data-input-id="{{ product_option.position }}-{{ forloop.index0 }}"
+                    data-option-value-id="{{ product_option_value.id }}"
+                    data-option-available="{{ product_option_value.available }}"
+                    data-connected-product-url="{{ product_option_value.product_url }}"
+                    {% if product_option_value.variant.id %}
+                      data-variant-id="{{ product_option_value.variant.id }}"
+                    {% endif %}
+                    {% if product_option_value.selected %}
+                      checked
+                      data-current-checked="true"
+                    {% endif %}
+                  />
+
+                  <div class="open-selector__card">
+                    <div
+                      class="open-selector__image"
+                      {% if option_image %}
+                        style="--swatch-background: url('{{ option_image | image_url: width: 50 }}')"
+                      {% else %}
+                        style="--swatch-background-color: rgb({{ option_swatch.color.rgb }})"
+                      {% endif %}
+                    ></div>
+
+                    <div class="open-selector__title-wrapper">
+                      <span class="open-selector__title">
+                        {{ product_option.name | split:" " | first }}:
+                      </span>
+
+                      <div class="open-selector__info">{{ product_option_value }}</div>
+                    </div>
+                  </div>
+                </label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+        {% endif %}
       {%- endfor -%}
+
+      {% if variant_style_setting == 'openselector' %}
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+          const fieldsets = document.querySelectorAll('[data-open-selector]');
+
+          fieldsets.forEach((fieldset) => {
+            const trigger = fieldset.querySelector('.open-selector__trigger');
+            const inputs = fieldset.querySelectorAll('input[type="radio"]');
+            const selectedValueEl = fieldset.querySelector('[data-selected-value]');
+
+            const toggle = () => {
+              fieldset.classList.toggle('is-open');
+            };
+
+            trigger.addEventListener('click', (e) => {
+              e.preventDefault();
+              toggle();
+            });
+
+            trigger.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
+              }
+            });
+
+            inputs.forEach((input) => {
+              input.addEventListener('change', () => {
+                selectedValueEl.textContent = input.value;
+                fieldset.classList.remove('is-open');
+              });
+            });
+
+            document.addEventListener('click', (e) => {
+              if (!fieldset.contains(e.target)) {
+                fieldset.classList.remove('is-open');
+              }
+            });
+          });
+        });
+        </script>
+      {% endif %}
 
       <script type="application/json">
         {{ product_resource.selected_or_first_available_variant | json }}
