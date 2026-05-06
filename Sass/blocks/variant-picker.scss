@@ -168,3 +168,183 @@
         }
     }
 }
+
+.content-for-layout[data-template='product.bundled-products'] .product-information {
+    .swatch__bundle--image {
+        z-index: 10;
+    }
+
+    .variant-option--buttons:has(.swatch__bundle--image) {
+        .variant-option__button-label {
+            min-width: fit-content;
+            padding: 0;
+            border-radius: 2px;
+
+            &:not(:has(input[data-current-checked='true'])):hover {
+                outline: 1.5px solid rgb(var(--color-foreground-rgb) / 0.35);
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .variant-option--buttons:not(:has(.swatch__bundle--image)) {
+        .variant-option__button-label {
+            padding: 9px !important;
+        }
+
+        .variant-option__button-label__text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            line-height: 17px;
+        }
+    }
+
+    .variant-option--buttons:has(.price__ahorra) {
+        max-width: 443px;
+    }
+
+    .variant-option__label--item-price, .price__ahorra {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0;
+    }
+
+    .variant-option__label--item-price {
+        margin-top: 5px;
+    }
+
+    .price__ahorra {
+        color: white;
+        background-color: #2F4ABC;
+        border-radius: 100px;
+        padding: 4.5px 6px;
+        text-align: center;
+        width: fit-content;
+        align-self: flex-end;
+    }
+
+    .variant-picker .price-item__group:has(.compare-at-price) {
+        margin-left: 10px;
+    }
+
+    @media screen and (max-width: 749px) {
+        .variant-option + .variant-option {
+            margin-top: 19px;
+            margin-bottom: 2px;
+        }
+    }
+
+    @media screen and (min-width: 750px) {
+        .variant-picker {
+            padding-block-end: calc(var(--padding-block-end) + 2px);
+        }
+
+        .variant-option + .variant-option {
+            margin-top: 29px;
+        }
+    }
+
+    // Product Bundles
+
+    .product-bundle {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        padding-block-end: 10px;
+
+        &__heading {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0;
+            margin-bottom: 7px;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 443px;
+            gap: 10px;
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            padding: 9px;
+
+            &--image {
+                width: 59px;
+                height: 74px;
+                border: none;
+                border-radius: 2px;
+            }
+
+            &--title {
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                flex: 1;
+                gap: 9px;
+            }
+
+            &--text {
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 17px;
+                letter-spacing: 0;
+            }
+
+            &--unit {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 15px;
+                letter-spacing: 0;
+                padding-block: 2px;
+            }
+
+            &--price {
+                display: flex;
+                flex-direction: column;
+                flex: 0;
+                gap: 1px;
+                padding-inline-end: 2px;
+            }
+        }
+        
+        .price__sale {
+            display: inline-flex;
+            gap: 12px;
+        }
+
+        .price-item--sale,  .price-item--regular{
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0;
+        }
+    }
+
+    @media screen and (min-width: 750px) {
+        .product-bundle {
+            padding-block-start: 7px;
+            padding-block-end: 20px;
+
+            &__item {
+                gap: 7px;
+
+                &--price {
+                    padding-inline-end: 0;
+                    gap: 6px;
+                }
+            }
+
+            .price__sale {
+                max-height: 18px;
+            }
+        }
+    }
+}

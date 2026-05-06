@@ -81,6 +81,11 @@
             assign option_id_attribute = 'data-option-id="' | append: fieldset_id | append: '"'
             assign longest_value = 0
           endif
+
+          assign is_swatch_not_open = false
+          if variant_style == 'swatch' and variant_style_setting != 'openselector'
+            assign is_swatch_not_open = true 
+          endif
         -%}
 
         {%- if product_option.values.size == 1 and variant_style != 'swatch' -%}
@@ -96,7 +101,7 @@
               {{- product_option.selected_value -}}
             </span>
           </div>
-        {%- elsif variant_style == 'swatch' and variant_style_setting != 'openselector' or variant_style_setting == 'buttons' -%}
+        {%- elsif is_swatch_not_open or variant_style_setting == 'buttons' -%}
           {%- assign fieldset_index = forloop.index0 -%}
           <fieldset
             class="variant-option variant-option--buttons{% if variant_style == 'swatch' %} variant-option--swatches{% else %} variant-option--{{ settings.variant_button_width }}{% endif %}"
@@ -168,14 +173,70 @@
                       data-key="variant-option-pill"
                     ></span>
                   {% endif %}
-                  <span
-                    class="variant-option__button-label__text"
-                    data-key="variant-option-text"
-                  >
-                    {{- product_option_value | escape -}}
-                  </span>
+                  {% assign product_option_name_downcased = product_option.name | downcase %}
+                  {% if block_settings.is_bundle == true %}
+                    {% if product_option_name_downcased contains 'color' %}
+                      {% liquid
+                        assign featured_media = product_option_value.variant.featured_media
+                        if featured_media == blank and product_option_value.product_url
+                          assign featured_media = product_option_value.variant.product.featured_media
+                        endif
+                      %}
+                      <span
+                        class="swatch swatch--variant-image swatch--unscaled swatch__bundle--image"
+                        style="--swatch-background: url('{{ featured_media | image_url: width: 60 }}');"
+                      ></span>
+                    {% else %}
+                      {% liquid
+                        assign normal_price = product_option_value.variant.price
+                        assign compare_at_price = product_option_value.variant.compare_at_price
+                        assign unit_price = product_option_value.variant.unit_price
+                        assign price_ahorra = compare_at_price | minus: normal_price
+                      %}
+                      <span
+                        class="variant-option__button-label__text"
+                        data-key="variant-option-text"
+                      >
+                        {{- product_option_value | escape -}}
+                        {% if product_option_value.variant.unit_price_measurement.reference_unit == 'item' %}
+                          <div class="variant-option__label--item-price">
+                            La unidad sale a 
+                              {{ unit_price | money_without_trailing_zeros }}
+                          </div>
+                        {% endif %}
+                      </span>
 
-                  <span class="variant-option__button-label__text" data-key="variant-option-text">{{ product_option_value.variant.price | money_without_trailing_zeros }}</span>
+                      <div class="variant-option__button-label__text" data-key="variant-option-text">
+                        <div
+                          class="
+                            price__sale
+                          "
+                        >
+                            <span class="price-item__group">
+                              <span class="visually-hidden">{{ 'content.price_sale' | t }}&nbsp;</span>
+                              <span class="price-item--sale price">{{ normal_price | money_without_trailing_zeros }}</span>
+                            </span>
+                            <span class="price-item__group">
+                              <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
+                              <span class="price-item--regular compare-at-price">{{- compare_at_price | money_without_trailing_zeros -}}</span>
+                            </span>
+                        </div>
+
+                        <div class="price__ahorra">
+                          Ahorra&nbsp;{{- price_ahorra | money_without_trailing_zeros -}}
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% else %}
+                    <span
+                      class="variant-option__button-label__text"
+                      data-key="variant-option-text"
+                    >
+                      {{- product_option_value | escape -}}
+                    </span>
+
+                    <span class="variant-option__button-label__text" data-key="variant-option-text">{{ product_option_value.variant.price | money_without_trailing_zeros }}</span>
+                  {% endif %}
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
@@ -421,6 +482,64 @@
     </form>
   </variant-picker>
 {% endunless %}
+
+{% assign my_product = product_resource.metafields.product.bundle_content.value %}
+
+{% if my_product %}
+  <div class="product-bundle">
+    <div class="product-bundle__heading">Este Pack Contiene:</div>
+    {% for component in my_product %}
+      {% liquid
+        assign linked_product = component.products.value 
+        assign linked_unit = component.units.value
+        assign linked_discount = component.amount_off.value | times: 100
+        assign linked_original_price = linked_product.price | times: linked_unit
+        assign linked_price = linked_original_price | minus: linked_discount
+        %}
+      {% if linked_product %}
+        <div class="product-bundle__item">
+          <span
+            class="swatch swatch--variant-image swatch--unscaled product-bundle__item--image"
+            style="--swatch-background: url('{{ linked_product.featured_media | image_url: width: 60 }}');"
+          ></span>
+          <div class="product-bundle__item--title">
+            <a
+              class="product-bundle__item--text"
+              href="{{ linked_product.url }}"
+            >
+              {{- linked_product.title | escape -}}
+            </a>
+            <div class="product-bundle__item--unit">
+              Unidades:
+                {{ linked_unit | floor }}
+            </div>
+          </div>
+
+          <div class="product-bundle__item--price">
+            <div
+              class="
+                price__sale
+              "
+            >
+                <span class="price-item__group">
+                  <span class="visually-hidden">{{ 'content.price_sale' | t }}&nbsp;</span>
+                  <span class="price-item--sale price">{{ linked_price | money_without_trailing_zeros }}</span>
+                </span>
+                <span class="price-item__group">
+                  <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
+                  <span class="price-item--regular compare-at-price">{{- linked_original_price | money_without_trailing_zeros -}}</span>
+                </span>
+            </div>
+
+            <div class="price__ahorra">
+              Ahorra&nbsp;{{- linked_discount | money_without_trailing_zeros -}}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
 
 {% stylesheet %}
   /* Variant picker container styles - unique to main variant picker */
