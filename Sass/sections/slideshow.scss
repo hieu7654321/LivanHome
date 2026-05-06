@@ -1,0 +1,45 @@
+@use '../base/base.scss' as *;
+
+slideshow-component.slideshow--with-hints.slideshow--with-hints--mobile-full-frame {
+    .group-block-content{
+        --gap: 16px !important;
+
+        .text-block:has(p) {
+            --line-height: calc(var(--font-size) + 4px) !important;
+        }
+
+        .text-block:not(:has(p)) {
+            --font-size: var(--custom-font-size) !important;
+            --line-height: calc(var(--custom-font-size) + 2px) !important;
+        }
+
+        a.button {
+            border-radius: 5px;
+            text-transform: uppercase;
+            max-width: 189px;
+            --button-padding-block: 8.8px;
+        }
+    }
+
+    @media screen and (min-width: 750px) {
+        slideshow-slide {
+            width: 69.449vw !important;
+
+            .slide__image {
+                height: 100%;
+            }
+
+            &:nth-child(even) {
+                .slide__image {
+                    height: 123%;
+                }
+            }
+        }
+        
+        slideshow-controls {
+            .slideshow-controls__dots {
+                padding: 1.5rem var(--padding-lg);
+            }
+        }
+    }
+}

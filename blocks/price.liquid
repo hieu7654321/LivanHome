@@ -48,7 +48,7 @@
   {{ block.shopify_attributes }}
 >
   {% render 'price',
-    show_unit_price: true,
+    show_unit_price: block_settings.show_per_measure,
     product_resource: product_resource,
     show_sale_price_first: block_settings.show_sale_price_first
   %}
@@ -114,6 +114,13 @@
       "id": "show_tax_info",
       "label": "t:settings.show_tax_info",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_per_measure",
+      "label": "Show Price Measurement",
+      "default": true,
+      "info": "Show Price per Measurement if it's exist"
     },
     {
       "type": "header",
@@ -247,6 +254,10 @@
         {
           "value": "1.5rem",
           "label": "24px"
+        },
+        {
+          "value": "1.5625rem",
+          "label": "25px"
         },
         {
           "value": "2rem",

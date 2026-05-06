@@ -356,7 +356,7 @@
                 {%- liquid
                   if settings.currency_code_enabled_cart_items
                     assign price = item.final_line_price | money_with_currency
-                    assign unit_price = item.unit_price | money_with_currency
+                    assign unit_price = item.unit_price | money
                   else
                     assign price = item.final_line_price | money
                     assign unit_price = item.unit_price | money

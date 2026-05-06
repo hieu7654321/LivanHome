@@ -37,6 +37,28 @@ declare global {
 
   interface Window {
     Shopify: Shopify;
+
+    RecentlyViewed: {
+      getProducts(): string[];
+      addProduct(id: string): void;
+      clearProducts(): void;
+    };
+
+    sectionRenderer: {
+      getSectionHTML(
+        sectionId: string,
+        replace: boolean,
+        url: URL
+      ): Promise<string | null>;
+    };
+
+    Theme: {
+      routes: {
+        search_url: string;
+      };
+    };
+
+    morph: (from: Element, to: Element) => void;
   }
 
   declare const Shopify: Shopify;

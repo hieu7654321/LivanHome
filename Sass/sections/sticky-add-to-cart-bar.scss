@@ -1,0 +1,128 @@
+@use '../base/base.scss' as *;
+
+.sticky-add-to-cart {
+    .sticky-add-to-cart__bar {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .add-to-cart-icon {
+        display: none;
+    }
+
+    .variant-option__select-wrapper {
+        margin-top: 0;
+        max-height: 40px;
+        border-radius: 5px;
+
+        &:hover {
+            border-color: var(--color-border);
+        }
+    }
+
+    .variant-option__select {
+        padding-block: 11.5px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0;
+        max-width: 90%;
+
+        &:focus-visible {
+            outline: none;
+            outline-offset: 0;
+        }
+    }
+
+    .sticky-add-to-cart__button, .variant-picker {
+        width: 100%;
+        border-radius: 5px;
+        max-height: 40px;
+    }
+
+    .add-to-cart-text__content > * {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .variant-option__select-wrapper .icon {
+        right: 16px;
+        width: 16px;
+    }
+
+    .variant-option > label {
+        display: none;
+    }
+
+    .quantity-selector {
+        max-height: 40px;
+        max-width: 107px;
+        padding-inline: 14px;
+        border-radius: 5px;
+
+        &> input {
+            max-width: 20px;
+        }
+    }
+
+    .product-bundle {
+        display: none;
+    }
+
+    @media screen and (max-width: 749px) {
+        .sticky__quantity-selector, .sticky-add-to-cart__image, .sticky-add-to-cart__info {
+            display: none;
+        }
+
+        .sticky-add-to-cart__bar .add-to-cart-text__content {
+            display: flex;
+        }
+
+        .sticky__variant-picker {
+            width: 83%;
+        }
+    }
+
+    @media screen and (min-width: 750px) {
+        .sticky-add-to-cart__bar {
+            padding: 18px 25px 28px 33px;
+        }
+
+        .sticky-add-to-cart__bar {
+            bottom: 0;
+            width: 100%;
+            max-width: none;
+            border-radius: 0;
+        }
+
+        .sticky-add-to-cart__info {
+            padding-inline-start: 3px;
+            margin-top: 2px;
+        }
+
+        .sticky-add-to-cart__button {
+            max-width: 216px;
+        }
+
+        .sticky-add-to-cart__image {
+            height: 74px;
+            aspect-ratio: 0.798;
+        }
+
+        .sticky-add-to-cart__title, .price {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: 0;
+        }
+        
+        .sticky__variant-picker {
+            width: 15%;
+            max-width: 200px;
+        }
+    }
+}

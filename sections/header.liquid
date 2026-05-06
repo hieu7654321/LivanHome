@@ -196,7 +196,7 @@
     assign form_style = localization_font | append: localization_font_size | append: color_shadow
   %}
   {% if show_language and show_country == false %}
-    <div class="dropdown-localization mobile:hidden">
+    <div class="dropdown-localization mobile:hidden hidden">
       {% render 'localization-form',
         show_country: show_country,
         show_language: show_language,
@@ -738,7 +738,7 @@
     --header-template-columns: var(--header-left) var(--header-center) var(--header-right);
 
     /* Mobile layout */
-    --header-mobile-bookend: 44px;
+    --header-mobile-bookend: 38px;
 
     display: grid;
     grid-template-areas: 'left center right';
@@ -774,10 +774,10 @@
     }
 
     @media screen and (max-width: 749px) {
-      --header-template-columns: var(--header-mobile-bookend) var(--header-mobile-bookend) 1fr
+      --header-template-columns: var(--header-mobile-bookend) 1fr var(--header-mobile-bookend)
         var(--header-mobile-bookend) var(--header-mobile-bookend);
 
-      grid-template-areas: 'leftA leftB center rightA rightB';
+      grid-template-areas: 'leftA center rightA rightB rightC';
       grid-column: span 3;
       column-gap: 0;
       align-items: center;
@@ -786,22 +786,23 @@
 
       .header-logo {
         grid-area: center;
+        justify-self: flex-start;
       }
 
       &:not(:has(header-actions)) .search-action {
-        grid-area: leftB;
-      }
-
-      &:not(:has(shopify-account)) .search-action {
         grid-area: rightA;
       }
 
+      &:not(:has(shopify-account)) .search-action {
+        grid-area: rightB;
+      }
+
       .search-action {
-        grid-area: leftB;
+        grid-area: rightA;
       }
 
       header-actions {
-        grid-area: rightB;
+        grid-area: rightC;
       }
     }
   }
@@ -809,10 +810,10 @@
   /* not ideal but we need to duplicate these styles for when touch comes into play
     We could avoid the duplication using js to set the data-menu-style attribute on small screens instead of using @media queries */
   #header-component[data-menu-style='drawer'] .header__columns {
-    --header-template-columns: var(--header-mobile-bookend) var(--header-mobile-bookend) 1fr
+    --header-template-columns: var(--header-mobile-bookend) 1fr var(--header-mobile-bookend) 
       var(--header-mobile-bookend) var(--header-mobile-bookend);
 
-    grid-template-areas: 'leftA leftB center rightA rightB';
+    grid-template-areas: 'leftA center rightA rightB rightC';
     grid-column: span 3;
     column-gap: 0;
     align-items: center;
@@ -824,19 +825,19 @@
     }
 
     &:not(:has(header-actions)) .search-action {
-      grid-area: leftB;
-    }
-
-    &:not(:has(shopify-account)) .search-action {
       grid-area: rightA;
     }
 
+    &:not(:has(shopify-account)) .search-action {
+      grid-area: rightC;
+    }
+
     .search-action {
-      grid-area: leftB;
+      grid-area: rightA;
     }
 
     header-actions {
-      grid-area: rightB;
+      grid-area: rightC;
     }
   }
 
@@ -874,7 +875,7 @@
     color: var(--button-color);
     cursor: pointer;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 
     &:hover {
       --button-color: var(--color-foreground);

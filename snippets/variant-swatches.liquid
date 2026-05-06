@@ -94,95 +94,98 @@
       - the swatch content, optionally based on theme settings.
     {% endcomment %}
     {%- for product_option in product_resource.options_with_values -%}
-      {%- liquid
-        assign swatch_count = product_option.values | map: 'swatch' | compact | size
-      -%}
+      {% if product_option.name != "Material Sobre" and product_option.name != "Material Patas" %}
+        {%- liquid
+          assign swatch_count = product_option.values | map: 'swatch' | compact | size
+        -%}
 
-      {% if swatch_count == 0 %}
-        {% continue %}
-      {% endif %}
+        {% if swatch_count == 0 %}
+          {% continue %}
+        {% endif %}
 
-      {%- liquid
-        # Identify which option position this swatch option is
-        # Use product_option.position which is the actual position among ALL options
-        assign swatch_option_position = product_option.position
-        assign swatch_option_key = 'option' | append: swatch_option_position
-      -%}
+        {%- liquid
+          # Identify which option position this swatch option is
+          # Use product_option.position which is the actual position among ALL options
+          assign swatch_option_position = product_option.position
+          assign swatch_option_key = 'option' | append: swatch_option_position
+        -%}
 
-      <fieldset class="variant-option variant-option--buttons variant-option--swatches">
-        {% capture children %}
-          {%- for product_option_value in product_option.values -%}
-            {% liquid
-              comment
-                Identify the most relevant variant image to show in a card-gallery, and optionally as the swatch content.
-                The `product_option_value.variant` can be nil when no valid variant is associated with the combination of the current option-value and the other option values.
-                e.g. a product option Color: "Red" does not exist for the product option Size: "Small".
-                In this case, we look for the first available variant in that option (e.g. Color) that has a featured media.
-              endcomment
+        <fieldset class="variant-option variant-option--buttons variant-option--swatches">
+          {% capture children %}
+            {%- for product_option_value in product_option.values -%}
+              {% liquid
+                comment
+                  Identify the most relevant variant image to show in a card-gallery, and optionally as the swatch content.
+                  The `product_option_value.variant` can be nil when no valid variant is associated with the combination of the current option-value and the other option values.
+                  e.g. a product option Color: "Red" does not exist for the product option Size: "Small".
+                  In this case, we look for the first available variant in that option (e.g. Color) that has a featured media.
+                endcomment
 
-              assign featured_media = product_option_value.variant.featured_media
+                assign featured_media = product_option_value.variant.featured_media
 
-              if featured_media == blank
-                if product_option_value.variant == blank
-                  for variant in product_resource.variants
-                    if variant.available and variant[swatch_option_key] == product_option_value.name and variant.featured_media
-                      assign featured_media = variant.featured_media
-                      assign first_available_variant = variant
-                      break
-                    endif
-                  endfor
-                elsif product_option_value.product_url
-                  # If the variant has no featured media, and we have a combined listing product (product_url exists),
-                  # then fall back to using the featured media of the child product that is linked to this option value.
-                  assign featured_media = product_option_value.variant.product.featured_media
+                if featured_media == blank
+                  if product_option_value.variant == blank
+                    for variant in product_resource.variants
+                      if variant.available and variant[swatch_option_key] == product_option_value.name and variant.featured_media
+                        assign featured_media = variant.featured_media
+                        assign first_available_variant = variant
+                        break
+                      endif
+                    endfor
+                  elsif product_option_value.product_url
+                    # If the variant has no featured media, and we have a combined listing product (product_url exists),
+                    # then fall back to using the featured media of the child product that is linked to this option value.
+                    assign featured_media = product_option_value.variant.product.featured_media
+                  endif
                 endif
-              endif
-            %}
+              %}
 
-            <li class="variant-option__swatch">
-              <label
-                data-media-id="{{ featured_media.id }}"
-                class="variant-option__button-label variant-option__button-label--has-swatch"
-                on:pointerenter="product-card/previewVariant/{{ featured_media.id }}"
-                on:pointerleave="product-card/resetVariant"
-              >
-                <input
-                  type="radio"
-                  name="{{ product_option.name | escape }}-{{ product_resource.id }}-swatch"
-                  value="{{ product_option_value | escape }}"
-                  aria-label="{{ product_option_value.name }}"
-                  data-input-id="{{ product_option.position }}-{{ forloop.index0 }}"
-                  data-option-media-id="{{ featured_media.id }}"
-                  data-option-value-id="{{ product_option_value.id }}"
-                  data-option-available="{{ product_option_value.available }}"
-                  data-connected-product-url="{{ product_option_value.product_url }}"
-                  {% if allow_preselection and product_option_value.selected %}
-                    checked
-                  {% endif %}
-                  data-variant-id="{{ first_available_variant.id | default: product_option_value.variant.id }}"
-                  data-first-available-or-first-variant-id="{{ first_available_variant.id | default: product_option_value.variant.id }}"
+              <li class="variant-option__swatch">
+                <label
+                  data-media-id="{{ featured_media.id }}"
+                  class="variant-option__button-label variant-option__button-label--has-swatch"
+                  on:pointerenter="product-card/previewVariant/{{ featured_media.id }}"
+                  on:pointerleave="product-card/resetVariant"
                 >
-                {% render 'swatch',
-                  swatch: product_option_value.swatch,
-                  variant_image: featured_media,
-                %}
-                {% render 'strikethrough-variant', product_option: product_option_value %}
-              </label>
+                  <input
+                    type="radio"
+                    name="{{ product_option.name | escape }}-{{ product_resource.id }}-swatch"
+                    value="{{ product_option_value | escape }}"
+                    aria-label="{{ product_option_value.name }}"
+                    data-input-id="{{ product_option.position }}-{{ forloop.index0 }}"
+                    data-option-media-id="{{ featured_media.id }}"
+                    data-option-value-id="{{ product_option_value.id }}"
+                    data-option-available="{{ product_option_value.available }}"
+                    data-connected-product-url="{{ product_option_value.product_url }}"
+                    {% if allow_preselection and product_option_value.selected %}
+                      checked
+                    {% endif %}
+                    data-variant-id="{{ first_available_variant.id | default: product_option_value.variant.id }}"
+                    data-first-available-or-first-variant-id="{{ first_available_variant.id | default: product_option_value.variant.id }}"
+                  >
+                  {% render 'swatch',
+                    swatch: product_option_value.swatch,
+                    variant_image: featured_media,
+                  %}
+                  
+                  {% render 'strikethrough-variant', product_option: product_option_value %}
+                </label>
+              </li>
+            {%- endfor -%}
+            <li
+              slot="more"
+            >
+              <button
+                class="hidden-swatches__count"
+                aria-label="{{ 'actions.show_all_options' | t }}"
+                on:click="/showAllSwatches"
+              ></button>
             </li>
-          {%- endfor -%}
-          <li
-            slot="more"
-          >
-            <button
-              class="hidden-swatches__count"
-              aria-label="{{ 'actions.show_all_options' | t }}"
-              on:click="/showAllSwatches"
-            ></button>
-          </li>
-        {% endcapture %}
+          {% endcapture %}
 
-        {% render 'overflow-list', children: children, ref: 'overflowList' %}
-      </fieldset>
+          {% render 'overflow-list', children: children, ref: 'overflowList' %}
+        </fieldset>
+      {% endif %}
     {%- endfor -%}
     <script type="application/json">
       {{ product_resource.selected_or_first_available_variant | json }}

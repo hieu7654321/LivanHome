@@ -1,6 +1,13 @@
 
 
 {% assign product = closest.product %}
+{%- liquid
+    assign is_limited = product.tags | has: 'limited_stock'
+    assign is_new = product.tags | has: 'new'
+    assign is_fast = product.tags | has: 'fast_shipping'
+    assign is_exclusive = product.tags | has: 'exclusive'
+    assign sale_mf = product.metafields.product.sales
+-%}
 
 {% capture children %}
   {% unless product == blank %}
@@ -24,7 +31,32 @@
             {{ 'content.product_badge_sale' | t }}
           {%- endif -%}
         </div>
+        {% if sale_mf and product.compare_at_price > product.price %}
+          <div class="product-badges__badge product-badges__badge--rectangle product-badges__badge--sale color-{{ settings.badge_sale_color_scheme }}">
+            -{{ product.metafields.product.sales }}%
+          </div>
+        {% endif %}
       {%- endif -%}
+      {% if is_limited %}
+        <div class="product-badges__badge product-badges__badge--rectangle color-{{ settings.badge_limited_stock_color_scheme }}">
+          {{ 'content.product_badge_limited_stock' | t }}
+        </div>
+      {% endif %}
+      {% if is_new %}
+        <div class="product-badges__badge product-badges__badge--rectangle color-{{ settings.badge_new_color_scheme }}">
+          {{ 'content.product_badge_new' | t }}
+        </div>
+      {% endif %}
+      {% if is_fast %}
+        <div class="product-badges__badge product-badges__badge--rectangle color-{{ settings.badge_fast_shipping_color_scheme }}">
+          {{ 'content.product_badge_fast_shipping' | t }}
+        </div>
+      {% endif %}
+      {% if is_exclusive %}
+        <div class="product-badges__badge product-badges__badge--rectangle color-{{ settings.badge_exclusive_color_scheme }}">
+          {{ 'content.product_badge_exclusive' | t }}
+        </div>
+      {% endif %}
     </div>
     {%  if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add', product: product, section_id: section.id %}
@@ -78,6 +110,26 @@
       "default": "portrait",
       "label": "t:settings.aspect_ratio",
       "info": "t:info.aspect_ratio_adjusted"
+    },
+    {
+      "type": "checkbox",
+      "id": "set_fixed_height",
+      "label": "Set Fixed Height",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "custom_fixed_height",
+      "label": "Height (in px)",
+      "default": 212,
+      "visible_if": "{{ block.settings.set_fixed_height == true }}"
+    },
+    {
+      "type": "number",
+      "id": "custom_fixed_height_desktop",
+      "label": "Height (in px)",
+      "default": 411,
+      "visible_if": "{{ block.settings.set_fixed_height == true }}"
     },
     {
       "type": "header",

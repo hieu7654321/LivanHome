@@ -13,10 +13,10 @@
     "sold_out": "Agotado",
     "email_signup": {
       "label": "Correo electrónico",
-      "placeholder": "Dirección de correo electrónico",
+      "placeholder": "Email",
       "success": "¡Gracias por suscribirte!"
     },
-    "filter": "Filtro",
+    "filter": "Filtrar",
     "payment_methods": "Formas de pago",
     "contact_form": {
       "name": "Nombre",
@@ -46,6 +46,7 @@
     "reset_search": "Restablecer la búsqueda",
     "search_results_count": "{{ count }} resultados de búsqueda para \"{{ query }}\"",
     "search_results_no_results": "No se encontraron resultados para \"{{ query }}\"",
+    "search_suggestions_available": "Sugerencias de búsqueda disponibles para \"{{ query }}\"",
     "filters": "Filtros",
     "filter_count": {
       "one": "{{ count }} filtro aplicado",
@@ -74,6 +75,8 @@
     "nested_product": "{{ product_title }} para {{ parent_title }}",
     "remove": "Eliminar",
     "view_pricing_info": "Ver la información de fijación de precios",
+    "price_filter_low": "precio bajo",
+    "price_filter_high": "Precio elevado",
     "slideshow": "Presentación de diapositivas",
     "header_navigation_label": "Principal",
     "home": "Inicio",
@@ -83,11 +86,11 @@
     "featured_product": "Producto destacado"
   },
   "actions": {
-    "add_to_cart": "Agregar al carrito",
+    "add_to_cart": "Añadir al carrito",
     "clear_all": "Borrar todo",
     "remove": "Eliminar",
     "view_in_your_space": "Ver en tu espacio",
-    "show_filters": "Filtro",
+    "show_filters": "Filtrar",
     "clear": "Borrar",
     "continue_shopping": "Seguir comprando",
     "log_in_html": "¿Tienes una cuenta? <a href=\"{{ link }}\">Inicia sesión</a> para pagar más rápido.",
@@ -106,9 +109,11 @@
     "more": "Más",
     "reset": "Restablecer",
     "zoom": "Ampliar",
+    "zoom_media": "Ampliar el contenido multimedia {{ index }}",
     "close_dialog": "Cerrar diálogo",
     "submit": "Enviar",
     "back": "Atrás",
+    "back_to": "Volver a {{ title }}",
     "log_in": "Iniciar sesión",
     "log_out": "Cerrar sesión",
     "remove_discount": "Eliminar el descuento {{ code }}",
@@ -158,7 +163,11 @@
     "shipping_policy_html": "Los <a href=\"{{ link }}\">gastos de envío</a> se calculan en la página de pago.",
     "taxes_included": "Impuestos incluidos.",
     "product_badge_sold_out": "Agotado",
-    "product_badge_sale": "Oferta",
+    "product_badge_sale": "Rebajas",
+    "product_badge_limited_stock": "Stock Limitado",
+    "product_badge_new": "Nuevo",
+    "product_badge_fast_shipping": "Envío Rápido",
+    "product_badge_exclusive": "Exclusivo",
     "grid_view": {
       "default_view": "Predeterminado",
       "grid_fieldset": "Columna de cuadrícula",
@@ -182,7 +191,7 @@
       "other": "{{ count }} productos",
       "many": "{{ count }} productos"
     },
-    "recently_viewed_products": "Visto recientemente",
+    "recently_viewed_products": "Productos Vistos Recientemente",
     "unavailable": "No disponible",
     "collection_placeholder": "Título de la colección",
     "product_card_placeholder": "Nombre del producto",
@@ -269,6 +278,7 @@
     "cancel": "Cancelar",
     "product_subtotal": "Subtotal de productos",
     "quantity_per_item": "/unidad",
+    "quick_order_list": "Lista de pedidos rápidos",
     "remove_all": "Eliminar todo",
     "remove_all_items_confirmation": "¿Deseas eliminar los {{ count }} artículos del carrito?",
     "remove_one_item_confirmation": "¿Deseas eliminar un artículo de tu carrito?",
@@ -310,10 +320,10 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Agregar al carrito",
+      "add_to_cart": "Añadir al carrito",
       "added_to_cart": "Agregado al carrito",
       "adding_to_cart": "Agregando...",
-      "add_to_cart_error": "Error al agregar al carrito",
+      "add_to_cart_error": "Error al Añadir al carrito",
       "sold_out": "Agotado",
       "unavailable": "No disponible",
       "quantity_error_max": "Este artículo tiene un máximo de {{ maximum }}.",
@@ -324,6 +334,9 @@
       "in_cart": "en el carrito",
       "default_title": "Título predeterminado",
       "sticky_add_to_cart": "Barra de agregar rápido al carrito"
+    },
+    "unit_pricing": {
+      "item": "Unidad"
     }
   },
   "fields": {

@@ -279,6 +279,11 @@ export default class VariantPicker extends Component {
       }
     }
 
+    const showImage = this.dataset.showImage;
+    if (showImage !== undefined) {
+      params.push(`show_image=${showImage}`);
+    }
+
     // If variant-picker is a child of some specific sections, we need to append section_id=xxxx to the URL
     const SECTION_ID_MAP = {
       'quick-add-component': 'section-rendering-product-card',
@@ -377,7 +382,11 @@ export default class VariantPicker extends Component {
     /** @type {NewProduct | undefined} */
     let newProduct;
 
-    const newVariantPickerSource = newHtml.querySelector(this.tagName.toLowerCase());
+    // const newVariantPickerSource = newHtml.querySelector(this.tagName.toLowerCase());
+    const context = this.dataset.pickerContext || 'main';
+    const newVariantPickerSource = newHtml.querySelector(
+      `variant-picker[data-picker-context="${context}"]`
+    );
 
     if (!newVariantPickerSource) {
       throw new Error('No new variant picker source found');

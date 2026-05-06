@@ -1,1 +1,8 @@
-<svg aria-hidden="true" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M16.823 6h-12m10 4h-8m2 4h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+<svg width="11" height="9" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.375 1.8125H10.125" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0.5 1.8125H6.625" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.875 7.0625H10.125" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0.5 7.0625H3.125" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.625 0.5V3.125" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.125 5.75V8.375" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

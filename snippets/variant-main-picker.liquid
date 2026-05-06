@@ -1,13 +1,39 @@
 {%- doc -%}
-  Renders a default variant picker, used to display the variant picker in the variants block.
+  Renders a default variant picker, used to display the variant picker in the variants block
+  and in other contexts (like the sticky add to cart bar).
 
   @param {object} product_resource - The product object.
-  @param {object} [block] - The block object
+  @param {object} [block] - The block object.
   @param {object} section - The section object.
   @param {object} product - The current product object (used to determine selected variant state).
+  @param {boolean} [show_swatches] - Optional override to enable/disable swatches.
+  @param {string} [cvariant_style] - Optional override for variant style ('buttons' or 'dropdowns').
+  @param {string} [picker_context] - Optional picker context
 {%- enddoc -%}
 
-{% assign block_settings = block.settings %}
+{% liquid
+  if block
+    assign block_settings = block.settings
+  endif
+
+  if show_swatches
+    assign show_swatches_setting = show_swatches
+  else
+    assign show_swatches_setting = block_settings.show_swatches
+  endif
+
+  if cvariant_style
+    assign variant_style_setting = cvariant_style
+  else
+    assign variant_style_setting = block_settings.variant_style
+  endif
+
+  if picker_context
+    assign variant_picker_context = picker_context
+  else
+    assign variant_picker_context = 'main'
+  endif
+%}
 
 {% unless product_resource.has_only_default_variant %}
   {% liquid
@@ -25,6 +51,8 @@
     data-product-id="{{ product_resource.id }}"
     data-block-id="{{ block.id }}"
     data-product-url="{{ product_resource.url }}"
+    data-picker-context="{{ variant_picker_context }}"
+    {% if block_settings.block_swatch_image %}data-show-image="{{ block_settings.block_swatch_image }}"{% endif %}
     ref="mainVariantPicker"
     {% if product.id == product_resource.id %}
       data-template-product-match="true"
@@ -38,10 +66,10 @@
       {%- for product_option in product_resource.options_with_values -%}
         {%- liquid
           assign swatch_count = product_option.values | map: 'swatch' | compact | size
-          assign variant_style = block_settings.variant_style
+          assign variant_style = variant_style_setting
 
-          if swatch_count > 0 and block_settings.show_swatches
-            if block_settings.variant_style == 'dropdown'
+          if swatch_count > 0 and show_swatches_setting
+            if variant_style_setting == 'dropdowns'
               assign variant_style = 'swatch_dropdown'
             else
               assign variant_style = 'swatch'
@@ -52,6 +80,11 @@
             assign fieldset_id = section.id | append: '-' | append: product_resource.id | append: '-' | append: product_option.name | handleize
             assign option_id_attribute = 'data-option-id="' | append: fieldset_id | append: '"'
             assign longest_value = 0
+          endif
+
+          assign is_swatch_not_open = false
+          if variant_style == 'swatch' and variant_style_setting != 'openselector'
+            assign is_swatch_not_open = true 
           endif
         -%}
 
@@ -68,7 +101,7 @@
               {{- product_option.selected_value -}}
             </span>
           </div>
-        {%- elsif variant_style == 'swatch' or block_settings.variant_style == 'buttons' -%}
+        {%- elsif is_swatch_not_open or variant_style_setting == 'buttons' -%}
           {%- assign fieldset_index = forloop.index0 -%}
           <fieldset
             class="variant-option variant-option--buttons{% if variant_style == 'swatch' %} variant-option--swatches{% else %} variant-option--{{ settings.variant_button_width }}{% endif %}"
@@ -77,9 +110,11 @@
             {{ option_id_attribute }}
           >
             <legend>
-              {{ product_option.name | escape -}}
+              {{ product_option.name | escape -}}:
               {%- if variant_style == 'swatch' -%}
                 <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
+              {%- else -%}
+                <span class="variant-option__buttons-value">{{ product_option.selected_value | split: " (" | first }}</span>
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
@@ -128,6 +163,7 @@
                   {% render 'swatch',
                     swatch: product_option_value.swatch,
                     variant_image: featured_media,
+                    show_image: block_settings.block_swatch_image,
                     mode: 'unscaled'
                   %}
                 {% else %}
@@ -137,12 +173,70 @@
                       data-key="variant-option-pill"
                     ></span>
                   {% endif %}
-                  <span
-                    class="variant-option__button-label__text"
-                    data-key="variant-option-text"
-                  >
-                    {{- product_option_value | escape -}}
-                  </span>
+                  {% assign product_option_name_downcased = product_option.name | downcase %}
+                  {% if block_settings.is_bundle == true %}
+                    {% if product_option_name_downcased contains 'color' %}
+                      {% liquid
+                        assign featured_media = product_option_value.variant.featured_media
+                        if featured_media == blank and product_option_value.product_url
+                          assign featured_media = product_option_value.variant.product.featured_media
+                        endif
+                      %}
+                      <span
+                        class="swatch swatch--variant-image swatch--unscaled swatch__bundle--image"
+                        style="--swatch-background: url('{{ featured_media | image_url: width: 60 }}');"
+                      ></span>
+                    {% else %}
+                      {% liquid
+                        assign normal_price = product_option_value.variant.price
+                        assign compare_at_price = product_option_value.variant.compare_at_price
+                        assign unit_price = product_option_value.variant.unit_price
+                        assign price_ahorra = compare_at_price | minus: normal_price
+                      %}
+                      <span
+                        class="variant-option__button-label__text"
+                        data-key="variant-option-text"
+                      >
+                        {{- product_option_value | escape -}}
+                        {% if product_option_value.variant.unit_price_measurement.reference_unit == 'item' %}
+                          <div class="variant-option__label--item-price">
+                            La unidad sale a 
+                              {{ unit_price | money_without_trailing_zeros }}
+                          </div>
+                        {% endif %}
+                      </span>
+
+                      <div class="variant-option__button-label__text" data-key="variant-option-text">
+                        <div
+                          class="
+                            price__sale
+                          "
+                        >
+                            <span class="price-item__group">
+                              <span class="visually-hidden">{{ 'content.price_sale' | t }}&nbsp;</span>
+                              <span class="price-item--sale price">{{ normal_price | money_without_trailing_zeros }}</span>
+                            </span>
+                            <span class="price-item__group">
+                              <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
+                              <span class="price-item--regular compare-at-price">{{- compare_at_price | money_without_trailing_zeros -}}</span>
+                            </span>
+                        </div>
+
+                        <div class="price__ahorra">
+                          Ahorra&nbsp;{{- price_ahorra | money_without_trailing_zeros -}}
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% else %}
+                    <span
+                      class="variant-option__button-label__text"
+                      data-key="variant-option-text"
+                    >
+                      {{- product_option_value | escape -}}
+                    </span>
+
+                    <span class="variant-option__button-label__text" data-key="variant-option-text">{{ product_option_value.variant.price | money_without_trailing_zeros }}</span>
+                  {% endif %}
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
@@ -155,7 +249,7 @@
               {% endstyle %}
             {% endif %}
           </fieldset>
-        {%- elsif block_settings.variant_style == 'dropdowns' -%}
+        {%- elsif variant_style_setting == 'dropdowns' -%}
           {%
             # There is an opportunity to build a custom select component that will allow us to style the select element further (animation for dropdown, swatches shown in the dropdown options, etc)
             # It's too bad as it mean rebuilding baked in behaviours but I think we've already done that for the locale selectors
@@ -214,8 +308,173 @@
               </svg>
             </div>
           </div>
-        {%- endif -%}
+        {% elsif variant_style == 'swatch' and variant_style_setting == 'openselector' %}
+          {% liquid
+            assign selected_option = product_option.values | where: 'selected', true | first
+            if selected_option == blank
+              assign selected_option = product_option.values | first
+            endif
+
+            assign selected_swatch = selected_option.swatch
+            assign selected_image = nil
+
+            if selected_swatch and selected_swatch.image
+              assign selected_image = selected_swatch.image
+            else
+              assign selected_variant = selected_option.variant
+              assign selected_image = selected_variant.featured_media
+
+              if selected_image == blank and selected_option.product_url
+                assign selected_image = selected_variant.product.featured_media
+              endif
+            endif
+          %}
+          <fieldset
+            class="variant-option--open-selector"
+            data-fieldset-index="{{ forloop.index0 }}"
+            ref="fieldsets[]"
+            data-open-selector
+          >
+            <div class="open-selector__trigger" tabindex="0">
+              <div class="open-selector__header">
+                <div
+                  class="open-selector__image"
+                  {% if selected_image %}
+                    style="--swatch-background: url('{{ selected_image | image_url: width: 50 }}')"
+                  {% else %}
+                    style="--swatch-background-color: rgb({{ selected_swatch.color.rgb }})"
+                  {% endif %}
+                ></div>
+
+                <div class="open-selector__title-wrapper">
+                  <span class="open-selector__title">
+                    {{ product_option.name }}:
+                  </span>
+
+                  <span class="open-selector__selected" data-selected-value>
+                    {{ product_option.selected_value }}
+                  </span>
+                </div>
+              </div>
+
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                class="icon icon-caret open-selector__caret"
+                viewBox="0 0 10 6"
+              >
+                {%- render 'icon', icon: 'caret' -%}
+              </svg>
+            </div>
+
+            <div class="open-selector__content">
+              {%- for product_option_value in product_option.values -%}
+                {% liquid
+
+                  assign option_swatch = product_option_value.swatch
+                  assign option_image = nil
+
+                  if option_swatch and option_swatch.image
+                    assign option_image = option_swatch.image
+                  else
+                    assign option_variant = product_option_value.variant
+                    assign option_image = option_variant.featured_media
+
+                    if option_image == blank and product_option_value.product_url
+                      assign option_image = option_variant.product.featured_media
+                    endif
+                  endif
+                %}
+                <label
+                  class="open-selector__option {% if product_option_value.selected %}is-selected{% endif %}"
+                >
+                  <input
+                    type="radio"
+                    name="{{ product_option.name | escape }}-{{ block.id }}-{{ product_resource.id }}"
+                    value="{{ product_option_value | escape }}"
+                    aria-label="{{ product_option_value | escape }}"
+                    data-fieldset-index="{{ forloop.parentloop.index0 }}"
+                    data-input-index="{{ forloop.index0 }}"
+                    data-input-id="{{ product_option.position }}-{{ forloop.index0 }}"
+                    data-option-value-id="{{ product_option_value.id }}"
+                    data-option-available="{{ product_option_value.available }}"
+                    data-connected-product-url="{{ product_option_value.product_url }}"
+                    {% if product_option_value.variant.id %}
+                      data-variant-id="{{ product_option_value.variant.id }}"
+                    {% endif %}
+                    {% if product_option_value.selected %}
+                      checked
+                      data-current-checked="true"
+                    {% endif %}
+                  />
+
+                  <div class="open-selector__card">
+                    <div
+                      class="open-selector__image"
+                      {% if option_image %}
+                        style="--swatch-background: url('{{ option_image | image_url: width: 50 }}')"
+                      {% else %}
+                        style="--swatch-background-color: rgb({{ option_swatch.color.rgb }})"
+                      {% endif %}
+                    ></div>
+
+                    <div class="open-selector__title-wrapper">
+                      <span class="open-selector__title">
+                        {{ product_option.name | split:" " | first }}:
+                      </span>
+
+                      <div class="open-selector__info">{{ product_option_value }}</div>
+                    </div>
+                  </div>
+                </label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+        {% endif %}
       {%- endfor -%}
+
+      {% if variant_style_setting == 'openselector' %}
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+          const fieldsets = document.querySelectorAll('[data-open-selector]');
+
+          fieldsets.forEach((fieldset) => {
+            const trigger = fieldset.querySelector('.open-selector__trigger');
+            const inputs = fieldset.querySelectorAll('input[type="radio"]');
+            const selectedValueEl = fieldset.querySelector('[data-selected-value]');
+
+            const toggle = () => {
+              fieldset.classList.toggle('is-open');
+            };
+
+            trigger.addEventListener('click', (e) => {
+              e.preventDefault();
+              toggle();
+            });
+
+            trigger.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
+              }
+            });
+
+            inputs.forEach((input) => {
+              input.addEventListener('change', () => {
+                selectedValueEl.textContent = input.value;
+                fieldset.classList.remove('is-open');
+              });
+            });
+
+            document.addEventListener('click', (e) => {
+              if (!fieldset.contains(e.target)) {
+                fieldset.classList.remove('is-open');
+              }
+            });
+          });
+        });
+        </script>
+      {% endif %}
 
       <script type="application/json">
         {{ product_resource.selected_or_first_available_variant | json }}
@@ -223,6 +482,64 @@
     </form>
   </variant-picker>
 {% endunless %}
+
+{% assign my_product = product_resource.metafields.product.bundle_content.value %}
+
+{% if my_product %}
+  <div class="product-bundle">
+    <div class="product-bundle__heading">Este Pack Contiene:</div>
+    {% for component in my_product %}
+      {% liquid
+        assign linked_product = component.products.value 
+        assign linked_unit = component.units.value
+        assign linked_discount = component.amount_off.value | times: 100
+        assign linked_original_price = linked_product.price | times: linked_unit
+        assign linked_price = linked_original_price | minus: linked_discount
+        %}
+      {% if linked_product %}
+        <div class="product-bundle__item">
+          <span
+            class="swatch swatch--variant-image swatch--unscaled product-bundle__item--image"
+            style="--swatch-background: url('{{ linked_product.featured_media | image_url: width: 60 }}');"
+          ></span>
+          <div class="product-bundle__item--title">
+            <a
+              class="product-bundle__item--text"
+              href="{{ linked_product.url }}"
+            >
+              {{- linked_product.title | escape -}}
+            </a>
+            <div class="product-bundle__item--unit">
+              Unidades:
+                {{ linked_unit | floor }}
+            </div>
+          </div>
+
+          <div class="product-bundle__item--price">
+            <div
+              class="
+                price__sale
+              "
+            >
+                <span class="price-item__group">
+                  <span class="visually-hidden">{{ 'content.price_sale' | t }}&nbsp;</span>
+                  <span class="price-item--sale price">{{ linked_price | money_without_trailing_zeros }}</span>
+                </span>
+                <span class="price-item__group">
+                  <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
+                  <span class="price-item--regular compare-at-price">{{- linked_original_price | money_without_trailing_zeros -}}</span>
+                </span>
+            </div>
+
+            <div class="price__ahorra">
+              Ahorra&nbsp;{{- linked_discount | money_without_trailing_zeros -}}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
 
 {% stylesheet %}
   /* Variant picker container styles - unique to main variant picker */

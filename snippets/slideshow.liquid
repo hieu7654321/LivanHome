@@ -23,6 +23,7 @@
   @param {string} [arrows_position] - The position of the arrows, defaults to 'bottom'
   @param {string} [attributes] - Additional attributes to add to the slideshow component
   @param {boolean} [header] - The title of the slideshow
+  @param {object} [show_recommend]
 
   @example
   {% render 'slideshow', slides: slides, slide_count: collection.products.size, ref: 'mobileSlideshow' %}
@@ -43,8 +44,8 @@
       assign slide_min_height = slide_min_height | replace: 'auto', '17.5rem'
       assign slide_min_height_desktop = slide_min_height_desktop | replace: 'auto', '26.25rem'
     when 'medium'
-      assign slide_min_height = slide_min_height | replace: 'auto', '21.25rem'
-      assign slide_min_height_desktop = slide_min_height_desktop | replace: 'auto', '35rem'
+      assign slide_min_height = slide_min_height | replace: 'auto', '41.56rem'
+      assign slide_min_height_desktop = slide_min_height_desktop | replace: 'auto', '37.5rem'
     when 'large'
       assign slide_min_height = slide_min_height | replace: 'auto', '25rem'
       assign slide_min_height_desktop = slide_min_height_desktop | replace: 'auto', '45rem'
@@ -100,6 +101,8 @@
   {% if header != blank %}
     {{ header }}
   {% endif %}
+
+  {{ show_recommend }}
   <slideshow-container ref="slideshowContainer">
     {% if show_arrows %}
       {% render 'slideshow-arrows', icon_style: icon_style, icon_shape: icon_shape, arrows_position: arrows_position %}

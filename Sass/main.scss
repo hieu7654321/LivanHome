@@ -1,0 +1,33 @@
+//Home Page
+@use './sections/announcements.scss';
+@use './sections/header.scss';
+@use './sections/slideshow.scss';
+@use './sections/feature-collections.scss';
+@use './sections/collection-list.scss';
+@use './sections/icon-with-text.scss';
+@use './sections/footer-utilities.scss';
+
+@use './blocks/product-card.scss';
+@use './blocks/media-block.scss';
+@use './blocks/email-signup.scss';
+@use './blocks/navigation-shop.scss';
+
+//Collection Page
+@use './sections/breadcrumbs.scss';
+@use './sections/collection-page-header.scss';
+@use './sections/collection-page-grid.scss';
+
+@use './blocks/collection-filter.scss';
+@use './blocks/collection-accordion.scss';
+@use './blocks/quick-add.scss';
+
+//Product Page
+@use './sections/product-pages.scss';
+@use './sections/product-details';
+@use './sections/product-related.scss';
+@use './sections/recently-viewed.scss';
+@use './sections/sticky-add-to-cart-bar.scss';
+
+@use './blocks/product-recommendation.scss';
+
+@use './blocks/variant-picker.scss';

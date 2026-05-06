@@ -93,6 +93,17 @@
         {% endfor %}
       {% endcapture %}
 
+      {% if recommendations.products.size > 1 %}
+        {% capture controls %}
+          {%- render 'slideshow-controls',
+            style: 'counter',
+            item_count: recommendations.products.size,
+            controls_on_media: true,
+            pagination_position: 'center'
+          -%}
+        {% endcapture %}
+      {% endif %}
+
       {% liquid
         # Create an array from the list items to be used in the carousel
         assign slide_content = list_items | strip
@@ -129,7 +140,8 @@
               ref: 'resourceListCarousel',
               slides: slides,
               slide_count: recommendations.products.size,
-              settings: section.settings
+              settings: section.settings,
+              show_controls: controls
             %}
         {% endcase %}
       </div>
@@ -153,7 +165,8 @@
             ref: 'resourceListCarouselMobile',
             slides: slides,
             slide_count: recommendations.products.size,
-            settings: section.settings
+            settings: section.settings,
+            show_controls: controls
           %}
         </div>
       {% endif %}

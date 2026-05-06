@@ -101,7 +101,14 @@
             {% endif %}
             ref="menuitem"
           >
-            <span class="menu-list__link-title">{{- link.title -}}</span>
+            <span class="menu-list__link-title">{{- link.title -}}
+              {% if link.links != blank %}
+                <span class="menu-list__caret">
+                  {{- 'icon-caret.svg' | inline_asset_content -}}
+                </span>
+              {% endif %}
+            </span>
+
           </a>
           {%- if link.links != blank -%}
             <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]">
@@ -188,7 +195,7 @@
 {% endstyle %}
 {% stylesheet %}
   .header__drawer {
-    --header-drawer-min-height: 60px;
+    --header-drawer-min-height: 44px;
     display: flex;
     min-height: var(--header-drawer-min-height);
     align-items: center;

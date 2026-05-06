@@ -10,7 +10,12 @@
   @example
   {% render 'unit-price', price: line_item.unit_price | money_with_currency, measurement: line_item.unit_price_measurement }
 {%- enddoc -%}
-<small class="unit-price">
+{% assign price2 = price | times: 100 | money_without_trailing_zeros %}
+<div class="unit-price">
   <span class="visually-hidden">{{ 'accessibility.unit_price' | t }}</span>
-  {{ price | unit_price_with_measurement: measurement }}
-</small>
+  {% if measurement.reference_unit == 'item' %}
+    {{ price2 }} / {{ 'products.unit_pricing.item' | t }}
+  {% else %}
+    {{ price | unit_price_with_measurement: measurement }}
+  {% endif %}
+</div>

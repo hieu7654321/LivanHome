@@ -151,7 +151,8 @@
     "width": "Width",
     "width_is_automatically_optimized": "Width is automatically optimized for mobile.",
     "app_required_for_ratings": "An app is required for product ratings. [Learn more](https://help.shopify.com/manual/apps)",
-    "navigation": "Navigation"
+    "navigation": "Navigation",
+    "recently_viewed_products": "Recently viewed products",
   },
   "html_defaults": {
     "join_our_email_list": "<h2>Join our email list</h2>",
@@ -208,7 +209,8 @@
     "team_with_goal": "<h2>A team with a goal</h2>",
     "unable_to_accept_returns": "<p>We are unable to accept returns on certain items. These will be carefully marked before purchase.</p>",
     "uncompromising_standards": "<p>Uncompromising standards </p>",
-    "work_quickly_to_ship": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>"
+    "work_quickly_to_ship": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+    "recently_viewed_products_h3": "<h3>Recently viewed products</h3>",
   },
   "info": {
     "actions_display_style": "Icons are always used on mobile",
@@ -384,6 +386,7 @@
     "product_media": "Product media",
     "product_price": "Price",
     "product_recommendations": "Recommended products",
+    "recently_viewed_products": "Recently viewed products",
     "product_sku": "SKU",
     "product_review_stars": "Review stars",
     "product_variant_picker": "Variant picker",
@@ -434,7 +437,8 @@
     "video_section": "Video",
     "view_all_button": "View all",
     "pills": "Pills",
-    "comparison_slider": "Comparison slider"
+    "comparison_slider": "Comparison slider",
+    "localization": "Localization"
   },
   "options": {
     "above_carousel": "Above carousel",

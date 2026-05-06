@@ -1,0 +1,91 @@
+{%- doc -%}
+  Standalone “Add to cart” block that can be used in product sections
+  (or other layouts where a product context is available).
+
+  This block wraps the `add-to-cart-button` snippet and exposes minimal
+  settings so merchants can control the label and layout without editing code.
+
+  It expects to be rendered in a context where:
+    - `closest.product` (from a block context), or
+    - `product` (from a section / template context)
+  is available.
+
+  @example
+  {% content_for 'block', type: 'add-to-cart-button-block', id: 'add-to-cart-button-block' %}
+{%- enddoc -%}
+
+{% liquid
+  assign product_object = closest.product | default: product
+
+  assign can_add_to_cart = false
+  if product_object and product_object.available and product_object.selected_or_first_available_variant
+    if product_object.selected_or_first_available_variant.available
+      assign can_add_to_cart = true
+    endif
+  endif
+  
+  assign button_classes = 'add-to-cart-button-block__button '
+  assign button_classes = button_classes | append: block.settings.style_class
+  if block.settings.full_width
+    assign button_classes = button_classes | append: ' add-to-cart-button-block__button--full-width'
+  endif
+%}
+
+<div
+  class="product__cart--custom add-to-cart-button-block"
+  {{ block.shopify_attributes }}
+>
+  {% comment %} {% render 'add-to-cart-button',
+    id: block.id,
+    class: button_classes,
+    can_add_to_cart: can_add_to_cart,
+    product: product_object,
+    add_to_cart_text: add_to_cart_text,
+    icon_only_on_mobile: block.settings.icon_only_on_mobile,
+    data_testid: 'standalone-add-to-cart'
+  %} {% endcomment %}
+  {% render 'quick-add',
+    product: product_object,
+    section_id: section.id,
+  %}
+</div>
+
+{% schema %}
+{
+  "name": "Add to cart",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Behavior"
+    },
+    {
+      "type": "checkbox",
+      "id": "icon_only_on_mobile",
+      "label": "Icon only on mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "text",
+      "id": "style_class",
+      "label": "Additional class",
+      "info": "Additional Class",
+      "default": "button quick-add__button quick-add__button--add add-to-cart-button"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add to cart"
+    }
+  ]
+}
+{% endschema %}

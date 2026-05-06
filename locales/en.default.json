@@ -228,13 +228,17 @@
     "product_subtotal": "Product subtotal",
     "product_total": "Product total",
     "product_badge_sold_out": "Sold out",
-    "product_badge_sale": "Sale",
+    "product_badge_sale": "Sales",
+    "product_badge_limited_stock": "Limited Stock",
+    "product_badge_new": "New",
+    "product_badge_fast_shipping": "Fast Shipping",
+    "product_badge_exclusive": "Exclusive",
     "product_card_placeholder": "Product title",
     "placeholder_image": "Placeholder image",
     "quantity": "Quantity",
     "quantity_per_item": "/ea",
     "quick_order_list": "Quick order list",
-    "recently_viewed_products": "Recently viewed",
+    "recently_viewed_products": "Recently viewed products",
     "remove_all": "Remove all",
     "remove_all_items_confirmation": "Remove all {{ count }} items from your cart?",
     "remove_one_item_confirmation": "Remove 1 item from your cart?",
@@ -354,6 +358,9 @@
       "in_cart": "in cart",
       "default_title": "Default Title",
       "sticky_add_to_cart": "Quick add to cart bar"
+    },
+    "unit_pricing": {
+      "item": "item"
     }
   },
   "shopify": {
