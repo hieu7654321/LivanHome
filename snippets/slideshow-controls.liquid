@@ -157,12 +157,10 @@
           <span ref="current">1</span><span class="slash">/</span>{{ item_count -}}
         </div>
       {% when 'dots' %}
-        <ol class="slideshow-controls__{{ style }}" role="tablist">
+        <ol class="slideshow-controls__{{ style }}">
           {% for i in (1..item_count) %}
             <li>
               <span
-                role="tab"
-                tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
                 class="slideshow-control button button-unstyled"
                 style="animation-timeline: --slide-{{ forloop.index0 }}"
                 aria-label="{{ 'accessibility.slide_status' | t: index: forloop.index, length: forloop.length }}"
