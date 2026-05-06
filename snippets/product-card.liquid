@@ -70,6 +70,7 @@
     data-placeholder="true"
   {% endif %}
 >
+
   <a
     id="{{ product_card_id | md5 }}"
     {% unless onboarding %}
@@ -115,6 +116,13 @@
       {% if delivery_days < 4 %}Entrega en 2 - 4 dias{% elsif delivery_days > 4 and delivery_days < 10 %}En stock, entrega en 4 días{% else %}En stock, envío entre 11-14 de Junio.{% endif %}
     {% endif %}
   </div>
+  {% comment %} <div class="swym-wishlist-collections-v2-container">
+    <button type="button" class="swym-button swym-add-to-wishlist-view-product product_{{ product.id }} swym-wishlist-collections-v2" data-with-epi="true"  data-swaction="addToWishlist" data-product-id="{{ product.id }}"  data-variant-id="{{ product.selected_or_first_available_variant.id | default: product.variants[0].id }}" aria-label="Agregar a la lista de deseos" data-product-url="{{ shop.url | append: product.url }}">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.6706 5.4736C17.6806 3.8336 14.7206 4.1236 12.8906 5.9536L12.0006 6.8436L11.1106 5.9536C9.29063 4.1336 6.32064 3.8336 4.33064 5.4736C2.05064 7.3536 1.93063 10.7436 3.97063 12.7836L11.6406 20.4536C11.8406 20.6536 12.1506 20.6536 12.3506 20.4536L20.0206 12.7836C22.0706 10.7436 21.9506 7.3636 19.6706 5.4736Z" stroke="#2f4abc" stroke-width="1px" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+  </div> {% endcomment %}
 </product-card>
 
 {% stylesheet %}
