@@ -32,9 +32,13 @@
   data-testid="group-block"
 >
   {%- if settings.link != blank -%}
+    {% assign parts = settings.link | split: '/' %}
+    {% assign last_segment = parts | last %}
+    {% assign handle = last_segment | split: '?' | first %}
     <a
       href="{{ settings.link }}"
       class="group-block__link"
+      aria-label="{{ handle }}"
       {% if settings.open_in_new_tab %}
         target="_blank" rel="noopener"
       {% endif %}
