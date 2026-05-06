@@ -160,7 +160,7 @@
         <ol class="slideshow-controls__{{ style }}">
           {% for i in (1..item_count) %}
             <li>
-              <button
+              <span
                 class="slideshow-control button button-unstyled"
                 style="animation-timeline: --slide-{{ forloop.index0 }}"
                 aria-label="{{ 'accessibility.slide_status' | t: index: forloop.index, length: forloop.length }}"
@@ -171,7 +171,7 @@
                 {% endif %}
               >
                 {{ forloop.index }}
-              </button>
+              </span>
             </li>
           {% endfor %}
         </ol>
@@ -364,7 +364,7 @@
     border-radius: 3rem;
     overflow: hidden;
 
-    button {
+    .button {
       --size: 10px;
 
       display: flex;

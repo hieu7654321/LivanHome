@@ -14,7 +14,7 @@
             padding-block: 10px;
             gap: 5px;
 
-            & button[aria-selected='true'] {
+            & .button[aria-selected='true'] {
                 margin: 0;
             }
         }
