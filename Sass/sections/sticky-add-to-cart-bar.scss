@@ -69,6 +69,10 @@
         }
     }
 
+    .product-bundle {
+        display: none;
+    }
+
     @media screen and (max-width: 749px) {
         .sticky__quantity-selector, .sticky-add-to-cart__image, .sticky-add-to-cart__info {
             display: none;

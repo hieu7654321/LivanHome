@@ -57,6 +57,14 @@
       "default": false
     },
     {
+      "type": "checkbox",
+      "id": "is_bundle",
+      "label": "Display in Bundle Style",
+      "default": false,
+      "info": "Whether to display it in Bundle Style with Color remade to swatch and buttons remade to custom buttons",
+      "visible_if": "{{ block.settings.variant_style == 'buttons' }}"
+    },
+    {
       "type": "text_alignment",
       "id": "alignment",
       "label": "t:settings.alignment",
