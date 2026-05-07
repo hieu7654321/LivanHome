@@ -54,9 +54,7 @@
         height: block_settings.image.height,
         class: 'image-block__image border-style',
         style: image_border_style,
-        sizes: sizes,
-        loading: 'lazy',
-        decoding: 'async'
+        sizes: sizes
     }}
   {%- else -%}
     <div class="placeholder-image border-style size-style" style="{{ image_border_style }}">
