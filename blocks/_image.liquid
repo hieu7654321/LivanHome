@@ -21,7 +21,7 @@
   assign media_width_desktop = '100vw'
   assign media_width_mobile = '100vw'
   assign sizes = 'auto, (min-width: 750px) ' | append: media_width_desktop | append: ', ' | append: media_width_mobile
-  assign widths = '240, 352, 832, 1200, 1600'
+  assign widths = '240, 352, 832, 1200, 1600, 1920, 2560'
 %}
 
 {% if image %}
@@ -33,7 +33,7 @@
   >
     {{
       image
-      | image_url: width: 1600
+      | image_url: width: 2560
       | image_tag: width: width, widths: widths, sizes: sizes, loading: loading, alt: alt
     }}
   </image-block>

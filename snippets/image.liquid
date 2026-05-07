@@ -3,7 +3,6 @@
 
   @param {object} image - image object
   @param {number} [height] - custom image height
-  @param {number} [width] - custom image width (recommended). When set, height is derived from the image aspect ratio.
   @param {string} [class] - additional classes
   @param {string} [text_fallback] - text to display if image is blank
   @param {boolean} [unset_image_tag] - if true, ignores the image focal point
@@ -11,27 +10,18 @@
   @param {string} [alt_text_fallback] - Optional text to display if image alt text is blank
 
   @example
-  {% render 'image', image: product.featured_image, width: 800, class: 'product-image' %}
+  {% render 'image', image: product.featured_image, height: 300, class: 'product-image' %}
 {%- enddoc -%}
 {% if image != blank %}
-  {% assign max_default_width = 1200 %}
-  {% assign requested_width = width | default: max_default_width %}
-  {% assign image_width = requested_width | at_most: image.width | at_most: max_default_width %}
-
-  {% if height %}
-    {% assign image_height = height %}
-  {% else %}
-    {% assign image_height = image_width | divided_by: image.aspect_ratio | round %}
-  {% endif %}
-
-  {% assign image_width_2x = image_width | times: 2 | at_most: image.width %}
-  {% assign image_width_3x = image_width | times: 3 | at_most: image.width %}
+  {% assign image_height = height | default: image.height %}
+  {% assign image_height_2x = height | default: image_height | times: 2 %}
+  {% assign image_height_3x = height | default: image_height | times: 3 %}
+  {% assign image_alt_text = image.alt | default: alt_text_fallback | default: '' %}
 
   {% capture image_srcset -%}
-    {{ image | image_url: width: image_width }} 1x, {{ image | image_url: width: image_width_2x }} 2x, {{ image | image_url: width: image_width_3x }} 3x
+    {{ image | image_url: height: image_height }} 1x, {{ image | image_url: height: image_height_2x }} 2x, {{ image | image_url: height: image_height_3x }} 3x
   {%- endcapture %}
 
-  {% assign image_alt_text = image.alt | default: alt_text_fallback | default: '' %}
   {% assign style_value = style | default: '' %}
 
   {% if unset_image_tag %}
@@ -40,8 +30,8 @@
 
   {{
     image
-    | image_url: width: image_width
-    | image_tag: class: class, srcset: image_srcset, style: style_value, alt: image_alt_text, loading: 'lazy', decoding: 'async', height: image_height
+    | image_url: height: image_height
+    | image_tag: class: class, srcset: image_srcset, style: style_value, alt: image_alt_text
   }}
 {% elsif text_fallback %}
   {{ text_fallback }}
