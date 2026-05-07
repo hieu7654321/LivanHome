@@ -110,6 +110,12 @@ header-component {
             }
         }
     }
+
+    #header-component[data-menu-style="drawer"] .header__columns {
+        .search-action {
+            margin-inline-start: -50px;
+        }
+    }
 }
 
 @media screen and (min-width: 1024px) {

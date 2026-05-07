@@ -115,6 +115,53 @@ product-card {
     margin-top: -0.5rem !important;
 }
 
+.swym-wishlist__container {
+  display: flex;
+  justify-self: flex-end;
+  position: absolute;
+  top: -10px;
+  z-index: 999999;
+  
+  &>* {
+      display: none;
+  }
+
+  .swym__custom-button {
+    background: none;
+    opacity: 1 !important;
+  }
+
+  button.swym-button {
+    padding: 0 4px 0 20px;
+  }
+
+  svg {
+    width: 16px;
+    height: 14px;
+  }
+
+  .swym__custom-button.swym-added > svg > * {
+    fill: #2F4ABC;
+  }
+
+  .swym__custom-button:not(.swym-added, .disabled) > svg > * {
+    fill: #fff;
+  }
+
+  @media screen and (min-width: 750px) {
+    top: -4px;
+
+    button.swym-button {
+        padding: 0px 7px 0 20px;
+    }
+
+    svg {
+        width: 22px;
+        height: 20px;
+    }
+  }
+}
+
 @media screen and (min-width: 750px) {
     product-card {
         .card-gallery {
