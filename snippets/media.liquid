@@ -43,7 +43,8 @@
         {% render 'image',
           image: block_settings.image,
           class: 'media-block__media border-style',
-          unset_image_tag: unset_image_tag
+          unset_image_tag: unset_image_tag,
+          lazy_load: true
         %}
       {% comment %} {% else %}
         <div class="media-block__media border-style">

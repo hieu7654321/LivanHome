@@ -41,6 +41,6 @@
   {% endif %}  {{
     image_upload
     | image_url: width: custom_width
-    | image_tag: widths: widths, class: class_name, style: image_style, sizes: sizes
+    | image_tag: widths: widths, class: class_name, style: image_style, sizes: sizes, loading: 'lazy', fetchpriority: 'low'
   }}
 {%- endif -%}
