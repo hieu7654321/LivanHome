@@ -14,7 +14,7 @@
   {% render 'image', image: product.featured_image, width: 800, class: 'product-image' %}
 {%- enddoc -%}
 {% if image != blank %}
-  {% assign max_default_width = 1600 %}
+  {% assign max_default_width = 1200 %}
   {% assign requested_width = width | default: max_default_width %}
   {% assign image_width = requested_width | at_most: image.width | at_most: max_default_width %}
 

@@ -91,7 +91,7 @@
     endcase
   endif
 
-  assign widths = '240, 352, 832, 1200, 1600, 1920, 2560, 3840'
+  assign widths = '240, 352, 832, 1200, 1600, 1920'
 
   # Generate placeholder info based on content type
   if content_type == 'articles'
@@ -149,7 +149,7 @@
 
     {{
       image_resource
-      | image_url: width: 3840
+      | image_url: width: 1920
       | image_tag: widths: widths, class: 'resource-image__image', sizes: sizes, loading: loading
     }}
   </div>
