@@ -79,6 +79,10 @@
         color: #2F4ABC;
     }
 
+    .swym-atw-button-container.product_image_top_right:not(:has(.atw-button-added)) svg > * {
+        fill: #fff;
+    }
+
     @media screen and (max-width: 749px) {
         .breadcrumbs {
             font-size: 0.75rem;
