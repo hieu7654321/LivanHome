@@ -112,7 +112,6 @@ product-card {
 
 .product-card__content:not(:has(.variant-option)) ~ .product-card__delivery {
     padding-block: 0rem 2px !important;
-    margin-top: -0.5rem !important;
 }
 
 .swym-wishlist__container {
@@ -229,6 +228,5 @@ product-card {
 
     .product-card__content:not(:has(.variant-option)) ~ .product-card__delivery {
         padding-block: 0rem 4px !important;
-        margin-top: -1rem !important;
     }
 }
