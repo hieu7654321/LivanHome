@@ -1,4 +1,6 @@
 {% style %}
+
+{% unless settings.fixed_font %}
   {%- liquid
     assign rendered_fonts = ''
 
@@ -122,6 +124,7 @@
       assign rendered_fonts = rendered_fonts | append: accent_font_bold_italic_face_id
     endunless
   %}
+{% endunless %}
 
   :root {
     /* Page Layout */
