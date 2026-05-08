@@ -63,7 +63,7 @@
   endif
 
   assign span_2_image = false
-  if product.metafields.product.span_2_image
+  if product.metafields.product.span_2_image and block_settings.custom_span_2
     assign span_2_image = product.metafields.product.span_2_image
   endif
 %}
