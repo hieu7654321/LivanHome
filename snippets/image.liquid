@@ -45,7 +45,7 @@
 
   {{
     image
-    | image_url: height: image_height
+    | image_url: height: image_height, format: 'webp', quality: 60
     | image_tag: class: class, srcset: image_srcset, style: style_value, alt: image_alt_text, loading: image_loading, fetchpriority: image_fetchpriority
   }}
 {% elsif text_fallback %}
