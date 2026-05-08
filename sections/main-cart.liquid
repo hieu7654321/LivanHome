@@ -57,7 +57,7 @@
 {% endcapture %}
 {% render 'cart-items-component', children: cart_items_children, section_id: section.id %}
 
-{% stylesheet %}
+{% style %}
   .cart-page {
     display: grid;
     grid-template-columns: 1fr;
@@ -129,7 +129,7 @@
       grid-template-columns: 1fr var(--sidebar-width);
     }
   }
-{% endstylesheet %}
+{% endstyle %}
 
 {% schema %}
 {

@@ -10,7 +10,7 @@
   {% render 'variant-swatches', product_resource: product %}
 {%- enddoc -%}
 
-{% stylesheet %}
+{% style %}
   swatches-variant-picker-component {
     display: flex;
     width: 100%;
@@ -68,7 +68,7 @@
   .hidden-swatches__count:hover {
     color: var(--color-foreground-rgb);
   }
-{% endstylesheet %}
+{% endstyle %}
 
 {% liquid
   # Allow pre-selection of a swatch if there is a selected variant

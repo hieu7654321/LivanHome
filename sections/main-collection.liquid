@@ -6,7 +6,7 @@
   fetchpriority="low"
 ></script>
 
-{% javascript %}
+<script>
   const url = new URL(window.location.href);
   if (url.hash) {
     document.addEventListener(
@@ -20,7 +20,7 @@
       { once: true }
     );
   }
-{% endjavascript %}
+</script>
 
 {% comment %} We always render this full-width, as the child blocks have width: page/full settings {% endcomment %}
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>

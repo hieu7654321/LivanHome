@@ -5,7 +5,7 @@
   {% render 'product-badges-styles' %}
 {%- enddoc -%}
 
-{% stylesheet %}
+{% style %}
   .product-badges {
     --badge-inset: max(var(--padding-xs), calc((var(--border-radius) + var(--padding-xs)) * (1 - cos(45deg))));
 
@@ -48,4 +48,4 @@
     padding-block: var(--badge-rectangle-padding-block);
     padding-inline: var(--badge-rectangle-padding-inline);
   }
-{% endstylesheet %}
+{% endstyle %}

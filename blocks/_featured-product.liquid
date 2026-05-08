@@ -27,14 +27,14 @@
 
 {% render 'product-card', children: product_card_children, product: closest.product, product_card_gap: 8 %}
 
-{% stylesheet %}
+{% style %}
   .featured-product-content-top {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     gap: var(--gap-sm);
   }
-{% endstylesheet %}
+{% endstyle %}
 
 {% schema %}
 {

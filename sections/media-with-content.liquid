@@ -46,7 +46,7 @@
   {% content_for 'block', type: '_content-without-appearance', id: 'content' %}
 </div>
 
-{% stylesheet %}
+{% style %}
   .section--page-width {
     &.media-with-content {
       grid-template-areas: 'margin-left media margin-right' 'margin-left content margin-right';
@@ -195,7 +195,7 @@
 
     min-height: 500px;
   }
-{% endstylesheet %}
+{% endstyle %}
 
 {% schema %}
 {
