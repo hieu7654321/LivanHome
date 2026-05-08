@@ -10,8 +10,8 @@
     {{- 'icon-caret.svg' | inline_asset_content -}}
     </span> {% endcomment %}
 
-    {% if section.settings.breadcrumb-collection %}
-      {% assign collection_name = section.settings.breadcrumb-collection %}
+    {% if section.settings.breadcrumb_collection %}
+      {% assign collection_name = section.settings.breadcrumb_collection %}
       <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>
       <li class="breadcrumbs__item">
         <a class="breadcrumbs__link" href="{{ collection_name.url }}">
@@ -60,7 +60,7 @@
     },
     {
       "type": "collection",
-      "id": "breadcrumb-collection",
+      "id": "breadcrumb_collection",
       "label": "Collection"
     },
     {
@@ -68,13 +68,13 @@
       "id": "level_1_text",
       "label": "Collection Breadcrumbs",
       "default": "Collection",
-      "visible_if": "{{ section.settings.breadcrumb-collection == blank }}"
+      "visible_if": "{{ section.settings.breadcrumb_collection == blank }}"
     },
     {
       "type": "url",
       "id": "level_1_url",
       "label": "Collection Url",
-      "visible_if": "{{ section.settings.breadcrumb-collection == blank }}"
+      "visible_if": "{{ section.settings.breadcrumb_collection == blank }}"
     },
     {
       "type": "header",
