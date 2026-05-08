@@ -16,8 +16,8 @@
 {% if image != blank %}
   {% assign custom_height = height | default: image.height %}
   {% assign image_height = custom_height | times: 0.75 %}
-  {% assign image_height_2x = height | default: image_height | times: 2 %}
-  {% assign image_height_3x = height | default: image_height | times: 3 %}
+  {% assign image_height_2x = height | default: image_height | times: 1.5 %}
+  {% assign image_height_3x = height | default: image_height | times: 2.5 %}
   {% assign image_alt_text = image.alt | default: alt_text_fallback | default: '' %}
   {% liquid
     assign lazyload = false

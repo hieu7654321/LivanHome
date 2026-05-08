@@ -32,6 +32,7 @@
     "type_line_height_h6": "display-normal",
     "type_letter_spacing_h6": "heading-loose",
     "type_case_h6": "uppercase",
+    "fixed_font": true,
     "transition_to_main_product": true,
     "badge_sale_color_scheme": "scheme-b52abfb1-62d2-49cb-b0d3-a1ad0676fd5c",
     "badge_limited_stock_color_scheme": "scheme-fbda35c4-106a-464a-bbc9-d89ad0233329",
