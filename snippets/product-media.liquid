@@ -17,7 +17,7 @@
 {%- enddoc -%}
 
 {% liquid
-  assign widths = widths | default: '240, 352, 375, 832, 1200, 1600, 1920, 2560, 3840'
+  assign widths = widths | default: '187, 240, 352, 375, 832, 1200, 1600, 1920'
   assign ref_image_to_transition = ''
   if settings.transition_to_main_product
     assign ref_image_to_transition = 'imagesToTransition[]'
@@ -39,7 +39,7 @@
   %}
   {{
     media.preview_image
-    | image_url: width: 492
+    | image_url: width: 347
     | image_tag:
       widths: widths,
       alt: media.alt,
