@@ -108,6 +108,10 @@ product-card {
         color: #2F4ABC;
         padding-block: 0.5rem 2px;
     }
+
+    slideshow-slide[reveal] ~ slideshow-slide:first-child {
+        display: none;
+    }
 }
 
 .product-card__content:not(:has(.variant-option)) ~ .product-card__delivery {

@@ -203,11 +203,6 @@ export class QuickAddComponent extends Component {
    */
   async updateQuickAddModal(productGrid) {
     const modalContent = document.getElementById('quick-add-modal-content');
-    const detailsButton = document.getElementById("quick-add__button--details");
-
-    if (detailsButton instanceof HTMLAnchorElement) {
-      detailsButton.href = this.productPageUrl;
-    }
 
     if (!productGrid || !modalContent) return;
 
@@ -217,6 +212,12 @@ export class QuickAddComponent extends Component {
     const productPrice = productGrid.querySelector('product-price');
     const productTitle = document.createElement('a');
     const productDesc = document.createElement('div');
+    const detailsButton = document.createElement('a');
+
+    detailsButton.id = 'quick-add__button--details';
+    detailsButton.className = 'button button-primary quick-add__button--details';
+    detailsButton.href = this.productPageUrl;
+    detailsButton.textContent = 'VER DETALLES';
 
     productDesc.classList.add('quick-add__product--description');
     productDesc.textContent = this.dataset.productDescription || '';
@@ -241,6 +242,7 @@ export class QuickAddComponent extends Component {
     if (productFormComponent) {
       productGrid.appendChild(productFormComponent);
     }
+    productGrid.appendChild(detailsButton);
 
     productDetails?.remove();
 

@@ -21,21 +21,33 @@
     #quick-add-modal-content {
         display: flex;
         flex-direction: column;
-        padding-block: 49px 10px;
+        padding-block: 49px 20px;
         padding-inline: 16px;
         flex-grow: 1;
-        gap: 40px;
+        gap: 10px;
+    }
+
+    .quick-add-modal__content > * {
+        flex-shrink: 0;
     }
 
     .product-information__media {
         touch-action: auto;
+        position: static;
 
         media-gallery {
             pointer-events: auto;
+            position: static;
+            height: 100%;
         }
 
         slideshow-component {
             flex-direction: column;
+            height: 100%;
+        }
+
+        slideshow-container {
+            height: 100%;
         }
 
         slideshow-slides {
@@ -46,6 +58,7 @@
             aspect-ratio: 343 / 379;
             max-height: 421px;
             gap: 10px;
+            height: 100%;
         }
 
         slideshow-slide {
@@ -62,8 +75,7 @@
 
         slideshow-controls.media-gallery__mobile-controls {
             display: flex;
-            position: relative;
-            top: 0;
+            bottom: -42px;
 
             @include slideshow-controls-dots;
         }
@@ -91,9 +103,7 @@
         color: #000;
         border: 1px solid #000;
         border-radius: 5px;
-        width: calc(100% - 32px);
-        margin-inline-start: 16px;
-        margin-bottom: 20px;
+        width: 100%;
         padding-block: 10px;
         font-size: 14px;
         line-height: 18px;
@@ -134,7 +144,7 @@
     .product-header {
         gap: 10px;
         padding: 0;
-        margin-top: -20px;
+        margin-top: 20px;
 
         a {
             font-weight: 400;
@@ -162,6 +172,7 @@
     }
 
     .variant-picker {
+        margin-block: 30px;
         @include image-variant-picker;
     }
 
@@ -176,14 +187,15 @@
     }
 
     #quick-add-dialog {
-        #quick-add-modal-content {
-            justify-content: space-between;
-        }
+        // #quick-add-modal-content {
+        //     justify-content: space-between;
+        // }
 
         .product-header {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin-top: 10px;
 
             a {
                 display: flex;

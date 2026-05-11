@@ -383,10 +383,17 @@ export default class VariantPicker extends Component {
     let newProduct;
 
     // const newVariantPickerSource = newHtml.querySelector(this.tagName.toLowerCase());
+    // const context = this.dataset.pickerContext || 'main';
+    // const newVariantPickerSource = newHtml.querySelector(
+    //   `variant-picker[data-picker-context="${context}"]`
+    // );
     const context = this.dataset.pickerContext || 'main';
-    const newVariantPickerSource = newHtml.querySelector(
-      `variant-picker[data-picker-context="${context}"]`
-    );
+
+    const newVariantPickerSource = this.dataset.pickerContext
+      ? newHtml.querySelector(
+          `${this.tagName.toLowerCase()}[data-picker-context="${context}"]`
+        )
+      : newHtml.querySelector(this.tagName.toLowerCase());
 
     if (!newVariantPickerSource) {
       throw new Error('No new variant picker source found');
