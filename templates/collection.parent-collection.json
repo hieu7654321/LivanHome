@@ -13,7 +13,6 @@
       "type": "breadcrumbs",
       "name": "Breadcrumbs",
       "settings": {
-        "breadcrumb-collection": "",
         "level_1_text": "Colección",
         "level_1_url": "shopify://collections",
         "level_2_text": "{{ collection.title }}"

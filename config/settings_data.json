@@ -98,12 +98,12 @@
       },
       "11532412952436166569": {
         "type": "shopify://apps/loox-reviews/blocks/loox-inject/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       },
       "5946647744298494267": {
         "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "show_ui": true,
           "storefront_layout_enabled": false,
@@ -120,8 +120,21 @@
       },
       "2734250573734242505": {
         "type": "shopify://apps/wishlist-plus/blocks/storefront-ui-elements/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-        "disabled": true,
-        "settings": {}
+        "disabled": false,
+        "settings": {
+          "enable_variant_selector": false,
+          "swym_add_to_wishlist_title_color": "#333",
+          "swym_variant_selector_font_size_1": 14,
+          "swym_variant_selector_popup_bg_color": "#fff",
+          "swym_variant_selector_section_heading_color": "#000",
+          "swym_variant_selector_section_heading_font_size_2": 12,
+          "swym_variant_selector_choose_create_text": "Choose or Create new wishlist",
+          "swym_variant_selector_wishlist_btn_bg_color": "#292929",
+          "swym_variant_selector_wishlist_btn_color": "#fff",
+          "swym_variant_selector_product_detail_font_color": "#fff",
+          "swym_variant_selector_create_list_placeholder_text": "Enter wish list name",
+          "swym_variant_selector_create_list_title": "Name Your Wishlist"
+        }
       }
     },
     "color_schemes": {
