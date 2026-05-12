@@ -11,11 +11,11 @@
 
     .price__sale {
         .price-item--sale {
-            color: #FF0034;
+            color: $cpg-sale-color;
         }
 
         .price-item__group:not(:first-child) {
-            margin-left: 8px;
+            margin-left: $cpg-price-ml;
         }
     }
 }
@@ -23,25 +23,24 @@
 .product-badges {
     display: inline-flex;
     flex-wrap: wrap;
-    max-width: 70%;
-    column-gap: 3px;
-    row-gap: 0.5px;
+    max-width: $cpg-badge-mw;
+    column-gap: $cpg-badge-g-col;
+    row-gap: $cpg-badge-g-row;
 
     .product-badges__badge {
-        font-size: 10px;
-        line-height: 12px;
+        font-size: $fs-10;
+        line-height: $lh-12;
         font-weight: 500;
     }
 
     .product-badges__badge--rectangle {
-        padding-block: 2px;
-        padding-inline: 6.74px;
+        padding: $cpg-badge-rec-pad;
     }
 }
 
 .product-badges--top-left {
-    top: 5px;
-    left: 5px;
+    top: $cpg-badge-top-sm;
+    left: $cpg-badge-left-sm;
 }
 
 @media screen and (max-width: 749px) {
@@ -70,21 +69,21 @@
 
             .add-to-cart-text {
                 .add-to-cart-icon {
-                    width: 28px;
+                    width: $cpg-add-icon-w;
                 }
             }
 
             slideshow-controls {
-                min-height: 28px;
+                min-height: $cpg-controls-min-h;
 
                 .slideshow-controls__dots:only-child {
-                    margin-inline: 9px 0;
-                    gap: 8px;
+                    margin-inline: $cpg-dots-ochild-mi;
+                    gap: $cpg-dots-ochild-gap;
                 }
 
                 .slideshow-controls__dots .button::after {
-                    width: 8px !important;
-                    height: 8px;
+                    width: $cpg-dots-a-size !important;
+                    height: $cpg-dots-a-size;
                 }
             }
         }
@@ -98,7 +97,7 @@
 
             product-card slideshow-slides {
                 height: calc((100vw - (var(--page-margin) * 2) - 20px) * 5 / 12 ) !important;
-                max-height: 584px;
+                max-height: $cpg-slides-max-h-lg;
             }
         }
 
@@ -127,11 +126,11 @@
         }
 
         .product-card__content {
-            row-gap: 7px;
+            row-gap: $cpg-card-g-row-lg;
         }
 
         product-card .product-card__delivery {
-            padding-block: .4rem 0;
+            padding-block: $cpg-delivery-pbl-lg;
         }
 
         .button.add-to-cart-button {
@@ -140,7 +139,7 @@
     }
 
     .product-badges--top-left {
-        top: 10px;
-        left: 10px;
+        top: $cpg-badge-top-lg;
+        left: $cpg-badge-left-lg;
     }
 }

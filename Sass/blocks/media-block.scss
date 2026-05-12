@@ -6,29 +6,29 @@
     .media-block {
         img {
             border-radius: var(--media-border-radius);
-            width: 97.41%;
+            width: $mbl-img-width-sm;
         }
     }
 
     .media-block__content {
         text-align: var(--floating-text-align);
-        width: 97.41%;
+        width: $mbl-content-width-sm;
         color: var(--color-primary);
         position: absolute;
-        top: 31%;
+        top: $mbl-content-top;
         font-size: var(--font-size);
         line-height: calc(var(--font-size) + 1.3625rem);
         font-weight: var(--font-weight);
         text-transform: var(--text-transform);
 
         u {
-            text-underline-offset: 8px;
+            text-underline-offset: $mbl-content-u-offset-sm;
         }
     }
 
     .media-with-content__content > .group-block-content {
         padding-inline-start: var(--page-margin) !important;
-        padding-inline-end: 23px !important;
+        padding-inline-end: $mbl-group-content-pie-sm !important;
 
         @media screen and (max-width: 749px) {
             .button {
@@ -70,14 +70,14 @@
 
         .media-block {
             img {
-                width: 100%;
+                width: $mbl-img-width-lg;
                 object-position: center 78%;
             }
         }
 
         .media-block__content {
-            width: 100%;
-            top: 37%;
+            width: $mbl-content-width-lg;
+            top: $mbl-content-top-lg;
             
             & > * {
                 font-size: clamp(var(--font-size), 4vw , #{calc(var(--font-size) + 1.25rem)});
@@ -85,14 +85,14 @@
             }
 
             u {
-                text-underline-offset: 12px;
+                text-underline-offset: $mbl-content-u-offset-lg;
             }
         }
 
         .media-with-content__content {
             & > .group-block-content {
                 padding-block: calc(4.295 * var(--page-margin)) !important;
-                padding-inline: 26px !important;
+                padding-inline: $mbl-group-content-pie-lg !important;
 
                 & > .group-block:first-child {
                     
@@ -109,8 +109,8 @@
                     .text-block:not(:has(p)) {
                         & > * {
                             font-size: calc(var(--font-size) + 1.125rem);
-                            margin-right: 2.25rem;
-                            line-height: 56px;
+                            margin-right: $mbl-text-margin-right;
+                            line-height: $lh-56;
                        }
                     }
                 }

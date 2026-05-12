@@ -14,7 +14,7 @@
 .accordion__custom {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: $ca-accordion-gap;
 
     accordion-custom:first-child .details, accordion-custom:not(:first-child) .details {
         border-block-start: none !important;
@@ -25,15 +25,15 @@
     }
 
     summary.details__header {
-        gap: 30px;
-        font-size: 12px;
-        line-height: 15px;
-        padding-block: 1px 10px;
+        gap: $ca-summary-gap-sm;
+        font-size: $fs-12;
+        line-height: $lh-15;
+        padding-block: $ca-summary-pbl-sm;
     }
 
     .svg-wrapper.icon-caret {
-        width: 22px;
-        height: 22px;
+        width: $ca-icon-size-sm;
+        height: $ca-icon-size-sm;
     }
 }
 
@@ -56,17 +56,17 @@
     }
 
     .accordion__custom {
-        gap: 16px;
+        gap: $ca-accordion-gap;
 
         summary.details__header {
-            gap: 20px;
-            font-size: 16px;
-            line-height: 20px;
-            padding-block: 4px 9px;
+            gap: $ca-summary-gap-lg;
+            font-size: $fs-16;
+            line-height: $lh-20;
+            padding-block: $ca-summary-pbl-lg;
         }
 
         .svg-wrapper.icon-caret {
-            width: 18px;
+            width: $ca-icon-size-lg;
         }
     }
 }

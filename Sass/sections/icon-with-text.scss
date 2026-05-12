@@ -3,9 +3,9 @@
 .section:has(.icon-block__custom) {
     .group-block {
         .icon-block {
-            border: 0.5px solid var(--color-border);
-            width: 60px;
-            height: 60px;
+            border: $ict-icon-border;
+            width: $ict-icon-size-sm;
+            height: $ict-icon-size-sm;
             justify-content: center;
         }
 
@@ -63,8 +63,8 @@
 
             .group-block {
                 .icon-block {
-                    width: 100px;
-                    height: 100px;
+                    width: $ict-icon-size-lg;
+                    height: $ict-icon-size-lg;
 
                     img {
                         width: var(--width-desktop) !important;

@@ -1,32 +1,32 @@
 @use '../base/base.scss' as *;
 
 .group-block:has(.email-signup-block) {
-    max-width: 520px;
+    max-width: $esg-max-width-sm;
 
     .email-signup-block:has(.email-signup__heading--custom) {
         .email-signup__heading--custom {
-            font-size: 32px;
-            line-height: 36px;
+            font-size: $fs-32;
+            line-height: $lh-36;
             letter-spacing: 0;
-            padding: 2px 10px 10px 0;
+            padding: $esg-heading-pad;
         }
 
         .email-signup__input {
-            font-size: 14px;
-            line-height: 18px;
-            padding: 9px;
+            font-size: $fs-14;
+            line-height: $lh-18;
+            padding: $esg-input-pad;
         }
 
         .email-signup__button.email-signup__button--arrow {
-            width: 25px;
+            width: $esg-btn-size;
             height: 100%;
             margin: 0;
             position: relative;
-            top: -3px;
-            right: 2px;
+            top: $esg-btn-top;
+            right: $esg-btn-right;
 
             & > svg {
-                width: 25px;
+                width: $esg-btn-svg-w;
                 height: 100%;
             }
         }
@@ -46,7 +46,7 @@
         --page-margin: 50px !important;
 
         .group-block:has(.email-signup-block) {
-            max-width: 400px;
+            max-width: $esg-max-width-lg;
         }
 
         .footer-content {
@@ -54,12 +54,12 @@
         }
 
         .email-signup__heading--custom {
-            font-size: 30px !important;
-            line-height: 32px !important;
+            font-size: $fs-30 !important;
+            line-height: $lh-32 !important;
         }
 
         .email-signup__form {
-            max-width: 367px;
+            max-width: $esg-form-max;
         }
     }
 }

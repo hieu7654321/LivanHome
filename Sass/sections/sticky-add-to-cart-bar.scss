@@ -2,8 +2,8 @@
 
 .sticky-add-to-cart {
     .sticky-add-to-cart__bar {
-        gap: 8px;
-        padding: 10px;
+        gap: $stcart-bar-gap;
+        padding: $stcart-bar-pd;
     }
 
     .add-to-cart-icon {
@@ -12,8 +12,8 @@
 
     .variant-option__select-wrapper {
         margin-top: 0;
-        max-height: 40px;
-        border-radius: 5px;
+        max-height: $stcart-option-wrapper-max-h;
+        border-radius: $stcart-radius;
 
         &:hover {
             border-color: var(--color-border);
@@ -21,12 +21,12 @@
     }
 
     .variant-option__select {
-        padding-block: 11.5px;
+        padding-block: $stcart-option-pbl;
         font-weight: 700;
-        font-size: 14px;
-        line-height: 17px;
+        font-size: $fs-14;
+        line-height: $lh-17;
         letter-spacing: 0;
-        max-width: 90%;
+        max-width: $stcart-option-max-w;
 
         &:focus-visible {
             outline: none;
@@ -36,22 +36,22 @@
 
     .sticky-add-to-cart__button, .variant-picker {
         width: 100%;
-        border-radius: 5px;
-        max-height: 40px;
+        border-radius: $stcart-radius;
+        max-height: $stcart-picker-max-h;
     }
 
     .add-to-cart-text__content > * {
         font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
+        font-size: $fs-14;
+        line-height: $lh-18;
         letter-spacing: 0;
         text-align: center;
         text-transform: uppercase;
     }
 
     .variant-option__select-wrapper .icon {
-        right: 16px;
-        width: 16px;
+        right: $stcart-icon-right;
+        width: $stcart-icon-w;
     }
 
     .variant-option > label {
@@ -59,13 +59,13 @@
     }
 
     .quantity-selector {
-        max-height: 40px;
-        max-width: 107px;
-        padding-inline: 14px;
-        border-radius: 5px;
+        max-height: $stcart-quantity-max-h;
+        max-width: $stcart-quantity-max-w;
+        padding-inline: $stcart-quantity-pi;
+        border-radius: $stcart-radius;
 
         &> input {
-            max-width: 20px;
+            max-width: $stcart-quantity-input-max-w;
         }
     }
 
@@ -83,13 +83,13 @@
         }
 
         .sticky__variant-picker {
-            width: 83%;
+            width: $stcart-picker-w-sm;
         }
     }
 
     @media screen and (min-width: 750px) {
         .sticky-add-to-cart__bar {
-            padding: 18px 25px 28px 33px;
+            padding: $stcart-bar-pd-lg;
         }
 
         .sticky-add-to-cart__bar {
@@ -100,29 +100,29 @@
         }
 
         .sticky-add-to-cart__info {
-            padding-inline-start: 3px;
-            margin-top: 2px;
+            padding-inline-start: $stcart-info-pis-lg;
+            margin-top: $stcart-info-mt-lg;
         }
 
         .sticky-add-to-cart__button {
-            max-width: 216px;
+            max-width: $stcart-btn-max-w-lg;
         }
 
         .sticky-add-to-cart__image {
-            height: 74px;
-            aspect-ratio: 0.798;
+            height: $stcart-img-h-lg;
+            aspect-ratio: $stcart-img-ratio-lg;
         }
 
         .sticky-add-to-cart__title, .price {
             font-weight: 400;
-            font-size: 16px;
-            line-height: 20px;
+            font-size: $fs-16;
+            line-height: $lh-20;
             letter-spacing: 0;
         }
         
         .sticky__variant-picker {
-            width: 15%;
-            max-width: 200px;
+            width: $stcart-picker-w-lg;
+            max-width: $stcart-picker-max-w-lg;
         }
     }
 }

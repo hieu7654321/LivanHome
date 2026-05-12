@@ -1,3 +1,5 @@
+@use './base/base.scss' as *;
+
 //Home Page
 @use './sections/announcements.scss';
 @use './sections/header.scss';
@@ -23,7 +25,7 @@
 
 //Product Page
 @use './sections/product-pages.scss';
-@use './sections/product-details';
+@use './sections/product-details.scss';
 @use './sections/product-related.scss';
 @use './sections/recently-viewed.scss';
 @use './sections/sticky-add-to-cart-bar.scss';

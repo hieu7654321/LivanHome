@@ -3,11 +3,11 @@
 footer {
     .group-block:has(accordion-custom) {
         .menu__heading:has(.menu__heading__default) {
-            font-size: 14px;
-            line-height: 17px;
+            font-size: $fs-14;
+            line-height: $lh-17;
             font-weight: 700;
-            letter-spacing: 0.2px;
-            padding-block: 0 11px;
+            letter-spacing: $nav-heading-spacing;
+            padding-block: $nav-heading-pd;
         }
     }
 }
@@ -16,7 +16,7 @@ footer {
     footer {
         .group-block:has(accordion-custom) {
             padding-block-start: 0;
-            max-width: 428px;
+            max-width: $nav-footer-group-mw-lg;
             justify-self: flex-end;
 
             .group-block-content {
@@ -30,14 +30,14 @@ footer {
             .menu__details {
                 .menu__heading:has(.menu__heading__default) {
                     letter-spacing: 0;
-                    padding-block: 2px 6px;
+                    padding-block: $nav-heading-pd-lg;
                 }
 
                 nav.details-content { 
-                    margin-block-start: 6px;
+                    margin-block-start: $nav-details-mt-lg;
 
                     .menu__item + .menu__item {
-                        margin-block-start: 1.7px;
+                        margin-block-start: $nav-details-gap-lg;
                     }
                 }
             }

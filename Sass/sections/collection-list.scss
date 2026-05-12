@@ -8,14 +8,14 @@
             .card {
                 .card__inner {
                     .image-block {
-                        aspect-ratio: 0.667666 !important;
+                        aspect-ratio: $clt-card-aspect-ratio !important;
                     }
                 }
 
                 .text-block {
                     position: absolute;
-                    bottom: 3.5%;
-                    left: 6%;
+                    bottom: $clt-card-text-bottom-sm;
+                    left: $clt-card-text-left-sm;
 
                     & > * {
                         color: #fff;
@@ -56,16 +56,16 @@
                     height: fit-content;
                     justify-content: right;
                     padding-inline: 0;
-                    top: -56px;
+                    top: $clt-arrows-top;
                     justify-self: flex-end;
-                    right: 40px;
+                    right: $clt-arrows-right;
                 }
 
                 .slideshow-control{
                     opacity: 1;
                     mix-blend-mode: normal;
                     animation: none;
-                    padding: 0 3.5px;
+                    padding: $clt-slshow-pd;
 
                     &[disabled] {
                         display: block;
@@ -84,8 +84,8 @@
                     .card {
                         .card__inner {
                             .text-block {
-                                bottom: 3.2%;
-                                left: 4.6%;
+                                bottom: $clt-card-text-bottom-lg;
+                                left: $clt-card-text-left-lg;
 
                                 & > * {
                                     font-size: clamp(var(--font-size), 3vw ,#{calc(var(--font-size) + 18px)});

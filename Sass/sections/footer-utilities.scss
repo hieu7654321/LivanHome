@@ -4,8 +4,8 @@
     .group-block:has(dropdown-localization-component) {
         .dropdown-localization {
             .dropdown-localization__button, .localization-form__select {
-                font-size: 14px;
-                line-height: 18px;
+                font-size: $fs-14;
+                line-height: $lh-18;
                 letter-spacing: 0;
                 background-color: var(--color-background);
                 padding-block: 0;
@@ -13,12 +13,12 @@
             }
 
             .dropdown-localization__button {
-                gap: 10px;
+                gap: $fut-gap-sm;
                 padding-inline-end: 0;
             }
 
             .localization-form__select {
-                padding-inline-end: 20px;
+                padding-inline-end: $fut-form-slct-pie;
             }
 
             .language-selector {
@@ -34,14 +34,14 @@
 
     .payment-icons {
         .icon.icon--full-color {
-            width: 34px;
-            height: 20px;
+            width: $fut-payment-icon-w;
+            height: $fut-payment-icon-h;
         }
     }
 
     .footer-utilities__group-copyright {
-        line-height: 18px;
-        letter-spacing: -0.5px;
+        line-height: $lh-18;
+        letter-spacing: $fut-copyright-letter-spacing;
         color: rgb(var(--color-foreground-rgb));
 
         a {
@@ -62,8 +62,8 @@
                     gap: max(10px, calc(var(--gap) - 13px));
                     
                     .dropdown-localization__button, .localization-form__select {
-                        font-size: 14px;
-                        line-height: 18px;
+                        font-size: $fs-14;
+                        line-height: $lh-18;
                     }
                 }
             }
@@ -71,12 +71,12 @@
             .payment-icons {
                 .payment-icons__list {
                     justify-content: flex-end;
-                    margin-inline-end: -3px;
+                    margin-inline-end: $fut-payment-margin-adjust;
                 }
             }
 
             .footer-utilities__group-copyright {
-                letter-spacing: -0.3px;
+                letter-spacing: $fut-copyright-letter-spacing-lg;
                 grid-row-end: none;
             }
         }
