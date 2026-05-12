@@ -13,7 +13,7 @@
       "type": "breadcrumbs",
       "name": "Breadcrumbs",
       "settings": {
-        "breadcrumb-collection": "{{ product.metafields.products.collection.value }}",
+        "breadcrumb_collection": "{{ product.metafields.products.collection.value }}",
         "level_1_text": "Collection",
         "level_1_url": "",
         "level_2_text": "{{ product.title }}"
@@ -328,6 +328,7 @@
                         "variant_style": "openselector",
                         "show_swatches": true,
                         "block_swatch_image": false,
+                        "is_bundle": false,
                         "alignment": "left",
                         "padding-block-start": 10,
                         "padding-block-end": 10,
