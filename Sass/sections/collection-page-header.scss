@@ -9,7 +9,7 @@ main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
 
     slideshow-slide {
         .collection-card__content {
-            padding: 10px;
+            padding: $cph-ccard-pd-sm;
 
             .text-block > * {
                 line-height: calc(var(--font-size) + 3px);
@@ -21,7 +21,7 @@ main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
 
 main.content-for-layout:has(.search-page-input__parent) {
     .facets-toggle {
-        margin: 0 0 30px 0;
+        margin: $cph-facets-mg;
     }
 }
 
@@ -30,8 +30,8 @@ main.content-for-layout:has(.search-page-input__parent) {
         .section-resource-list {
             slideshow-arrows {
                 .slideshow-control {
-                    padding: 0 5px !important;
-                    border-radius: 5px;
+                    padding: $cph-sls-control-pd !important;
+                    border-radius: $cph-sls-control-radius;
                 }
             }
             
@@ -65,8 +65,8 @@ main.content-for-layout:has(.search-page-input__parent) {
             --peek-next-slide-size: 1.87rem !important;
 
             .slideshow-control {
-                padding: 0 5px !important;
-                border-radius: 5px;
+                padding: $cph-sls-control-pd !important;
+                border-radius: $cph-sls-control-radius;
             }
 
             slideshow-slides {
@@ -77,7 +77,7 @@ main.content-for-layout:has(.search-page-input__parent) {
                 aspect-ratio: 215 / 322;
 
                 .collection-card__content {
-                    padding: 10px;
+                    padding: $cph-rscarousel-content-pd;
 
                     .text-block > * {
                         font-size: calc(var(--font-size) + 2px);

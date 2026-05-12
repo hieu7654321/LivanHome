@@ -6,30 +6,30 @@ header-component {
     }
 
     #swym-advanced-header-icon {
-        margin-inline-start: -52px;
-        margin-inline-end: 25px;
+        margin-inline-start: $hdr-swym-mis;
+        margin-inline-end: $hdr-swym-mie;
 
         .swym-header-icon-count-bubble > .swym-header-icon-count {
-            transform: scale(0.7);
+            transform: scale($hdr-swym-count-scale);
         }
         
         svg {
-            width: 20px;
-            height: 20px;
-            opacity: 0.6;
+            width: $hdr-swym-icon-size;
+            height: $hdr-swym-icon-size;
+            opacity: $hdr-swym-icon-opacity;
         }
     }
 
     .header__column--right header-actions {
-        gap: 6px;
-        margin-inline-start: -40px !important;
+        gap: $hdr-actions-gap;
+        margin-inline-start: $hdr-actions-mis !important;
 
         shopify-account {
             --shopify-account-avatar-size: 28px;
         }
 
         cart-drawer-component.cart-drawer {
-            width: 33px;
+            width: $hdr-cart-drawer-w;
 
             .header-actions__action {
                 @include cart-drawer;
@@ -58,18 +58,18 @@ header-component {
 
             .header__column--right {
                 .search-action {
-                    margin-inline: 43px;
+                    margin-inline: $hdr-search-mi;
                 }
 
                 header-actions {
-                    margin-inline-end: 7px;
+                    margin-inline-end: $hdr-actions-mie;
                 }
             }
         }
 
         .header__row--bottom {
             position: absolute;
-            top: 24%;
+            top: $hdr-row-bottom-top;
             pointer-events: none;
 
             .header__column--center {
@@ -84,12 +84,12 @@ header-component {
             }
 
             .menu-list__link-title {
-                padding-inline: calc(var(--gap-lg) / 2);
+                padding-inline: $hdr-menu-link-pi;
             
                 &:has(.menu-list__caret) {
                     display: inline-flex;
-                    gap: 1px;
-                    padding-right: 5px;
+                    gap: $hdr-menu-link-gap;
+                    padding-right: $hdr-menu-link-pr;
 
                     .menu-list__caret {
                         display: flex;
@@ -108,6 +108,12 @@ header-component {
             .overflow-menu.color-scheme-matches-parent::part(overflow) {
                 --submenu-padding-block-start: 15px !important;
             }
+        }
+    }
+
+    #header-component[data-menu-style="drawer"] .header__columns {
+        .search-action {
+            margin-inline-start: $hdr-drawer-search-mis;
         }
     }
 }

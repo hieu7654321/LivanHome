@@ -66,7 +66,7 @@
     {% else %}
       --font-weight: {{ settings.font | replace: 'family', 'weight' }};
     {%- endif -%}
-    --font-family: {{ settings.font }};
+    --font-family: {% if settings.fixed_font %}'Red Hat Display', Arial, sans-serif{% else %}{{ settings.font }}{% endif %};
     --text-transform: {{ settings.case }};
     --text-wrap: {{ settings.wrap | default: 'pretty' }};
     {% if settings.type_preset == 'custom' and settings.font_size == blank %}

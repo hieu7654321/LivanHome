@@ -11,8 +11,8 @@
 
         .product-list__tabs {
             display: flex;
-            gap: 28px;
-            margin-block: 17px 18px;
+            gap: $fcl-tab-gap;
+            margin-block: $fcl-tab-margin-block;
             justify-content: flex-start;
             flex-wrap: nowrap;
             overflow-x: auto;
@@ -28,8 +28,8 @@
             border: none;
             cursor: pointer;
             padding-inline: 0;
-            font-size: 16px;
-            line-height: 17px;
+            font-size: $fcl-tab-font-size;
+            line-height: $fcl-tab-line-height;
             font-weight: 400;
             letter-spacing: 0;
             scroll-snap-align: start;
@@ -37,7 +37,7 @@
             &.is-active {
                 font-weight: 500;
                 text-decoration: underline;
-                text-underline-offset: 3px;
+                text-underline-offset: $fcl-tab-underline-offset;
             }
         }
     }
@@ -62,7 +62,7 @@
         --page-margin: 50px !important;
 
         .section-resource-list__header {
-            padding-inline: 2px;
+            padding-inline: $fcl-header-pi;
             display: flex;
             justify-content: space-between;
             width: 100%;
@@ -92,14 +92,14 @@
         --padding-block-end: max(20px, calc(var(--spacing-scale) * 34px)) !important;
 
         .section-resource-list__header {
-            padding-inline: 2px;
+            padding-inline: $fcl-header-padding-inline;
             display: flex;
             justify-content: space-between;
             width: 100%;
 
             .product-list__tabs {
                 margin: 0;
-                max-width: 500px;
+                max-width: $fcl-custom-max-width;
             }
         }
 

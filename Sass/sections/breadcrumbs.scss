@@ -1,15 +1,15 @@
 @use '../base/base.scss' as *;
 
 .breadcrumbs {
-    font-size: 0.875rem;
-    color: #CBC9C9;
+    font-size: $brc-fs;
+    color: $brc-color;
 
     &__list {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 8px;
-        padding: 10px 0 0 0;
+        gap: $brc-list-gap;
+        padding: $brc-list-pd;
         margin: 0;
         list-style: none;
 
@@ -25,10 +25,10 @@
         }
 
         .breadcrumbs__separator {
-            margin-inline: 0.25rem;
-            color: #CBC9C9;
-            width: 14px;
-            height: 14px;
+            margin-inline: $brc-sep-mi;
+            color: $brc-color;
+            width: $brc-sep-size;
+            height: $brc-sep-size;
             transform: rotate(-90deg);
         }
     }
@@ -40,7 +40,7 @@
         grid-template-columns: var(--full-page-grid-with-margins);
 
         &__list {
-            padding-top: 30px;
+            padding-top: $brc-list-pt-lg;
         }
     }
 }

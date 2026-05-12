@@ -30,6 +30,7 @@
     assign media_width_mobile = '100vw'
     assign sizes = '(min-width: 1024px) 1024px, ' | append: media_width_desktop | append: ', ' | append: media_width_mobile
     assign widths = '240, 352, 832, 1200'
+    assign custom_width = width | default: 1200
   %}
 
   {% comment %} {% assign image_style = 'width: ' | append: width | append: 'px;' %} {% endcomment %}
@@ -39,7 +40,7 @@
     {% assign image_style = 'width: ' | append: width | append: 'px;' %}
   {% endif %}  {{
     image_upload
-    | image_url: width: 1200
-    | image_tag: widths: widths, class: class_name, style: image_style, sizes: sizes
+    | image_url: width: custom_width
+    | image_tag: widths: widths, class: class_name, style: image_style, sizes: sizes, loading: 'lazy', fetchpriority: 'low'
   }}
 {%- endif -%}

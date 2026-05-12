@@ -14,6 +14,33 @@
       >
     {%- endif -%}
 
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const unwantedFonts = ['GTStandard', 'gravity-font-faces', 'shoplift'];
+        document.querySelectorAll('style, link').forEach(el => {
+          const content = el.outerHTML || '';
+          if (unwantedFonts.some(f => content.includes(f))) {
+            el.remove();
+          }
+        });
+      });
+    </script>
+
+    <script>
+      const observer = new MutationObserver(mutations => {
+        mutations.forEach(m => {
+          m.addedNodes.forEach(node => {
+            if (node.nodeType === 1 && node.tagName === 'STYLE') {
+              if (node.textContent.includes('GTStandard')) {
+                node.remove();
+              }
+            }
+          });
+        });
+      });
+      observer.observe(document.head, { childList: true });
+    </script>
+
     {% comment %} This a way to wait for main content to load when navigating to a new page so that the view transitions can work consistently {% endcomment %}
     {% if settings.transition_to_main_product or settings.page_transition_enabled %}
       <link

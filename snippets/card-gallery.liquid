@@ -61,6 +61,11 @@
       assign media_fit = block_settings.constrain_to_viewport
     endif
   endif
+
+  assign span_2_image = false
+  if product.metafields.product.span_2_image
+    assign span_2_image = product.metafields.product.span_2_image
+  endif
 %}
 
 <div
@@ -146,7 +151,7 @@
           endif
 
           capture slideshow_children
-            render 'product-media', media: media, sizes: sizes, loading: loading, preview_image_only: true
+            render 'product-media', media: media, sizes: sizes, loading: loading, preview_image_only: true, widths: '178, 347, 832', span_2_image: span_2_image
           endcapture
 
           render 'slideshow-slide', slide_id: media.id, index: forloop.index0, hidden: hidden, class: class, attributes: attributes, children: slideshow_children, media_fit: media_fit

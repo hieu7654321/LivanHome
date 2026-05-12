@@ -1,3 +1,5 @@
+@use '../base/base.scss' as *;
+
 .announcement-bar:has(.announcement-bar__slider--scroll) {
   overflow: hidden;
 }
@@ -5,19 +7,19 @@
 .announcement-bar__slider--scroll {
   overflow: hidden !important;
   width: max-content;
-  gap: var(--infinite-scroll-gap);
+  gap: $anm-slider-scroll-gap;
   display: flex;
   flex-direction: row;
 
     .announcement-bar__block {
         display: flex;
-        gap: var(--infinite-scroll-gap); 
+        gap: $anm-block-gap; 
         width: fit-content;
         max-width: none;
         animation: var(--infinite-scroll-direction) var(--infinite-scroll-time) linear infinite;
         will-change: transform;
         flex-wrap: nowrap;
-        margin: 0;
+        margin: $anm-block-mg;
 
         &:first-child {
           display: none;
@@ -27,7 +29,7 @@
             position: static;
 
             .announcement-bar__text {
-              line-height: 15px;
+              line-height: $anm-bar-txt-lh;
             }
         }
     }

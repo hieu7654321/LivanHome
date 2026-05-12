@@ -11,7 +11,7 @@
         }
 
         .resource-list__carousel .resource-list__slide {
-            width: clamp(150px, 45.07vw, 300px);
+            width: $prl-carousel-w;
         }
 
         .card-gallery slideshow-slides {
@@ -22,7 +22,7 @@
         .user-select-text > .text-block>* {line-height: calc(var(--font-size) + 3px);}
 
         .variant-option--swatches overflow-list::part(list) {
-            padding-block: 1px 1px;
+            padding-block: $prl-swatches-pbl;
         }
 
         @media screen and (min-width: 750px) {

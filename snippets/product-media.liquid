@@ -11,17 +11,26 @@
   @param {boolean} [first_3d_model] - Indicates if this is the first 3D model.
   @param {boolean} [is_main_product_media] - Indicates if this is the main product image.
   @param {string} [image_ref] - Optional ref attribute for the image element.
+  @param {boolean} [span_2_image]
 
   @example
   {% render 'product-media', media: media, preview_image_only: false, loading: 'lazy' %}
 {%- enddoc -%}
 
 {% liquid
-  assign widths = widths | default: '240, 352, 832, 1200, 1600, 1920, 2560, 3840'
+  assign widths = widths | default: '187, 240, 352, 375, 832, 1200, 1600, 1920'
   assign ref_image_to_transition = ''
   if settings.transition_to_main_product
     assign ref_image_to_transition = 'imagesToTransition[]'
   endif
+
+  assign width_multiplier = 1
+  unless span_2_image
+    assign width_multiplier = 0.5
+  endunless
+
+  assign base_width = 347
+  assign effective_width = base_width | times: width_multiplier | round
 %}
 
 <div
@@ -30,8 +39,8 @@
   data-media-id="{{ media.id }}"
 >
   {% liquid
-    assign high_res_url = media.preview_image | image_url: width: 3840
-    assign fetch_priority = 'auto'
+    assign high_res_url = media.preview_image | image_url: width: 768
+    assign fetch_priority = 'low'
     if is_main_product_media
       assign fetch_priority = 'high'
     endif
@@ -39,7 +48,7 @@
   %}
   {{
     media.preview_image
-    | image_url: width: 3840
+    | image_url: width: effective_width
     | image_tag:
       widths: widths,
       alt: media.alt,
@@ -66,7 +75,7 @@
           >
             {{
               media.preview_image
-              | image_url: width: 3840
+              | image_url: width: 832
               | image_tag:
                 widths: widths,
                 alt: media.alt,

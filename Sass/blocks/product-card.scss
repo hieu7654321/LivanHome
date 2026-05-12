@@ -2,7 +2,7 @@
 
 slideshow-slides {
     .product-media {
-        background-color: #fbfaf6;
+        background-color: $prd-media-bg;
     }
 }
 
@@ -10,12 +10,12 @@ product-card {
     .card-gallery {
         slideshow-component {
             slideshow-slides {
-                height: clamp(var(--custom-fixed-height) , 55vw, 400px) !important;
+                height: $prd-slideshow-height-mobile !important;
             }
 
             slideshow-controls {
                 justify-content: flex-start;
-                min-height: 14px;
+                min-height: $prd-sls-ctrols-min-h;
 
                 .slideshow-controls__dots {
                     gap: 0;
@@ -23,25 +23,25 @@ product-card {
                     justify-content: flex-start;
 
                     &:only-child {
-                        margin-inline: 3px 0;
+                        margin-inline: $prd-sls-dots-mi;
                     }
 
-                    button {
-                        width: 7px;
-                        height: 12px;
+                    .button {
+                        width: $prd-dots-btn-w;
+                        height: $prd-dots-btn-h;
                         margin: 0;
 
                         &::after {
-                            width: 5px !important;
-                            background-color: white;
-                            height: 5px;
-                            border-radius: 1px;
-                            box-shadow: inset 0 0 0 0.2px #000;
+                            width: $prd-dots-btn-a-size !important;
+                            background-color: $prd-dots-btn-af-bg-clr;
+                            height: $prd-dots-btn-a-size;
+                            border-radius: $prd-control-radius;
+                            box-shadow: inset 0 0 0 $prd-control-border;
                         }
 
                         &[aria-selected='true'] {
                             &::after {
-                                background-color: #000;
+                                background-color: $prd-dots-btn-aria-bg-clr;
                             }
                         }
                     }
@@ -53,8 +53,8 @@ product-card {
             button.quick-add__button {
                 .svg-wrapper {
                     svg {
-                        width: 11.1px;
-                        height: 12.6px;
+                        width: $prd-quick-add-svg-w;
+                        height: $prd-quick-add-svg-h;
                     }
                 }
             }
@@ -63,24 +63,24 @@ product-card {
 
     .text-block.custom-typography.custom-font-size {
         p:not([role='heading']) {
-            letter-spacing: 0.01em;
-            line-height: 12px;
-            max-width: 99%;
+            letter-spacing: $prd-letter-spacing-tight;
+            line-height: $lh-12;
+            max-width: $prd-p-not-heading-mw;
         }
     }
 
     button.swym-wishlist-collections-v2[aria-pressed='false'] {
         svg > path {
-            fill: white;
+            fill: $clr-white;
         }
     }
 
     product-swatches {
         .variant-option--swatches {
             overflow-list::part(list) {
-                padding-block: 4px 1px;
-                padding-inline: 1px;
-                gap: 7px;
+                padding-block: $prd-swatch-pb;
+                padding-inline: $prd-swatch-pi;
+                gap: $prd-swatch-gap;
             }
 
             .variant-option__swatch {
@@ -101,18 +101,68 @@ product-card {
 
     .product-card__delivery {
         font-weight: 500;
-        font-size: 10px;
-        line-height: 12px;
-        letter-spacing: 0.1px;
+        font-size: $fs-10;
+        line-height: $lh-12;
+        letter-spacing: $prd-delivery-letter-spacing;
         vertical-align: middle;
-        color: #2F4ABC;
-        padding-block: 0.5rem 2px;
+        color: $prd-delivery-color;
+        padding-block: $prd-delivery-pb-sm;
+    }
+
+    slideshow-slide[reveal] ~ slideshow-slide:first-child {
+        display: none;
     }
 }
 
 .product-card__content:not(:has(.variant-option)) ~ .product-card__delivery {
-    padding-block: 0rem 2px !important;
-    margin-top: -0.5rem !important;
+    padding-block: $prd-delivery-empty-pb-sm !important;
+}
+
+.swym-wishlist__container {
+  display: flex;
+  justify-self: flex-end;
+  position: absolute;
+  top: $prd-wishlist-top-sm;
+  z-index: 999999;
+  
+  &>* {
+      display: none;
+  }
+
+  .swym__custom-button {
+    background: none;
+    opacity: 1 !important;
+  }
+
+  button.swym-button {
+    padding: $prd-wishlist-padding-sm;
+  }
+
+  svg {
+    width: $prd-wishlist-icon-sm;
+    height: $prd-wishlist-icon-h-sm;
+  }
+
+  .swym__custom-button.swym-added > svg > * {
+    fill: $clr-blue;
+  }
+
+  .swym__custom-button:not(.swym-added, .disabled) > svg > * {
+    fill: $clr-white;
+  }
+
+  @media screen and (min-width: 750px) {
+    top: $prd-wishlist-top-lg;
+
+    button.swym-button {
+        padding: $prd-wishlist-padding-lg;
+    }
+
+    svg {
+        width: $prd-wishlist-icon-md;
+        height: $prd-wishlist-icon-h-md;
+    }
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -121,7 +171,7 @@ product-card {
             slideshow-component {
 
                 slideshow-slides {
-                    height: clamp(212px, 30vw, var(--custom-fixed-height-desktop)) !important;
+                    height: $prd-slideshow-height-desktop !important;
                 }
 
                 slideshow-controls {
@@ -157,8 +207,8 @@ product-card {
             form {
                 .variant-option--swatches {
                     overflow-list::part(list) {
-                        padding-inline: 1px;
-                        gap: 2px;
+                        padding-inline: $prd-swatch-pi-lg;
+                        gap: $prd-swatch-gap-lg;
                     }
                 }
 
@@ -176,12 +226,11 @@ product-card {
         }
 
         .product-card__delivery {
-            padding-block: 0.5rem 4px;
+            padding-block: $prd-delivery-pb-lg;
         }
     }
 
     .product-card__content:not(:has(.variant-option)) ~ .product-card__delivery {
-        padding-block: 0rem 4px !important;
-        margin-top: -1rem !important;
+        padding-block: $prd-delivery-empty-pb-lg !important;
     }
 }

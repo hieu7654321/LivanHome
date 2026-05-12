@@ -13,9 +13,13 @@
   {{ block.shopify_attributes }}
 >
   {%- if block_settings.link != blank and block_settings.background_media != 'video' -%}
+    {% assign parts = block_settings.link | split: '/' %}
+    {% assign last_segment = parts | last %}
+    {% assign handle = last_segment | split: '?' | first %}
     <a
       href="{{ block_settings.link }}"
       class="card__link"
+      aria-label="{{ handle }}"
       {% if block_settings.open_in_new_tab %}
         target="_blank" rel="noopener"
       {% endif %}

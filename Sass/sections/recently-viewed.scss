@@ -17,15 +17,15 @@
 
         .text-block > *[role='heading'] {
             font-weight: 700;
-            font-size: 12px;
-            line-height: 15px;
+            font-size: $fs-12;
+            line-height: $lh-15;
             letter-spacing: 0;
         }
 
         @media screen and (min-width: 750px) {
             .text-block > *[role='heading'] {
-                font-size: 14px;
-                line-height: 17px;
+                font-size: $fs-14;
+                line-height: $lh-17;
             }
 
             .text-block:has([role='heading']) {
@@ -33,7 +33,7 @@
             }
 
             .section--page-width {
-                margin-block-end: 20px;
+                margin-block-end: $recent-pw-mble-lg;
             }
         }
     }

@@ -1378,6 +1378,13 @@
           }
         ],
         "default": "none"
+      },
+      {
+        "type": "checkbox",
+        "id": "fixed_font",
+        "label": "Allow Fixed font",
+        "info": "Whether to load Red Hat Display Font from theme instead of using Shopify font settings",
+        "default": false
       }
     ]
   },

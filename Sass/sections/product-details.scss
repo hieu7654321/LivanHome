@@ -18,14 +18,14 @@
         accordion-custom {
             .details__header {
                 font-weight: 400;
-                font-size: 18px;
-                line-height: 20px;
+                font-size: $fs-18;
+                line-height: $lh-20;
                 letter-spacing: 0;
             }
 
             .svg-wrapper.icon-plus {
-                width: 20px;
-                height: 20px;
+                width: $pd-icplus-size;
+                height: $pd-icplus-size;
             }
         }
 
@@ -35,7 +35,7 @@
     }
 
     .accordion__custom {
-        gap: 15px;
+        gap: $pd-accustom-gap;
 
         accordion-custom:not(:last-child) .details {
             border-block-end: none;
@@ -43,18 +43,18 @@
 
         accordion-custom .details__header {
             border-block-end: var(--style-border-width) solid var(--color-border);
-            padding-block: 15px 14px;
+            padding-block: $pd-accordion-pd;
         }
         
         .text-block p {
-            margin-block: 16px 0;
-            line-height: 18px;
+            margin-block: $pd-text-margin;
+            line-height: $lh-18;
             letter-spacing: 0;
         }
     }
 
     .media-with-content__content>.group-block-content {
-        padding-block: 50px 30px !important;
+        padding-block: $pd-media-content-pbl !important;
     }
 
     @media screen and (max-width: 749px) {
@@ -68,7 +68,7 @@
 
         .media-with-content__content > .group-block-content {
             padding-inline: 0 !important;
-            gap: 30px !important;
+            gap: $pd-media-content-gap-sm !important;
         }
     }
 
@@ -78,18 +78,18 @@
 
             accordion-custom {
                 .details__header {
-                    font-size: 20px;
-                    line-height: 23px;
+                    font-size: $fs-20;
+                    line-height: $lh-23;
                 }
             }
         }
 
         .accordion__custom .text-block p {
-            margin-block: 14px 0;
+            margin-block: $pd-ac-text-mbl-lg;
         }
 
         .media-block {
-            padding-inline-end: 20px;
+            padding-inline-end: $pd-media-block-pie-lg;
         }
 
         .media-block__media {
@@ -103,8 +103,8 @@
 
     @media screen and (min-width: 1200px) {
         .media-with-content__content>.group-block-content {
-            padding-inline: 30px 72px !important;
-            padding-block: 78px !important;
+            padding-inline: $pd-media-content-pi-xl !important;
+            padding-block: $pd-media-content-pbl-xl !important;
             gap: calc(var(--gap) * 2);
         }
     }

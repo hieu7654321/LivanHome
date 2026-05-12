@@ -13,6 +13,7 @@
       "type": "breadcrumbs",
       "name": "Breadcrumbs",
       "settings": {
+        "breadcrumb-collection": "",
         "level_1_text": "Colección",
         "level_1_url": "shopify://collections",
         "level_2_text": "{{ collection.title }}"
@@ -352,6 +353,7 @@
                     "show_sale_price_first": true,
                     "show_installments": false,
                     "show_tax_info": false,
+                    "show_per_measure": true,
                     "type_preset": "custom",
                     "width": "100%",
                     "alignment": "left",
@@ -479,7 +481,7 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "custom",
+                    "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "1.25rem",
                     "line_height": "normal",
