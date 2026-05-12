@@ -13,7 +13,7 @@
       "type": "breadcrumbs",
       "name": "Breadcrumbs",
       "settings": {
-        "breadcrumb-collection": "{{ product.metafields.products.collection.value }}",
+        "breadcrumb_collection": "{{ product.metafields.products.collection.value }}",
         "level_1_text": "Collection",
         "level_1_url": "",
         "level_2_text": "{{ product.title }}"
