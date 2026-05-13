@@ -435,44 +435,34 @@
 
       {% if variant_style_setting == 'openselector' %}
         <script>
-          document.addEventListener('DOMContentLoaded', () => {
-          const fieldsets = document.querySelectorAll('[data-open-selector]');
-
-          fieldsets.forEach((fieldset) => {
-            const trigger = fieldset.querySelector('.open-selector__trigger');
-            const inputs = fieldset.querySelectorAll('input[type="radio"]');
-            const selectedValueEl = fieldset.querySelector('[data-selected-value]');
-
-            const toggle = () => {
-              fieldset.classList.toggle('is-open');
-            };
-
-            trigger.addEventListener('click', (e) => {
-              e.preventDefault();
-              toggle();
-            });
-
-            trigger.addEventListener('keydown', (e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggle();
-              }
-            });
-
-            inputs.forEach((input) => {
-              input.addEventListener('change', () => {
-                selectedValueEl.textContent = input.value;
-                fieldset.classList.remove('is-open');
-              });
-            });
-
-            document.addEventListener('click', (e) => {
-              if (!fieldset.contains(e.target)) {
-                fieldset.classList.remove('is-open');
-              }
+          document.addEventListener('click', (e) => {
+            const trigger = e.target.closest('.open-selector__trigger');
+            if (trigger) {
+              const fieldset = trigger.closest('[data-open-selector]');
+              fieldset?.classList.toggle('is-open');
+              return;
+            }
+            document.querySelectorAll('[data-open-selector].is-open').forEach(fs => {
+              if (!fs.contains(e.target)) fs.classList.remove('is-open');
             });
           });
-        });
+
+          document.addEventListener('change', (e) => {
+            if (!e.target.matches('[data-open-selector] input[type="radio"]')) return;
+            const fieldset = e.target.closest('[data-open-selector]');
+            const label = fieldset?.querySelector('[data-selected-value]');
+            if (label) label.textContent = e.target.value;
+            fieldset?.classList.remove('is-open');
+          });
+
+          document.addEventListener('keydown', (e) => {
+            const trigger = e.target.closest?.('.open-selector__trigger');
+            if (!trigger) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              trigger.click();
+            }
+          });
         </script>
       {% endif %}
 
