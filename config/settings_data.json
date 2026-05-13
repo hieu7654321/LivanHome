@@ -165,16 +165,16 @@
           "input_hover_background": "#ffffff",
           "variant_background_color": "#ffffff",
           "variant_text_color": "#000000",
-          "variant_border_color": "rgba(0,0,0,0)",
-          "variant_hover_background_color": "#f6eddd6b",
+          "variant_border_color": "#f5f5f5",
+          "variant_hover_background_color": "#ffffff",
           "variant_hover_text_color": "#000000",
           "variant_hover_border_color": "#000000",
-          "selected_variant_background_color": "#f5f2f0",
+          "selected_variant_background_color": "#ffffff",
           "selected_variant_text_color": "#202219",
-          "selected_variant_border_color": "#f6eddd",
-          "selected_variant_hover_background_color": "#ccc3b4",
+          "selected_variant_border_color": "#000000",
+          "selected_variant_hover_background_color": "#ffffff",
           "selected_variant_hover_text_color": "#202219",
-          "selected_variant_hover_border_color": "rgba(0,0,0,0)"
+          "selected_variant_hover_border_color": "#000000"
         }
       },
       "scheme-2": {
