@@ -31,8 +31,15 @@ export default class VariantPicker extends Component {
 
   #resizeObserver = new ResizeNotifier(() => this.updateVariantPickerCss());
 
+  #openSelectorInitialized = false;
+
   connectedCallback() {
     super.connectedCallback();
+
+    if (!this.#openSelectorInitialized) {
+      this.initializeOpenSelector();
+      this.#openSelectorInitialized = true;
+    }
     const fieldsets = /** @type {HTMLFieldSetElement[]} */ (this.refs.fieldsets || []);
 
     fieldsets.forEach((fieldset) => {
@@ -52,6 +59,38 @@ export default class VariantPicker extends Component {
   disconnectedCallback() {
     super.disconnectedCallback();
     this.#resizeObserver.disconnect();
+  }
+
+  initializeOpenSelector() {
+    this.addEventListener('click', (e) => {
+      const target = e.target;
+      if (!(target instanceof HTMLElement)) return;
+      const trigger = target.closest('.open-selector__trigger');
+      if (trigger) {
+        const fieldset = trigger.closest('[data-open-selector]');
+        fieldset?.classList.toggle('is-open');
+        return;
+      }
+      this.querySelectorAll('[data-open-selector].is-open').forEach((fs) => {
+        if (!fs.contains(target)) {
+          fs.classList.remove('is-open');
+        }
+      });
+    });
+
+    this.addEventListener('change', (e) => {
+      const target = e.target;
+      if (!(target instanceof HTMLInputElement)) return;
+      if (!target.matches('[data-open-selector] input[type="radio"]')) {
+        return;
+      }
+      const fieldset = target.closest('[data-open-selector]');
+      const label = fieldset?.querySelector('[data-selected-value]');
+      if (label) {
+        label.textContent = target.value;
+      }
+      fieldset?.classList.remove('is-open');
+    });
   }
 
   /**

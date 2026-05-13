@@ -433,39 +433,6 @@
         {% endif %}
       {%- endfor -%}
 
-      {% if variant_style_setting == 'openselector' %}
-        <script>
-          document.addEventListener('click', (e) => {
-            const trigger = e.target.closest('.open-selector__trigger');
-            if (trigger) {
-              const fieldset = trigger.closest('[data-open-selector]');
-              fieldset?.classList.toggle('is-open');
-              return;
-            }
-            document.querySelectorAll('[data-open-selector].is-open').forEach(fs => {
-              if (!fs.contains(e.target)) fs.classList.remove('is-open');
-            });
-          });
-
-          document.addEventListener('change', (e) => {
-            if (!e.target.matches('[data-open-selector] input[type="radio"]')) return;
-            const fieldset = e.target.closest('[data-open-selector]');
-            const label = fieldset?.querySelector('[data-selected-value]');
-            if (label) label.textContent = e.target.value;
-            fieldset?.classList.remove('is-open');
-          });
-
-          document.addEventListener('keydown', (e) => {
-            const trigger = e.target.closest?.('.open-selector__trigger');
-            if (!trigger) return;
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              trigger.click();
-            }
-          });
-        </script>
-      {% endif %}
-
       <script type="application/json">
         {{ product_resource.selected_or_first_available_variant | json }}
       </script>
