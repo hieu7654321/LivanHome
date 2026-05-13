@@ -1,6 +1,6 @@
 @use '../base/base.scss' as *;
 
-.product-information {
+.product-information, .quick-add-modal__content {
     legend {
         line-height: $lh-17;
         margin-block-end: $vrp-legend-mbe;
@@ -57,7 +57,7 @@
     }
 }
 
-.content-for-layout[data-template='product.open-selector'] {
+.content-for-layout[data-template='product.open-selector'], .quick-add-modal__content {
     .variant-option--open-selector .open-selector__content {
         max-height: 0;
         overflow: hidden;
@@ -169,7 +169,7 @@
     }
 }
 
-.content-for-layout[data-template='product.bundled-products'] .product-information {
+.content-for-layout[data-template='product.bundled-products'] .product-information, .quick-add-modal__content {
     .swatch__bundle--image {
         z-index: 10;
     }
