@@ -33,7 +33,6 @@
     assign custom_width = width | default: 1200
   %}
 
-  {% comment %} {% assign image_style = 'width: ' | append: width | append: 'px;' %} {% endcomment %}
   {% if width_desktop %}
     {% assign image_style = '--width-desktop: ' | append: width_desktop | append: 'px; width: ' | append: width | append: 'px;' %}
   {% else %}

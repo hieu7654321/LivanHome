@@ -1,6 +1,8 @@
 @use '../base/base.scss' as *;
 
 slideshow-component.slideshow--with-hints.slideshow--with-hints--mobile-full-frame {
+    overflow-x: hidden;
+
     .group-block-content{
         --gap: 16px !important;
 

@@ -51,21 +51,23 @@
             text-align: left;
         }
 
-        .product-form-buttons:has(.add-to-cart-button.button-secondary) .quantity-selector {
-            @include quantity-selector;
+        .product-form-buttons {
+            &:has(.add-to-cart-button.button-secondary) .quantity-selector {
+                @include quantity-selector;
+            }
+
+            &:not(:has(.quantity-rules)) {
+                gap: $pdpa-buttons-gap;
+            }
         }
 
-        .product-form-buttons:not(:has(.quantity-rules)) {
-            gap: $pdpa-buttons-gap;
-        }
-
-        .text__installment--1 > *, .text__installment--2 > *, .text__installment--1 > *,  .text__installment--2 > *, .text__installment--1 > *, .text__installment--2 > *{
+        .text__installment--1 > *, .text__installment--2 > * {
             letter-spacing: 0.1px;
             color: #8F9293;
             font-weight: 700;
         }
 
-        .text__installment--2 > *, .text__installment--2 > *, .text__installment--2 > * {
+        .text__installment--2 > * {
             text-decoration: underline;
             text-underline-offset: 3px;
         }

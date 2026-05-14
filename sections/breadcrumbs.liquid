@@ -6,10 +6,6 @@
       </a>
     </li>
 
-    {% comment %} <span class="svg-wrapper">
-    {{- 'icon-caret.svg' | inline_asset_content -}}
-    </span> {% endcomment %}
-
     {% if section.settings.breadcrumb_collection %}
       {% assign collection_name = section.settings.breadcrumb_collection %}
       <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>
@@ -34,10 +30,6 @@
         </li>
       {% endif %}
     {% endif %}
-
-    {% comment %} <span class="svg-wrapper">
-    {{- 'icon-caret.svg' | inline_asset_content -}}
-    </span> {% endcomment %}
 
     {% if section.settings.level_2_text != blank %}
       <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>

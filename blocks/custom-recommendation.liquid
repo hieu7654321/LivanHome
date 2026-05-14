@@ -35,15 +35,6 @@
   class="product__cart--custom add-to-cart-button-block"
   {{ block.shopify_attributes }}
 >
-  {% comment %} {% render 'add-to-cart-button',
-    id: block.id,
-    class: button_classes,
-    can_add_to_cart: can_add_to_cart,
-    product: product_object,
-    add_to_cart_text: add_to_cart_text,
-    icon_only_on_mobile: block.settings.icon_only_on_mobile,
-    data_testid: 'standalone-add-to-cart'
-  %} {% endcomment %}
   {% render 'quick-add',
     product: product_object,
     section_id: section.id,

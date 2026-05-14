@@ -1,3 +1,6 @@
+@use './variables' as *;
+@forward './variables';
+
 //HomePage
 //announcement.scss
 $anm-slider-scroll-gap: var(--infinite-scroll-gap);
@@ -285,7 +288,7 @@ $qa-header-gap-sm: 10px;
 $qa-header-gap-lg: 10px;
 $qa-header-mt-sm: 20px;
 $qa-header-mt-lg: 10px;
-$qa-picker-mbl: 30px;
+$qa-picker-mbl: 20px;
 
 //Product Page
 //product-pages.scss
@@ -514,32 +517,6 @@ $pbd-item-price-gap-lg: 6px;
 
 $pbd-sale-max-h-lg: 18px;
 
-//Global
-
-$cart-size: 16px;
-$gap : 0;
-$clr-white: #fff;
-$clr-blue: #2F4ABC;
-
-$fs-10: 10px;
-$fs-12: 12px;
-$fs-14: 14px;
-$fs-16: 16px;
-$fs-18: 18px;
-$fs-20: 20px;
-$fs-30: 30px;
-$fs-32: 32px;
-
-$lh-12: 12px;
-$lh-15: 15px;
-$lh-17: 17px;
-$lh-18: 18px;
-$lh-20: 20px;
-$lh-23: 23px;
-$lh-32: 32px;
-$lh-36: 36px;
-$lh-56: 56px;
-
 .slideshow-controls__dots .button {
   --color: rgb(var(--color-foreground-rgb) / var(--opacity-30));
   --color-active: var(--color-foreground);
@@ -592,7 +569,7 @@ $filter-inner-size: 12px;
   display: flex;
   align-items: center;
   gap: 5px;
-  line-height: 18px;
+  line-height: $lh-18;
 
   .svg-wrapper {
     @include svg-icon;
@@ -652,8 +629,8 @@ $filter-inner-size: 12px;
 
 @mixin image-variant-picker {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: $fs-14;
+  line-height: $lh-18;
   letter-spacing: 0;
   vertical-align: middle;
 
@@ -685,7 +662,7 @@ $filter-inner-size: 12px;
   border-radius: 5px;
 
   input {
-      font-size: 12px;
+      font-size: $fs-12;
   }
 }
 
