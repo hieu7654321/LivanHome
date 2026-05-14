@@ -28,7 +28,7 @@ header-component {
             --shopify-account-avatar-size: 28px;
         }
 
-        cart-drawer-component.cart-drawer {
+        cart-drawer-component.cart-drawer:has(.cart-bubble) {
             width: $hdr-cart-drawer-w;
 
             .header-actions__action {

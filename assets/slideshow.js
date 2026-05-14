@@ -215,14 +215,6 @@ export class Slideshow extends Component {
           requestedSlide.setAttribute('aria-hidden', 'false');
         }
 
-        // const firstSlide = this.refs.slides?.[0];
-
-        // if (firstSlide && requestedSlide !== firstSlide && requestedSlide.hasAttribute('hidden')) {
-        //   firstSlide.setAttribute('hidden', '');
-        // } else if (firstSlide) {
-        //   firstSlide.removeAttribute('hidden');
-        // }
-
         return this.slides.indexOf(requestedSlide);
       }
     })();

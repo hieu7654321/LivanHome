@@ -46,13 +46,17 @@
     }
 
     @media screen and (min-width: 750px) {
+        .variant-option + .variant-option {
+            margin-top: $vrp-option-gap-lg;
+        }
+    }
+}
+
+.product-information {
+    @media screen and (min-width: 750px) {
         .variant-picker {
             padding-block-start: calc(var(--padding-block-start) + 9px);
             padding-block-end: calc(var(--padding-block-end) + 9px);
-        }
-
-        .variant-option + .variant-option {
-            margin-top: $vrp-option-gap-lg;
         }
     }
 }

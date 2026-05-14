@@ -421,11 +421,6 @@ export default class VariantPicker extends Component {
     /** @type {NewProduct | undefined} */
     let newProduct;
 
-    // const newVariantPickerSource = newHtml.querySelector(this.tagName.toLowerCase());
-    // const context = this.dataset.pickerContext || 'main';
-    // const newVariantPickerSource = newHtml.querySelector(
-    //   `variant-picker[data-picker-context="${context}"]`
-    // );
     const context = this.dataset.pickerContext || 'main';
 
     const newVariantPickerSource = this.dataset.pickerContext
