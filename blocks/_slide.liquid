@@ -35,8 +35,8 @@
     {%- endif -%}
     {%- if preview_image -%}
       {%- liquid
-        assign custom_height_slide = preview_image.width | divided_by: preview_image.aspect_ratio
-        assign height = custom_height_slide | times: 0.8 | round
+        assign custom_width_slide = preview_image.width
+        assign cwidth = custom_width_slide | times: 0.8 | round
         assign media_width_desktop = '100vw'
         assign media_width_mobile = '100vw'
         assign sizes = '(min-width: 750px) ' | append: media_width_desktop | append: ', ' | append: media_width_mobile
@@ -61,8 +61,8 @@
       {%- if block_settings.media_type_1 == 'image' -%}
         {{
           block_settings.image_1
-          | image_url: width: 1000, quality: 60
-          | image_tag: height: height, sizes: sizes, widths: widths, class: 'slide__image', loading: loading, fetchpriority: fetchpriority
+          | image_url: width: 1920, quality: 60
+          | image_tag: width: cwidth, sizes: sizes, widths: widths, class: 'slide__image', loading: loading, fetchpriority: fetchpriority
         }}
       {%- else -%}
         {%- if block_settings.video_1.preview_image -%}
