@@ -31,6 +31,8 @@
 
   assign base_width = 347
   assign effective_width = base_width | times: width_multiplier | round
+
+  assign image_custom_sizes = 'auto, ' | append: sizes
 %}
 
 <div
@@ -53,7 +55,7 @@
       width: effective_width,
       widths: widths,
       alt: media.alt,
-      sizes: sizes,
+      sizes: image_custom_sizes,
       loading: loading,
       class: 'product-media__image',
       ref: ref_image_to_transition,
