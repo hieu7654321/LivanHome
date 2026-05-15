@@ -64,7 +64,7 @@
         .text__installment--1 > *, .text__installment--2 > * {
             letter-spacing: 0.1px;
             color: #8F9293;
-            font-weight: 700;
+            font-weight: $font-bold;
         }
 
         .text__installment--2 > * {
@@ -74,7 +74,7 @@
     }
 
     .product-information .product-card__delivery {
-        font-weight: 700;
+        font-weight: $font-bold;
         font-size: $fs-14;
         line-height: $lh-17;
         letter-spacing: 0.15px;
@@ -82,7 +82,7 @@
     }
 
     .swym-atw-button-container.product_image_top_right:not(:has(.atw-button-added)) svg > * {
-        fill: $clr-white;
+        fill: $swym-fill-color;
     }
 
     @media screen and (max-width: 749px) {

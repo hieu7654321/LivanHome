@@ -22,7 +22,7 @@
 
     .variant-option__select {
         padding-block: $stcart-option-pbl;
-        font-weight: 700;
+        font-weight: $font-bold;
         font-size: $fs-14;
         line-height: $lh-17;
         letter-spacing: 0;
@@ -41,7 +41,7 @@
     }
 
     .add-to-cart-text__content > * {
-        font-weight: 400;
+        font-weight: $font-normal;
         font-size: $fs-14;
         line-height: $lh-18;
         letter-spacing: 0;
@@ -114,7 +114,7 @@
         }
 
         .sticky-add-to-cart__title, .price {
-            font-weight: 400;
+            font-weight: $font-normal;
             font-size: $fs-16;
             line-height: $lh-20;
             letter-spacing: 0;

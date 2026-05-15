@@ -147,7 +147,7 @@
         margin-top: $qa-header-mt-sm;
 
         a {
-            font-weight: 400;
+            font-weight: $font-normal;
             font-size: $fs-30;
             line-height: $lh-32;
             letter-spacing: 0;
@@ -155,14 +155,14 @@
         }
 
         .quick-add__product--description {
-            font-weight: 400;
+            font-weight: $font-normal;
             font-size: $fs-12;
             line-height: $lh-15;
             letter-spacing: 0;
         }
 
         product-price > * {
-            font-weight: 400;
+            font-weight: $font-normal;
             font-size: $fs-30;
             line-height: $lh-32;
             letter-spacing: 0;
@@ -209,7 +209,7 @@
         }
 
         slideshow-controls.desktop\:hidden.media-gallery__mobile-controls, slideshow-controls[controls-on-media] {
-            @include display-flex() !important;
+            @include display-flex();
             position: relative;
             top: 0;
 

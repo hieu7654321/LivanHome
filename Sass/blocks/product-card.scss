@@ -71,7 +71,7 @@ product-card {
 
     button.swym-wishlist-collections-v2[aria-pressed='false'] {
         svg > path {
-            fill: $clr-white;
+            fill: $swym-fill-color;
         }
     }
 
@@ -100,7 +100,7 @@ product-card {
     }
 
     .product-card__delivery {
-        font-weight: 500;
+        font-weight: $font-medium;
         font-size: $fs-10;
         line-height: $lh-12;
         letter-spacing: $prd-delivery-letter-spacing;
@@ -144,11 +144,11 @@ product-card {
   }
 
   .swym__custom-button.swym-added > svg > * {
-    fill: $clr-blue;
+    fill: $swym-fill-checked;
   }
 
   .swym__custom-button:not(.swym-added, .disabled) > svg > * {
-    fill: $clr-white;
+    fill: $swym-fill-color;
   }
 
   @media screen and (min-width: 750px) {

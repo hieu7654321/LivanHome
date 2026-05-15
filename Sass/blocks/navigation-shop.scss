@@ -5,7 +5,7 @@ footer {
         .menu__heading:has(.menu__heading__default) {
             font-size: $fs-14;
             line-height: $lh-17;
-            font-weight: 700;
+            font-weight: $font-bold;
             letter-spacing: $nav-heading-spacing;
             padding-block: $nav-heading-pd;
         }

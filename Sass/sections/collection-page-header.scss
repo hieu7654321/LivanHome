@@ -13,7 +13,7 @@ main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
 
             .text-block > * {
                 line-height: calc(var(--font-size) + 3px);
-                font-weight: 700;
+                font-weight: $font-bold;
             }
         }
     }

@@ -9,14 +9,14 @@
         .recent-views__title {
             --font-size: 32px;
             font-size: var(--font-size);
-            font-weight: 400;
+            font-weight: $font-normal;
             letter-spacing: 0;
             margin-block: 0;
             @include product-carousel-title;
         }
 
         .text-block > *[role='heading'] {
-            font-weight: 700;
+            font-weight: $font-bold;
             font-size: $fs-12;
             line-height: $lh-15;
             letter-spacing: 0;

@@ -30,12 +30,12 @@
             padding-inline: 0;
             font-size: $fcl-tab-font-size;
             line-height: $fcl-tab-line-height;
-            font-weight: 400;
+            font-weight: $font-normal;
             letter-spacing: 0;
             scroll-snap-align: start;
 
             &.is-active {
-                font-weight: 500;
+                font-weight: $font-medium;
                 text-decoration: underline;
                 text-underline-offset: $fcl-tab-underline-offset;
             }
