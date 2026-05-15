@@ -35,39 +35,48 @@
             display: none;
         }
 
-        .card-gallery .quick-add {
-            display: none;
-        }
+        .card-gallery {
+            &.quick-add {
+                display: none;
+            }
 
-        .card-gallery ~ .shopify-block{
-            grid-row: 2;
+            &~ .shopify-block{
+                grid-row: 2;
 
-            .add-to-cart-button {
-                min-width: $prdrec-atc-min-w;
-                max-width: $prdrec-atc-max-w;
-                height: $prdrec-atc-h;
-                max-height: $prdrec-atc-max-h;
-                position: static;
+                .add-to-cart-button {
+                    min-width: $prdrec-atc-min-w;
+                    max-width: $prdrec-atc-max-w;
+                    height: $prdrec-atc-h;
+                    max-height: $prdrec-atc-max-h;
+                    position: static;
 
-                .svg-wrapper svg {
-                    width: $prdrec-atc-icon-w;
-                    height: $prdrec-atc-icon-h;
+                    .svg-wrapper svg {
+                        width: $prdrec-atc-icon-w;
+                        height: $prdrec-atc-icon-h;
+                    }
+
+                    .add-to-cart-icon {
+                        justify-content: end;
+                    }
+                }
+
+                .quick-add__button:is(:hover, :focus-visible) {
+                    .add-to-cart-text__content {
+                        display: none;
+                    }
+                }
+
+                .add-to-cart-text {
+                    width: 100%;
+                }
+
+                .quick-add__button--choose {
+                    display: none;
                 }
             }
 
-            add-to-cart-component:hover {
-                min-width: max-content;
-            }
-
-            .add-to-cart-text {
-                width: 100%;
-            }
-
-            .quick-add__button--choose {
-                display: none;
-            }
+            &~ .group-block { grid-column: 2; grid-row: 2; position: relative; top: 3px; }
         }
-        .card-gallery ~ .group-block { grid-column: 2; grid-row: 2; position: relative; top: 3px; }
 
         .product-card__delivery, .swym-wishlist__container {
             display: none;

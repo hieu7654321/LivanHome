@@ -153,5 +153,9 @@ $filter-inner-size: 12px;
 }
 
 @mixin display-flex() {
+  display: -webkit-box;      /* Safari 3.1 - 6 */
+  display: -moz-box;         /* Firefox 19- */
+  display: -ms-flexbox;      /* IE 10 */
+  display: -webkit-flex;     /* Safari 6.1+ */
   display: flex;
 }

@@ -23,6 +23,7 @@
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
             "weight": "300",
+            "announcement_line_height": "0.1875rem",
             "letter_spacing": "normal",
             "case": "uppercase"
           },
@@ -37,6 +38,7 @@
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
             "weight": "300",
+            "announcement_line_height": "0.1875rem",
             "letter_spacing": "normal",
             "case": "uppercase"
           },
@@ -117,6 +119,8 @@
         "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 0,
+        "desktop_padding_top": 8,
+        "desktop_padding_bottom": 9,
         "actions_display_style": "icon",
         "actions_font_size": "0.875rem",
         "actions_font": "body",

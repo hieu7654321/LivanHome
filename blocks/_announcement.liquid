@@ -22,7 +22,7 @@
         {% render 'typography-style', settings: block_settings, preset: 'custom' %}
         --width: 100%;
         --text-align: center;
-        --line-height: 1;
+        --line-height: {% if block_settings.announcement_line_height == 1 %}1{% else %}calc({{ block_settings.font_size }} + {{ block_settings.announcement_line_height }}){% endif %};
       "
       {{ block.shopify_attributes }}
       aria-hidden="{% if block_index == 0 %}false{% else %}true{% endif %}"
@@ -58,7 +58,7 @@
         {% render 'typography-style', settings: block_settings, preset: 'custom' %}
         --width: 100%;
         --text-align: center;
-        --line-height: 1;
+        --line-height: {% if block_settings.announcement_line_height == 1 %}1{% else %}calc({{ block_settings.font_size }} + {{ block_settings.announcement_line_height }}){% endif %};
       "
       {{ block.shopify_attributes }}
       aria-hidden="false"
@@ -311,6 +311,30 @@
         }
       ],
       "default": ""
+    },
+    {
+      "type": "select",
+      "id": "announcement_line_height",
+      "label": "Line height",
+      "options": [
+        {
+          "value": "1",
+          "label": "Normal",
+        },
+        {
+          "value": "0.125rem",
+          "label": "+2 px",
+        },
+        {
+          "value": "0.1875rem",
+          "label": "+3 px",
+        },
+        {
+          "value": "0.25rem",
+          "label": "+4 px",
+        },
+      ],
+      "default": "1"
     },
     {
       "type": "select",

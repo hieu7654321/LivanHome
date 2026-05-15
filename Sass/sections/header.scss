@@ -2,6 +2,7 @@
 
 header-component {
     .search-action {
+        padding-inline-start: $hdr-search-pis;
         justify-content: center;
     }
 
@@ -22,19 +23,25 @@ header-component {
 
     .header__column--right header-actions {
         gap: $hdr-actions-gap;
-        margin-inline-start: $hdr-actions-mis !important;
+        margin-inline-start: $hdr-actions-mis;
 
         shopify-account {
             --shopify-account-avatar-size: 28px;
         }
 
-        cart-drawer-component.cart-drawer:has(.cart-bubble:not(.visually-hidden)) {
-            width: $hdr-cart-drawer-w;
+        cart-drawer-component.cart-drawer {
+            &:has(.cart-bubble:not(.visually-hidden)) {
+                width: $hdr-cart-drawer-w;
+            }
 
-            .header-actions__action {
+            &:has(.cart-bubble) .header-actions__action {
                 @include cart-drawer;
             }
         }
+    }
+
+    .menu-drawer-container .header__icon--summary {
+        padding: $hdr-drawer-pd;
     }
 }
 
@@ -52,8 +59,7 @@ header-component {
 
         .header__row--top {
             .header__columns {
-                --padding-block-start: var(--padding-xs) !important;
-                --padding-block-end: 9px !important;
+                padding-block: var(--padding-top-desktop) var(--padding-bottom-desktop);
             }
 
             .header__column--right {
@@ -119,7 +125,7 @@ header-component {
 }
 
 @media screen and (min-width: 1024px) {
-    .section--page-width {
-        --page-margin: 50px !important;
+    header-component .section--page-width {
+        --page-margin: 50px;
     }
 }
