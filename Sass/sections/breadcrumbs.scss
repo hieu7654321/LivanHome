@@ -5,7 +5,7 @@
     color: $brc-color;
 
     &__list {
-        display: flex;
+        @include display-flex();
         flex-wrap: wrap;
         align-items: center;
         gap: $brc-list-gap;

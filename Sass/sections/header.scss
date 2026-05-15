@@ -28,7 +28,7 @@ header-component {
             --shopify-account-avatar-size: 28px;
         }
 
-        cart-drawer-component.cart-drawer:has(.cart-bubble) {
+        cart-drawer-component.cart-drawer:has(.cart-bubble:not(.visually-hidden)) {
             width: $hdr-cart-drawer-w;
 
             .header-actions__action {
@@ -92,7 +92,7 @@ header-component {
                     padding-right: $hdr-menu-link-pr;
 
                     .menu-list__caret {
-                        display: flex;
+                        @include display-flex();
                         align-items: center;
                     }
                 }

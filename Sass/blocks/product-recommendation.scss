@@ -8,7 +8,7 @@
 
         .section-resource-list__content .text-block > * {
             line-height: calc(var(--font-size) + 0.25rem);
-            font-weight: 700;
+            font-weight: $font-bold;
             letter-spacing: 0.1px;
         }
 
@@ -91,18 +91,18 @@
         }
 
         .svg-wrapper {
-            display: flex !important;
+            @include display-flex();
         }
 
         .user-select-text .text-block>*, product-price>* {
-            font-weight: 700;
+            font-weight: $font-bold;
             font-size: $fs-14;
             line-height: $lh-17;
             letter-spacing: -0.3px;
         }
 
         .rte > * {
-            font-weight: 700;
+            font-weight: $font-bold;
             font-size: $fs-10;
             line-height: $lh-12;
             letter-spacing: 0;
@@ -115,11 +115,11 @@
         }
 
         [data-quick-add-button='choose'] add-to-cart-component {
-            display: flex;
+            @include display-flex();
         }
 
         .card-gallery:hover .quick-add__button--add {
-            display: flex;
+            @include display-flex();
         }
 
         .resource-list__carousel {
@@ -132,12 +132,12 @@
     }
 
     .slideshow__counter--custom {
-        display: flex;
+        @include display-flex();
         flex-direction: row;
         justify-content: space-between;
 
         .slideshow__counter--header {
-            font-weight: 700;
+            font-weight: $font-bold;
             font-size: $fs-16;
             line-height: $lh-20;
             letter-spacing: 0.2px;
@@ -157,7 +157,7 @@
         }
 
         .slideshow__counter--content {
-            display: flex;
+            @include display-flex();
             flex-direction: row;
             position: relative;
             top: $prdrec-counter-top;
@@ -168,7 +168,7 @@
             margin: 0;
             color: #000;
             background-color: #fff;
-            font-weight: 400;
+            font-weight: $font-normal;
             font-size: $fs-16;
             line-height: $lh-20;
             letter-spacing: 0;
@@ -176,7 +176,7 @@
             padding-block: $prdrec-counter-pbl;
 
             & > * {
-                font-weight: 400;
+                font-weight: $font-normal;
                 font-size: $fs-16;
                 line-height: $lh-20;
                 letter-spacing: 0;

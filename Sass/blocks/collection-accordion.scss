@@ -12,7 +12,7 @@
 }
 
 .accordion__custom {
-    display: flex;
+    @include display-flex();
     flex-direction: column;
     gap: $ca-accordion-gap;
 

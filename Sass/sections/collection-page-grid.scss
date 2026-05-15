@@ -30,7 +30,7 @@
     .product-badges__badge {
         font-size: $fs-10;
         line-height: $lh-12;
-        font-weight: 500;
+        font-weight: $font-medium;
     }
 
     .product-badges__badge--rectangle {
@@ -115,14 +115,14 @@
             }
 
             product-card:is(:hover, :focus-within) .quick-add__button {
-                display: flex;
+                @include display-flex();
                 opacity: 1;
             }
 
         }
 
         [product-grid-view='zoom-out'] .card-gallery > :is(quick-add-component) {
-            display: flex;
+            @include display-flex();
         }
 
         .product-card__content {

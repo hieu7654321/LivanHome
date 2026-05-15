@@ -19,7 +19,7 @@
 
                     & > * {
                         color: #fff;
-                        font-weight: 700;
+                        font-weight: $font-bold;
                         line-height: calc(var(--font-size) + 3px);
                     }
                 }
@@ -100,7 +100,7 @@
 
             slideshow-component[dragging] {
                 slideshow-arrows {
-                    display: flex;
+                    @include display-flex();
                 }
             }
         }
