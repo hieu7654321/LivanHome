@@ -3,7 +3,7 @@
 .content-for-layout:has(.product-information__grid) {
     .product-information__media {
         slideshow-controls.media-gallery__mobile-controls {
-            display: flex;
+            @include display-flex();
             position: relative;
             top: 0;
 

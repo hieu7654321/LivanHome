@@ -5,12 +5,12 @@
     
     .section-resource-list__header {
         .product-list__tabs-wrapper {
-            display: flex;
+            @include display-flex();
             justify-content: center;
         }
 
         .product-list__tabs {
-            display: flex;
+            @include display-flex();
             gap: $fcl-tab-gap;
             margin-block: $fcl-tab-margin-block;
             justify-content: flex-start;
@@ -63,7 +63,7 @@
 
         .section-resource-list__header {
             padding-inline: $fcl-header-pi;
-            display: flex;
+            @include display-flex();
             justify-content: space-between;
             width: 100%;
 
@@ -93,7 +93,7 @@
 
         .section-resource-list__header {
             padding-inline: $fcl-header-padding-inline;
-            display: flex;
+            @include display-flex();
             justify-content: space-between;
             width: 100%;
 

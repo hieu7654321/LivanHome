@@ -538,7 +538,7 @@ $pbd-sale-max-h-lg: 18px;
     height: 100%;
 
     cart-icon {
-        display: flex;
+        @include display-flex();
         align-items: center;
         height: 100%;
 
@@ -566,7 +566,7 @@ $filter-inner-size: 12px;
 }
 
 @mixin facet-button {
-  display: flex;
+  @include display-flex();
   align-items: center;
   gap: 5px;
   line-height: $lh-18;
@@ -673,4 +673,8 @@ $filter-inner-size: 12px;
     font-size: calc(var(--font-size) - 2px);
     line-height: var(--font-size);
   }
+}
+
+@mixin display-flex() {
+  display: flex;
 }

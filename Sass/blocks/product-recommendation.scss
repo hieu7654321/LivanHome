@@ -91,7 +91,7 @@
         }
 
         .svg-wrapper {
-            display: flex !important;
+            @include display-flex() !important;
         }
 
         .user-select-text .text-block>*, product-price>* {
@@ -115,11 +115,11 @@
         }
 
         [data-quick-add-button='choose'] add-to-cart-component {
-            display: flex;
+            @include display-flex();
         }
 
         .card-gallery:hover .quick-add__button--add {
-            display: flex;
+            @include display-flex();
         }
 
         .resource-list__carousel {
@@ -132,7 +132,7 @@
     }
 
     .slideshow__counter--custom {
-        display: flex;
+        @include display-flex();
         flex-direction: row;
         justify-content: space-between;
 
@@ -157,7 +157,7 @@
         }
 
         .slideshow__counter--content {
-            display: flex;
+            @include display-flex();
             flex-direction: row;
             position: relative;
             top: $prdrec-counter-top;

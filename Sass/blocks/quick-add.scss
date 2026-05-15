@@ -9,7 +9,7 @@
         max-height: none;
 
         &[open] {
-            display: flex;
+            @include display-flex();
         }
     }
 
@@ -19,7 +19,7 @@
     }
     
     #quick-add-modal-content {
-        display: flex;
+        @include display-flex();
         flex-direction: column;
         padding-block: $qa-content-pd-sm;
         padding-inline: $qa-content-pi;
@@ -68,13 +68,13 @@
 
             &[aria-hidden='true'] {
                 @media screen and (max-width: 749px) {
-                    display: flex;                    
+                    @include display-flex();                    
                 }
             }
         }
 
         slideshow-controls.media-gallery__mobile-controls {
-            display: flex;
+            @include display-flex();
             bottom: $qa-mb-controls-bt;
 
             @include slideshow-controls-dots;
@@ -192,13 +192,13 @@
         // }
 
         .product-header {
-            display: flex;
+            @include display-flex();
             flex-direction: column;
             gap: $qa-header-gap-lg;
             margin-top: $qa-header-mt-lg;
 
             a {
-                display: flex;
+                @include display-flex();
                 opacity: 1;
                 color: var(--color-foreground);
             }
@@ -209,7 +209,7 @@
         }
 
         slideshow-controls.desktop\:hidden.media-gallery__mobile-controls, slideshow-controls[controls-on-media] {
-            display: flex !important;
+            @include display-flex() !important;
             position: relative;
             top: 0;
 
@@ -222,7 +222,7 @@
 
         .media-gallery--carousel slideshow-component:has(slideshow-controls[thumbnails]) {
             &:has(slideshow-controls[pagination-position='left']) {
-                display: flex;
+                @include display-flex();
             }
         }
     }

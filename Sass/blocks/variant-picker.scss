@@ -85,7 +85,7 @@
     }
 
     .variant-picker__form {
-        display: flex;
+        @include display-flex();
         flex-direction: column;
         gap: $ops-form-gap;
     }
@@ -108,7 +108,7 @@
     }
 
     .open-selector__trigger, .open-selector__card { 
-        display: flex;
+        @include display-flex();
         align-items: center;
         width: 100%;
         justify-content: space-between;
@@ -117,13 +117,13 @@
     }
 
     .open-selector__header, .open-selector__card {
-        display: flex;
+        @include display-flex();
         gap: $ops-header-gap;
         justify-content: left;
     }
 
     .open-selector__title-wrapper {
-        display: flex;
+        @include display-flex();
         align-items: center;
         gap: $ops-title-gap;
     }
@@ -154,7 +154,7 @@
     }
 
     .open-selector__content {
-        display: flex;
+        @include display-flex();
         flex-direction: column;
     }
 
@@ -197,7 +197,7 @@
         }
 
         .variant-option__button-label__text {
-            display: flex;
+            @include display-flex();
             flex-direction: column;
             gap: $bdl-text-gap;
             line-height: $lh-17;
@@ -253,7 +253,7 @@
     // Product Bundles
 
     .product-bundle {
-        display: flex;
+        @include display-flex();
         flex-direction: column;
         gap: $pbd-bundle-gap;
         width: 100%;
@@ -268,7 +268,7 @@
         }
 
         &__item {
-            display: flex;
+            @include display-flex();
             flex-direction: row;
             justify-content: center;
             align-items: center;
@@ -287,7 +287,7 @@
             }
 
             &--title {
-                display: flex;
+                @include display-flex();
                 flex-direction: column;
                 text-align: left;
                 flex: 1;
@@ -311,7 +311,7 @@
             }
 
             &--price {
-                display: flex;
+                @include display-flex();
                 flex-direction: column;
                 flex: 0;
                 gap: $pbd-item-price-gap;

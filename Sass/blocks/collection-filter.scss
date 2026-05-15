@@ -48,7 +48,7 @@ results-list.product-grid-container {
         }
 
         .facets-toggle__wrapper {
-            display: flex;
+            @include display-flex();
             left: 0;
         }
 
@@ -92,7 +92,7 @@ results-list.product-grid-container {
                 }
                 
                 .facets__status {
-                    display: flex;
+                    @include display-flex();
                     line-height: $lh-18;
                     text-transform: capitalize;
                     margin-inline-end: $cf-status-margin-end;

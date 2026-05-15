@@ -8,11 +8,11 @@
   overflow: hidden !important;
   width: max-content;
   gap: $anm-slider-scroll-gap;
-  display: flex;
+  @include display-flex();
   flex-direction: row;
 
     .announcement-bar__block {
-        display: flex;
+        @include display-flex();
         gap: $anm-block-gap; 
         width: fit-content;
         max-width: none;

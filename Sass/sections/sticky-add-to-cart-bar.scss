@@ -79,7 +79,7 @@
         }
 
         .sticky-add-to-cart__bar .add-to-cart-text__content {
-            display: flex;
+            @include display-flex();
         }
 
         .sticky__variant-picker {

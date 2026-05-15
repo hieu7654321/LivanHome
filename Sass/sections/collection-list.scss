@@ -100,7 +100,7 @@
 
             slideshow-component[dragging] {
                 slideshow-arrows {
-                    display: flex;
+                    @include display-flex();
                 }
             }
         }

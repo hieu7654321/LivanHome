@@ -119,7 +119,7 @@ product-card {
 }
 
 .swym-wishlist__container {
-  display: flex;
+  @include display-flex();
   justify-self: flex-end;
   position: absolute;
   top: $prd-wishlist-top-sm;
