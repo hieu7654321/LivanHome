@@ -64,7 +64,8 @@
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
   class="slideshow-section spacing-style section {{ section_width_class }} color-{{ section.settings.color_scheme }} disable-section-top-offset"
-  style="{% render 'spacing-padding', settings: section.settings %}; --slideshow-gap: {{ section.settings.slideshow_gap }}px;{% if rounded_slide_corners %} --corner-radius: {{ section.settings.corner_radius }}px;{% endif %}"
+  style="{% render 'spacing-padding', settings: section.settings %}; --slideshow-gap: {{ section.settings.slideshow_gap }}px;{% if rounded_slide_corners %} --corner-radius: {{ section.settings.corner_radius }}px;{% endif %};
+   --navigation-radius: {{ section.settings.navigation_radius }}px;--navigation-padding: {{ section.settings.navigation_padding }}px;"
 >
   <h2 class="visually-hidden">{{ 'accessibility.slideshow' | t }}</h2>
   {% render 'slideshow',
@@ -362,6 +363,27 @@
         }
       ],
       "default": "dots"
+    },
+    {
+      "type": "range",
+      "id": "navigation_radius",
+      "label": "Navigation Radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "navigation_padding",
+      "label": "Navigation Padding",
+      "info": "Control Size with base chevron about 20px",
+      "min": 0,
+      "max": 20,
+      "step": 0.2,
+      "unit": "px",
+      "default": 5
     },
     {
       "type": "checkbox",

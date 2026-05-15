@@ -7,5 +7,7 @@
       settings: {block.settings || section.settings}
 {%- endcomment -%}
 
---padding-block-start: {{ settings.padding-block-start | default: 0 }}px; --padding-block-end:{{- settings.padding-block-end | default: 0 -}}px; 
+--padding-block-start: {{ settings.padding-block-start | default: 0 }}px; --padding-block-end:{{- settings.padding-block-end | default: 0 -}}px;
+--padding-block-start-desktop: {{ settings.padding-block-start-desktop | default: 0 }}px; --padding-block-end-desktop:{{- settings.padding-block-end-desktop | default: 0 -}}px; 
 --padding-inline-start:{{ settings.padding-inline-start | default: 0 }}px; --padding-inline-end:{{- settings.padding-inline-end | default: 0 -}}px; 
+--padding-inline-start-desktop:{{ settings.padding-inline-start-desktop | default: 0 }}px; --padding-inline-end-desktop:{{- settings.padding-inline-end-desktop | default: 0 -}}px; 

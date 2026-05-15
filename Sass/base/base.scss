@@ -524,3 +524,7 @@ $pbd-sale-max-h-lg: 18px;
   --color-active: var(--color-foreground);
   --color-hover: rgb(var(--color-foreground-rgb) / var(--opacity-50));
 }
+
+.text-block > * {
+  font-size: var(--custom-font-size);
+}

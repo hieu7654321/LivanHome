@@ -73,6 +73,15 @@
       --line-height--display: var(--line-height--display-{{ settings.line_height }});
       --line-height--heading: var(--line-height--heading-{{ settings.line_height }});
       --line-height--body: var(--line-height--body-{{ settings.line_height }});
+    {% elsif settings.line_height == '2p' or settings.line_height == '3p' or settings.line_height == '4p' %}
+      {% case settings.line_height %}
+        {% when '2p' %}
+          --line-height: calc(var( --custom-font-size) + 2px);
+        {% when '3p' %}
+          --line-height: calc(var( --custom-font-size) + 3px);
+        {% else %}
+          --line-height: calc(var( --custom-font-size) + 4px);
+      {% endcase %}
     {% else %}
       --line-height: var(--line-height--{{ type }}-{{ settings.line_height }});
     {% endif %}
