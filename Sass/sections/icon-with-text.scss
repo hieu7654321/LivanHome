@@ -11,12 +11,7 @@
 
         .group-block {
             .group-block-content {
-                .text-block:first-child > * {
-                    line-height: calc(var(--font-size) + 3px);
-                }
-
                 .text-block:not(:first-child) > * {
-                    line-height: calc(var(--font-size) + 4px);
                     margin: 0;
                 }
             }
@@ -53,12 +48,12 @@
 
 @media screen and (min-width: 750px) {
     .section:has(.icon-block__custom) {
-        --page-margin: 50px !important;
+        --page-margin: 50px;
 
         .section-content-wrapper {
-            padding-block-start: max(10px, calc(var(--padding-block-start) - 21px));
-            padding-block-end: max(10px, calc(var(--padding-block-end) - 21px));
-            gap: max(10px, calc(var(--gap) - 47px));
+            padding-block-start: var(--padding-block-start-desktop);
+            padding-block-end: var(--padding-block-end-desktop);
+            gap: var(--gap-desktop);
             align-items: flex-start;
 
             .group-block {
