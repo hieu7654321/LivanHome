@@ -156,7 +156,6 @@ $mbl-content-top: 31%;
 $mbl-content-top-lg: 37%;
 $mbl-content-u-offset-sm: 8px;
 $mbl-content-u-offset-lg: 12px;
-$mbl-group-content-pie-sm: 23px;
 $mbl-group-content-pie-lg: 26px;
 $mbl-text-margin-right: 2.25rem;
 
@@ -539,5 +538,12 @@ $pbd-sale-max-h-lg: 18px;
   .section-resource-list {
     padding-block-start: var(--padding-block-start-desktop);
     padding-block-end: var(--padding-block-end-desktop);
+  }
+
+  .group-block {
+    padding-block-start: var(--padding-block-start-desktop);
+    padding-block-end: var(--padding-block-end-desktop);
+    padding-inline-start: var(--padding-inline-start-desktop);
+    padding-inline-end: var(--padding-inline-end-desktop);
   }
 }

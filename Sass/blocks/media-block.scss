@@ -1,7 +1,7 @@
 @use "../base/base.scss" as *;
 
 .media-with-content {
-    --button-padding-block: 8.8px !important;
+    --button-padding-block: 8.8px;
 
     .media-block {
         img {
@@ -16,10 +16,13 @@
         color: var(--color-primary);
         position: absolute;
         top: $mbl-content-top;
-        font-size: var(--font-size);
-        line-height: calc(var(--font-size) + 1.3625rem);
         font-weight: var(--font-weight);
         text-transform: var(--text-transform);
+
+        & > * {
+            font-size: var(--font-size);
+            line-height: calc(var(--font-size) + 1.3625rem);
+        }
 
         u {
             text-underline-offset: $mbl-content-u-offset-sm;
@@ -27,8 +30,8 @@
     }
 
     .media-with-content__content > .group-block-content {
-        padding-inline-start: var(--page-margin) !important;
-        padding-inline-end: $mbl-group-content-pie-sm !important;
+        padding-inline-start: var(--padding-inline-start);
+        padding-inline-end: var(--padding-inline-end);
 
         @media screen and (max-width: 749px) {
             .button {
@@ -42,12 +45,7 @@
     .media-with-content {
         .media-with-content__content {
             & > .group-block-content {
-                --gap: 20px !important;
-                padding-block: calc(4.2 * var(--page-margin)) !important;
-
-                & > .group-block:has(.image-block) {
-                    --padding-block-start: 5px !important;
-                }
+                padding-block: var(--padding-block-start) var(--padding-block-end);
             }
 
             .group-block > .group-block-content:has(.image-block) {
@@ -65,7 +63,7 @@
 
 @media screen and (min-width: 750px) {
     .media-with-content {
-        --page-margin: 30px !important;
+        --page-margin: 30px;
         --media-with-content-grid-columns: var(--full-page-grid-margin) calc((var(--full-page-grid-central-column-width) / 4) * 2 + 14.5px) calc(var(--full-page-grid-central-column-width) / 2 - 15.5px) var(--full-page-grid-margin) !important;
 
         .media-block {
@@ -78,9 +76,9 @@
         .media-block__content {
             width: $mbl-content-width-lg;
             top: $mbl-content-top-lg;
-            
+
             & > * {
-                font-size: clamp(var(--font-size), 4vw , #{calc(var(--font-size) + 1.25rem)});
+                font-size: clamp(var(--font-size), 4vw, var(--font-size-desktop));
                 line-height: clamp(#{calc(var(--font-size) + 1.3625rem)}, 6vw , #{calc(var(--font-size) + 2.6rem)});
             }
 
@@ -90,47 +88,30 @@
         }
 
         .media-with-content__content {
+            padding-block: var(--padding-block-start-desktop) var(--padding-block-end-desktop);
+            padding-inline: var(--padding-inline-start-desktop) var(--padding-inline-end-desktop);
+            
             & > .group-block-content {
-                padding-block: calc(4.295 * var(--page-margin)) !important;
-                padding-inline: $mbl-group-content-pie-lg !important;
+                gap: clamp(var(--gap), 8vw, var(--gap-desktop));
 
                 & > .group-block:first-child {
-                    
-                    .group-block-content {
-                        --gap: 14px !important;
-                    }
-
-                    .text-block:has(p) {
-                        p {
-                            font-size: calc(var(--font-size) + 0.125rem);
-                        }
-                    }
-
                     .text-block:not(:has(p)) {
                         & > * {
-                            font-size: calc(var(--font-size) + 1.125rem);
+                            font-size: clamp(var(--font-size), 4vw , var(--font-size-desktop));
+                            line-height: clamp(var(--line-height), 6vw , var(--line-height-desktop));
                             margin-right: $mbl-text-margin-right;
-                            line-height: $lh-56;
                        }
                     }
                 }
 
                 & > .group-block:has(.layout-panel-flex) {
                     & > .layout-panel-flex {
-                        gap: calc(var(--gap) + 3px);
+                        gap: var(--gap-desktop);
 
                         .group-block--width-fill {
                             flex: 0;
-                            flex-basis: 25%;
+                            flex-basis: 25.3%;
                         }
-                    }
-                }
-            }
-
-            .group-block > .group-block-content:has(.image-block) {
-                .text-block {
-                    & > * {
-                        line-height: calc(var(--font-size) + 2px) ;
                     }
                 }
             }
