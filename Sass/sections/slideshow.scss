@@ -41,3 +41,9 @@ slideshow-arrows .slideshow-control.slideshow-control--shape-square {
     border-radius: var(--navigation-radius);
     padding: 0 var(--navigation-padding);
 }
+
+@media screen and (max-width: 749px) {
+    slideshow-arrows .slideshow-control.slideshow-control--shape-square {
+        display: none;
+    }
+}

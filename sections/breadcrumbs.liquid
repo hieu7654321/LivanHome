@@ -6,7 +6,7 @@
       </a>
     </li>
 
-    {% if section.settings.breadcrumb_collection %}
+    {% if section.settings.breadcrumb_collection != blank %}
       {% assign collection_name = section.settings.breadcrumb_collection %}
       <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>
       <li class="breadcrumbs__item">

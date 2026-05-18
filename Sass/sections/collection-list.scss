@@ -22,6 +22,14 @@
     }
 }
 
+@media screen and (max-width: 749px) {
+    .section-carousel:has(.carousel-content__custom) {
+        slideshow-arrows .slideshow-control{
+            display: none;
+        }
+    }
+}
+
 @media screen and (min-width: 750px) {
     .section-carousel:has(.carousel-content__custom) {
         --page-margin: 50px;

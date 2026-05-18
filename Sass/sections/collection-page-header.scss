@@ -1,20 +1,9 @@
 @use '../base/base.scss' as *;
 
 main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
-    .section-content-wrapper:has(.text-block:nth-child(2)):not(:has(.text-block:nth-child(3))) {
-        .text-block > * {
-            line-height: calc(var(--font-size) + 4px);
-        }
-    }
-
     slideshow-slide {
         .collection-card__content {
             padding: $cph-ccard-pd-sm;
-
-            .text-block > * {
-                line-height: calc(var(--font-size) + 3px);
-                font-weight: $font-bold;
-            }
         }
     }
 }
@@ -30,8 +19,7 @@ main.content-for-layout:has(.search-page-input__parent) {
         .section-resource-list {
             slideshow-arrows {
                 .slideshow-control {
-                    padding: $cph-sls-control-pd !important;
-                    border-radius: $cph-sls-control-radius;
+                    display: none;
                 }
             }
             
@@ -44,33 +32,25 @@ main.content-for-layout:has(.search-page-input__parent) {
 
 @media screen and (min-width: 750px) {
     main.content-for-layout:has(.breadcrumbs):has(.product-grid-container) {
-        --page-margin: 50px !important;
+        --page-margin: 50px;
 
         .custom-section-content {
-            .section-content-wrapper:has(.text-block:nth-child(2)):not(:has(.text-block:nth-child(3))) {
-                padding-block-start: calc(var(--padding-block-start) + 5px);
-
-                .text-block:nth-child(1) > * {
-                    font-size: calc(var(--font-size) + 18px);
-                    line-height: calc(var(--font-size) + 20px);
-                }
+            .layout-panel-flex {
+                padding-block-start: var(--padding-block-start-desktop);
+                padding-block-end: var(--padding-block-end-desktop);
             }
         }
 
-        .section-resource-list {
-            padding-block-start: max(10px, calc(var(--padding-block-start) - 18px)) !important;
-        }
-
         .resource-list__carousel {
-            --peek-next-slide-size: 1.87rem !important;
+            --peek-next-slide-size: 1.87rem;
 
             .slideshow-control {
-                padding: $cph-sls-control-pd !important;
+                padding: $cph-sls-control-pd;
                 border-radius: $cph-sls-control-radius;
             }
 
             slideshow-slides {
-                gap: calc(var(--gap) + 6px);
+                gap: var(--gap-desktop);
             }
 
             slideshow-slide {
@@ -78,11 +58,6 @@ main.content-for-layout:has(.search-page-input__parent) {
 
                 .collection-card__content {
                     padding: $cph-rscarousel-content-pd;
-
-                    .text-block > * {
-                        font-size: calc(var(--font-size) + 2px);
-                        line-height: calc(var(--font-size) + 5px);
-                    }
                 }
             }
         }
