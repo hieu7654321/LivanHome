@@ -454,10 +454,21 @@
         {
           "value": "var(--color-primary)",
           "label": "t:options.link"
+        },
+        {
+          "value": "var(--color-text-block)",
+          "label": "Other color"
         }
       ],
       "default": "var(--color-foreground)",
       "visible_if": "{{ block.settings.type_preset != 'rte' }}"
+    },
+    {
+      "type": "color",
+      "id": "text_block_color",
+      "label": "t:settings.color",
+      "default": "#000000",
+      "visible_if": "{{ block.settings.color == 'var(--color-text-block)' }}"
     },
     {
       "type": "header",

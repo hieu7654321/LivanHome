@@ -8,7 +8,9 @@ slideshow-component.slideshow--with-hints.slideshow--with-hints--mobile-full-fra
             border-radius: $sld-btn-radius;
             text-transform: uppercase;
             max-width: $sld-btn-max-w;
-            --button-padding-block: 8.8px;
+            font-size: var(--font-size);
+            line-height: var(--line-height);
+            --button-padding-block: 11px;
         }
     }
 

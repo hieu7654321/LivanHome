@@ -48,14 +48,15 @@ $sld-dots-pb: 1.5rem var(--padding-lg);
 
 //feature-collection.scss
 
-$fcl-tab-gap: 28px;
-$fcl-tab-margin-block: 17px 18px;
+$fcl-tab-gap: 30px;
+$fcl-tab-margin-block: 21px 18px;
 $fcl-tab-font-size: 16px;
 $fcl-tab-line-height: 17px;
 $fcl-tab-underline-offset: 3px;
 $fcl-header-pi: 2px;
 $fcl-header-padding-inline: 2px;
 $fcl-custom-max-width: 500px;
+$fcl-tabs-pbe-lg: 1px;
 
 //collection-list.scss
 
@@ -119,7 +120,7 @@ $prd-quick-add-svg-h: 12.6px;
 $prd-letter-spacing-tight: 0.01em;
 $prd-p-not-heading-mw: 99%;
 
-$prd-swatch-pb: 4px 1px;
+$prd-swatch-pb: 2px 1px;
 $prd-swatch-pi: 1px;
 $prd-swatch-gap: 7px;
 
@@ -527,4 +528,16 @@ $pbd-sale-max-h-lg: 18px;
 
 .text-block > * {
   font-size: var(--custom-font-size);
+}
+
+@media screen and (min-width: 750px) {
+  .custom-typography.text-block > * {
+    font-size: var(--font-size-desktop);
+    line-height: var(--line-height-desktop);
+  }
+
+  .section-resource-list {
+    padding-block-start: var(--padding-block-start-desktop);
+    padding-block-end: var(--padding-block-end-desktop);
+  }
 }

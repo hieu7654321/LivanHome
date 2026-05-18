@@ -64,7 +64,6 @@ product-card {
     .text-block.custom-typography.custom-font-size {
         p:not([role='heading']) {
             letter-spacing: $prd-letter-spacing-tight;
-            line-height: $lh-12;
             max-width: $prd-p-not-heading-mw;
         }
     }
@@ -131,7 +130,6 @@ product-card {
 
   .swym__custom-button {
     background: none;
-    opacity: 1 !important;
   }
 
   button.swym-button {
@@ -181,13 +179,7 @@ product-card {
         }
 
         .text-block.custom-typography.custom-font-size {
-            &:has(p[role='heading']) {
-                --font-size: calc(var(--font-size) + 2px) !important;
-            }
-
             p:not([role='heading']) {
-                font-weight: bold;
-                color: #8F9293;
                 max-width: 100%;
             }
         }

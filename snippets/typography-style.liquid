@@ -60,6 +60,21 @@
         --font-size: {{ settings.font_size }};
         --custom-font-size: {{ settings.font_size }};
       {%- endif -%}
+      {% if settings.setting_font_desktop %}
+        --font-size-desktop: {{ settings.font_size_desktop }};
+        {% if settings.line_height_desktop == 'normal' %}
+          --line-height-desktop: 1;
+        {% else %}
+          {% case settings.line_height_desktop %}
+            {% when '2p' %}
+              --line-height-desktop: calc(var(--font-size-desktop) + 2px);
+            {% when '3p' %}
+              --line-height-desktop: calc(var(--font-size-desktop) + 3px);
+            {% else %}
+              --line-height-desktop: calc(var(--font-size-desktop) + 4px);
+          {% endcase %}
+        {% endif %}
+      {% endif %}
     {%- endif -%}
     {%- if settings.weight != blank -%}
       --font-weight: {{ settings.weight }};
