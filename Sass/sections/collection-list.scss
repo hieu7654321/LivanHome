@@ -3,12 +3,12 @@
 .section-carousel {
     .carousel-content__custom:has(slideshow-component) {
         slideshow-slides {
-            --peek-next-slide-size: 0.3rem !important;
+            --peek-next-slide-size: 0.3rem;
 
             .card {
                 .card__inner {
                     .image-block {
-                        aspect-ratio: $clt-card-aspect-ratio !important;
+                        aspect-ratio: $clt-card-aspect-ratio;
                     }
                 }
 
@@ -16,12 +16,6 @@
                     position: absolute;
                     bottom: $clt-card-text-bottom-sm;
                     left: $clt-card-text-left-sm;
-
-                    & > * {
-                        color: #fff;
-                        font-weight: $font-bold;
-                        line-height: calc(var(--font-size) + 3px);
-                    }
                 }
             }
         }
@@ -30,23 +24,12 @@
 
 @media screen and (min-width: 750px) {
     .section-carousel:has(.carousel-content__custom) {
-        --page-margin: 50px !important;
-        padding-block-start: max(10px, calc(var(--padding-block-start) + 44px ));
-        row-gap: calc(var(--gap) + 15px);
+        --page-margin: 50px;
+        padding-block-start: var(--padding-block-start-desktop);
+        row-gap: var(--gap-desktop);
 
         :is(slideshow-component:hover, slideshow-component:focus-within):not(:has(slideshow-controls:hover)) > slideshow-container > slideshow-arrows .slideshow-control {
             animation: none;
-        }
-
-        .group-block:first-child {
-            .text-block {
-
-                & > * {
-                    font-size: calc(var(--font-size) - 2px);
-                    line-height: var(--font-size);
-                    letter-spacing: 0;
-                }
-            }
         }
 
         .carousel-content__custom {
@@ -78,20 +61,14 @@
                 }
 
                 slideshow-slides {
-                    --peek-next-slide-size: 0.5rem !important;
-                    gap: calc(var(--slideshow-gap) + 4px);
+                    --peek-next-slide-size: 0.5rem;
+                    gap: var(--carousel-gap-desktop);
 
                     .card {
                         .card__inner {
                             .text-block {
                                 bottom: $clt-card-text-bottom-lg;
                                 left: $clt-card-text-left-lg;
-
-                                & > * {
-                                    font-size: clamp(var(--font-size), 3vw ,#{calc(var(--font-size) + 18px)});
-                                    line-height: clamp(#{calc(var(--font-size) + 3px)}, 3.1vw ,#{calc(var(--font-size) + 20px)});
-                                    letter-spacing: 0;
-                                }
                             }
                         }
                     }

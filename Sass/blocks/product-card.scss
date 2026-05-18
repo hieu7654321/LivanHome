@@ -149,6 +149,10 @@ product-card {
     fill: $swym-fill-color;
   }
 
+  button.swym-button.disabled, button.swym-button:disabled {
+    opacity: 1 !important;
+  }
+
   @media screen and (min-width: 750px) {
     top: $prd-wishlist-top-lg;
 
