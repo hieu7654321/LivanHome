@@ -239,10 +239,17 @@ export class QuickAddComponent extends Component {
     if (variantPicker) {
       productGrid.appendChild(variantPicker);
     }
+    
+    const actionsWrapper = document.createElement('div');
+    actionsWrapper.classList.add('quick-add__actions');
+
     if (productFormComponent) {
-      productGrid.appendChild(productFormComponent);
+      actionsWrapper.appendChild(productFormComponent);
     }
-    productGrid.appendChild(detailsButton);
+
+    actionsWrapper.appendChild(detailsButton);
+
+    productGrid.appendChild(actionsWrapper);
 
     productDetails?.remove();
 
