@@ -36,8 +36,8 @@ results-list.product-grid-container {
 
 @media screen and (min-width: 750px) {
     results-list.product-grid-container {
-        padding-block-start: calc(var(--padding-block-start) + 5px);
-        padding-block-end: calc(var(--padding-block-end) + 5px);
+        padding-block-start: var(--padding-block-start-desktop);
+        padding-block-end: var(--padding-block-end-desktop);
 
         .facets-block-wrapper {
             margin: 0;

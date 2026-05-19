@@ -26,7 +26,7 @@
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <results-list
   class="section product-grid-container color-{{ section.settings.color_scheme }}"
-  style="--padding-block-start: {{ section.settings.padding-block-start }}px; --padding-block-end: {{ section.settings.padding-block-end }}px;"
+  style="--padding-block-start: {{ section.settings.padding-block-start }}px; --padding-block-end: {{ section.settings.padding-block-end }}px;--padding-block-start-desktop: {{ section.settings.padding-block-start-desktop }}px; --padding-block-end-desktop: {{ section.settings.padding-block-end-desktop }}px;"
   section-id="{{ section.id }}"
   infinite-scroll="{{ section.settings.enable_infinite_scroll }}"
 >
@@ -245,6 +245,16 @@
     },
     {
       "type": "range",
+      "id": "padding-block-start-desktop",
+      "label": "Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 42
+    },
+    {
+      "type": "range",
       "id": "padding-block-end",
       "label": "t:settings.bottom_padding",
       "min": 0,
@@ -252,6 +262,16 @@
       "step": 1,
       "unit": "px",
       "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-desktop",
+      "label": "Bottom Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 45
     }
   ],
   "presets": []

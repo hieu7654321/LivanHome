@@ -5,7 +5,6 @@
 
     .text-block:has(+ .accordion__custom) {
         p {
-            line-height: calc(var(--font-size) + 4px);
             margin: 0;
         }
     }
@@ -14,7 +13,7 @@
 .accordion__custom {
     @include display-flex();
     flex-direction: column;
-    gap: $ca-accordion-gap;
+    gap: var(--gap);
 
     accordion-custom:first-child .details, accordion-custom:not(:first-child) .details {
         border-block-start: none !important;
@@ -26,8 +25,8 @@
 
     summary.details__header {
         gap: $ca-summary-gap-sm;
-        font-size: $fs-12;
-        line-height: $lh-15;
+        font-size: var(--font-size);
+        line-height: var(--line-height);
         padding-block: $ca-summary-pbl-sm;
     }
 
@@ -41,27 +40,18 @@
     .section:has(.accordion__custom) {
         --page-margin: 50px !important;
 
-        .text-block:has(+ .accordion__custom) {
-            p {
-                font-size: calc(var(--font-size) + 6px);
-                line-height: calc(var(--font-size) + 9px);
-            }
-        }
-
         .section-content-wrapper {
-            padding-block-start: calc(var(--padding-block-start) + 12px);
-            padding-block-end: calc(var(--padding-block-end) + 14px);
-            gap: max(10px, calc(var(--gap) - 1px));
+            gap: var(--gap-desktop);
         }
     }
 
     .accordion__custom {
-        gap: $ca-accordion-gap;
+        gap: var(--gap-desktop);
 
         summary.details__header {
             gap: $ca-summary-gap-lg;
-            font-size: $fs-16;
-            line-height: $lh-20;
+            font-size: var(--font-size-desktop);
+            line-height: var(--line-height-desktop);
             padding-block: $ca-summary-pbl-lg;
         }
 
