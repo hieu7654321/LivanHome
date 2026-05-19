@@ -37,4 +37,8 @@
             }
         }
     }
+
+    product-card:not(:has(.variant-option)) {
+        height: auto
+    }
 }

@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "search": {
       "type": "search-header",
@@ -15,7 +16,7 @@
           "type": "_heading",
           "static": true,
           "settings": {
-            "type_preset": "h2",
+            "type_preset": "h3",
             "font": "var(--font-body--family)",
             "font_size": "",
             "line_height": "normal",
@@ -100,10 +101,13 @@
               "type": "_product-card-gallery",
               "settings": {
                 "image_ratio": "portrait",
+                "set_fixed_height": true,
+                "custom_fixed_height": 212,
+                "custom_fixed_height_desktop": 411,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0,
+                "border_radius": 5,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -114,7 +118,6 @@
             "group": {
               "type": "_product-card-group",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -142,10 +145,16 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
                 "padding-block-start": 0,
+                "padding-block-start-desktop": 0,
                 "padding-block-end": 0,
+                "padding-block-end-desktop": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start-desktop": 0,
+                "padding-inline-end": 0,
+                "padding-inline-end-desktop": 0
               },
               "blocks": {
                 "product_title_heXLHF": {
@@ -155,10 +164,13 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h5",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.75rem",
+                    "setting_font_desktop": true,
+                    "font_size_desktop": "0.875rem",
+                    "line_height": "3p",
+                    "line_height_desktop": "3p",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -173,15 +185,60 @@
                   },
                   "blocks": {}
                 },
+                "text_x6Gpgr": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Silla tapizada beige con pata natural</p>",
+                    "additional_class": "",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.625rem",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "0.625rem",
+                    "line_height": "2p",
+                    "line_height_desktop": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-text-block)",
+                    "text_block_color": "#8f9293",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-start-desktop": 0,
+                    "padding-block-end": 0,
+                    "padding-block-end-desktop": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
+                  },
+                  "blocks": {}
+                },
                 "price": {
                   "type": "price",
                   "settings": {
                     "show_sale_price_first": true,
                     "show_installments": false,
                     "show_tax_info": false,
-                    "type_preset": "",
+                    "show_per_measure": true,
+                    "type_preset": "custom",
                     "width": "100%",
                     "alignment": "left",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.75rem",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "1rem",
+                    "line_height": "3p",
+                    "line_height_desktop": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -205,6 +262,7 @@
               },
               "block_order": [
                 "product_title_heXLHF",
+                "text_x6Gpgr",
                 "price",
                 "swatches"
               ]
@@ -220,6 +278,8 @@
         "layout_type": "grid",
         "product_card_size": "medium",
         "mobile_product_card_size": "small",
+        "enable_infinite_scroll": true,
+        "products_per_page": 24,
         "product_grid_width": "centered",
         "full_width_on_mobile": true,
         "columns_gap_horizontal": 16,

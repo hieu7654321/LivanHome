@@ -11,24 +11,24 @@
         &[open] {
             @include display-flex();
         }
-    }
 
-    .quick-add-modal__close {
-        top: $qa-close-top;
-        right: $qa-close-right;
-    }
-    
-    #quick-add-modal-content {
-        @include display-flex();
-        flex-direction: column;
-        padding-block: $qa-content-pd-sm;
-        padding-inline: $qa-content-pi;
-        flex-grow: 1;
-        gap: $qa-content-gap;
-    }
+        &__close {
+            top: $qa-close-top;
+            right: $qa-close-right;
+        }
 
-    .quick-add-modal__content > * {
-        flex-shrink: 0;
+        &__content {
+            @include display-flex();
+            flex-direction: column;
+            padding-block: $qa-content-pd-sm;
+            padding-inline: $qa-content-pi;
+            flex-grow: 1;
+            gap: $qa-content-gap;
+
+            & > * {
+                flex-shrink: 0;
+            }
+        }
     }
 
     .product-information__media {
@@ -118,12 +118,14 @@
         border-radius: $qa-btn-radius;
     }
 
-    .product-form-buttons:not(:has(.quantity-rules)) {
-        gap: $qa-form-btn-gap;
-    }
+    .product-form-buttons {
+        &:not(:has(.quantity-rules)) {
+            gap: $qa-form-btn-gap;
+        }
 
-    .product-form-buttons:has(.add-to-cart-button.button-secondary) .quantity-selector {
-        @include quantity-selector;
+        &:has(.add-to-cart-button.button-secondary) .quantity-selector {
+            @include quantity-selector;
+        }
     }
 
     .add-to-cart-button {
@@ -148,7 +150,6 @@
     .product-header {
         gap: $qa-header-gap-sm;
         padding: 0;
-        margin-top: $qa-header-mt-sm;
 
         a {
             font-weight: $font-normal;
@@ -180,10 +181,6 @@
 
     .variant-picker {
         @include image-variant-picker;
-
-        &.spacing-style {
-            padding: 0;
-        }
     }
 
     .text-block.rte:not(product-price) {
@@ -198,6 +195,12 @@
         z-index: 10;
         gap: $qa-actions-gap;
         background-color: $clr-white;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .product-header {
+        margin-top: $qa-header-mt-sm;
     }
 }
 

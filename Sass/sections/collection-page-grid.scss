@@ -8,6 +8,10 @@
             grid-column: span 2;
         }
     }
+
+    product-card:not(:has(.variant-option)) {
+        height: auto
+    }
 }
 
 .price__sale {
@@ -76,14 +80,16 @@
             slideshow-controls {
                 min-height: $cpg-controls-min-h;
 
-                .slideshow-controls__dots:only-child {
-                    margin-inline: $cpg-dots-ochild-mi;
-                    gap: $cpg-dots-ochild-gap;
-                }
+                .slideshow-controls__dots {
+                    &:only-child {
+                        margin-inline: $cpg-dots-ochild-mi;
+                        gap: $cpg-dots-ochild-gap;
+                    }
 
-                .slideshow-controls__dots .button::after {
-                    width: $cpg-dots-a-size !important;
-                    height: $cpg-dots-a-size;
+                    & .button::after {
+                        width: $cpg-dots-a-size !important;
+                        height: $cpg-dots-a-size;
+                    }
                 }
             }
         }
