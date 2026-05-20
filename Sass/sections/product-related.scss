@@ -23,16 +23,6 @@
             .resource-list{
                 --resource-list-column-gap-desktop: 10px;
             }
-
-            .section-resource-list {
-                padding-block-start: calc(var(--padding-block-start) + 80px) !important;
-                padding-block-end: calc(var(--padding-block-end) + 3px) !important; 
-                row-gap: calc(var(--gap) + 1px) !important;
-            }
-
-            .product-card__content {
-                gap: max(0px, #{calc(var(--product-card-gap) - 2px)}) !important;
-            }
         }
     }
 }
