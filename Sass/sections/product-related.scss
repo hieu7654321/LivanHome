@@ -6,10 +6,6 @@
             display: none;
         }
 
-        .section-resource-list__content > .text-block > * {
-            @include product-carousel-title;
-        }
-
         .resource-list__carousel .resource-list__slide {
             width: $prl-carousel-w;
         }
@@ -18,8 +14,6 @@
             margin-block: 0;
             padding-block: 0;
         }
-
-        .user-select-text > .text-block>* {line-height: calc(var(--font-size) + 3px);}
 
         .variant-option--swatches overflow-list::part(list) {
             padding-block: $prl-swatches-pbl;

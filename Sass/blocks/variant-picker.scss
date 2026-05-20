@@ -22,6 +22,15 @@
         @include image-variant-picker;
     }
 
+    .product-bundle,
+    .variant-picker {
+        .price__sale {
+            .price-item--sale {
+                color: $clr-text-primary;
+            }
+        }
+    }
+
     .variant-option + .variant-option {
         margin-top: $vrp-option-gap;
     }
