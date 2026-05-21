@@ -296,9 +296,13 @@
                     "is_bundle": true,
                     "alignment": "left",
                     "padding-block-start": 8,
+                    "padding-block-start-desktop": 17,
                     "padding-block-end": 8,
+                    "padding-block-end-desktop": 9,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 },
@@ -2200,7 +2204,7 @@
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "custom",
-                    "font": "var(--font-body--family)",
+                    "font": "var(--font-heading--family)",
                     "font_size": "0.75rem",
                     "setting_font_desktop": true,
                     "font_size_desktop": "0.875rem",

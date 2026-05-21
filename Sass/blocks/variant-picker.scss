@@ -22,6 +22,7 @@
         @include image-variant-picker;
     }
 
+    .product-details,
     .product-bundle,
     .variant-picker {
         .price__sale {
@@ -64,8 +65,8 @@
 .product-information {
     @media screen and (min-width: 750px) {
         .variant-picker {
-            padding-block-start: calc(var(--padding-block-start) + 9px);
-            padding-block-end: calc(var(--padding-block-end) + 9px);
+            padding-block: var(--padding-block-start-desktop) var(--padding-block-end-desktop);
+            padding-inline: var(--padding-inline-start-desktop) var(--padding-inline-end-desktop);
         }
     }
 }
@@ -166,20 +167,6 @@
         @include display-flex();
         flex-direction: column;
     }
-
-    @media screen and (min-width: 750px) {
-        .group-block:has(product-price) ~ .group-block:has(variant-picker) {
-            padding-block-start: calc(var(--padding-block-start) + 9px);
-        }
-
-        .variant-picker {
-            padding-block-start: var(--padding-block-start) !important;
-        }
-
-        .group-block:has(variant-picker) ~ .group-block:has(.icon-block) {
-            padding-block-end: 0;
-        }
-    }
 }
 
 .content-for-layout[data-template='product.bundled-products'] .product-information, .quick-add-modal__content:has(.swatch__bundle--image), .quick-add-modal__content:has(.variant-option__bundle) {
@@ -225,7 +212,7 @@
     }
 
     .variant-option__label--item-price {
-        margin-top: $bdl-label-price-mt;
+        margin-block: $bdl-label-price-mbl;
     }
 
     .price__ahorra {
@@ -250,10 +237,6 @@
     }
 
     @media screen and (min-width: 750px) {
-        .variant-picker {
-            padding-block-end: calc(var(--padding-block-end) + 2px);
-        }
-
         .variant-option + .variant-option {
             margin-top: $bdl-variant-gap-lg;
         }

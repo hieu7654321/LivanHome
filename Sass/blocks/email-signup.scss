@@ -57,7 +57,7 @@
         }
 
         .footer-content {
-            padding-block-start: max(20px, calc(var(--padding-block-start) - 3px));
+            padding-block: var(--padding-block-start-desktop) var(--padding-block-end-desktop);
         }
 
         .email-signup__form {

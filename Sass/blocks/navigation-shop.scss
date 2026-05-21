@@ -20,7 +20,7 @@ footer {
             justify-self: flex-end;
 
             .group-block-content {
-                gap: clamp(10px, 4vw, #{calc(var(--gap) + 30px)});
+                gap: clamp(10px, 4vw, var(--gap-desktop));
             }
 
             accordion-custom.menu--accordion {

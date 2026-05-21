@@ -322,8 +322,8 @@
                     "link": "",
                     "open_in_new_tab": false,
                     "placeholder": "",
-                    "padding-block-start": 9,
-                    "padding-block-start-desktop": 0,
+                    "padding-block-start": 7,
+                    "padding-block-start-desktop": 16,
                     "padding-block-end": 0,
                     "padding-block-end-desktop": 0,
                     "padding-inline-start": 0,
@@ -376,9 +376,13 @@
                         "is_bundle": false,
                         "alignment": "left",
                         "padding-block-start": 10,
+                        "padding-block-start-desktop": 10,
                         "padding-block-end": 10,
+                        "padding-block-end-desktop": 19,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-inline-start-desktop": 0,
+                        "padding-inline-end": 0,
+                        "padding-inline-end-desktop": 0
                       },
                       "blocks": {}
                     }
@@ -2296,7 +2300,7 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
-                    "background": true,
+                    "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 3,

@@ -961,7 +961,7 @@
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 20,
-            "gap_desktop": 12,
+            "gap_desktop": 50,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -1075,7 +1075,9 @@
         "gap": 19,
         "color_scheme": "scheme-20b4c28f-b1b7-469d-ab19-e48131f2784a",
         "padding-block-start": 40,
-        "padding-block-end": 16
+        "padding-block-start-desktop": 37,
+        "padding-block-end": 16,
+        "padding-block-end-desktop": 16
       }
     },
     "utilities": {
@@ -1093,7 +1095,7 @@
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 46,
-            "gap_desktop": 12,
+            "gap_desktop": 33,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -1202,10 +1204,13 @@
       "settings": {
         "section_width": "page-width",
         "gap": 16,
+        "gap_desktop": 29,
         "divider_thickness": 0,
         "color_scheme": "scheme-20b4c28f-b1b7-469d-ab19-e48131f2784a",
         "padding-block-start": 16,
-        "padding-block-end": 26
+        "padding-block-start-desktop": 16,
+        "padding-block-end": 26,
+        "padding-block-end-desktop": 21
       }
     }
   },

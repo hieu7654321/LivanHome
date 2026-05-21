@@ -53,14 +53,12 @@
 @media screen and (min-width: 750px) {
     .footer-utilities {
         .utilities {
-            padding-block-end: max(10px, calc(var(--padding-block-end) - 5px)) !important;
+            padding-block: var(--padding-block-start-desktop) var(--padding-block-end-desktop);
             grid-template-columns: auto auto 1fr;
-            gap: calc(var(--gap) + 13px);
+            gap: var(--gap-desktop);
 
             .group-block:has(dropdown-localization-component) {
-                .group-block-content {
-                    gap: max(10px, calc(var(--gap) - 13px));
-                    
+                .group-block-content {                    
                     .dropdown-localization__button, .localization-form__select {
                         font-size: $fs-14;
                         line-height: $lh-18;
