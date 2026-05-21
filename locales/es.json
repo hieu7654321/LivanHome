@@ -29,6 +29,7 @@
     "slider_label": "Carrusel"
   },
   "accessibility": {
+    "home": "Inicio",
     "play_model": "Reproducir el modelo 3D",
     "play_video": "Reproducir el video",
     "unit_price": "Precio unitario",
@@ -79,7 +80,6 @@
     "price_filter_high": "Precio elevado",
     "slideshow": "Presentación de diapositivas",
     "header_navigation_label": "Principal",
-    "home": "Inicio",
     "active_filters": "Filtros activos:",
     "product_details": "Detalles del producto",
     "show_product_details": "Mostrar detalles del producto para {{ product_name }}",
