@@ -46,7 +46,7 @@
   {{
     image
     | image_url: height: image_height, format: 'webp', quality: 40
-    | image_tag: class: class, srcset: image_srcset, style: style_value, alt: image_alt_text, loading: image_loading, fetchpriority: image_fetchpriority, role: 'presentation'
+    | image_tag: class: class, srcset: image_srcset, style: style_value, alt: image_alt_text, loading: image_loading, fetchpriority: image_fetchpriority, role: 'presentation', aria-label: image_alt_text
   }}
 {% elsif text_fallback %}
   {{ text_fallback }}
