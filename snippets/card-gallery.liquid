@@ -66,6 +66,16 @@
   if product.metafields.product.span_2_image
     assign span_2_image = product.metafields.product.span_2_image
   endif
+
+  assign block_parts = block.id | split: '-'
+  assign placeholder_index = block_parts.last | default: 0
+  assign variant = placeholder_index | modulo: 3 | plus: 1
+  assign is_first_product = placeholder_index | plus: 1
+
+  assign is_fetchhigh = false
+  if block_settings.is_above_on_fold and is_first_product <= 2
+    assign is_fetchhigh = true
+  endif
 %}
 
 <div
@@ -151,7 +161,7 @@
           endif
 
           capture slideshow_children
-            render 'product-media', media: media, sizes: sizes, loading: loading, preview_image_only: true, span_2_image: span_2_image
+            render 'product-media', media: media, sizes: sizes, loading: loading, preview_image_only: true, span_2_image: span_2_image, is_main_product_media: is_fetchhigh
           endcapture
 
           render 'slideshow-slide', slide_id: media.id, index: forloop.index0, hidden: hidden, class: class, attributes: attributes, children: slideshow_children, media_fit: media_fit
@@ -221,9 +231,6 @@
     {% liquid
       capture placeholder_image
         # Extract index from block ID (e.g., "product-card-3" -> "3")
-        assign block_parts = block.id | split: '-'
-        assign placeholder_index = block_parts.last | default: 0
-        assign variant = placeholder_index | modulo: 3 | plus: 1
         assign placeholder_name = 'product-apparel-' | append: variant
         echo placeholder_name | placeholder_svg_tag
       endcapture

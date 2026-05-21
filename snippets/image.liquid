@@ -18,7 +18,7 @@
   {% assign image_height = custom_height | times: 0.5 %}
   {% assign image_height_2x = height | default: image_height %}
   {% assign image_height_3x = height | default: image_height | times: 1.5 %}
-  {% assign image_alt_text = image.alt | default: alt_text_fallback | default: '' %}
+  {% assign image_alt_text = image.alt | default: alt_text_fallback | default: shop.name %}
   {% liquid
     assign lazyload = false
     if lazy_load
@@ -46,7 +46,7 @@
   {{
     image
     | image_url: height: image_height, format: 'webp', quality: 40
-    | image_tag: class: class, srcset: image_srcset, style: style_value, alt: image_alt_text, loading: image_loading, fetchpriority: image_fetchpriority
+    | image_tag: class: class, srcset: image_srcset, style: style_value, alt: image_alt_text, loading: image_loading, fetchpriority: image_fetchpriority, role: 'presentation'
   }}
 {% elsif text_fallback %}
   {{ text_fallback }}

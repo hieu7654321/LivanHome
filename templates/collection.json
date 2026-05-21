@@ -282,6 +282,7 @@
                 "set_fixed_height": true,
                 "custom_fixed_height": 212,
                 "custom_fixed_height_desktop": 411,
+                "is_above_on_fold": true,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
