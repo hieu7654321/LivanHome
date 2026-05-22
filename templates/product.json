@@ -296,9 +296,13 @@
                     "is_bundle": false,
                     "alignment": "left",
                     "padding-block-start": 10,
+                    "padding-block-start-desktop": 19,
                     "padding-block-end": 10,
+                    "padding-block-end-desktop": 19,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 },
@@ -642,7 +646,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Paga en 3 plazos de 36,65 € sin intereses (0% TAE).</p>",
+                        "text": "<h2>Paga en 3 plazos de 36,65 € sin intereses (0% TAE).</h2>",
                         "additional_class": "text__installment--1",
                         "width": "100%",
                         "max_width": "normal",
@@ -807,6 +811,7 @@
                             "set_fixed_height": false,
                             "custom_fixed_height": 212,
                             "custom_fixed_height_desktop": 411,
+                            "is_above_on_fold": false,
                             "border": "none",
                             "border_width": 1,
                             "border_opacity": 100,
@@ -1807,7 +1812,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<p>Productos Relacionados </p>",
+            "text": "<h2>Productos Relacionados </h2>",
             "additional_class": "",
             "width": "100%",
             "max_width": "normal",
@@ -1870,6 +1875,7 @@
                 "set_fixed_height": true,
                 "custom_fixed_height": 212,
                 "custom_fixed_height_desktop": 411,
+                "is_above_on_fold": false,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -2137,6 +2143,7 @@
                 "set_fixed_height": true,
                 "custom_fixed_height": 212,
                 "custom_fixed_height_desktop": 411,
+                "is_above_on_fold": false,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
