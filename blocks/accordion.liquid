@@ -10,6 +10,8 @@
      --summary-font-size: var(--font-{{ block_settings.type_preset }}--size);
      --summary-font-line-height: var(--font-{{ block_settings.type_preset }}--line-height);
      --summary-font-case: var(--font-{{ block_settings.type_preset }}--case);
+     --gap: {{ block_settings.gap }}px;
+     --gap-desktop: {{ block_settings.gap_desktop }}px;
     {% render 'spacing-style', settings: block_settings %}
     {% render 'border-override', settings: block_settings %}
   "
@@ -202,6 +204,26 @@
       "label": "t:settings.opacity",
       "default": 100,
       "visible_if": "{{ block.settings.border != \"none\" }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:settings.gap",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap Desktop",
+      "default": 16
     },
     {
       "type": "range",

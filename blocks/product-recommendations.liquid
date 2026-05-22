@@ -66,6 +66,7 @@
     style="
       {%  render 'spacing-style', settings: block_settings %}
       {%  render 'gap-style', value: block_settings.gap %}
+      --gap-desktop: {{ block_settings.gap_desktop }}px;
       --resource-list-column-gap-desktop: {{ block_settings.columns_gap }}px;
       --resource-list-row-gap-desktop: {{ block_settings.rows_gap }}px;
       --resource-list-columns-mobile: repeat(auto-fill, minmax(9.25rem, 1fr));
@@ -240,6 +241,7 @@
           <div
             class="resource-list__item product-recommendations__skeleton-item"
             aria-label="{{ 'accessibility.loading_product_recommendations' | t }}"
+            aria-hidden="true"
           ></div>
       </div>
     {%- endif -%}
@@ -438,6 +440,16 @@
     },
     {
       "type": "range",
+      "id": "gap_desktop",
+      "label": "Gap Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
       "id": "border_radius",
       "label": "t:settings.border_radius",
       "min": 0,
@@ -475,8 +487,28 @@
     },
     {
       "type": "range",
+      "id": "padding-block-start-desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
       "id": "padding-block-end",
       "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-desktop",
+      "label": "Padding bottom desktop",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -495,8 +527,28 @@
     },
     {
       "type": "range",
+      "id": "padding-inline-start-desktop",
+      "label": "Padding left desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
       "id": "padding-inline-end",
       "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end-desktop",
+      "label": "Padding right desktop",
       "min": 0,
       "max": 100,
       "step": 1,

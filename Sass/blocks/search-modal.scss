@@ -1,0 +1,43 @@
+@use '../base/base.scss' as *;
+
+dialog-component.search-modal {
+    .search-modal__content[open] {
+        -webkit-margin-before: auto;
+                margin-block-start: auto;
+
+        .predictive-search__close-modal-button {
+            margin-inline: 0 var(--margin-sm);
+        }
+    }
+
+    .predictive-search-results__title {
+        font-size: $fs-30;
+        line-height: $lh-32;
+        font-weight: $font-normal;
+    }
+
+    .predictive-search-form__header {
+        gap: $search-header-gap;
+
+        &:has( .predictive-search__reset-button:not(.predictive-search__reset-button[hidden]) )::before {
+            background-color: $clr-white;
+        }
+    }
+
+    .predictive-search-results__card--product {
+        padding: 0;
+    }
+
+    .predictive-search-results__wrapper slideshow-slides {
+        margin-block: 0;
+    }
+}
+
+dialog-component.search-modal, .menu-list__submenu-inner {
+    .resource-card .resource-card__content > *,
+    .price {
+        font-size: $fs-12;
+        line-height: $lh-15;
+        font-weight: $font-bold;
+    }
+}

@@ -55,7 +55,10 @@
     }
 
     .variant-option > label {
-        display: none;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        color: var(--color-background);
     }
 
     .quantity-selector {
@@ -100,7 +103,8 @@
         }
 
         .sticky-add-to-cart__info {
-            padding-inline-start: $stcart-info-pis-lg;
+            -webkit-padding-start: $stcart-info-pis-lg;
+                    padding-inline-start: $stcart-info-pis-lg;
             margin-top: $stcart-info-mt-lg;
         }
 

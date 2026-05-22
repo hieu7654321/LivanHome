@@ -60,6 +60,21 @@
         --font-size: {{ settings.font_size }};
         --custom-font-size: {{ settings.font_size }};
       {%- endif -%}
+      {% if settings.setting_font_desktop %}
+        --font-size-desktop: {{ settings.font_size_desktop }};
+        {% if settings.line_height_desktop == 'normal' %}
+          --line-height-desktop: 1;
+        {% else %}
+          {% case settings.line_height_desktop %}
+            {% when '2p' %}
+              --line-height-desktop: calc(var(--font-size-desktop) + 2px);
+            {% when '3p' %}
+              --line-height-desktop: calc(var(--font-size-desktop) + 3px);
+            {% else %}
+              --line-height-desktop: calc(var(--font-size-desktop) + 4px);
+          {% endcase %}
+        {% endif %}
+      {% endif %}
     {%- endif -%}
     {%- if settings.weight != blank -%}
       --font-weight: {{ settings.weight }};
@@ -73,6 +88,15 @@
       --line-height--display: var(--line-height--display-{{ settings.line_height }});
       --line-height--heading: var(--line-height--heading-{{ settings.line_height }});
       --line-height--body: var(--line-height--body-{{ settings.line_height }});
+    {% elsif settings.line_height == '2p' or settings.line_height == '3p' or settings.line_height == '4p' %}
+      {% case settings.line_height %}
+        {% when '2p' %}
+          --line-height: calc(var( --custom-font-size) + 2px);
+        {% when '3p' %}
+          --line-height: calc(var( --custom-font-size) + 3px);
+        {% else %}
+          --line-height: calc(var( --custom-font-size) + 4px);
+      {% endcase %}
     {% else %}
       --line-height: var(--line-height--{{ type }}-{{ settings.line_height }});
     {% endif %}

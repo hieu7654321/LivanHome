@@ -12,7 +12,8 @@
   "
   style="
     {% render 'spacing-style', settings: section.settings %}
-    {% render 'gap-style', value: 12 %}
+    {% render 'gap-style', value: section.settings.gap %}
+    {% if section.settings.gap_desktop %}--gap-desktop: {{ section.settings.gap_desktop }}px;{% endif %}
   "
   data-testid="carousel-section"
 >
@@ -78,6 +79,16 @@
       "step": 1,
       "unit": "px",
       "default": 8
+    },
+    {
+      "type": "range",
+      "id": "columns_gap_desktop",
+      "label": "Horizontal Gap Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
     },
     {
       "type": "color_scheme",
@@ -154,6 +165,16 @@
     },
     {
       "type": "range",
+      "id": "padding-block-start-desktop",
+      "label": "Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
       "id": "padding-block-end",
       "label": "t:settings.bottom",
       "min": 0,
@@ -161,7 +182,37 @@
       "step": 1,
       "unit": "px",
       "default": 0
-    }
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-desktop",
+      "label": "Bottom Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "label": "Gap Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
   ],
   "presets": [
     {

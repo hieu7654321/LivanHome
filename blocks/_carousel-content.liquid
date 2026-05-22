@@ -36,6 +36,7 @@
   --carousel-columns: {{ section.settings.columns }};
   --carousel-mobile-columns: {{ section.settings.mobile_columns }};
   {% render 'gap-style', value: section.settings.columns_gap, name: 'carousel-gap' %}
+  {% render 'gap-style', value: section.settings.columns_gap_desktop, name: 'carousel-gap-desktop' %}
   {% render 'spacing-style', settings: block.settings %}
   {% render 'border-override', settings: block.settings %}
 {% endcapture %}

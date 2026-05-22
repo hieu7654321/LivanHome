@@ -47,13 +47,13 @@
       {%- liquid
         assign loading = 'lazy'
 
-        if block_index == 0 and section_index <= 3
+        if block_index <= 1 and section_index <= 3
           assign loading = 'eager'
           assign sizes = lazy_sizes
         endif
 
         assign fetchpriority = 'low'
-        if block_index == 0 and section_index == 1
+        if block_index <= 1 and section_index == 1
           assign fetchpriority = 'high'
         endif
       -%}
@@ -61,7 +61,7 @@
       {%- if block_settings.media_type_1 == 'image' -%}
         {{
           block_settings.image_1
-          | image_url: width: 1920, quality: 60
+          | image_url: width: 1920, format: 'webp', quality: 60
           | image_tag: width: cwidth, sizes: sizes, widths: widths, class: 'slide__image', loading: loading, fetchpriority: fetchpriority
         }}
       {%- else -%}
@@ -71,7 +71,7 @@
             block_settings.video_1.preview_image
             | image_url: width: 3840
             | image_tag:
-              height: height,
+              width: cwidth,
               sizes: sizes,
               widths: widths,
               loading: loading,

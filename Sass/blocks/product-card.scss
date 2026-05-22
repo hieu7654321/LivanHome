@@ -64,7 +64,6 @@ product-card {
     .text-block.custom-typography.custom-font-size {
         p:not([role='heading']) {
             letter-spacing: $prd-letter-spacing-tight;
-            line-height: $lh-12;
             max-width: $prd-p-not-heading-mw;
         }
     }
@@ -129,26 +128,30 @@ product-card {
       display: none;
   }
 
-  .swym__custom-button {
-    background: none;
-    opacity: 1 !important;
-  }
-
-  button.swym-button {
-    padding: $prd-wishlist-padding-sm;
-  }
-
   svg {
     width: $prd-wishlist-icon-sm;
     height: $prd-wishlist-icon-h-sm;
   }
 
-  .swym__custom-button.swym-added > svg > * {
-    fill: $swym-fill-checked;
+  .swym__custom-button {
+    background: none;
+
+    &.swym-added > svg > * {
+        fill: $swym-fill-checked;
+    }
+
+    &:not(.swym-added, .disabled) > svg > * {
+        fill: $swym-fill-color;
+    }
   }
 
-  .swym__custom-button:not(.swym-added, .disabled) > svg > * {
-    fill: $swym-fill-color;
+  button.swym-button {
+    padding: $prd-wishlist-padding-sm;
+
+    &.disabled,
+    &:disabled {
+        opacity: 1 !important;
+    }
   }
 
   @media screen and (min-width: 750px) {
@@ -177,18 +180,18 @@ product-card {
                 slideshow-controls {
                     display: none;
                 }
+
+                slideshow-arrows {
+                    display: none;
+                }
             }
         }
 
         .text-block.custom-typography.custom-font-size {
-            &:has(p[role='heading']) {
-                --font-size: calc(var(--font-size) + 2px) !important;
-            }
-
             p:not([role='heading']) {
-                font-weight: bold;
-                color: #8F9293;
                 max-width: 100%;
+                -webkit-padding-after: var(--padding-block-end-desktop);
+                        padding-block-end: var(--padding-block-end-desktop);
             }
         }
 

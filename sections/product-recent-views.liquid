@@ -79,7 +79,7 @@
                   </button>
                 </p>
 
-              <ul
+              <div
                   class="
                   resource-list
                   {% if section.settings.layout_type == 'carousel' %}
@@ -101,9 +101,9 @@
                               {% assign int_id = _id | times: 1 %}
                               {% assign product = products | find: 'id', int_id %}
                               {% if product %}
-                                  <li class="resource-list__item recent-views__item">
+                                  <div class="resource-list__item recent-views__item">
                                       {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-                                  </li>
+                                  </div>
                               {% endif %}
                               {% unless forloop.last %}
                               <!--@list/split-->
@@ -131,9 +131,9 @@
                   {% else %}
                       {% capture list_items %}
                           {% for product in products limit: limit %}
-                              <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
+                              <div class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
                                   {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-                              </li>
+                              </div>
                               {% unless forloop.last %}
                                   <!--@list/split-->
                               {% endunless %}              
@@ -157,13 +157,13 @@
                           %}
                       {% endcase %}
                   {% endif %}
-              </ul>
+              </div>
 
               {% if section.settings.carousel_on_mobile and section.settings.layout_type != 'carousel' %}
                   {% liquid
                       assign mobile_carousel_gap = section.settings.columns_gap
                   %}
-                  <ul
+                  <div
                       class="
                           resource-list
                           hidden--desktop
@@ -180,9 +180,9 @@
                               {% for _id in new_products_ids %}
                                   {% assign int_id = _id | times: 1 %}
                                   {% assign product = products | find: 'id', int_id %}
-                                  <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
+                                  <div class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
                                       {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-                                  </li>
+                                  </div>
                                   {% unless forloop.last %}
                                   <!--@list/split-->
                                   {% endunless %}
@@ -204,9 +204,9 @@
                       {% else %}
                           {% capture list_items %}
                               {% for product in products limit: limit %}
-                                  <li class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
+                                  <div class="resource-list__item recent-views__item" ref="recentlyViewedItems[]">
                                       {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-                                  </li>
+                                  </div>
                                   {% unless forloop.last %}
                                       <!--@list/split-->
                                   {% endunless %}              
@@ -225,7 +225,7 @@
                               settings: section.settings
                           %}
                       {% endif %}
-                  </ul>
+                    </div>
                 {% endif %}
 
         {% endif %}
@@ -470,8 +470,28 @@
     },
     {
       "type": "range",
+      "id": "padding-block-start-desktop",
+      "label": "Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
       "id": "padding-block-end",
       "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-desktop",
+      "label": "Bottom Desktop",
       "min": 0,
       "max": 100,
       "step": 1,

@@ -359,6 +359,8 @@
 
       if row == 'top'
         assign style = style | append: '--border-bottom-width-mobile: [width]px; ' | replace: '[width]', section.settings.border_width
+        assign style = style | append: '--padding-top-desktop: [padding-top]px; ' | replace: '[padding-top]', section.settings.desktop_padding_top
+        assign style = style | append: '--padding-bottom-desktop: [padding-bottom]px; ' | replace: '[padding-bottom]', section.settings.desktop_padding_bottom
       endif
     %}
 
@@ -1452,6 +1454,30 @@
       "min": 0,
       "max": 5,
       "step": 0.5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "label": "Desktop Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "label": "Desktop Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
       "unit": "px",
       "default": 0
     },

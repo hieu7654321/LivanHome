@@ -11,24 +11,24 @@
         &[open] {
             @include display-flex();
         }
-    }
 
-    .quick-add-modal__close {
-        top: $qa-close-top;
-        right: $qa-close-right;
-    }
-    
-    #quick-add-modal-content {
-        @include display-flex();
-        flex-direction: column;
-        padding-block: $qa-content-pd-sm;
-        padding-inline: $qa-content-pi;
-        flex-grow: 1;
-        gap: $qa-content-gap;
-    }
+        &__close {
+            top: $qa-close-top;
+            right: $qa-close-right;
+        }
 
-    .quick-add-modal__content > * {
-        flex-shrink: 0;
+        &__content {
+            @include display-flex();
+            flex-direction: column;
+            padding-block: $qa-content-pd-sm;
+            padding-inline: $qa-content-pi;
+            flex-grow: 1;
+            gap: $qa-content-gap;
+
+            & > * {
+                flex-shrink: 0;
+            }
+        }
     }
 
     .product-information__media {
@@ -54,7 +54,8 @@
             flex-direction: row;
             overflow-x: auto;
             overflow-y: hidden;
-            scroll-snap-type: x mandatory;
+            -ms-scroll-snap-type: x mandatory;
+                scroll-snap-type: x mandatory;
             aspect-ratio: 343 / 379;
             max-height: $qa-slides-max-height;
             gap: $qa-slides-gap;
@@ -95,6 +96,11 @@
                     }
                 }
             }
+
+            @media screen and (min-width: 750px) {
+                -webkit-padding-after: 0;
+                        padding-block-end: 0;
+            }
         }
     }
 
@@ -114,12 +120,14 @@
         border-radius: $qa-btn-radius;
     }
 
-    .product-form-buttons:not(:has(.quantity-rules)) {
-        gap: $qa-form-btn-gap;
-    }
+    .product-form-buttons {
+        &:not(:has(.quantity-rules)) {
+            gap: $qa-form-btn-gap;
+        }
 
-    .product-form-buttons:has(.add-to-cart-button.button-secondary) .quantity-selector {
-        @include quantity-selector;
+        &:has(.add-to-cart-button.button-secondary) .quantity-selector {
+            @include quantity-selector;
+        }
     }
 
     .add-to-cart-button {
@@ -144,7 +152,6 @@
     .product-header {
         gap: $qa-header-gap-sm;
         padding: 0;
-        margin-top: $qa-header-mt-sm;
 
         a {
             font-weight: $font-normal;
@@ -161,23 +168,42 @@
             letter-spacing: 0;
         }
 
-        product-price > * {
-            font-weight: $font-normal;
-            font-size: $fs-30;
-            line-height: $lh-32;
-            letter-spacing: 0;
-            vertical-align: middle;
+        product-price.spacing-style {
             padding: 0;
+
+            &> * {
+                font-weight: $font-normal;
+                font-size: $fs-30;
+                line-height: $lh-32;
+                letter-spacing: 0;
+                vertical-align: middle;
+            }
         }
     }
 
     .variant-picker {
-        margin-block: $qa-picker-mbl;
         @include image-variant-picker;
     }
 
     .text-block.rte:not(product-price) {
         display: block !important;
+    }
+
+    .quick-add__actions {
+        @include display-flex;
+        flex-direction: column;
+        position: -webkit-sticky;
+        position: sticky;
+        bottom: 0;
+        z-index: 10;
+        gap: $qa-actions-gap;
+        background-color: $clr-white;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .product-header {
+        margin-top: $qa-header-mt-sm;
     }
 }
 
@@ -187,15 +213,10 @@
     }
 
     #quick-add-dialog {
-        // #quick-add-modal-content {
-        //     justify-content: space-between;
-        // }
-
         .product-header {
             @include display-flex();
             flex-direction: column;
             gap: $qa-header-gap-lg;
-            margin-top: $qa-header-mt-lg;
 
             a {
                 @include display-flex();
@@ -209,7 +230,7 @@
         }
 
         slideshow-controls.desktop\:hidden.media-gallery__mobile-controls, slideshow-controls[controls-on-media] {
-            @include display-flex();
+            display: flex !important;
             position: relative;
             top: 0;
 

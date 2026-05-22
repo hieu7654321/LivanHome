@@ -25,6 +25,7 @@
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 13,
+            "gap_desktop": 12,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -48,9 +49,13 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
+            "padding-block-start-desktop": 0,
             "padding-block-end": 0,
+            "padding-block-end-desktop": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start-desktop": 0,
+            "padding-inline-end": 0,
+            "padding-inline-end-desktop": 0
           },
           "blocks": {
             "icon_zcgJ4Q": {
@@ -77,6 +82,7 @@
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 13,
+                "gap_desktop": 12,
                 "width": "custom",
                 "custom_width": 88,
                 "width_mobile": "fill",
@@ -100,33 +106,46 @@
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
+                "padding-block-start-desktop": 0,
                 "padding-block-end": 0,
+                "padding-block-end-desktop": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start-desktop": 0,
+                "padding-inline-end": 0,
+                "padding-inline-end-desktop": 0
               },
               "blocks": {
                 "text_KNTVQQ": {
                   "type": "text",
                   "settings": {
                     "text": "<p>Envío Rápido</p>",
+                    "additional_class": "",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1.25rem",
-                    "line_height": "normal",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "1rem",
+                    "line_height": "3p",
+                    "line_height_desktop": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "text_block_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
+                    "padding-block-start-desktop": 0,
                     "padding-block-end": 0,
+                    "padding-block-end-desktop": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 },
@@ -134,24 +153,33 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Ofrecemos envío gratuito a todos los pedidos y enviamos en 48 horas.</p>",
+                    "additional_class": "",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "0.875rem",
-                    "line_height": "normal",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "1rem",
+                    "line_height": "4p",
+                    "line_height_desktop": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "text_block_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
+                    "padding-block-start-desktop": 0,
                     "padding-block-end": 0,
+                    "padding-block-end-desktop": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 }
@@ -178,6 +206,7 @@
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 13,
+            "gap_desktop": 12,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -201,9 +230,13 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
+            "padding-block-start-desktop": 0,
             "padding-block-end": 0,
+            "padding-block-end-desktop": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start-desktop": 0,
+            "padding-inline-end": 0,
+            "padding-inline-end-desktop": 0
           },
           "blocks": {
             "icon_9EQRDM": {
@@ -230,6 +263,7 @@
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 13,
+                "gap_desktop": 12,
                 "width": "custom",
                 "custom_width": 88,
                 "width_mobile": "fill",
@@ -253,33 +287,46 @@
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
+                "padding-block-start-desktop": 0,
                 "padding-block-end": 0,
+                "padding-block-end-desktop": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start-desktop": 0,
+                "padding-inline-end": 0,
+                "padding-inline-end-desktop": 0
               },
               "blocks": {
                 "text_iWBTMi": {
                   "type": "text",
                   "settings": {
                     "text": "<p>Pago Seguro</p>",
+                    "additional_class": "",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1.25rem",
-                    "line_height": "normal",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "1rem",
+                    "line_height": "3p",
+                    "line_height_desktop": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "text_block_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
+                    "padding-block-start-desktop": 0,
                     "padding-block-end": 0,
+                    "padding-block-end-desktop": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 },
@@ -287,24 +334,33 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Ofrecemos envío gratuito a todos los pedidos y enviamos en 48 horas.</p>",
+                    "additional_class": "",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "0.875rem",
-                    "line_height": "normal",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "1rem",
+                    "line_height": "4p",
+                    "line_height_desktop": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "text_block_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
+                    "padding-block-start-desktop": 0,
                     "padding-block-end": 0,
+                    "padding-block-end-desktop": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 }
@@ -331,6 +387,7 @@
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 13,
+            "gap_desktop": 8,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -354,9 +411,13 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
+            "padding-block-start-desktop": 0,
             "padding-block-end": 0,
+            "padding-block-end-desktop": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start-desktop": 0,
+            "padding-inline-end": 0,
+            "padding-inline-end-desktop": 0
           },
           "blocks": {
             "icon_hnxg73": {
@@ -383,6 +444,7 @@
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 13,
+                "gap_desktop": 12,
                 "width": "custom",
                 "custom_width": 88,
                 "width_mobile": "fill",
@@ -406,33 +468,46 @@
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
+                "padding-block-start-desktop": 0,
                 "padding-block-end": 0,
+                "padding-block-end-desktop": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start-desktop": 0,
+                "padding-inline-end": 0,
+                "padding-inline-end-desktop": 0
               },
               "blocks": {
                 "text_ehn6jz": {
                   "type": "text",
                   "settings": {
                     "text": "<p>Atención al Cliente</p>",
+                    "additional_class": "",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1.25rem",
-                    "line_height": "normal",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "0.875rem",
+                    "line_height": "3p",
+                    "line_height_desktop": "4p",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "text_block_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
+                    "padding-block-start-desktop": 0,
                     "padding-block-end": 0,
+                    "padding-block-end-desktop": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 },
@@ -440,24 +515,33 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Ofrecemos envío gratuito a todos los pedidos y enviamos en 48 horas.</p>",
+                    "additional_class": "",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "0.875rem",
-                    "line_height": "normal",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "1rem",
+                    "line_height": "4p",
+                    "line_height_desktop": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "text_block_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
+                    "padding-block-start-desktop": 0,
                     "padding-block-end": 0,
+                    "padding-block-end-desktop": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 }
@@ -484,6 +568,7 @@
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 13,
+            "gap_desktop": 12,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -507,9 +592,13 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
+            "padding-block-start-desktop": 0,
             "padding-block-end": 0,
+            "padding-block-end-desktop": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start-desktop": 0,
+            "padding-inline-end": 0,
+            "padding-inline-end-desktop": 0
           },
           "blocks": {
             "icon_ryjGKi": {
@@ -536,6 +625,7 @@
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 13,
+                "gap_desktop": 12,
                 "width": "custom",
                 "custom_width": 88,
                 "width_mobile": "fill",
@@ -559,33 +649,46 @@
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
+                "padding-block-start-desktop": 0,
                 "padding-block-end": 0,
+                "padding-block-end-desktop": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start-desktop": 0,
+                "padding-inline-end": 0,
+                "padding-inline-end-desktop": 0
               },
               "blocks": {
                 "text_6tqpJy": {
                   "type": "text",
                   "settings": {
                     "text": "<p>Devoluciones Fáciles</p>",
+                    "additional_class": "",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1.25rem",
-                    "line_height": "normal",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "1rem",
+                    "line_height": "3p",
+                    "line_height_desktop": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "text_block_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
+                    "padding-block-start-desktop": 0,
                     "padding-block-end": 0,
+                    "padding-block-end-desktop": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 },
@@ -593,24 +696,33 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Ofrecemos envío gratuito a todos los pedidos y enviamos en 48 horas.</p>",
+                    "additional_class": "",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "0.875rem",
-                    "line_height": "normal",
+                    "setting_font_desktop": false,
+                    "font_size_desktop": "1rem",
+                    "line_height": "4p",
+                    "line_height_desktop": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "text_block_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
+                    "padding-block-start-desktop": 0,
                     "padding-block-end": 0,
+                    "padding-block-end-desktop": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-start-desktop": 0,
+                    "padding-inline-end": 0,
+                    "padding-inline-end-desktop": 0
                   },
                   "blocks": {}
                 }
@@ -642,7 +754,8 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 57,
+        "gap": 58,
+        "gap_desktop": 8,
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
@@ -659,7 +772,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 71,
-        "padding-block-end": 71
+        "padding-block-start-desktop": 50,
+        "padding-block-end": 68,
+        "padding-block-end-desktop": 50
       }
     },
     "divider_frAkMD": {
@@ -691,6 +806,7 @@
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-start",
             "gap": 24,
+            "gap_desktop": 12,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -714,9 +830,13 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
+            "padding-block-start-desktop": 0,
             "padding-block-end": 0,
+            "padding-block-end-desktop": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start-desktop": 0,
+            "padding-inline-end": 0,
+            "padding-inline-end-desktop": 0
           },
           "blocks": {
             "email_signup_emqEyd": {
@@ -728,7 +848,12 @@
                 "inherit_color_scheme": true,
                 "color_scheme": "",
                 "heading": "Suscríbete a Nuestra Newsletter y ¡Obtén un 10% de Descuento!",
-                "heading_preset": "email-signup__heading--custom",
+                "heading_preset": "custom",
+                "font_size": "2rem",
+                "setting_font_desktop": true,
+                "font_size_desktop": "1.875rem",
+                "line_height": "4p",
+                "line_height_desktop": "2p",
                 "border_style": "all",
                 "border_width": 1,
                 "border_radius": 5,
@@ -751,24 +876,33 @@
               "disabled": true,
               "settings": {
                 "text": "<p>About us</p>",
+                "additional_class": "",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "h5",
                 "font": "var(--font-primary--family)",
                 "font_size": "",
+                "setting_font_desktop": false,
+                "font_size_desktop": "1rem",
                 "line_height": "normal",
+                "line_height_desktop": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
                 "color": "",
+                "text_block_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
+                "padding-block-start-desktop": 0,
                 "padding-block-end": 0,
+                "padding-block-end-desktop": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start-desktop": 0,
+                "padding-inline-end": 0,
+                "padding-inline-end-desktop": 0
               },
               "blocks": {}
             },
@@ -778,24 +912,33 @@
               "disabled": true,
               "settings": {
                 "text": "<p>Our passion is quality.  We create garments that can be enjoyed for generations to come.</p>",
+                "additional_class": "",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
                 "type_preset": "h4",
                 "font": "var(--font-primary--family)",
                 "font_size": "",
+                "setting_font_desktop": false,
+                "font_size_desktop": "1rem",
                 "line_height": "normal",
+                "line_height_desktop": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
                 "color": "",
+                "text_block_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
+                "padding-block-start-desktop": 0,
                 "padding-block-end": 0,
+                "padding-block-end-desktop": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start-desktop": 0,
+                "padding-inline-end": 0,
+                "padding-inline-end-desktop": 0
               },
               "blocks": {}
             }
@@ -818,6 +961,7 @@
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 20,
+            "gap_desktop": 50,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -841,9 +985,13 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 11,
+            "padding-block-start-desktop": 0,
             "padding-block-end": 0,
+            "padding-block-end-desktop": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start-desktop": 0,
+            "padding-inline-end": 0,
+            "padding-inline-end-desktop": 0
           },
           "blocks": {
             "menu_EQKgTP": {
@@ -927,7 +1075,9 @@
         "gap": 19,
         "color_scheme": "scheme-20b4c28f-b1b7-469d-ab19-e48131f2784a",
         "padding-block-start": 40,
-        "padding-block-end": 16
+        "padding-block-start-desktop": 37,
+        "padding-block-end": 16,
+        "padding-block-end-desktop": 16
       }
     },
     "utilities": {
@@ -945,6 +1095,7 @@
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 46,
+            "gap_desktop": 33,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -968,9 +1119,13 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
+            "padding-block-start-desktop": 0,
             "padding-block-end": 0,
+            "padding-block-end-desktop": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start-desktop": 0,
+            "padding-inline-end": 0,
+            "padding-inline-end-desktop": 0
           },
           "blocks": {
             "localization_VawTUp": {
@@ -1049,10 +1204,13 @@
       "settings": {
         "section_width": "page-width",
         "gap": 16,
+        "gap_desktop": 29,
         "divider_thickness": 0,
         "color_scheme": "scheme-20b4c28f-b1b7-469d-ab19-e48131f2784a",
         "padding-block-start": 16,
-        "padding-block-end": 26
+        "padding-block-start-desktop": 16,
+        "padding-block-end": 26,
+        "padding-block-end-desktop": 21
       }
     }
   },

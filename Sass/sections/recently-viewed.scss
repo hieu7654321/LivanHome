@@ -11,30 +11,12 @@
             font-size: var(--font-size);
             font-weight: $font-normal;
             letter-spacing: 0;
-            margin-block: 0;
+            margin-block: 0 $recent-title-mble;
             @include product-carousel-title;
         }
+    }
 
-        .text-block > *[role='heading'] {
-            font-weight: $font-bold;
-            font-size: $fs-12;
-            line-height: $lh-15;
-            letter-spacing: 0;
-        }
-
-        @media screen and (min-width: 750px) {
-            .text-block > *[role='heading'] {
-                font-size: $fs-14;
-                line-height: $lh-17;
-            }
-
-            .text-block:has([role='heading']) {
-                padding-block-start: calc(var(--padding-block-start) + 1px);
-            }
-
-            .section--page-width {
-                margin-block-end: $recent-pw-mble-lg;
-            }
-        }
+    product-card:not(:has(.variant-option)) {
+        height: auto
     }
 }

@@ -15,15 +15,18 @@ footer {
 @media screen and (min-width: 750px) {
     footer {
         .group-block:has(accordion-custom) {
-            padding-block-start: 0;
+            -webkit-padding-before: 0;
+                    padding-block-start: 0;
             max-width: $nav-footer-group-mw-lg;
             justify-self: flex-end;
 
             .group-block-content {
-                gap: clamp(10px, 4vw, #{calc(var(--gap) + 30px)});
+                gap: clamp(10px, 4vw, var(--gap-desktop));
             }
 
             accordion-custom.menu--accordion {
+                width: -webkit-fit-content;
+                width: -moz-fit-content;
                 width: fit-content;
             }
 
@@ -34,10 +37,12 @@ footer {
                 }
 
                 nav.details-content { 
-                    margin-block-start: $nav-details-mt-lg;
+                    -webkit-margin-before: $nav-details-mt-lg; 
+                            margin-block-start: $nav-details-mt-lg;
 
                     .menu__item + .menu__item {
-                        margin-block-start: $nav-details-gap-lg;
+                        -webkit-margin-before: $nav-details-gap-lg;
+                                margin-block-start: $nav-details-gap-lg;
                     }
                 }
             }

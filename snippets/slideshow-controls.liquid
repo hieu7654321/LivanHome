@@ -105,9 +105,10 @@
           ref="thumbnailsContainer"
           class="slideshow-controls__thumbnails-container"
         >
-          <div class="slideshow-controls__thumbnails">
+          <div class="slideshow-controls__thumbnails" role="tablist">
             {% for media in thumbnails %}
               <button
+                role="tab"
                 class="slideshow-control button button-unstyled slideshow-controls__thumbnail"
                 aria-label="{{ 'accessibility.slide_status' | t: index: forloop.index, length: forloop.length }}"
                 on:click="/select/{{ forloop.index0 }}"
@@ -157,21 +158,20 @@
           <span ref="current">1</span><span class="slash">/</span>{{ item_count -}}
         </div>
       {% when 'dots' %}
-        <ol class="slideshow-controls__{{ style }}">
+        <ol class="slideshow-controls__{{ style }}" role="tablist">
           {% for i in (1..item_count) %}
-            <li>
-              <span
-                class="slideshow-control button button-unstyled"
-                style="animation-timeline: --slide-{{ forloop.index0 }}"
-                aria-label="{{ 'accessibility.slide_status' | t: index: forloop.index, length: forloop.length }}"
-                on:click="/select/{{ forloop.index0 }}"
-                ref="dots[]"
-                {% if forloop.first %}
-                  aria-selected="true"
-                {% endif %}
-              >
-                {{ forloop.index }}
-              </span>
+            <li role="tab"
+              tabindex="0"
+              class="slideshow-control button button-unstyled"
+              style="animation-timeline: --slide-{{ forloop.index0 }}"
+              aria-label="{{ 'accessibility.slide_status' | t: index: forloop.index, length: forloop.length }}"
+              on:click="/select/{{ forloop.index0 }}"
+              ref="dots[]"
+              {% if forloop.first %}
+                aria-selected="true"
+              {% endif %}
+            >
+              {{ forloop.index }}
             </li>
           {% endfor %}
         </ol>

@@ -75,9 +75,10 @@
   endif
 
   # Generate responsive image attributes
-  assign sizes = '(min-width: 750px) 50vw, 100vw'
+  assign sizes = '(min-width: 750px) 25vw, 50vw'
   assign lazy_sizes = 'auto, ' | append: sizes
   assign loading = 'eager'
+  assign fetch_priority = 'high'
 
   # Layout-aware sizing for resource lists
   if section_settings.layout_type
@@ -87,6 +88,7 @@
         assign sizes = '(min-width: 750px) [calc-width], 100vw' | replace: '[calc-width]', calculated_width
       when 'editorial', 'bento'
         assign loading = 'lazy'
+        assign fetch_priority = 'low'
         assign sizes = lazy_sizes
     endcase
   endif
@@ -149,8 +151,8 @@
 
     {{
       image_resource
-      | image_url: width: 3840
-      | image_tag: widths: widths, class: 'resource-image__image', sizes: sizes, loading: loading
+      | image_url: width: 1200
+      | image_tag: widths: widths, class: 'resource-image__image', sizes: sizes, loading: loading, fetchpriority: fetch_priority
     }}
   </div>
 {% else %}

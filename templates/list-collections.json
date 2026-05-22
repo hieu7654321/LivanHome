@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "collection_list_kTdkcn": {
       "type": "main-collection-list",
@@ -15,7 +16,6 @@
           "type": "group",
           "name": "t:names.header",
           "settings": {
-            "open_in_new_tab": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -24,6 +24,7 @@
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
+            "gap_desktop": 12,
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
@@ -43,10 +44,17 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
             "padding-block-start": 0,
+            "padding-block-start-desktop": 0,
             "padding-block-end": 0,
+            "padding-block-end-desktop": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start-desktop": 0,
+            "padding-inline-end": 0,
+            "padding-inline-end-desktop": 0
           },
           "blocks": {
             "text_BfQ46x": {
@@ -54,24 +62,33 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<h1>Collections</h1>",
+                "additional_class": "",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "h3",
                 "font": "var(--font-body--family)",
                 "font_size": "",
+                "setting_font_desktop": false,
+                "font_size_desktop": "1rem",
                 "line_height": "normal",
+                "line_height_desktop": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
+                "text_block_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
+                "padding-block-start-desktop": 0,
                 "padding-block-end": 16,
+                "padding-block-end-desktop": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start-desktop": 0,
+                "padding-inline-end": 0,
+                "padding-inline-end-desktop": 0
               },
               "blocks": {}
             }
@@ -104,14 +121,18 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h5",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "0.75rem",
+                "setting_font_desktop": true,
+                "font_size_desktop": "0.875rem",
+                "line_height": "3p",
+                "line_height_desktop": "3p",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
+                "text_block_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,

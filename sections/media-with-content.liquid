@@ -24,7 +24,7 @@
       {% when '50svh' %}
         --media-height-mobile: 30svh;
       {% when '60svh' %}
-        --media-height-mobile: 48.565svh;
+        --media-height-mobile: 48.5svh;
       {% when '80svh' %}
         --media-height-mobile: 70svh;
       {% when '100svh' %}
@@ -187,6 +187,10 @@
     &.section--page-width.media-with-content--media-right .media-with-content__content > .group-block-content {
       padding-inline-end: var(--page-margin);
       padding-inline-start: 0;
+
+      @media screen and (min-width: 750px) {
+        padding-inline-start: var(--page-margin);
+      }
     }
   }
 
@@ -306,6 +310,16 @@
       "id": "padding-block-start",
       "label": "t:settings.top",
       "min": 0,
+      "max": 400,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start-desktop",
+      "label": "Top Desktop",
+      "min": 0,
       "max": 100,
       "step": 1,
       "unit": "px",
@@ -315,6 +329,16 @@
       "type": "range",
       "id": "padding-block-end",
       "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-desktop",
+      "label": "Bottom Desktop",
       "min": 0,
       "max": 100,
       "step": 1,
