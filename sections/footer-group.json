@@ -426,7 +426,7 @@
                 "icon": "none",
                 "image_upload": "shopify://shop_images/client.svg",
                 "width": 20,
-                "width_desktop": 35,
+                "width_desktop": 30,
                 "custom_icon_section": true,
                 "link": "",
                 "open_in_new_tab": false
