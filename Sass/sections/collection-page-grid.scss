@@ -135,14 +135,16 @@
         product-card .product-card__delivery {
             padding-block: $cpg-delivery-pbl-lg;
         }
-
-        .button.add-to-cart-button {
-            @include add-to-cart-button;
-        }
     }
 
     .product-badges--top-left {
         top: $cpg-badge-top-lg;
         left: $cpg-badge-left-lg;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .card-gallery .button.add-to-cart-button {
+        @include add-to-cart-button;
     }
 }
