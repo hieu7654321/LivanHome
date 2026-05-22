@@ -190,7 +190,8 @@ product-card {
         .text-block.custom-typography.custom-font-size {
             p:not([role='heading']) {
                 max-width: 100%;
-                padding-block-end: var(--padding-block-end-desktop);
+                -webkit-padding-after: var(--padding-block-end-desktop);
+                        padding-block-end: var(--padding-block-end-desktop);
             }
         }
 

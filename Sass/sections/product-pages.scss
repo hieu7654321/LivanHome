@@ -26,7 +26,8 @@
         }
 
         .loox-rating-label {
-            padding-inline-start: $pdpa-rating-label-pie;
+            -webkit-padding-start: $pdpa-rating-label-pie;
+                    padding-inline-start: $pdpa-rating-label-pie;
         }
 
         .quantity-selector, .add-to-cart-button {
@@ -105,8 +106,10 @@
         --page-margin: 50px;
 
         .product-information {
-            padding-block-start: var(--padding-block-start-desktop);
-            padding-block-end: var(--padding-block-end-desktop);
+            -webkit-padding-before: var(--padding-block-start-desktop);
+                    padding-block-start: var(--padding-block-start-desktop);
+            -webkit-padding-after: var(--padding-block-end-desktop);
+                    padding-block-end: var(--padding-block-end-desktop);
         }
 
         .breadcrumbs__list {
@@ -116,7 +119,8 @@
         .slideshow-controls__thumbnails {
             --slideshow-thumbnails-padding-inline: 1px;
             --focus-outline-offset: 1px;
-            padding-inline-end: $pdpa-thumb-pie-lg;
+            -webkit-padding-end: $pdpa-thumb-pie-lg;
+                    padding-inline-end: $pdpa-thumb-pie-lg;
             gap: $pdpa-thumb-gap-lg;
 
             .slideshow-controls__thumbnail {
@@ -152,7 +156,8 @@
         }
 
         .product-details > .group-block {
-            padding-block-start: 0;
+            -webkit-padding-before: 0;
+                    padding-block-start: 0;
         }
 
         .product-details:not(product-recommendation) {
@@ -166,7 +171,8 @@
         }
         
         .product-card__delivery {
-            padding-block-end: $pdpa-delivery-pie-lg;
+            -webkit-padding-after: $pdpa-delivery-pie-lg;
+                    padding-block-end: $pdpa-delivery-pie-lg;
         }
 
         .buy-buttons-block {

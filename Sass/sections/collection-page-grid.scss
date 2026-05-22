@@ -28,7 +28,8 @@
     display: inline-flex;
     flex-wrap: wrap;
     max-width: $cpg-badge-mw;
-    column-gap: $cpg-badge-g-col;
+    -moz-column-gap: $cpg-badge-g-col;
+         column-gap: $cpg-badge-g-col;
     row-gap: $cpg-badge-g-row;
 
     .product-badges__badge {

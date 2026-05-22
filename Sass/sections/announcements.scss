@@ -6,6 +6,8 @@
 
 .announcement-bar__slider--scroll {
   overflow: hidden !important;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   gap: $anm-slider-scroll-gap;
   @include display-flex();
@@ -14,9 +16,12 @@
     .announcement-bar__block {
         @include display-flex();
         gap: $anm-block-gap; 
+        width: -webkit-fit-content; 
+        width: -moz-fit-content; 
         width: fit-content;
         max-width: none;
-        animation: var(--infinite-scroll-direction) var(--infinite-scroll-time) linear infinite;
+        -webkit-animation: var(--infinite-scroll-direction) var(--infinite-scroll-time) linear infinite;
+                animation: var(--infinite-scroll-direction) var(--infinite-scroll-time) linear infinite;
         will-change: transform;
         flex-wrap: nowrap;
         margin: $anm-block-mg;
@@ -31,12 +36,30 @@
     }
 }
 
+@-webkit-keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--infinite-scroll-gap)));
+  }
+}
+
 @keyframes scroll-left {
   from {
     transform: translateX(0);
   }
   to {
     transform: translateX(calc(-100% - var(--infinite-scroll-gap)));
+  }
+}
+
+@-webkit-keyframes scroll-right {
+  from {
+    transform: translateX(calc(-100% - var(--infinite-scroll-gap)));
+  }
+  to {
+    transform: translateX(0);
   }
 }
 

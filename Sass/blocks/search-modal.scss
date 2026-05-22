@@ -2,7 +2,8 @@
 
 dialog-component.search-modal {
     .search-modal__content[open] {
-        margin-block-start: auto;
+        -webkit-margin-before: auto;
+                margin-block-start: auto;
 
         .predictive-search__close-modal-button {
             margin-inline: 0 var(--margin-sm);

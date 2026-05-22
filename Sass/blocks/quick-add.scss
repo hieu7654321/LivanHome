@@ -54,7 +54,8 @@
             flex-direction: row;
             overflow-x: auto;
             overflow-y: hidden;
-            scroll-snap-type: x mandatory;
+            -ms-scroll-snap-type: x mandatory;
+                scroll-snap-type: x mandatory;
             aspect-ratio: 343 / 379;
             max-height: $qa-slides-max-height;
             gap: $qa-slides-gap;
@@ -97,7 +98,8 @@
             }
 
             @media screen and (min-width: 750px) {
-                padding-block-end: 0;
+                -webkit-padding-after: 0;
+                        padding-block-end: 0;
             }
         }
     }
@@ -190,6 +192,7 @@
     .quick-add__actions {
         @include display-flex;
         flex-direction: column;
+        position: -webkit-sticky;
         position: sticky;
         bottom: 0;
         z-index: 10;

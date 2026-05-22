@@ -36,8 +36,10 @@ main.content-for-layout:has(.search-page-input__parent) {
 
         .custom-section-content {
             .layout-panel-flex {
-                padding-block-start: var(--padding-block-start-desktop);
-                padding-block-end: var(--padding-block-end-desktop);
+                -webkit-padding-before: var(--padding-block-start-desktop);
+                        padding-block-start: var(--padding-block-start-desktop);
+                -webkit-padding-after: var(--padding-block-end-desktop);
+                        padding-block-end: var(--padding-block-end-desktop);
             }
         }
 

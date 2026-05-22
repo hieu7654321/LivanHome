@@ -9,21 +9,25 @@
                 letter-spacing: 0;
                 background-color: var(--color-background);
                 padding-block: 0;
-                padding-inline-start: 0;
+                -webkit-padding-start: 0;
+                        padding-inline-start: 0;
             }
 
             .dropdown-localization__button {
                 gap: $fut-gap-sm;
-                padding-inline-end: 0;
+                -webkit-padding-end: 0;
+                        padding-inline-end: 0;
             }
 
             .localization-form__select {
-                padding-inline-end: $fut-form-slct-pie;
+                -webkit-padding-end: $fut-form-slct-pie;
+                        padding-inline-end: $fut-form-slct-pie;
             }
 
             .language-selector {
                 padding-block: 0;
-                padding-inline-start: 0;
+                -webkit-padding-start: 0;
+                        padding-inline-start: 0;
             }
         }
 
@@ -69,7 +73,8 @@
             .payment-icons {
                 .payment-icons__list {
                     justify-content: flex-end;
-                    margin-inline-end: $fut-payment-margin-adjust;
+                    -webkit-margin-end: $fut-payment-margin-adjust;
+                            margin-inline-end: $fut-payment-margin-adjust;
                 }
             }
 

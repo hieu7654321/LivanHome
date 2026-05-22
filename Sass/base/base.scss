@@ -518,15 +518,21 @@ $pbd-sale-max-h-lg: 18px;
   }
 
   .section-resource-list {
-    padding-block-start: var(--padding-block-start-desktop);
-    padding-block-end: var(--padding-block-end-desktop);
+    -webkit-padding-before: var(--padding-block-start-desktop);
+            padding-block-start: var(--padding-block-start-desktop);
+    -webkit-padding-after: var(--padding-block-end-desktop);
+            padding-block-end: var(--padding-block-end-desktop);
   }
 
   .group-block {
-    padding-block-start: var(--padding-block-start-desktop);
-    padding-block-end: var(--padding-block-end-desktop);
-    padding-inline-start: var(--padding-inline-start-desktop);
-    padding-inline-end: var(--padding-inline-end-desktop);
+    -webkit-padding-before: var(--padding-block-start-desktop);
+            padding-block-start: var(--padding-block-start-desktop);
+    -webkit-padding-after: var(--padding-block-end-desktop);
+            padding-block-end: var(--padding-block-end-desktop);
+    -webkit-padding-start: var(--padding-inline-start-desktop);
+            padding-inline-start: var(--padding-inline-start-desktop);
+    -webkit-padding-end: var(--padding-inline-end-desktop);
+            padding-inline-end: var(--padding-inline-end-desktop);
     gap: var(--gap-desktop);
   }
 }

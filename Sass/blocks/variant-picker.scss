@@ -3,18 +3,21 @@
 .product-information, .quick-add-modal__content {
     legend {
         line-height: $lh-17;
-        margin-block-end: $vrp-legend-mbe;
+        -webkit-margin-after: $vrp-legend-mbe;
+                margin-block-end: $vrp-legend-mbe;
 
         .variant-option__swatch-value {
             font-weight: $font-normal;
-            padding-inline-start: $vrp-swatch-value-pis;
+            -webkit-padding-start: $vrp-swatch-value-pis;
+                    padding-inline-start: $vrp-swatch-value-pis;
         }
 
         .variant-option__buttons-value {
             font-weight: $font-normal;
             font-size: $fs-16;
             line-height: $lh-20;
-            padding-inline-start: $vrp-btn-value-pis;
+            -webkit-padding-start: $vrp-btn-value-pis;
+                    padding-inline-start: $vrp-btn-value-pis;
         }
     }
 
@@ -38,7 +41,8 @@
 
     .variant-option--default-width-buttons {
         legend {
-            margin-block-end: $vrp-option-legend-mbe;
+            -webkit-margin-after: $vrp-option-legend-mbe;
+                    margin-block-end: $vrp-option-legend-mbe;
         }
 
         .variant-option__button-label {
@@ -176,6 +180,8 @@
 
     .variant-option--buttons:has(.swatch__bundle--image) {
         .variant-option__button-label {
+            min-width: -webkit-fit-content;
+            min-width: -moz-fit-content;
             min-width: fit-content;
             padding: 0;
             border-radius: $bdl-btn-label-radius;
@@ -221,6 +227,8 @@
         border-radius: $bdl-ahorra-radius;
         padding: $bdl-ahorra-pd;
         text-align: center;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
         align-self: flex-end;
     }
@@ -249,7 +257,8 @@
         flex-direction: column;
         gap: $pbd-bundle-gap;
         width: 100%;
-        padding-block-end: $pbd-bundle-pbe;
+        -webkit-padding-after: $pbd-bundle-pbe;
+                padding-block-end: $pbd-bundle-pbe;
 
         &__heading {
             font-weight: $font-bold;
@@ -307,7 +316,8 @@
                 flex-direction: column;
                 flex: 0;
                 gap: $pbd-item-price-gap;
-                padding-inline-end: $pbd-item-price-pie;
+                -webkit-padding-end: $pbd-item-price-pie;
+                        padding-inline-end: $pbd-item-price-pie;
             }
         }
         
@@ -326,14 +336,17 @@
 
     @media screen and (min-width: 750px) {
         .product-bundle {
-            padding-block-start: $pbd-bundle-pbs-lg;
-            padding-block-end: $pbd-bundle-pbe-lg;
+            -webkit-padding-before: $pbd-bundle-pbs-lg;
+                    padding-block-start: $pbd-bundle-pbs-lg;
+            -webkit-padding-after: $pbd-bundle-pbe-lg;
+                    padding-block-end: $pbd-bundle-pbe-lg;
 
             &__item {
                 gap: $pbd-item-gap-lg;
 
                 &--price {
-                    padding-inline-end: 0;
+                    -webkit-padding-end: 0;
+                            padding-inline-end: 0;
                     gap: $pbd-item-price-gap-lg;
                 }
             }

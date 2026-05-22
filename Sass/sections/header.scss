@@ -2,13 +2,16 @@
 
 header-component {
     .search-action {
-        padding-inline-start: $hdr-search-pis;
+        -webkit-padding-start: $hdr-search-pis;
+                padding-inline-start: $hdr-search-pis;
         justify-content: center;
     }
 
     #swym-advanced-header-icon {
-        margin-inline-start: $hdr-swym-mis;
-        margin-inline-end: $hdr-swym-mie;
+        -webkit-margin-start: $hdr-swym-mis;
+                margin-inline-start: $hdr-swym-mis;
+        -webkit-margin-end: $hdr-swym-mie;
+                margin-inline-end: $hdr-swym-mie;
 
         .swym-header-icon-count-bubble > .swym-header-icon-count {
             transform: scale($hdr-swym-count-scale);
@@ -23,7 +26,8 @@ header-component {
 
     .header__column--right header-actions {
         gap: $hdr-actions-gap;
-        margin-inline-start: $hdr-actions-mis;
+        -webkit-margin-start: $hdr-actions-mis;
+                margin-inline-start: $hdr-actions-mis;
 
         shopify-account {
             --shopify-account-avatar-size: 28px;
@@ -68,7 +72,8 @@ header-component {
                 }
 
                 header-actions {
-                    margin-inline-end: $hdr-actions-mie;
+                    -webkit-margin-end: $hdr-actions-mie;
+                            margin-inline-end: $hdr-actions-mie;
                 }
             }
         }
@@ -119,7 +124,8 @@ header-component {
 
     #header-component[data-menu-style="drawer"] .header__columns {
         .search-action {
-            margin-inline-start: $hdr-drawer-search-mis;
+            -webkit-margin-start: $hdr-drawer-search-mis;
+                    margin-inline-start: $hdr-drawer-search-mis;
         }
     }
 }

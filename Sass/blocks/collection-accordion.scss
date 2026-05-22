@@ -16,11 +16,13 @@
     gap: var(--gap);
 
     accordion-custom:first-child .details, accordion-custom:not(:first-child) .details {
-        border-block-start: none !important;
+        -webkit-border-before: none !important;
+                border-block-start: none !important;
     }
 
     accordion-custom:not(:last-child) .details {
-        border-block-end: var(--style-border-width) solid var(--color-border);
+        -webkit-border-after: var(--style-border-width) solid var(--color-border);
+                border-block-end: var(--style-border-width) solid var(--color-border);
     }
 
     summary.details__header {

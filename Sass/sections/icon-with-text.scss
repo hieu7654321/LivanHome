@@ -51,8 +51,10 @@
         --page-margin: 50px;
 
         .section-content-wrapper {
-            padding-block-start: var(--padding-block-start-desktop);
-            padding-block-end: var(--padding-block-end-desktop);
+            -webkit-padding-before: var(--padding-block-start-desktop);
+                    padding-block-start: var(--padding-block-start-desktop);
+            -webkit-padding-after: var(--padding-block-end-desktop);
+                    padding-block-end: var(--padding-block-end-desktop);
             gap: var(--gap-desktop);
             align-items: flex-start;
 

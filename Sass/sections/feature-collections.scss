@@ -15,7 +15,8 @@
             flex-wrap: nowrap;
             overflow-x: auto;
             overflow-y: hidden;
-            scroll-snap-type: x mandatory;
+            -ms-scroll-snap-type: x mandatory;
+                scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             -ms-overflow-style: none;
@@ -73,11 +74,15 @@
             width: 100%;
 
             .text-block.text-block--align-center {
+                width: -webkit-fit-content;
+                width: -moz-fit-content;
                 width: fit-content;
                 margin: 0;
 
                 &> * {
                     text-align: left;
+                    width: -webkit-fit-content;
+                    width: -moz-fit-content;
                     width: fit-content;
                 }
             }
@@ -94,7 +99,8 @@
             .product-list__tabs {
                 margin: 0;
                 max-width: $fcl-custom-max-width;
-                padding-block-end: $fcl-tabs-pbe-lg;
+                -webkit-padding-after: $fcl-tabs-pbe-lg;
+                        padding-block-end: $fcl-tabs-pbe-lg;
             }
         }
 
