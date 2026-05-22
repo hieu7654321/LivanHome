@@ -27,14 +27,16 @@ dialog-component.search-modal {
         padding: 0;
     }
 
+    .predictive-search-results__wrapper slideshow-slides {
+        margin-block: 0;
+    }
+}
+
+dialog-component.search-modal, .menu-list__submenu-inner {
     .resource-card .resource-card__content > *,
     .price {
         font-size: $fs-12;
         line-height: $lh-15;
         font-weight: $font-bold;
-    }
-
-    .predictive-search-results__wrapper slideshow-slides {
-        margin-block: 0;
     }
 }
