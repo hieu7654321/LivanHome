@@ -8,6 +8,16 @@ The purpose of this repository is to further developing my skill as a developer 
 
 This repository is ONLY used for studying purposes and not for commercials or planning to publish it.
 
+Preview Link: ```https://livan-home-2.myshopify.com/```
+Password: daoglo
+
+# Results
+This projects is mostly finished with the design closely matched with the figma design. Measured with the pagespeed insight from google, this shopify website was optimized for speed and accessibility with the following result:
+- Performance ( mobile ) achieved > 75, while ( desktop ) > 95
+- Accessibility > 90
+- Best Practices > 90
+- SEO ( Search Engine Optimization ) > 90
+- 
 # Project Structure
 
 ```
