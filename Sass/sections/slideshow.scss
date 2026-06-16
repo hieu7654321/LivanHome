@@ -4,11 +4,11 @@ slideshow-component.slideshow--with-hints.slideshow--with-hints--mobile-full-fra
     .group-block-content{
         --gap: 16px !important;
 
-        .text-block.custom-typography:has(p) {
+        .text-block:has(p) {
             --line-height: calc(var(--font-size) + 4px) !important;
         }
 
-        .text-block.custom-typography:not(:has(p)) {
+        .text-block:not(:has(p)) {
             --font-size: var(--custom-font-size) !important;
             --line-height: calc(var(--custom-font-size) + 2px) !important;
         }
@@ -25,12 +25,12 @@ slideshow-component.slideshow--with-hints.slideshow--with-hints--mobile-full-fra
         slideshow-slide {
             width: 69.449vw !important;
 
-            .slide__image-container > .slide__image {
+            .slide__image {
                 height: 100%;
             }
 
             &:nth-child(even) {
-                .slide__image-container > .slide__image {
+                .slide__image {
                     height: 123%;
                 }
             }

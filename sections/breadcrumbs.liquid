@@ -1,0 +1,79 @@
+<nav class="breadcrumbs section section--page-width" aria-label="Breadcrumbs">
+  <ol class="breadcrumbs__list" role="list">
+    <li class="breadcrumbs__item">
+      <a class="breadcrumbs__link" href="{{ routes.root_url }}">
+        Home
+      </a>
+    </li>
+
+    {% comment %} <span class="svg-wrapper">
+    {{- 'icon-caret.svg' | inline_asset_content -}}
+    </span> {% endcomment %}
+
+    {% if section.settings.level_1_text != blank %}
+      <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>
+      <li class="breadcrumbs__item">
+        {% if section.settings.level_1_url != blank %}
+          <a class="breadcrumbs__link" href="{{ section.settings.level_1_url }}">
+            {{ section.settings.level_1_text | escape }}
+          </a>
+        {% else %}
+          <span class="breadcrumbs__text">
+            {{ section.settings.level_1_text | escape }}
+          </span>
+        {% endif %}
+      </li>
+    {% endif %}
+
+    {% comment %} <span class="svg-wrapper">
+    {{- 'icon-caret.svg' | inline_asset_content -}}
+    </span> {% endcomment %}
+
+    {% if section.settings.level_2_text != blank %}
+      <li class="breadcrumbs__separator svg-wrapper" aria-hidden="true">{{- 'icon-caret.svg' | inline_asset_content -}}</li>
+      <li class="breadcrumbs__item" aria-current="page">
+        <a class="breadcrumbs__link" href="{{ canonical_url }}">
+        {{ section.settings.level_2_text | escape }}
+        </a>
+      </li>
+    {% endif %}
+  </ol>
+</nav>
+
+{% schema %}
+{
+  "name": "Breadcrumbs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection Breadcrumbs"
+    },
+    {
+      "type": "text",
+      "id": "level_1_text",
+      "label": "Collection Breadcrumbs",
+      "default": "Collection"
+    },
+    {
+      "type": "url",
+      "id": "level_1_url",
+      "label": "Collection Url"
+    },
+    {
+      "type": "header",
+      "content": "Destination BreadCrumbs"
+    },
+    {
+      "type": "text",
+      "id": "level_2_text",
+      "label": "Destination Collections",
+      "default": "Destination Collections"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Breadcrumbs"
+    }
+  ]
+}
+{% endschema %}

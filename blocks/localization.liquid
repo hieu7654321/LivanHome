@@ -1,0 +1,230 @@
+{% liquid
+assign localization_font = '--menu-localization-font: var(--font-[localization_font]--family); ' | replace: '[localization_font]', block.settings.localization_font
+assign localization_font_size = '--menu-localization-font-size: [localization_font_size]; ' | replace: '[localization_font_size]', block.settings.localization_font_size
+assign color_shadow = '--color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));'
+assign form_style = localization_font | append: localization_font_size | append: color_shadow
+
+assign show_language = block.settings.show_language
+if localization.available_languages.size <= 1
+assign show_language = false
+endif
+
+assign show_country = block.settings.show_country
+if localization.available_countries.size <= 1
+assign show_country = false
+endif
+%}
+<div class="localization__wrapper" {{ block.shopify_attributes }}>
+    {% if show_language and show_country == false %}
+    <div class="dropdown-localization ">
+        {% render 'localization-form',
+        show_country: show_country,
+        show_language: show_language,
+        localization_style: 'dropdown',
+        form_style: form_style,
+        form_id: block.id
+        %}
+    </div>
+    {% elsif show_country %}
+    <dropdown-localization-component
+        class="dropdown-localization"
+    >
+        <button
+        type="button"
+        class="button dropdown-localization__button localization-selector header-actions__action"
+        aria-expanded="false"
+        aria-controls="dropdown-localization-results"
+        ref="button"
+        on:click="/toggleSelector"
+        style="{{ localization_font }} {{ localization_font_size }}"
+        >
+        {% if show_country %}
+            {% if block.settings.country_selector_style == true %}
+            {% liquid
+                assign background_brightness = block.settings.color_scheme.settings.background | color_brightness
+                if background_brightness < 64
+                assign shadow_size = 4
+                else
+                assign shadow_size = 2
+                endif
+            %}
+            <span
+                class="icon-flag"
+                style="
+                background-image: url({{- localization.country | image_url: width: 32 }});
+                --size-shadow: {{ shadow_size }}px;
+                --color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-30-60));
+                "
+            ></span>
+            {% endif %}
+            <span
+            class="currency-code"
+            data-testid="localization-currency-code"
+            >
+            {{- localization.country.name -}}({{- localization.country.currency.symbol -}})
+            </span>
+        {% endif %}
+        <span
+            class="visually-hidden"
+            data-testid="localization-visually-hidden"
+        >
+            {{- 'accessibility.localization_region_and_language' | t -}}
+        </span>
+
+        {%- if show_country and show_language -%}
+            <span>/</span>
+        {%- endif -%}
+
+        {%- if show_language -%}
+            <span>
+            {{ localization.language.iso_code | upcase }}
+            </span>
+        {%- endif -%}
+        <span class="svg-wrapper icon-caret">
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+        </button>
+
+        <div
+        class="localization-wrapper {{ block.settings.localization_position }}-bound color-{{ settings.popover_color_scheme }}"
+        hidden
+        ref="panel"
+        >
+        {% render 'localization-form',
+            show_country: show_country,
+            show_language: show_language,
+            localization_style: 'dropdown',
+            form_style: form_style,
+            form_id: block.id
+        %}
+        </div>
+    </dropdown-localization-component>
+    {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "t:names.localization",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.localization"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_country",
+      "label": "t:settings.country_region",
+      "info": "t:info.manage_countries_regions",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "country_selector_style",
+      "label": "t:settings.flag",
+      "default": true,
+      "visible_if": "{{ block.settings.show_country }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_language",
+      "label": "t:settings.language_selector",
+      "info": "t:info.manage_languages",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "localization_font",
+      "label": "t:settings.font",
+      "options": [
+        {
+          "value": "heading",
+          "label": "t:options.heading"
+        },
+        {
+          "value": "subheading",
+          "label": "t:options.subheading"
+        },
+        {
+          "value": "body",
+          "label": "t:options.body"
+        },
+        {
+          "value": "accent",
+          "label": "t:options.accent"
+        }
+      ],
+      "default": "heading",
+      "visible_if": "{{ block.settings.show_country or block.settings.show_language }}"
+    },
+    {
+      "type": "select",
+      "id": "localization_font_size",
+      "label": "t:settings.size",
+      "options": [
+        {
+          "value": "0.625rem",
+          "label": "10px"
+        },
+        {
+          "value": "0.75rem",
+          "label": "12px"
+        },
+        {
+          "value": "0.875rem",
+          "label": "14px"
+        },
+        {
+          "value": "1rem",
+          "label": "16px"
+        },
+        {
+          "value": "1.125rem",
+          "label": "18px"
+        }
+      ],
+      "default": "1rem"
+    },
+    {
+      "type": "select",
+      "id": "localization_position",
+      "label": "t:settings.position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:options.left"
+        },
+        {
+          "value": "right",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "right",
+      "visible_if": "{{ block.settings.show_country or block.settings.show_language }}"
+    },
+    {
+      "type": "select",
+      "id": "localization_row",
+      "label": "t:settings.row",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:options.top"
+        },
+        {
+          "value": "bottom",
+          "label": "t:options.bottom"
+        }
+      ],
+      "default": "top",
+      "visible_if": "{{ block.settings.show_country or block.settings.show_language }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.localization",
+      "category": "t:categories.footer"
+    }
+  ]
+}
+{% endschema %}

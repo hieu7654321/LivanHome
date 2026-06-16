@@ -33,7 +33,7 @@
             "extend_media": false,
             "zoom": true,
             "video_loop": false,
-            "hide_variants": false,
+            "hide_variants": true,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -234,6 +234,7 @@
                   "settings": {
                     "variant_style": "buttons",
                     "show_swatches": true,
+                    "block_swatch_image": true,
                     "alignment": "left",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
@@ -245,7 +246,7 @@
                 "buy_buttons_64taHw": {
                   "type": "buy-buttons",
                   "settings": {
-                    "stacking": false,
+                    "stacking": true,
                     "show_pickup_availability": false,
                     "gift_card_form": true,
                     "padding-block-start": 0,
@@ -363,6 +364,8 @@
                           "settings": {
                             "icon": "heart",
                             "width": 32,
+                            "width_desktop": 24,
+                            "custom_icon_section": false,
                             "link": "",
                             "open_in_new_tab": false
                           },
@@ -444,6 +447,8 @@
                           "settings": {
                             "icon": "serving_dish",
                             "width": 32,
+                            "width_desktop": 24,
+                            "custom_icon_section": false,
                             "link": "",
                             "open_in_new_tab": false
                           },
@@ -490,7 +495,7 @@
                   "type": "product-recommendations",
                   "settings": {
                     "recommendation_type": "complementary",
-                    "layout_type": "grid",
+                    "layout_type": "carousel",
                     "carousel_on_mobile": true,
                     "max_products": 4,
                     "columns_gap": 16,
@@ -510,7 +515,7 @@
                     "text_wdNxWE": {
                       "type": "text",
                       "settings": {
-                        "text": "<h2>Styled With</h2>",
+                        "text": "<p>Combínalo con</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -554,6 +559,9 @@
                           "name": "Media",
                           "settings": {
                             "image_ratio": "portrait",
+                            "set_fixed_height": false,
+                            "custom_fixed_height": 212,
+                            "custom_fixed_height_desktop": 411,
                             "border": "none",
                             "border_width": 1,
                             "border_opacity": 100,
@@ -662,7 +670,7 @@
         "limit_details_width": false,
         "gap": 12,
         "enable_sticky_add_to_cart": true,
-        "color_scheme": "",
+        "color_scheme": "scheme-c9ef77fd-ea2d-4d96-8bff-f1b833d0eb62",
         "padding-block-start": 0,
         "padding-block-end": 32
       }
@@ -675,11 +683,18 @@
           "static": true,
           "settings": {
             "media_type": "image",
+            "media_border_radius": 0,
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
             "image_position": "cover",
-            "video_position": "cover"
+            "video_position": "cover",
+            "floating_text": "",
+            "floating_text_align": "center",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "weight": "",
+            "case": "none"
           },
           "blocks": {}
         },
@@ -1367,6 +1382,9 @@
               "name": "t:names.product_card_media",
               "settings": {
                 "image_ratio": "portrait",
+                "set_fixed_height": false,
+                "custom_fixed_height": 212,
+                "custom_fixed_height_desktop": 411,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -1441,6 +1459,32 @@
                   },
                   "blocks": {}
                 },
+                "text_PXpagb": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Silla tapizada beige con pata natural</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "price_7MFRKD": {
                   "type": "price",
                   "settings": {
@@ -1479,6 +1523,7 @@
               },
               "block_order": [
                 "product_title_U7AnUU",
+                "text_PXpagb",
                 "price_7MFRKD",
                 "swatches_xep9yx"
               ]
@@ -1508,7 +1553,7 @@
         "icons_shape": "none",
         "section_width": "page-width",
         "gap": 28,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-c9ef77fd-ea2d-4d96-8bff-f1b833d0eb62",
         "padding-block-start": 48,
         "padding-block-end": 48
       }

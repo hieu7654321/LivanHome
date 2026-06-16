@@ -16,7 +16,7 @@
       "placeholder": "Email",
       "success": "¡Gracias por suscribirte!"
     },
-    "filter": "Filtro",
+    "filter": "Filtrar",
     "payment_methods": "Formas de pago",
     "contact_form": {
       "name": "Nombre",
@@ -90,7 +90,7 @@
     "clear_all": "Borrar todo",
     "remove": "Eliminar",
     "view_in_your_space": "Ver en tu espacio",
-    "show_filters": "Filtro",
+    "show_filters": "Filtrar",
     "clear": "Borrar",
     "continue_shopping": "Seguir comprando",
     "log_in_html": "¿Tienes una cuenta? <a href=\"{{ link }}\">Inicia sesión</a> para pagar más rápido.",
@@ -163,7 +163,11 @@
     "shipping_policy_html": "Los <a href=\"{{ link }}\">gastos de envío</a> se calculan en la página de pago.",
     "taxes_included": "Impuestos incluidos.",
     "product_badge_sold_out": "Agotado",
-    "product_badge_sale": "Oferta",
+    "product_badge_sale": "Rebajas",
+    "product_badge_limited_stock": "Stock Limitado",
+    "product_badge_new": "Nuevo",
+    "product_badge_fast_shipping": "Envío Rápido",
+    "product_badge_exclusive": "Exclusivo",
     "grid_view": {
       "default_view": "Predeterminado",
       "grid_fieldset": "Columna de cuadrícula",

@@ -105,6 +105,8 @@ export class QuickAddComponent extends Component {
           productGrid = /** @type {Element} */ (gridElement.cloneNode(true));
           this.#cachedContent.set(currentUrl, productGrid);
         }
+
+        console.log(gridElement);
       }
     }
 
@@ -201,38 +203,46 @@ export class QuickAddComponent extends Component {
    */
   async updateQuickAddModal(productGrid) {
     const modalContent = document.getElementById('quick-add-modal-content');
+    const detailsButton = document.getElementById("quick-add__button--details");
+
+    if (detailsButton instanceof HTMLAnchorElement) {
+      detailsButton.href = this.productPageUrl;
+    }
 
     if (!productGrid || !modalContent) return;
 
-    if (isMobileBreakpoint()) {
-      const productDetails = productGrid.querySelector('.product-details');
-      const productFormComponent = productGrid.querySelector('product-form-component');
-      const variantPicker = productGrid.querySelector('variant-picker');
-      const productPrice = productGrid.querySelector('product-price');
-      const productTitle = document.createElement('a');
-      productTitle.textContent = this.dataset.productTitle || '';
+    const productDetails = productGrid.querySelector('.product-details');
+    const productFormComponent = productGrid.querySelector('product-form-component');
+    const variantPicker = productGrid.querySelector('variant-picker');
+    const productPrice = productGrid.querySelector('product-price');
+    const productTitle = document.createElement('a');
+    const productDesc = document.createElement('div');
 
-      // Make product title as a link to the product page
-      productTitle.href = this.productPageUrl;
+    productDesc.classList.add('quick-add__product--description');
+    productDesc.textContent = this.dataset.productDescription || '';
+    productTitle.textContent = this.dataset.productTitle || '';
 
-      const productHeader = document.createElement('div');
-      productHeader.classList.add('product-header');
+    // Make product title as a link to the product page
+    productTitle.href = this.productPageUrl;
 
-      productHeader.appendChild(productTitle);
-      if (productPrice) {
-        productHeader.appendChild(productPrice);
-      }
-      productGrid.appendChild(productHeader);
+    const productHeader = document.createElement('div');
+    productHeader.classList.add('product-header');
 
-      if (variantPicker) {
-        productGrid.appendChild(variantPicker);
-      }
-      if (productFormComponent) {
-        productGrid.appendChild(productFormComponent);
-      }
-
-      productDetails?.remove();
+    productHeader.appendChild(productTitle);
+    productHeader.appendChild(productDesc);
+    if (productPrice) {
+      productHeader.appendChild(productPrice);
     }
+    productGrid.appendChild(productHeader);
+
+    if (variantPicker) {
+      productGrid.appendChild(variantPicker);
+    }
+    if (productFormComponent) {
+      productGrid.appendChild(productFormComponent);
+    }
+
+    productDetails?.remove();
 
     morph(modalContent, productGrid);
 

@@ -1,7 +1,51 @@
 @use '../base/base.scss' as *;
 
 header-component {
-    @media screen and (min-width: 750px) {
+    .search-action {
+        justify-content: center;
+    }
+
+    #swym-advanced-header-icon {
+        margin-inline-start: -52px;
+        margin-inline-end: 25px;
+
+        .swym-header-icon-count-bubble > .swym-header-icon-count {
+            transform: scale(0.7);
+        }
+        
+        svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+        }
+    }
+
+    .header__column--right header-actions {
+        gap: 6px;
+        margin-inline-start: -40px !important;
+
+        shopify-account {
+            --shopify-account-avatar-size: 28px;
+        }
+
+        cart-drawer-component.cart-drawer {
+            width: 33px;
+
+            .header-actions__action {
+                @include cart-drawer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 749px) {
+    #swym-advanced-header-icon.swym-advanced-header-icon.swym-header-icon-wrapper {
+        display: none !important;
+    }   
+}
+
+@media screen and (min-width: 750px) {
+    header-component {
         .section--page-width {
             --page-margin: 20px;
         }
@@ -10,15 +54,15 @@ header-component {
             .header__columns {
                 --padding-block-start: var(--padding-xs) !important;
                 --padding-block-end: 9px !important;
+            }
 
-                .header__column--right {
-                    .search-action {
-                        margin-inline: 43px;
-                    }
+            .header__column--right {
+                .search-action {
+                    margin-inline: 43px;
+                }
 
-                    header-actions {
-                        margin-inline-end: 7px;
-                    }
+                header-actions {
+                    margin-inline-end: 7px;
                 }
             }
         }
@@ -30,32 +74,26 @@ header-component {
 
             .header__column--center {
                 pointer-events: auto;
-                
-                .menu-list__link {
-                    
-                    &[aria-expanded='true'] {
-                        .menu-list__caret {
-                            transform: rotate(180deg);                           
-                        }
-                    }
+            }
+
+            .menu-list__link {
+                @include caret-rotate;
+                .menu-list__caret {
+                    transition: transform 0.4s ease;
+                }
+            }
+
+            .menu-list__link-title {
+                padding-inline: calc(var(--gap-lg) / 2);
+            
+                &:has(.menu-list__caret) {
+                    display: inline-flex;
+                    gap: 1px;
+                    padding-right: 5px;
 
                     .menu-list__caret {
-                        transition: transform 0.4s ease;
-                    }
-
-                    .menu-list__link-title {
-                        padding-inline: calc(var(--gap-lg) / 2);
-                    
-                        &:has(.menu-list__caret) {
-                            display: inline-flex;
-                            gap: 1px;
-                            padding-right: 5px;
-
-                            .menu-list__caret {
-                                display: flex;
-                                align-items: center;
-                            }
-                        }
+                        display: flex;
+                        align-items: center;
                     }
                 }
             }
@@ -72,64 +110,10 @@ header-component {
             }
         }
     }
+}
 
-    @media screen and (min-width: 1024px) {
-        .section--page-width {
-            --page-margin: 50px;
-        }
-    }
-
-    .search-action {
-        justify-content: center;
-    }
-
-    #swym-advanced-header-icon.swym-advanced-header-icon {
-        margin-inline-start: -52px;
-        margin-inline-end: 25px;
-
-        .swym-header-icon-count-bubble > .swym-header-icon-count {
-            transform: scale(0.7);
-        }
-        
-        svg {
-            width: 20px;
-            height: 20px;
-            opacity: 0.6;
-        }
-    }
-
-    @media screen and (max-width: 749px) {
-        #swym-advanced-header-icon.swym-advanced-header-icon {
-            display: none !important;
-        }   
-    }
-
-    .header__column--right header-actions {
-        gap: 6px;
-        margin-inline-start: -40px !important;
-
-        shopify-account {
-            --shopify-account-avatar-size: 28px;
-        }
-
-        cart-drawer-component.cart-drawer {
-            width: 33px;
-
-            .header-actions__action {
-                width: 100%;
-                height: 100%;
-
-                cart-icon {
-                    display: flex;
-                    align-items: center;
-                    height: 100%;
-
-                    .svg-wrapper {
-                        width: $cart-size;
-                        height: $cart-size;
-                    }
-                }
-            }
-        }
+@media screen and (min-width: 1024px) {
+    .section--page-width {
+        --page-margin: 50px !important;
     }
 }

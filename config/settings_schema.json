@@ -1504,6 +1504,30 @@
         "default": "scheme-5"
       },
       {
+        "type": "color_scheme",
+        "id": "badge_limited_stock_color_scheme",
+        "label": "Limited Stock",
+        "default": "scheme-1"
+      },
+      {
+        "type": "color_scheme",
+        "id": "badge_new_color_scheme",
+        "label": "New",
+        "default": "scheme-1"
+      },
+      {
+        "type": "color_scheme",
+        "id": "badge_fast_shipping_color_scheme",
+        "label": "Fast Shipping",
+        "default": "scheme-1"
+      },
+      {
+        "type": "color_scheme",
+        "id": "badge_exclusive_color_scheme",
+        "label": "Exclusive",
+        "default": "scheme-1"
+      },
+      {
         "type": "header",
         "content": "t:names.typography"
       },
